@@ -1,0 +1,10 @@
+file: practicalities
+numbered: true       
+sections:
+- file: introduction 
+- file: preprocessing
+- file: reading_and_plotting 
+- file: unsupervised
+- file: supervised
+- file: regression
+- file: summary
