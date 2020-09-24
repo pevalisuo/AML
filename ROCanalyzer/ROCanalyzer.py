@@ -1,5 +1,5 @@
 import sys
-from PyQt4 import QtCore, QtGui
+from PyQt5 import QtCore, QtGui, QtWidgets
 import pandas as pd
 
 from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
@@ -10,7 +10,7 @@ import numpy as np
 
 import random
 
-class Window(QtGui.QDialog):
+class Window(QtWidgets.QDialog):
     def __init__(self, parent=None):
         super(Window, self).__init__(parent)
 
@@ -29,42 +29,42 @@ class Window(QtGui.QDialog):
         # this is the Canvas Widget that displays the `figure`
         # it takes the `figure` instance as a parameter to __init__
         self.canvasROC = FigureCanvas(self.figureROC)
-        self.sliderROC = QtGui.QSlider(QtCore.Qt.Horizontal)
+        self.sliderROC = QtWidgets.QSlider(QtCore.Qt.Horizontal)
         self.sliderROC.setMinimum(0)
         self.sliderROC.setMaximum(100)
         self.sliderROC.setValue(50)
-        self.sliderROC.setTickPosition(QtGui.QSlider.TicksBelow)
+        self.sliderROC.setTickPosition(QtWidgets.QSlider.TicksBelow)
         self.sliderROC.setTickInterval(5)
         self.sliderROC.valueChanged.connect(self.ROCvaluechanged)
         
         self.canvasPDF = FigureCanvas(self.figurePDF)
-        self.sliderPDF = QtGui.QSlider(QtCore.Qt.Horizontal)
+        self.sliderPDF = QtWidgets.QSlider(QtCore.Qt.Horizontal)
         self.sliderPDF.setMinimum(0)
         self.sliderPDF.setMaximum(100)
         self.sliderPDF.setValue(50)
-        self.sliderPDF.setTickPosition(QtGui.QSlider.TicksBelow)
+        self.sliderPDF.setTickPosition(QtWidgets.QSlider.TicksBelow)
         #self.sliderPDF.setTickInterval(1)
         self.sliderPDF.valueChanged.connect(self.PDFvaluechanged)
         
         
         # Just some button connected to `plot` method
-        self.buttonPlotPdf = QtGui.QPushButton('Plot PDF')
+        self.buttonPlotPdf = QtWidgets.QPushButton('Plot PDF')
         self.buttonPlotPdf.clicked.connect(self.readData)
         
         # Just some button connected to `plot` method
-        self.buttonPlotRoc = QtGui.QPushButton('Plot ROC')
+        self.buttonPlotRoc = QtWidgets.QPushButton('Plot ROC')
         self.buttonPlotRoc.clicked.connect(self.plotRoc)
         
         # Close button
-        self.buttonClose = QtGui.QPushButton('Close')
+        self.buttonClose = QtWidgets.QPushButton('Close')
         self.buttonClose.clicked.connect(self.close)
 
         # set the layout
-        layout_outer = QtGui.QVBoxLayout()
-        layout_canvas = QtGui.QHBoxLayout()
-        layout_toolbar = QtGui.QHBoxLayout()
-        layout_ROC = QtGui.QVBoxLayout()
-        layout_PDF = QtGui.QVBoxLayout()
+        layout_outer =   QtWidgets.QVBoxLayout()
+        layout_canvas =  QtWidgets.QHBoxLayout()
+        layout_toolbar = QtWidgets.QHBoxLayout()
+        layout_ROC = QtWidgets.QVBoxLayout()
+        layout_PDF = QtWidgets.QVBoxLayout()
 
         layout_PDF.addWidget(self.canvasPDF)
         layout_PDF.addWidget(self.sliderPDF)
@@ -166,11 +166,11 @@ class Window(QtGui.QDialog):
         self.canvasROC.draw()
 
     def buttonClose(self):
-        print "Closing"
+        print("Closing")
 
     def ROCvaluechanged(self):
         ROCvalue = self.sliderROC.value()
-        print ROCvalue
+        print(ROCvalue)
 
     def PDFvaluechanged(self):
         #PDFvalue = self.sliderPDF.value()
@@ -178,7 +178,7 @@ class Window(QtGui.QDialog):
         self.replot()
 
 if __name__ == '__main__':
-    app = QtGui.QApplication(sys.argv)
+    app = QtWidgets.QApplication(sys.argv)
 
     main = Window()
     main.show()
