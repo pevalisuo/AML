@@ -14,7 +14,7 @@
    viewBox="0 0 200.33519 65.129158"
    version="1.1"
    id="svg8"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
    sodipodi:docname="machine_learning.svg">
   <defs
      id="defs2">
@@ -133,7 +133,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
      inkscape:cx="278.64312"
-     inkscape:cy="-90.865332"
+     inkscape:cy="70.759076"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -141,10 +141,10 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:window-width="816"
-     inkscape:window-height="429"
-     inkscape:window-x="70"
-     inkscape:window-y="110"
+     inkscape:window-width="1233"
+     inkscape:window-height="771"
+     inkscape:window-x="398"
+     inkscape:window-y="184"
      inkscape:window-maximized="0">
     <inkscape:grid
        type="xygrid"
@@ -160,7 +160,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -266,5 +266,52 @@
        id="path879-6-7-0"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:0.5;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="73.863091"
+       y="40.548225"
+       id="text4594"><tspan
+         sodipodi:role="line"
+         x="73.863091"
+         y="40.548225"
+         style="font-size:4.93888889px;line-height:0.5;stroke-width:0.26458332"
+         id="tspan4608">Training </tspan><tspan
+         sodipodi:role="line"
+         x="73.863091"
+         y="45.888123"
+         style="font-size:4.93888889px;line-height:0.5;stroke-width:0.26458332"
+         id="tspan4612">data</tspan></text>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4598"
+       style="fill:black;fill-opacity:1;stroke:none;font-family:sans-serif;font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;letter-spacing:0px;word-spacing:0px"><flowRegion
+         id="flowRegion4600"><rect
+           id="rect4602"
+           width="155.37042"
+           height="58.154865"
+           x="261.62952"
+           y="23.923887" /></flowRegion><flowPara
+         id="flowPara4604"></flowPara></flowRoot>    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:0.5;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="71.545685"
+       y="81.943855"
+       id="text4594-3"><tspan
+         sodipodi:role="line"
+         x="71.545685"
+         y="81.943855"
+         style="font-size:4.93888889px;line-height:0.5;stroke-width:0.26458332"
+         id="tspan4635">Testing or </tspan><tspan
+         sodipodi:role="line"
+         x="71.545685"
+         y="87.283752"
+         style="font-size:4.93888889px;line-height:0.5;stroke-width:0.26458332"
+         id="tspan4639">production</tspan><tspan
+         sodipodi:role="line"
+         x="71.545685"
+         y="92.62365"
+         style="font-size:4.93888889px;line-height:0.5;stroke-width:0.26458332"
+         id="tspan4612-7">data</tspan></text>
   </g>
 </svg>
