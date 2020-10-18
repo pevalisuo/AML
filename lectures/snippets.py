@@ -1,0 +1,48 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.set()
+
+
+
+from matplotlib.colors import ListedColormap
+def plotDB(predictor, X, y, steps=100):
+    """Plots the Decision Boundary
+        pipe = classification pipeline
+        X is the training data used for training the classifier
+        steps = number of x and y steps in calculating the boundary
+    """
+    # Create color map
+    cmap_light = ListedColormap(['#FFAAAA', '#AAFFAA', '#AAAAFF'])
+    cmap_bold = ListedColormap(['#FF0000', '#00FF00', '#0000FF'])
+
+    # Plot the decision boundary. For that, we will assign a color to each
+    # point in the mesh [x_min, x_max]x[y_min, y_max].
+    x_min, x_max = X[:, 0].min() - 1, X[:, 0].max() + 1
+    y_min, y_max = X[:, 1].min() - 1, X[:, 1].max() + 1
+    hx = (x_max - x_min)/steps
+    hy = (y_max - y_min)/steps
+    xx, yy = np.meshgrid(np.arange(x_min, x_max, hx),
+                         np.arange(y_min, y_max, hy))
+    Z = predictor.predict(np.c_[xx.ravel(), yy.ravel()])
+
+    # Put the result into a color plot
+    Z = Z.reshape(xx.shape)
+    plt.figure()
+    plt.pcolormesh(xx, yy, Z, cmap=cmap_light, shading='auto')
+
+    # Plot also the training points
+    plt.scatter(X[:, 0], X[:, 1], c=y, cmap=cmap_bold,
+                edgecolor='k', s=20)
+    plt.xlim(xx.min(), xx.max())
+    plt.ylim(yy.min(), yy.max())
+    plt.title("Decision boundary")
+    
+# Display the support vectors of support vector machine
+def DisplaySupportVectors(X,y,svc):
+    cmap_bold = ListedColormap(['#FF0000', '#00FF00', '#0000FF'])
+    colors="rgb"
+    for i in svc.support_:
+        a,b=X[i]
+        c=y[i]
+        plt.plot(a,b, '%sx' % (colors[c]), ms=8)
