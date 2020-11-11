@@ -6,12 +6,17 @@ sns.set()
 
 
 from matplotlib.colors import ListedColormap
-def plotDB(predictor, X, y, steps=100):
+def plotDB(predictor, X, y, steps=100, figsize=None):
     """Plots the Decision Boundary
         pipe = classification pipeline
         X is the training data used for training the classifier
         steps = number of x and y steps in calculating the boundary
     """
+    if figsize:
+        fig,ax=plt.subplots(figsize=figsize)
+    else:
+        fig,ax=plt.subplots()
+        
     # Create color map
     cmap_light = ListedColormap(['#FFAAAA', '#AAFFAA', '#AAAAFF'])
     cmap_bold = ListedColormap(['#FF0000', '#00FF00', '#0000FF'])
@@ -28,15 +33,15 @@ def plotDB(predictor, X, y, steps=100):
 
     # Put the result into a color plot
     Z = Z.reshape(xx.shape)
-    plt.figure()
-    plt.pcolormesh(xx, yy, Z, cmap=cmap_light, shading='auto')
+    #plt.figure()
+    ax.pcolormesh(xx, yy, Z, cmap=cmap_light, shading='auto')
 
     # Plot also the training points
-    plt.scatter(X[:, 0], X[:, 1], c=y, cmap=cmap_bold,
+    ax.scatter(X[:, 0], X[:, 1], c=y, cmap=cmap_bold,
                 edgecolor='k', s=20)
-    plt.xlim(xx.min(), xx.max())
-    plt.ylim(yy.min(), yy.max())
-    plt.title("Decision boundary")
+    ax.set_xlim(xx.min(), xx.max())
+    ax.set_ylim(yy.min(), yy.max())
+    ax.set_title("Decision boundary")
     
 # Display the support vectors of support vector machine
 def DisplaySupportVectors(X,y,svc):
