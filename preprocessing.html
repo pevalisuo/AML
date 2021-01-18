@@ -1,0 +1,912 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>2. Preprocessing and feature extraction &#8212; Applied Machine Learning</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/mystnb.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="3. Reading and plotting" href="reading_and_plotting.html" />
+    <link rel="prev" title="1. Introduction" href="introduction.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Applied Machine Learning</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="practicalities.html">
+   About the course
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduction.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   2. Preprocessing and feature extraction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="reading_and_plotting.html">
+   3. Reading and plotting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="supervised.html">
+   4. Supervised machine learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="regression.html">
+   5. Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="summary.html">
+   6. Summary
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/preprocessing.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        
+        <a class="jupyterhub-button" href="https://notebooks.csc.fi/#/blueprint/d1fe6e08032e4c17a0f9e0e222414598/hub/user-redirect/git-pull?repo=https://github.com/pevalisuo/AML.git&urlpath=tree/AML.git/book/preprocessing.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#machine-learning">
+   2.1. Machine Learning
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#feature-extraction">
+   2.2. Feature extraction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-purpose-of-machine-learning">
+   2.3. The purpose of machine learning
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#case-one-sound-recognition">
+   2.4. Case one, sound recognition
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#perhaps-there-are-differences-in-the-sound-pressure-level-volume">
+     2.4.1. Perhaps there are differences in the sound pressure level (volume)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#perhaps-studying-different-spectral-components-help">
+     2.4.2. Perhaps studying different spectral components help
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#case-2-what-features-could-be-used-to-classify-iris-species">
+   2.5. Case 2, What features could be used to classify Iris species?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#features-measured-by-fisher">
+     2.5.1. Features measured by Fisher
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#seaborn">
+     2.5.2. Seaborn
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hypothesis-testing">
+   2.6. Hypothesis testing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#applying-an-external-function-to-data">
+   2.7. Applying an external function to data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testing-if-distribution-of-the-variables-is-normal">
+   2.8. Testing if distribution of the variables is normal
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#test-the-similarity-of-petal-length-distributions">
+   2.9. Test the similarity of petal_length distributions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#non-parametric-testing">
+   2.10. Non-parametric testing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-was-learned">
+   2.11. What was learned?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-features-for-recognizing-species">
+   2.12. Using features for recognizing species
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="preprocessing-and-feature-extraction">
+<h1><span class="section-number">2. </span>Preprocessing and feature extraction<a class="headerlink" href="#preprocessing-and-feature-extraction" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="machine-learning">
+<h2><span class="section-number">2.1. </span>Machine Learning<a class="headerlink" href="#machine-learning" title="Permalink to this headline">¶</a></h2>
+<p><img alt="machine_learning.svg" src="_images/machine_learning.svg" /></p>
+</div>
+<div class="section" id="feature-extraction">
+<h2><span class="section-number">2.2. </span>Feature extraction<a class="headerlink" href="#feature-extraction" title="Permalink to this headline">¶</a></h2>
+<p><img alt="featureextraction_p.svg" src="_images/featureextraction_p.svg" /></p>
+<ul class="simple">
+<li><p>The purpose of feature extraction is to capture relevant properties of the samples into variables.</p></li>
+<li><p>Feature extraction requires domain knowledge and needs to be rethought for every project. It is therefore one of the most time consuming parts of machine learning processes.</p></li>
+</ul>
+</div>
+<div class="section" id="the-purpose-of-machine-learning">
+<h2><span class="section-number">2.3. </span>The purpose of machine learning<a class="headerlink" href="#the-purpose-of-machine-learning" title="Permalink to this headline">¶</a></h2>
+<p>Task is to find a function <span class="math notranslate nohighlight">\(f\)</span>, which predicts variable <span class="math notranslate nohighlight">\(y_i\)</span> based on <span class="math notranslate nohighlight">\(p\)</span> features <span class="math notranslate nohighlight">\(x_{i,j}\)</span>, where <span class="math notranslate nohighlight">\(i \in [0,N]\)</span> and <span class="math notranslate nohighlight">\(j \in [0,P]\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+   \begin{bmatrix}
+   y_1 \\
+   y_2 \\
+   \vdots \\
+   y_n
+   \end{bmatrix}
+   = f 
+   \left( \begin{bmatrix}
+     x_{11} &amp; x_{12} &amp; x_{13} &amp; \dots  &amp; x_{1p} \\
+     x_{21} &amp; x_{22} &amp; x_{23} &amp; \dots  &amp; x_{2p} \\
+     \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+     x_{n1} &amp; x_{n2} &amp; x_{n3} &amp; \dots  &amp; x_{np}
+   \end{bmatrix} \right)
+\end{split}\]</div>
+</div>
+<div class="section" id="case-one-sound-recognition">
+<h2><span class="section-number">2.4. </span>Case one, sound recognition<a class="headerlink" href="#case-one-sound-recognition" title="Permalink to this headline">¶</a></h2>
+<p><img alt="featureextraction_p.svg" src="_images/timedomainaudio.png" /></p>
+<p>This sound sample contains noise from wind turbine, by-passing cars and some birds perhaps.</p>
+<p>Can you find good features to find out what is the dominating noise source in which time?</p>
+<div class="section" id="perhaps-there-are-differences-in-the-sound-pressure-level-volume">
+<h3><span class="section-number">2.4.1. </span>Perhaps there are differences in the sound pressure level (volume)<a class="headerlink" href="#perhaps-there-are-differences-in-the-sound-pressure-level-volume" title="Permalink to this headline">¶</a></h3>
+<p><img alt="SPL of the audio" src="_images/splaudio.png" /></p>
+<p>This picture shows the <a class="reference external" href="https://en.wikipedia.org/wiki/A-weighting">A-weighted</a> sound pressure level (SPL) of the sound signal. It shows what is the subjective volume perceived by a human observer. SPL is a RMS average of the signal over certain time period</p>
+<div class="math notranslate nohighlight">
+\[L_p = 20 \log_{10}\left( \frac{p_{rms}}{p_0}\right) \qquad p_{rms} = \sqrt{\frac{1}{T} \int_0^T p(t)^2 dt}\]</div>
+<p>where <span class="math notranslate nohighlight">\(p_{rms}\)</span> is the RMS average of the sound pressure, <span class="math notranslate nohighlight">\(p_0=20~\mu\)</span>P, is the reference sound pressure and ,<span class="math notranslate nohighlight">\(T=1\)</span> s, is a time constant.Notice that <span class="math notranslate nohighlight">\(L_p\)</span> is shown in logarithmic scale. Log transformation may sometimes be helpful.</p>
+</div>
+<div class="section" id="perhaps-studying-different-spectral-components-help">
+<h3><span class="section-number">2.4.2. </span>Perhaps studying different spectral components help<a class="headerlink" href="#perhaps-studying-different-spectral-components-help" title="Permalink to this headline">¶</a></h3>
+<p><img alt="Sectrogram of the audio" src="_images/sgramaudio.png" /></p>
+<p>This figure is obtained by splitting the signal in 1 second pieces and applying a Fourier transformation to them, and then by plotting the spectrum of each slice vertically. This method is called as Short Time Fourier Transformation (STFT) and is often usefull method for extracting features from the data.</p>
+</div>
+</div>
+<div class="section" id="case-2-what-features-could-be-used-to-classify-iris-species">
+<h2><span class="section-number">2.5. </span>Case 2, What features could be used to classify Iris species?<a class="headerlink" href="#case-2-what-features-could-be-used-to-classify-iris-species" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Setosa</p></th>
+<th class="head"><p>Versicolor</p></th>
+<th class="head"><p>Virginica</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><img alt="Setosa" src="_images/I-setosa-var-arctica.jpg" /></p></td>
+<td><p><img alt="Versicolor" src="_images/Iris_versicolor_3.png" /></p></td>
+<td><p><img alt="Virginica" src="_images/1200px-Iris_virginica.jpg" /></p></td>
+</tr>
+</tbody>
+</table>
+<p><span id="kuvaviite">Wikimedia Commons</span></p>
+<div class="section" id="features-measured-by-fisher">
+<h3><span class="section-number">2.5.1. </span>Features measured by Fisher<a class="headerlink" href="#features-measured-by-fisher" title="Permalink to this headline">¶</a></h3>
+<p>One of the most famos data sets of statistics is the Iris-dataset by Fisher. Let’s take a look what features he measured and how do they perform.</p>
+<p>Lets read the data set and plot the head of it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>   
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;ticks&#39;</span><span class="p">)</span>  
+<span class="n">iris</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;iris&#39;</span><span class="p">)</span>   
+<span class="nb">print</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">iris</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>(150, 5)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal_length</th>
+      <th>sepal_width</th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+      <th>species</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5.1</td>
+      <td>3.5</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4.9</td>
+      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.7</td>
+      <td>3.2</td>
+      <td>1.3</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.6</td>
+      <td>3.1</td>
+      <td>1.5</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5.0</td>
+      <td>3.6</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="seaborn">
+<h3><span class="section-number">2.5.2. </span>Seaborn<a class="headerlink" href="#seaborn" title="Permalink to this headline">¶</a></h3>
+<p>The Seaborn library is another library for plotting data, in addition to Matplotlib which we used earlier. Seaborn is especially good for statistical plots, mut it has unfortunately totally different API than matplotlib. It may be good to use Matplotlib usually, but it you find some plots inconvenient to be plotted with matplotlib, then it is time to check what seaborn can offer. Easiest way is to check the <a class="reference external" href="https://python-graph-gallery.com/all-charts/">example gallery</a> to see if someone has made a similar plot what you need, and copy and modify the source code, which is given in the gallery.</p>
+<p>Study the pairplots below, and consider following questions:</p>
+<ol class="simple">
+<li><p>Can you separate the three species with only one feature? Can you separate one species with one feature?</p></li>
+<li><p>Can you separate all three species by combining two features?</p></li>
+<li><p>Which of the features has the biggest discriminative power (which can separate the different species most efficienty)?</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">,</span> <span class="n">diag_kind</span><span class="o">=</span><span class="s1">&#39;kde&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mf">1.7</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="stderr docutils container">
+<pre class="stderr literal-block">/home/petri/.conda/envs/Test/lib/python3.7/site-packages/seaborn/axisgrid.py:2071: UserWarning: The `size` parameter has been renamed to `height`; please update your code.
+  warnings.warn(msg, UserWarning)
+</pre>
+</div>
+<img alt="_images/preprocessing_11_1.png" src="_images/preprocessing_11_1.png" />
+</div>
+</div>
+<p>We could have used also a scatter matrix from Pandas, but is not as nice.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pandas.plotting</span> <span class="kn">import</span> <span class="n">scatter_matrix</span>
+<span class="n">scatter_matrix</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">diagonal</span><span class="o">=</span><span class="s1">&#39;kde&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/preprocessing_13_0.png" src="_images/preprocessing_13_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="hypothesis-testing">
+<h2><span class="section-number">2.6. </span>Hypothesis testing<a class="headerlink" href="#hypothesis-testing" title="Permalink to this headline">¶</a></h2>
+<p>It looks like petal_length can nicely separate Setosa’s from other species, but not necessary Versicolor from Virginica. Lets test formally if this observation is correct.</p>
+<p>Let’s start by examining if the petal lengts are significantly different or not by forming two hypothesis:</p>
+<ol class="simple">
+<li><p>The distribution of petal lengths of Setosa species is different than the distribution of petal lengts of other species</p></li>
+<li><p>Let’s also assume that the distribution of petal lengts of Versicolor is siginificantly different than that of Virginica</p></li>
+</ol>
+<p>The standard test for these hypothesis is the <a class="reference external" href="https://www.statisticshowto.datasciencecentral.com/probability-and-statistics/t-test/">Student’s T-test</a>.</p>
+<p>But the T-test can only be used if the variables are normally distributed. Let’s test that first.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">iris</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;species&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal_length</th>
+      <th>sepal_width</th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+    </tr>
+    <tr>
+      <th>species</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>setosa</th>
+      <td>5.006</td>
+      <td>3.428</td>
+      <td>1.462</td>
+      <td>0.246</td>
+    </tr>
+    <tr>
+      <th>versicolor</th>
+      <td>5.936</td>
+      <td>2.770</td>
+      <td>4.260</td>
+      <td>1.326</td>
+    </tr>
+    <tr>
+      <th>virginica</th>
+      <td>6.588</td>
+      <td>2.974</td>
+      <td>5.552</td>
+      <td>2.026</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">iris</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;species&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal_length</th>
+      <th>sepal_width</th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+    </tr>
+    <tr>
+      <th>species</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>setosa</th>
+      <td>0.352490</td>
+      <td>0.379064</td>
+      <td>0.173664</td>
+      <td>0.105386</td>
+    </tr>
+    <tr>
+      <th>versicolor</th>
+      <td>0.516171</td>
+      <td>0.313798</td>
+      <td>0.469911</td>
+      <td>0.197753</td>
+    </tr>
+    <tr>
+      <th>virginica</th>
+      <td>0.635880</td>
+      <td>0.322497</td>
+      <td>0.551895</td>
+      <td>0.274650</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">iris</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="s1">&#39;petal_length&#39;</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="s1">&#39;species&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/preprocessing_17_0.png" src="_images/preprocessing_17_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="applying-an-external-function-to-data">
+<h2><span class="section-number">2.7. </span>Applying an external function to data<a class="headerlink" href="#applying-an-external-function-to-data" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">iris</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;species&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">petal_length</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>species
+setosa        1.462
+versicolor    4.260
+virginica     5.552
+Name: petal_length, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="testing-if-distribution-of-the-variables-is-normal">
+<h2><span class="section-number">2.8. </span>Testing if distribution of the variables is normal<a class="headerlink" href="#testing-if-distribution-of-the-variables-is-normal" title="Permalink to this headline">¶</a></h2>
+<p>Read more about normality testing methods from <a class="reference external" href="https://www.statisticshowto.datasciencecentral.com/assumption-of-normality-test/">Statistics howto</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">normaltest</span>
+
+<span class="c1"># Run normality test, and print the output</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">normaltest</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">petal_length</span><span class="p">))</span>
+
+<span class="c1"># Interpretation, we discard the hypothesis of normal distribution</span>
+<span class="c1"># if it&#39;s probability (the p-value) is less than 95%</span>
+<span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span>
+<span class="n">statistis</span><span class="p">,</span> <span class="n">pvalue</span><span class="o">=</span><span class="n">normaltest</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">petal_length</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">pvalue</span><span class="o">&lt;</span><span class="n">alpha</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data is normal distributed&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data is not normal distributed&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>NormaltestResult(statistic=221.68729405585384, pvalue=7.264667501338673e-49)
+Data is normal distributed
+</pre></div>
+</div>
+</div>
+</div>
+<p>But we were supposed to test this for all species separately</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># </span>
+<span class="c1"># It can be done by grouping the data by species, selecting the petal_lenght</span>
+<span class="c1"># and applying the normal test to all species separately</span>
+<span class="n">results</span><span class="o">=</span><span class="n">iris</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;species&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">petal_length</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">normaltest</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">alpha</span><span class="p">):</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Petal length of Setosa is normally distributed&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">alpha</span><span class="p">):</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Petal length of Versicolor is normally distributed&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">alpha</span><span class="p">):</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Petal length of Virginica is normally distributed&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>species
+setosa        (2.236973547672174, 0.32677390349997293)
+versicolor     (3.3182862415011867, 0.190301976072032)
+virginica     (2.6991800572037943, 0.2593465635270746)
+Name: petal_length, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>They do not seem to be normally distributed!</p>
+</div>
+<div class="section" id="test-the-similarity-of-petal-length-distributions">
+<h2><span class="section-number">2.9. </span>Test the similarity of petal_length distributions<a class="headerlink" href="#test-the-similarity-of-petal-length-distributions" title="Permalink to this headline">¶</a></h2>
+<p>(<em>We try to use T-test even though we do not have the autorization, because the variable is not normally distributed!</em>)</p>
+<ol class="simple">
+<li><p>Two-sided test for the null hypothesis that two independent samples have identical average (expected) values. Example: <code class="docutils literal notranslate"><span class="pre">p=ttest_ind(a,b)</span></code></p></li>
+<li><p>Two-sided test for the null hypothesis that the expected value of a sample of independent observations <code class="docutils literal notranslate"><span class="pre">a</span></code> is equal to the given population mean, <code class="docutils literal notranslate"><span class="pre">popmean</span></code>. Example: <code class="docutils literal notranslate"><span class="pre">p=ttest_1samp(a,</span> <span class="pre">popmean)</span></code></p></li>
+<li><p>Two-sided test for the null hypothesis that two related or repeated or paired samples have identical average (expected) values. Example: <code class="docutils literal notranslate"><span class="pre">p=ttest_rel(a,b)</span></code></p></li>
+<li><p>Two-sided test for the null hypothesis that 2 independent samples have identical average (expected) values. Example: <code class="docutils literal notranslate"><span class="pre">ttest_ind_from_stats(mean1,</span> <span class="pre">std1,</span> <span class="pre">n1,</span> <span class="pre">mean2,</span> <span class="pre">std2,</span> <span class="pre">n2)</span></code></p></li>
+</ol>
+<p>Here all tests are two sided, meaning that we do not have any a-priori knowlwdge that one would be bigger than another.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># T-test of two independent data sets</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">ttest_ind</span> 
+
+<span class="c1"># Test if the petal_lengths of the Setosas are different than the petal_lengths other flowers</span>
+<span class="n">test</span><span class="o">=</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">iris</span><span class="p">[</span><span class="n">iris</span><span class="o">.</span><span class="n">species</span><span class="o">==</span><span class="s1">&#39;setosa&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">petal_length</span><span class="p">,</span> <span class="n">iris</span><span class="p">[</span><span class="n">iris</span><span class="o">.</span><span class="n">species</span><span class="o">!=</span><span class="s1">&#39;setosa&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">petal_length</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">test</span><span class="o">.</span><span class="n">pvalue</span> <span class="o">&lt;</span> <span class="n">alpha</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The petal_length of setosa are statistically different &quot;</span>
+          <span class="o">+</span><span class="s2">&quot;than the petal_length of other flowers. p=</span><span class="si">%4.3f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">test</span><span class="o">.</span><span class="n">pvalue</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The petal_length of setosa are not statistically different &quot;</span>
+          <span class="o">+</span><span class="s2">&quot;than the petal_length of other flowers: p=</span><span class="si">%4.3f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">test</span><span class="o">.</span><span class="n">pvalue</span><span class="p">)</span>
+    
+<span class="c1"># Test if the petal_lengths of Versicolor and Virginia are different</span>
+<span class="n">test</span><span class="o">=</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">iris</span><span class="p">[</span><span class="n">iris</span><span class="o">.</span><span class="n">species</span><span class="o">==</span><span class="s1">&#39;versicolor&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">petal_length</span><span class="p">,</span> <span class="n">iris</span><span class="p">[</span><span class="n">iris</span><span class="o">.</span><span class="n">species</span><span class="o">==</span><span class="s1">&#39;virginica&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">petal_length</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">test</span><span class="o">.</span><span class="n">pvalue</span> <span class="o">&lt;</span> <span class="n">alpha</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The petal_lengths of Versicolor and Virginica are statistically different &quot;</span>
+          <span class="o">+</span><span class="s2">&quot;: p=</span><span class="si">%4.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">test</span><span class="o">.</span><span class="n">pvalue</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The petal_lengths of Versicolor and Virginica are not statistically different &quot;</span>
+          <span class="o">+</span><span class="s2">&quot;: p=</span><span class="si">%4.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">test</span><span class="o">.</span><span class="n">pvalue</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>The petal_length of setosa are statistically different than the petal_length of other flowers. p=0.000
+The petal_lengths of Versicolor and Virginica are statistically different : p=0.00
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="non-parametric-testing">
+<h2><span class="section-number">2.10. </span>Non-parametric testing<a class="headerlink" href="#non-parametric-testing" title="Permalink to this headline">¶</a></h2>
+<p>Because the data is not normally distributed, we are not allowed to use the T-test, but we need to use non-parametric tests instead. One often used is the <a class="reference external" href="https://en.wikipedia.org/wiki/Mann%E2%80%93Whitney_U_test">Mann-Whitney rank-test</a>. Because this test does not assume anything about the shape of the distributions, it usually needs larger sample size to get reliable estimate of p-values. Sample size bigger than 20 for both classes is recommended.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">mannwhitneyu</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mannwhitneyu</span><span class="p">(</span><span class="n">iris</span><span class="p">[</span><span class="n">iris</span><span class="o">.</span><span class="n">species</span><span class="o">==</span><span class="s1">&#39;versicolor&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">petal_length</span><span class="p">,</span> <span class="n">iris</span><span class="p">[</span><span class="n">iris</span><span class="o">.</span><span class="n">species</span><span class="o">==</span><span class="s1">&#39;virginica&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">petal_length</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>MannwhitneyuResult(statistic=44.5, pvalue=4.566772363834128e-17)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The p-value of <span class="math notranslate nohighlight">\(4.56 \cdot 10^{-17} &lt; \alpha\)</span> we can conclude that the difference of the petal lenghts of versicolor and virginica is statistically significant.</p>
+</div>
+<div class="section" id="what-was-learned">
+<h2><span class="section-number">2.11. </span>What was learned?<a class="headerlink" href="#what-was-learned" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Some mesured values (petal and sepal widhts and heights in this case) can be used as features, describing the similarities and differences of the samples</p></li>
+<li><p>T-test can be used for testing if the values of the features are the same or different for different classes of samples. If the features are not significantly different, they are not usefull for classification.</p></li>
+<li><p>T-test can only be used if the variables are normally distributed.</p></li>
+<li><p>Non-parametric tests can be used if the data is not normally distributed, but it may need larger sample size</p></li>
+</ul>
+<p>Now we can be certain, that the petal lengts are different in all species, and the difference is statistically significant, meaning that they are not different only by chance.</p>
+</div>
+<div class="section" id="using-features-for-recognizing-species">
+<h2><span class="section-number">2.12. </span>Using features for recognizing species<a class="headerlink" href="#using-features-for-recognizing-species" title="Permalink to this headline">¶</a></h2>
+<p>Now that we know that petal_lengths are different for each species, can this feature be used in recognizing flowers or classifying flower species?</p>
+<p>The following picture shows the position of decision boundary leading to highest precision in classifying Versicolor from Virginica species based on petal length.</p>
+<ul class="simple">
+<li><p>Blue curve shows the distribution of petal lengths for Versicolor and red curve the distribution for Virginica</p></li>
+<li><p>The decision boundary is in the location of the intersection of the distribution curves</p></li>
+<li><p>ROC-curve is shown on the right hand side.</p>
+<ul>
+<li><p>The red dot shows the point corresponding to the current decision boundary</p></li>
+<li><p>From the curve it can be read that current decisiong point includes 90% of Versicolors, but it also includes some 12% percent of Virginicas</p></li>
+<li><p>The sensitivity of the classifier is therefore 90% and specificity is 88%</p></li>
+</ul>
+</li>
+</ul>
+<p><img alt="ROC analyzer" src="_images/rocanalyzer.png" /></p>
+<p>The ROC curve can be created using following code. Read more from <a class="reference external" href="https://stackabuse.com/understanding-roc-curves-with-python/">Understanding ROC curves</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">gaussian_kde</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="k">def</span> <span class="nf">plotROC</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Plots a ROC curve of the one dimensional data whose values  </span>
+<span class="sd">        in one case are listed in a, and in another case in b.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">## Create a new x-axis, which has for example 100 poinsts</span>
+    <span class="n">N</span><span class="o">=</span><span class="mi">100</span>
+    <span class="n">smallest_value</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">((</span><span class="n">a</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">b</span><span class="o">.</span><span class="n">min</span><span class="p">()))</span>
+    <span class="n">biggest_value</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">((</span><span class="n">a</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">b</span><span class="o">.</span><span class="n">max</span><span class="p">()))</span>
+    <span class="n">x_axis</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">smallest_value</span><span class="p">,</span> <span class="n">biggest_value</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+
+    <span class="c1">## Estimate the distribution of X using kernel density estimate</span>
+    <span class="c1">## For both cases, 0 and 1 and evaluate their values in the x-axis</span>
+    <span class="c1">## This can be called also as probability density function (PDF).</span>
+    <span class="n">h0</span><span class="o">=</span><span class="n">gaussian_kde</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">x_axis</span><span class="p">)</span>
+    <span class="n">h1</span><span class="o">=</span><span class="n">gaussian_kde</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">x_axis</span><span class="p">)</span>
+    
+    <span class="c1">## Calculate the cumulative distribution function from PDF:s above</span>
+    <span class="c1">## and scale them between 0 and 1</span>
+    <span class="n">rocx</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">h0</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">h0</span><span class="p">)</span>
+    <span class="n">rocy</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">h1</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">h1</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">rocx</span><span class="p">,</span> <span class="mi">1</span><span class="o">-</span><span class="n">rocy</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;1-Specificity&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Sensitivity&#39;</span><span class="p">)</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Can petal length feature be used to distinguish versicolor (see the blue curve)</span>
+<span class="n">plotROC</span><span class="p">(</span><span class="n">iris</span><span class="p">[</span><span class="n">iris</span><span class="o">.</span><span class="n">species</span><span class="o">==</span><span class="s1">&#39;versicolor&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">petal_length</span><span class="p">,</span> <span class="n">iris</span><span class="p">[</span><span class="n">iris</span><span class="o">.</span><span class="n">species</span><span class="o">==</span><span class="s1">&#39;virginica&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">petal_length</span><span class="p">)</span>
+
+<span class="c1"># Can pedal length separate setosa from all other species (see the green curve)</span>
+<span class="n">plotROC</span><span class="p">(</span><span class="n">iris</span><span class="p">[</span><span class="n">iris</span><span class="o">.</span><span class="n">species</span><span class="o">==</span><span class="s1">&#39;setosa&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">petal_length</span><span class="p">,</span> <span class="n">iris</span><span class="p">[</span><span class="n">iris</span><span class="o">.</span><span class="n">species</span><span class="o">!=</span><span class="s1">&#39;setosa&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">petal_length</span><span class="p">)</span>
+
+<span class="c1"># Is sepal width usefull in separating virginica from setosa (red curve)</span>
+<span class="n">plotROC</span><span class="p">(</span><span class="n">iris</span><span class="p">[</span><span class="n">iris</span><span class="o">.</span><span class="n">species</span><span class="o">==</span><span class="s1">&#39;virginica&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sepal_width</span><span class="p">,</span> <span class="n">iris</span><span class="p">[</span><span class="n">iris</span><span class="o">.</span><span class="n">species</span><span class="o">!=</span><span class="s1">&#39;setosa&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sepal_width</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/preprocessing_34_0.png" src="_images/preprocessing_34_0.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="introduction.html" title="previous page"><span class="section-number">1. </span>Introduction</a>
+    <a class='right-next' id="next-link" href="reading_and_plotting.html" title="next page"><span class="section-number">3. </span>Reading and plotting</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Petri Välisuo<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="_static/js/index.js"></script>
+    
+  </body>
+</html>

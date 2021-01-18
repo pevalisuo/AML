@@ -1,0 +1,1487 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>3. Reading and plotting &#8212; Applied Machine Learning</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/mystnb.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="&lt;no title&gt;" href="unsupervised.html" />
+    <link rel="prev" title="2. Preprocessing and feature extraction" href="preprocessing.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Applied Machine Learning</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="practicalities.html">
+   About the course
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduction.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="preprocessing.html">
+   2. Preprocessing and feature extraction
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   3. Reading and plotting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="supervised.html">
+   4. Supervised machine learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="regression.html">
+   5. Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="summary.html">
+   6. Summary
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/reading_and_plotting.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        
+        <a class="jupyterhub-button" href="https://notebooks.csc.fi/#/blueprint/d1fe6e08032e4c17a0f9e0e222414598/hub/user-redirect/git-pull?repo=https://github.com/pevalisuo/AML.git&urlpath=tree/AML.git/book/reading_and_plotting.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reading-different-data-formats">
+   3.1. Reading different data formats
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#asphalt-heat-data">
+   3.2. Asphalt heat data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pandas">
+   3.3. Pandas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#missing-data">
+   3.4. Missing data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-methods-for-handling-missing-data">
+     3.4.1. Other methods for handling missing data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   3.5. Summary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#slicing-pandas-data-frame">
+   3.6. Slicing pandas data frame
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plotting">
+     3.6.1. Plotting
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#more-challenging-dataset">
+   3.7. More challenging dataset
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="reading-and-plotting">
+<h1><span class="section-number">3. </span>Reading and plotting<a class="headerlink" href="#reading-and-plotting" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="reading-different-data-formats">
+<h2><span class="section-number">3.1. </span>Reading different data formats<a class="headerlink" href="#reading-different-data-formats" title="Permalink to this headline">¶</a></h2>
+<p>Data comes in many differents forms. Few common data formats are:</p>
+<ul class="simple">
+<li><p>Tabular data. Often fields separated by tabs or variable number of spaces</p></li>
+<li><p>Comma Separated Values (CSV), or semicolon separated values</p></li>
+<li><p>Excel spreadsheets, or libreoffice</p></li>
+<li><p>Hierarchical Data Format, like HDF5, MATLAB native</p></li>
+<li><p>Common Data Format (CDF) or NetCDF</p></li>
+<li><p>Databases usign Structured Query Language (SQL)</p></li>
+<li><p>And many many others. See more from <a class="reference external" href="http://fileformats.archiveteam.org/wiki/Scientific_Data_formats">Wikipedia</a></p></li>
+</ul>
+</div>
+<div class="section" id="asphalt-heat-data">
+<h2><span class="section-number">3.2. </span>Asphalt heat data<a class="headerlink" href="#asphalt-heat-data" title="Permalink to this headline">¶</a></h2>
+<p>The data is clearly in CSV-file with three columns, where field separator is semicolon. The first column is a timestamp in ISO format. Other columns are numerical and they use decimal points. The first row is a colun header.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Timestamp;</span> <span class="pre">Irradiance;</span> <span class="pre">Heatflux</span> <span class="pre">2014-10-01</span> <span class="pre">03:00:20;</span>&#160;&#160; <span class="pre">0.2;</span> <span class="pre">-83.1</span> <span class="pre">2014-10-01</span> <span class="pre">03:15:20;</span>&#160;&#160; <span class="pre">0.2;</span> <span class="pre">-82.8</span> <span class="pre">2014-10-01</span> <span class="pre">03:30:20;</span>&#160;&#160; <span class="pre">0.1;</span> <span class="pre">-82.5</span> <span class="pre">2014-10-01</span> <span class="pre">03:45:20;</span>&#160;&#160; <span class="pre">0.1;</span> <span class="pre">-82.3</span> <span class="pre">2014-10-01</span> <span class="pre">04:00:20;</span>&#160;&#160; <span class="pre">0.1;</span> <span class="pre">2014-10-01</span> <span class="pre">04:15:20;</span>&#160;&#160; <span class="pre">0.1;</span> <span class="pre">-82.2</span> <span class="pre">......</span></code></p>
+</div>
+<div class="section" id="pandas">
+<h2><span class="section-number">3.3. </span>Pandas<a class="headerlink" href="#pandas" title="Permalink to this headline">¶</a></h2>
+<p>Parsing simple CSV data files is easy with many methods, but it is easiest, if you use <a class="reference external" href="https://pandas.pydata.org/">Pandas</a> statistics package. And because Pandas provides so many other features as well, let’s take a closer look on that. Read <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/10min.html">10 minutes to Pandas</a> at this stage.</p>
+<p>It is really convenient to let Pandas parse the timestamps by defining the columns whics are being parsed with <code class="docutils literal notranslate"><span class="pre">parse_dates</span></code> argument. You can just list the columns which contain timestamp values.</p>
+<p>This data is clearly time series data, so it is best to be indexed with a timestamp. In this way you can very easily select data based on the timestamp and if you plot the data, you get time axis automatically in the x-axis. This can be achieved by defining the column which is used as an index with <code class="docutils literal notranslate"><span class="pre">index_col</span></code> parameter.</p>
+<p>It is really inconvenient that by default Pandas interpretes whitespaces as important in the beginning of fields. For example, in the previous dataset, the header included the column names in following format <code class="docutils literal notranslate"><span class="pre">Timestamp;</span> <span class="pre">Irradiance;</span> <span class="pre">Heatflux</span></code>. Ther is a whihtespace in between semicolon and the next field name, <code class="docutils literal notranslate"><span class="pre">;</span> <span class="pre">Irradiance</span></code> for instance. By default Pandas parses ‘ Irradiance’ as the name of this field. It has some consequences. Therefore it is good practice to use <code class="docutils literal notranslate"><span class="pre">skipinitialspace</span></code> parameter to prevent this.</p>
+<p>Now we are well prepared to read the data using <code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code> function, which returns a data structure, called as Pandas dataframe. It is a little bit similar than data frames in R. Basically it is simiar than numpy array, but it has also many more advanced features.</p>
+<p>After reading the pandas dataframe, we can print the shape (number of rows and columns in the dataframe) and the head (the first rows) of the dataframe.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">D</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/asphaltHeat.csv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">skipinitialspace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">D</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>(2968, 2)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Irradiance</th>
+      <th>Heatflux</th>
+    </tr>
+    <tr>
+      <th>Timestamp</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2014-10-01 03:00:20</th>
+      <td>0.2</td>
+      <td>-83.1</td>
+    </tr>
+    <tr>
+      <th>2014-10-01 03:15:20</th>
+      <td>0.2</td>
+      <td>-82.8</td>
+    </tr>
+    <tr>
+      <th>2014-10-01 03:30:20</th>
+      <td>0.1</td>
+      <td>-82.5</td>
+    </tr>
+    <tr>
+      <th>2014-10-01 03:45:20</th>
+      <td>0.1</td>
+      <td>-82.3</td>
+    </tr>
+    <tr>
+      <th>2014-10-01 04:00:20</th>
+      <td>0.1</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2014-10-01 04:15:20</th>
+      <td>0.1</td>
+      <td>-82.2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="missing-data">
+<h2><span class="section-number">3.4. </span>Missing data<a class="headerlink" href="#missing-data" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>In the original CSV-file, Heatflux data corresponding timestamp <code class="docutils literal notranslate"><span class="pre">2014-10-01</span> <span class="pre">04:00:20</span></code> is missing</p></li>
+<li><p>It is represented by ‘NaN’ in ther parsed dataframe, which is which is a floating point representation of <code class="docutils literal notranslate"><span class="pre">Not</span> <span class="pre">a</span> <span class="pre">Number</span></code> value.</p></li>
+<li><p>Generally it is said that this value is not available (<code class="docutils literal notranslate"><span class="pre">na</span></code>).</p></li>
+<li><p>Missing data can cause bias to statistical operations</p></li>
+<li><p>Arithmetic operations with not a number values are undefined.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="mf">3.141</span>
+<span class="n">b</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2"> + </span><span class="si">%f</span><span class="s2"> = </span><span class="si">%f</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>3.141000 + nan = nan
+
+</pre></div>
+</div>
+</div>
+</div>
+<p>But many statistical functions ni Pandas have buildin strategy for handling missing data. The result will be calculated, but there is still a danger of bias.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Default behaviour for mean() function is to skip NaN values</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># It can be explicitely set to include them, use &quot;help(D.mean)&quot; to get more help</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">skipna</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+
+<span class="c1"># Describe provides a lot of statistics of the data, it ignores the NA values</span>
+<span class="n">D</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Irradiance     0.133333
+Heatflux     -82.580000
+dtype: float64
+
+
+Irradiance    0.133333
+Heatflux           NaN
+dtype: float64
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Irradiance</th>
+      <th>Heatflux</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>2968.000000</td>
+      <td>2952.00000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>33.743093</td>
+      <td>-2.23269</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>69.410991</td>
+      <td>10.00759</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>-0.500000</td>
+      <td>-84.90000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>0.100000</td>
+      <td>0.00000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>0.300000</td>
+      <td>0.00000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>34.525000</td>
+      <td>-0.00000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>513.200000</td>
+      <td>36.20000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># NA values can be detected using isna() function</span>
+<span class="n">D</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Irradiance</th>
+      <th>Heatflux</th>
+    </tr>
+    <tr>
+      <th>Timestamp</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2014-10-01 03:00:20</th>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2014-10-01 03:15:20</th>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2014-10-01 03:30:20</th>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2014-10-01 03:45:20</th>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2014-10-01 04:00:20</th>
+      <td>False</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>2014-10-01 04:15:20</th>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># All rows where Heatflux values is not known can be easily detected</span>
+<span class="c1"># by indexing the dataframe with the boolean vector given by isna() function</span>
+<span class="n">D</span><span class="p">[</span><span class="n">D</span><span class="o">.</span><span class="n">Heatflux</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Irradiance</th>
+      <th>Heatflux</th>
+    </tr>
+    <tr>
+      <th>Timestamp</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2014-10-01 04:00:20</th>
+      <td>0.1</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2014-10-01 08:30:20</th>
+      <td>86.9</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2014-10-01 16:15:20</th>
+      <td>186.2</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2014-10-02 02:30:20</th>
+      <td>0.1</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2014-10-02 02:45:20</th>
+      <td>0.1</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2014-10-02 03:00:20</th>
+      <td>0.1</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2014-10-02 03:15:20</th>
+      <td>0.1</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2014-10-02 06:00:20</th>
+      <td>-0.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2014-10-02 06:30:20</th>
+      <td>0.4</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2014-10-02 06:45:20</th>
+      <td>2.7</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2014-10-02 07:00:20</th>
+      <td>6.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2014-10-02 07:15:20</th>
+      <td>13.2</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2014-10-02 07:30:20</th>
+      <td>12.9</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2014-10-02 07:45:20</th>
+      <td>19.4</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2014-10-02 08:00:20</th>
+      <td>32.4</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2014-10-02 08:15:20</th>
+      <td>118.4</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="section" id="other-methods-for-handling-missing-data">
+<h3><span class="section-number">3.4.1. </span>Other methods for handling missing data<a class="headerlink" href="#other-methods-for-handling-missing-data" title="Permalink to this headline">¶</a></h3>
+<p>The default handling of missing data is to skip them. The dataframe can be also be preprocessed to handle the missing data in following ways:</p>
+<ol class="simple">
+<li><p>Drop all rows which has missing data. Can cause bias and loss of valuable data in other columns.</p></li>
+<li><p>Drop all columns which has missing data. Causes loss of data.</p></li>
+<li><p>Fill missing data with other values, <a class="reference external" href="https://en.wikipedia.org/wiki/Imputation_%28statistics%29">imputation</a>, such as:</p></li>
+<li><p>Constants, like 0, <code class="docutils literal notranslate"><span class="pre">np.inf</span></code>, etc</p></li>
+<li><p>Mean value</p></li>
+<li><p>Previous or next available value</p></li>
+<li><p>Interpolated value</p></li>
+<li><p>Value from similar record (Hot deck)</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>(2968, 2)
+(2952, 2)
+</pre></div>
+</div>
+</div>
+</div>
+<p>D.dropna() drops all rows which has na-values. It has clearly dropped 16 rows.</p>
+<p>NA-values can be also easily filled, but it may affect the statistics.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drop missing data, and then calculate the mean Heatflux</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="o">.</span><span class="n">Heatflux</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>  <span class="c1"># Default behavior, do not use missing values</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">Heatflux</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="c1"># Drop missing rows explicitely</span>
+
+<span class="c1"># Impute missing values, and then calculate the mean of Heaflux</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">Heatflux</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="c1"># Fill missing values with zeros</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;pad&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">Heatflux</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="c1"># Copy previous value in place of missing value</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="o">.</span><span class="n">interpolate</span><span class="p">()</span><span class="o">.</span><span class="n">Heatflux</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="c1"># Interpolate missing values</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>-2.232689701897022
+-2.232689701897022
+-2.220653638814019
+-2.2732479784366624
+-2.2722540431266895
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">D</span><span class="o">.</span><span class="n">interpolate</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Irradiance</th>
+      <th>Heatflux</th>
+    </tr>
+    <tr>
+      <th>Timestamp</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2014-10-01 03:00:20</th>
+      <td>0.2</td>
+      <td>-83.10</td>
+    </tr>
+    <tr>
+      <th>2014-10-01 03:15:20</th>
+      <td>0.2</td>
+      <td>-82.80</td>
+    </tr>
+    <tr>
+      <th>2014-10-01 03:30:20</th>
+      <td>0.1</td>
+      <td>-82.50</td>
+    </tr>
+    <tr>
+      <th>2014-10-01 03:45:20</th>
+      <td>0.1</td>
+      <td>-82.30</td>
+    </tr>
+    <tr>
+      <th>2014-10-01 04:00:20</th>
+      <td>0.1</td>
+      <td>-82.25</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="summary">
+<h2><span class="section-number">3.5. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>There is ofthe missing values in the data. They can be handled with many methods, but all of them have consequences.</p>
+<ul class="simple">
+<li><p>Always study hwo much missing values there is in the data</p></li>
+<li><p>Be aware what is default missing data handling method and think if it is the best in your case</p></li>
+<li><p>Pandas and other sofware support many missing data handling policies if the default is not sufficient</p></li>
+<li><p>Make sure that you know how your missing data hanling method affects to the statistics</p></li>
+</ul>
+</div>
+<div class="section" id="slicing-pandas-data-frame">
+<h2><span class="section-number">3.6. </span>Slicing pandas data frame<a class="headerlink" href="#slicing-pandas-data-frame" title="Permalink to this headline">¶</a></h2>
+<p>Pandas dataframes support really versatile methods for indexing in columnvise and rowvise directions</p>
+<ul class="simple">
+<li><p>Dataframes can be indexed using column names either using dot-notation or column name in square brackets. Using column names is usefull if your data structure later changes. It makes also the code as easier to understand.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+
+<span class="c1"># THese two lines produce identical results</span>
+<span class="n">D</span><span class="o">.</span><span class="n">Irradiance</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">D</span><span class="p">[</span><span class="s1">&#39;Irradiance&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Index([&#39;Irradiance&#39;, &#39;Heatflux&#39;], dtype=&#39;object&#39;)
+</pre></div>
+</div>
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Timestamp
+2014-10-01 03:00:20    0.2
+2014-10-01 03:15:20    0.2
+2014-10-01 03:30:20    0.1
+2014-10-01 03:45:20    0.1
+2014-10-01 04:00:20    0.1
+Name: Irradiance, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dataframes can also be indexed using row index. If it is a time field, it can handle many different time formats.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">D</span><span class="p">[</span><span class="s1">&#39;2014-10-15 00&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Irradiance</th>
+      <th>Heatflux</th>
+    </tr>
+    <tr>
+      <th>Timestamp</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2014-10-15 00:00:20</th>
+      <td>0.3</td>
+      <td>-0.1</td>
+    </tr>
+    <tr>
+      <th>2014-10-15 00:15:20</th>
+      <td>0.3</td>
+      <td>-0.1</td>
+    </tr>
+    <tr>
+      <th>2014-10-15 00:30:20</th>
+      <td>0.3</td>
+      <td>-0.1</td>
+    </tr>
+    <tr>
+      <th>2014-10-15 00:45:20</th>
+      <td>0.3</td>
+      <td>-0.1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Dataframes support also MATLAB or R like location based indexing:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">D</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Timestamp
+2014-10-01 03:30:20   -82.5
+2014-10-01 03:45:20   -82.3
+2014-10-01 04:00:20     NaN
+Name: Heatflux, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Read more from the tutorialspoint article <a class="reference external" href="https://www.tutorialspoint.com/python_pandas/python_pandas_indexing_and_selecting_data.htm">Python Pandas - Indexing and Selecting Data</a>.</p>
+<div class="section" id="plotting">
+<h3><span class="section-number">3.6.1. </span>Plotting<a class="headerlink" href="#plotting" title="Permalink to this headline">¶</a></h3>
+<p>The data in the dataframe can be plotted almost automatically.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span><span class="o">=</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="s1">&#39;2014-10-01&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Power [W/$m^2$]&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Power [W/$m^2$]&#39;)
+</pre></div>
+</div>
+<img alt="_images/reading_and_plotting_26_1.png" src="_images/reading_and_plotting_26_1.png" />
+</div>
+</div>
+<p>Notice that the missing values are causing some breaks in the lines. They can be fixed with imputation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span><span class="o">=</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="s1">&#39;2014-10-01&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">interpolate</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Power [W/$m^2$]&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Power [W/$m^2$]&#39;)
+</pre></div>
+</div>
+<img alt="_images/reading_and_plotting_28_1.png" src="_images/reading_and_plotting_28_1.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="more-challenging-dataset">
+<h2><span class="section-number">3.7. </span>More challenging dataset<a class="headerlink" href="#more-challenging-dataset" title="Permalink to this headline">¶</a></h2>
+<p>Water quality data (CSV)</p>
+<p><code class="docutils literal notranslate"><span class="pre">name</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">station;ID-number</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">station;ETRS-coordinates</span> <span class="pre">east;ETRS-coordinates</span> <span class="pre">north;max</span> <span class="pre">depth</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">station;date;sampling</span> <span class="pre">depth;Faecal</span> <span class="pre">enterococci</span> <span class="pre">(kpl/100ml);Oxygen</span> <span class="pre">saturation</span> <span class="pre">(kyll.%);Dissolved</span> <span class="pre">oxygen</span> <span class="pre">(mg/l);Suspended</span> <span class="pre">solids,</span> <span class="pre">coarse</span> <span class="pre">(mg/l);Chlorophyll</span> <span class="pre">a</span> <span class="pre">(µg/l);Total</span> <span class="pre">phosphorous,</span> <span class="pre">unfiltered</span> <span class="pre">(µg/l);Total</span> <span class="pre">nitrogen,</span> <span class="pre">unfiltered</span> <span class="pre">(µg/l);Coliform</span> <span class="pre">bacteria</span> <span class="pre">thermotolerant</span> <span class="pre">(kpl/100ml);Temperature</span> <span class="pre">(°C);Nitrate</span> <span class="pre">as</span> <span class="pre">nitrogen,</span> <span class="pre">unfiltered</span> <span class="pre">(µg/l);Nitrate</span> <span class="pre">as</span> <span class="pre">nitrogen,</span> <span class="pre">unfiltered</span> <span class="pre">(µg/l);Nitrite</span> <span class="pre">nitrate</span> <span class="pre">as</span> <span class="pre">nitrogen,</span> <span class="pre">unfiltered</span> <span class="pre">(µg/l);Secchi</span> <span class="pre">depth</span> <span class="pre">(m);pH</span>&#160; <span class="pre">;Salinity</span> <span class="pre">(&lt;89&gt;);Turbidity</span> <span class="pre">(FNU);Conductivity</span> <span class="pre">(mS/m)</span> <span class="pre">Et</span> <span class="pre">kaup</span> <span class="pre">selkä</span> <span class="pre">1;5520;227911;7005357;2.4;19.3.1974</span> <span class="pre">0:00;;;;;;;;;;;;;;0.5;;;;</span> <span class="pre">Et</span> <span class="pre">kaup</span> <span class="pre">selkä</span> <span class="pre">1;5520;227911;7005357;2.4;19.3.1974</span> <span class="pre">0:00;1,0;0;56;7.9;;;14;4100;0;0.3;;;;;4.6;;8.1;231</span> <span class="pre">Et</span> <span class="pre">kaup</span> <span class="pre">selkä</span> <span class="pre">1;5520;227911;7005357;2.4;12.6.1974</span> <span class="pre">0:00;;;;;;;;;;;;;;1.1;;;;</span> <span class="pre">Et</span> <span class="pre">kaup</span> <span class="pre">selkä</span> <span class="pre">1;5520;227911;7005357;2.4;12.6.1974</span> <span class="pre">0:00;1,0;0;104;10.3;;;20;410;0;14.5;;;;;8.1;;;627</span> <span class="pre">Et</span> <span class="pre">kaup</span> <span class="pre">selkä</span> <span class="pre">1;5520;227911;7005357;2.4;21.10.1974</span> <span class="pre">0:00;;;;;;;;;;;;;;1;;;;</span> <span class="pre">Et</span> <span class="pre">kaup</span> <span class="pre">selkä</span> <span class="pre">1;5520;227911;7005357;2.4;21.10.1974</span> <span class="pre">0:00;1,0;3;93;12.2;;;20;1200;79;2.9;;;;;7.2;;;594</span> <span class="pre">Et</span> <span class="pre">kaup</span> <span class="pre">selkä</span> <span class="pre">1;5520;227911;7005357;2.4;4.6.1975</span> <span class="pre">0:00;;;;;;;;;;;;;;1;;;;</span> <span class="pre">Et</span> <span class="pre">kaup</span> <span class="pre">selkä</span> <span class="pre">1;5520;227911;7005357;2.4;4.6.1975</span> <span class="pre">0:00;1,0;2;102;11;;;40;560;17;10.5;;;;;6.7;;7.8;390</span></code></p>
+<p>The dataset is clearly in CSV-format, and it has semicolon separated values. Some columns are numerical and some others are strings. Column names are rather long strings. The fifth column (column number 4, if indexed from zero) is the timestamp. Lets read it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">WD</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/waterquality.csv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">skipinitialspace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s2">&quot;Latin1&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">WD</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="c1"># Show five first rows, and all columns starting from column 4 (fifth column)</span>
+<span class="n">WD</span><span class="p">[</span><span class="s1">&#39;1987-07&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">4</span><span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>(790, 23)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>max depth of the station</th>
+      <th>sampling depth</th>
+      <th>Faecal enterococci (kpl/100ml)</th>
+      <th>Oxygen saturation (kyll.%)</th>
+      <th>Dissolved oxygen (mg/l)</th>
+      <th>Suspended solids, coarse (mg/l)</th>
+      <th>Chlorophyll a (µg/l)</th>
+      <th>Total phosphorous, unfiltered (µg/l)</th>
+      <th>Total nitrogen, unfiltered (µg/l)</th>
+      <th>Coliform bacteria thermotolerant (kpl/100ml)</th>
+      <th>Temperature (°C)</th>
+      <th>Nitrate as nitrogen, unfiltered (µg/l)</th>
+      <th>Nitrate as nitrogen, unfiltered (µg/l).1</th>
+      <th>Nitrite nitrate as nitrogen, unfiltered (µg/l)</th>
+      <th>Secchi depth (m)</th>
+      <th>pH</th>
+      <th>Salinity ()</th>
+      <th>Turbidity (FNU)</th>
+      <th>Conductivity (mS/m)</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1987-07-13 12:00:00</th>
+      <td>2.4</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1987-07-13 12:00:00</th>
+      <td>2.4</td>
+      <td>0,0-1,2</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>4.4</td>
+      <td>12.0</td>
+      <td>650.0</td>
+      <td>NaN</td>
+      <td>16.6</td>
+      <td>330.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1987-07-13 12:00:00</th>
+      <td>2.4</td>
+      <td>0,0-1,5</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.2</td>
+      <td>11.0</td>
+      <td>720.0</td>
+      <td>NaN</td>
+      <td>16.3</td>
+      <td>410.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1987-07-27 12:00:00</th>
+      <td>2.4</td>
+      <td>0,0-2,0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.7</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>There seems to be a lot of NA values in the data. Futher examination reveals that there are often two records for the same timestamp. The first record has only couple of values and the rest are NAs, whereas the second record contains most other values, but those couple of values given in the previous record are NAs. Obviously these succeeding rows needs to be merged. This can be done easily by groubing the data by timestamp, and using the first value of each column which is not NA.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">WD</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()[</span><span class="s1">&#39;1987-07&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">4</span><span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>max depth of the station</th>
+      <th>sampling depth</th>
+      <th>Faecal enterococci (kpl/100ml)</th>
+      <th>Oxygen saturation (kyll.%)</th>
+      <th>Dissolved oxygen (mg/l)</th>
+      <th>Suspended solids, coarse (mg/l)</th>
+      <th>Chlorophyll a (µg/l)</th>
+      <th>Total phosphorous, unfiltered (µg/l)</th>
+      <th>Total nitrogen, unfiltered (µg/l)</th>
+      <th>Coliform bacteria thermotolerant (kpl/100ml)</th>
+      <th>Temperature (°C)</th>
+      <th>Nitrate as nitrogen, unfiltered (µg/l)</th>
+      <th>Nitrate as nitrogen, unfiltered (µg/l).1</th>
+      <th>Nitrite nitrate as nitrogen, unfiltered (µg/l)</th>
+      <th>Secchi depth (m)</th>
+      <th>pH</th>
+      <th>Salinity ()</th>
+      <th>Turbidity (FNU)</th>
+      <th>Conductivity (mS/m)</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1987-07-13 12:00:00</th>
+      <td>2.4</td>
+      <td>0,0-1,2</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>4.4</td>
+      <td>12.0</td>
+      <td>650.0</td>
+      <td>NaN</td>
+      <td>16.6</td>
+      <td>330.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1987-07-27 12:00:00</th>
+      <td>2.4</td>
+      <td>0,0-2,0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.7</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>There are still a lot of missing values, but the confusion of which value to select for a certain time is now gone.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Temperaturecolumn</span>
+<span class="n">i</span><span class="o">=</span><span class="mi">14</span>
+
+<span class="n">ax</span><span class="o">=</span><span class="n">WD</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Temperature [$^O$ C]&#39;</span><span class="p">)</span>
+
+<span class="n">WD</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;5Y&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">WD</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;5Y&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;Temperatureprofile.pdf&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;Temperatureprofile.png&#39;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/reading_and_plotting_35_0.png" src="_images/reading_and_plotting_35_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">WD</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">10</span><span class="p">:]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Chlorophyll a (µg/l)</th>
+      <th>Total phosphorous, unfiltered (µg/l)</th>
+      <th>Total nitrogen, unfiltered (µg/l)</th>
+      <th>Coliform bacteria thermotolerant (kpl/100ml)</th>
+      <th>Temperature (°C)</th>
+      <th>Nitrate as nitrogen, unfiltered (µg/l)</th>
+      <th>Nitrate as nitrogen, unfiltered (µg/l).1</th>
+      <th>Nitrite nitrate as nitrogen, unfiltered (µg/l)</th>
+      <th>Secchi depth (m)</th>
+      <th>pH</th>
+      <th>Salinity ()</th>
+      <th>Turbidity (FNU)</th>
+      <th>Conductivity (mS/m)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>187.000000</td>
+      <td>266.000000</td>
+      <td>260.000000</td>
+      <td>114.000000</td>
+      <td>360.000000</td>
+      <td>30.000000</td>
+      <td>26.000000</td>
+      <td>75.000000</td>
+      <td>282.000000</td>
+      <td>258.000000</td>
+      <td>110.000000</td>
+      <td>223.000000</td>
+      <td>264.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>7.655615</td>
+      <td>20.163534</td>
+      <td>1080.038462</td>
+      <td>11.263158</td>
+      <td>11.686667</td>
+      <td>304.433333</td>
+      <td>1.884615</td>
+      <td>456.253333</td>
+      <td>1.295390</td>
+      <td>7.104729</td>
+      <td>3.276545</td>
+      <td>5.635471</td>
+      <td>583.718182</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>5.962969</td>
+      <td>18.260188</td>
+      <td>978.456944</td>
+      <td>22.860892</td>
+      <td>7.505963</td>
+      <td>597.447368</td>
+      <td>2.355027</td>
+      <td>697.891537</td>
+      <td>0.534733</td>
+      <td>0.883085</td>
+      <td>1.193004</td>
+      <td>6.581787</td>
+      <td>189.529933</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.300000</td>
+      <td>2.000000</td>
+      <td>140.000000</td>
+      <td>0.000000</td>
+      <td>-0.200000</td>
+      <td>2.000000</td>
+      <td>0.000000</td>
+      <td>2.000000</td>
+      <td>0.200000</td>
+      <td>4.300000</td>
+      <td>0.100000</td>
+      <td>0.460000</td>
+      <td>25.600000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>3.700000</td>
+      <td>11.000000</td>
+      <td>470.000000</td>
+      <td>1.000000</td>
+      <td>2.850000</td>
+      <td>2.000000</td>
+      <td>0.000000</td>
+      <td>2.000000</td>
+      <td>0.900000</td>
+      <td>6.600000</td>
+      <td>2.425000</td>
+      <td>1.750000</td>
+      <td>477.500000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>5.900000</td>
+      <td>15.500000</td>
+      <td>665.000000</td>
+      <td>3.000000</td>
+      <td>14.400000</td>
+      <td>43.500000</td>
+      <td>1.500000</td>
+      <td>51.000000</td>
+      <td>1.300000</td>
+      <td>7.300000</td>
+      <td>3.500000</td>
+      <td>3.200000</td>
+      <td>615.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>10.500000</td>
+      <td>22.000000</td>
+      <td>1400.000000</td>
+      <td>11.000000</td>
+      <td>17.900000</td>
+      <td>367.500000</td>
+      <td>2.750000</td>
+      <td>680.000000</td>
+      <td>1.800000</td>
+      <td>7.800000</td>
+      <td>4.275000</td>
+      <td>6.400000</td>
+      <td>739.250000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>36.000000</td>
+      <td>218.000000</td>
+      <td>6700.000000</td>
+      <td>130.000000</td>
+      <td>24.000000</td>
+      <td>3100.000000</td>
+      <td>11.000000</td>
+      <td>2900.000000</td>
+      <td>2.500000</td>
+      <td>8.400000</td>
+      <td>5.100000</td>
+      <td>42.000000</td>
+      <td>890.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="preprocessing.html" title="previous page"><span class="section-number">2. </span>Preprocessing and feature extraction</a>
+    <a class='right-next' id="next-link" href="unsupervised.html" title="next page">&lt;no title&gt;</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Petri Välisuo<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="_static/js/index.js"></script>
+    
+  </body>
+</html>

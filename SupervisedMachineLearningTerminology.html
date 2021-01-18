@@ -1,0 +1,759 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>22. Supervised machine learning, Terminology &#8212; Applied Machine Learning</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/mystnb.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="23. Nearest Neighbours methods" href="NearestNeighbors.html" />
+    <link rel="prev" title="18. Unsupervised learning" href="Clustering.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Applied Machine Learning</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="practicalities.html">
+   About the course
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction.html">
+   1. ICAT3190, Module 1, Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction.html#python">
+   2. Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction.html#testing-python">
+   3. Testing Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction.html#excercises">
+   4. Excercises
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ReadingAndPlotting.html">
+   5. ICAT3190, Module 2, Reading and plotting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Preprocessing_and_feature_extraction.html">
+   6. Preprocessing and feature extraction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Preprocessing_and_feature_extraction.html#case-one-sound-recognition">
+   7. Case one, sound recognition
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Preprocessing_and_feature_extraction.html#case-2-what-features-could-be-used-to-classify-iris-species">
+   8. Case 2, What features could be used to classify Iris species?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Preprocessing_and_feature_extraction.html#using-features-for-recognizing-species">
+   9. Using features for recognizing species
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Preprocessing_and_feature_extraction.html#how-to-handle-categorial-features-a-class-anchor-id-categoricalf-a">
+   10. How to handle categorial features?
+   <a class="anchor" id="categoricalF">
+   </a>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Preprocessing_and_feature_extraction.html#id1">
+   11. How to handle categorial features?
+   <a class="anchor" id="categoricalF">
+   </a>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Subspace_Projections.html">
+   12. Dimensionality reduction by Subspace projections
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Subspace_Projections.html#non-linear-data">
+   13. Non-Linear data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Subspace_Projections.html#apply-manifold-learning">
+   14. Apply manifold learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Subspace_Projections.html#more-non-linear-data">
+   15. More non-linear data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Subspace_Projections.html#application-to-handwritten-digit-recognition">
+   16. Application to handwritten digit recognition
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Subspace_Projections.html#conclusion">
+   17. Conclusion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Clustering.html">
+   18. Unsupervised learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Clustering.html#clustering">
+   19. Clustering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Clustering.html#other-clustering-methods">
+   20. Other clustering methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Clustering.html#conclusion">
+   21. Conclusion
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   22. Supervised machine learning, Terminology
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NearestNeighbors.html">
+   23. Nearest Neighbours methods
+   <a class="anchor" id="nearestneighbours">
+   </a>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="SupportVectorMachine.html">
+   24. Support Vector Machine (SVM)
+   <a class="anchor" id="supportvectormachine">
+   </a>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="SupportVectorMachine.html#non-linear-classes">
+   25. Non-linear classes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="SupportVectorMachine.html#decision-trees-and-forests-a-class-anchor-id-dtaforests-a">
+   26. Decision trees and forests
+   <a class="anchor" id="dtaforests">
+   </a>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="SupportVectorMachine.html#ensemble-methods-a-class-anchor-id-ensemblemethods-a">
+   27. Ensemble methods
+   <a class="anchor" id="ensemblemethods">
+   </a>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="SupportVectorMachine.html#boosting-a-class-anchor-id-boosting-a">
+   28. Boosting
+   <a class="anchor" id="Boosting">
+   </a>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="DecisionTrees.html">
+   29. Decision trees and forests
+   <a class="anchor" id="dtaforests">
+   </a>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="DecisionTrees.html#ensemble-methods-a-class-anchor-id-ensemblemethods-a">
+   30. Ensemble methods
+   <a class="anchor" id="ensemblemethods">
+   </a>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="DecisionTrees.html#boosting-a-class-anchor-id-boosting-a">
+   31. Boosting
+   <a class="anchor" id="Boosting">
+   </a>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Regression.html">
+   32. Linear regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Regression.html#simple-models-are-better-models">
+   33. Simple models are better models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NeuralNetworks.html">
+   34. Artificial Neural Networks (ANN)
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/SupervisedMachineLearningTerminology.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        
+        <a class="jupyterhub-button" href="https://notebooks.csc.fi/#/blueprint/d1fe6e08032e4c17a0f9e0e222414598/hub/user-redirect/git-pull?repo=https://github.com/pevalisuo/AML.git&urlpath=tree/AML.git/book/SupervisedMachineLearningTerminology.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#training-process">
+   22.1. Training process
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mathematical-notation">
+     22.1.1. Mathematical notation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#distance-metrics-a-class-anchor-id-distance-a">
+     22.1.2. Distance metrics
+     <a class="anchor" id="distance">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#scaling-or-normalization-of-the-data">
+     22.1.3. Scaling or normalization of the data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#measures-for-regression-model-fitting">
+     22.1.4. Measures for regression model fitting
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#root-mean-square-value-of-error-rmse">
+       22.1.4.1. Root mean square value of error: (RMSE)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mean-absolute-error-mae">
+       22.1.4.2. Mean absolute error (MAE)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#coefficient-of-determination-r-2">
+       22.1.4.3. Coefficient of determination (
+       <span class="math notranslate nohighlight">
+        \(R^2\)
+       </span>
+       )
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#measures-for-classification-model-fitting">
+     22.1.5. Measures for classification model fitting
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#precision-of-classification-p">
+       22.1.5.1. Precision of classification (P)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#cohen-s-kappa-kappa">
+       22.1.5.2. Cohen’s Kappa (
+       <span class="math notranslate nohighlight">
+        \(\kappa\)
+       </span>
+       )
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#overfitting">
+     22.1.6. Overfitting
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#example">
+       22.1.6.1. Example
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#try-it">
+       22.1.6.2. Try it
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#training-validation-and-testing-a-class-anchor-id-traintestvalidate-a">
+   22.2. Training, Validation and Testing
+   <a class="anchor" id="TrainTestValidate">
+   </a>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cross-validation-a-class-anchor-id-crossvalidation-a">
+     22.2.1. Cross Validation
+     <a class="anchor" id="crossvalidation">
+     </a>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="supervised-machine-learning-terminology">
+<h1><span class="section-number">22. </span>Supervised machine learning, Terminology<a class="headerlink" href="#supervised-machine-learning-terminology" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="training-process">
+<h2><span class="section-number">22.1. </span>Training process<a class="headerlink" href="#training-process" title="Permalink to this headline">¶</a></h2>
+<p><img alt="featureextraction_p.svg" src="_images/featureextraction_p.svg" /></p>
+<div class="section" id="mathematical-notation">
+<h3><span class="section-number">22.1.1. </span>Mathematical notation<a class="headerlink" href="#mathematical-notation" title="Permalink to this headline">¶</a></h3>
+<p>Task is to find a function <span class="math notranslate nohighlight">\(f\)</span>, which predicts variable <span class="math notranslate nohighlight">\(y_i\)</span> based on <span class="math notranslate nohighlight">\(p\)</span> features <span class="math notranslate nohighlight">\(x_{i,j}\)</span>, where <span class="math notranslate nohighlight">\(i \in [0,N]\)</span> and <span class="math notranslate nohighlight">\(j \in [0,P]\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+   \begin{bmatrix}
+   y_1 \\
+   y_2 \\
+   \vdots \\
+   y_n
+   \end{bmatrix}
+   = f 
+   \left( \begin{bmatrix}
+     x_{11} &amp; x_{12} &amp; x_{13} &amp; \dots  &amp; x_{1p} \\
+     x_{21} &amp; x_{22} &amp; x_{23} &amp; \dots  &amp; x_{2p} \\
+     \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+     x_{n1} &amp; x_{n2} &amp; x_{n3} &amp; \dots  &amp; x_{np}
+   \end{bmatrix} \right)
+\end{split}\]</div>
+<ul class="simple">
+<li><p>The purpose of the supervised machine learning is the teach an algorithm to repeat the prediction of values <span class="math notranslate nohighlight">\(y_i\)</span> carried out by a reference method.</p></li>
+<li><p>This is useful if the reference method is more expensive, slower or it has other problems</p></li>
+<li><p>Often the reference method is a human observer, and it can be replaced with an algorithm</p></li>
+<li><p>If the predicted value <span class="math notranslate nohighlight">\(y_i\)</span> is categorical, the method is called classification, because it assigns samples in classes</p></li>
+<li><p>If the predicted value <span class="math notranslate nohighlight">\(y_i\)</span> is continuous variable, the method is called as regression.</p></li>
+<li><p>There are many methods for implementing both classification and regression</p></li>
+<li><p>Variable <span class="math notranslate nohighlight">\(y\)</span> is called as dependent variable and <span class="math notranslate nohighlight">\(x\)</span> as independent variable, since the values of <span class="math notranslate nohighlight">\(y\)</span> depend on <span class="math notranslate nohighlight">\(y\)</span>.</p></li>
+</ul>
+</div>
+<div class="section" id="distance-metrics-a-class-anchor-id-distance-a">
+<h3><span class="section-number">22.1.2. </span>Distance metrics <a class="anchor" id="distance"></a><a class="headerlink" href="#distance-metrics-a-class-anchor-id-distance-a" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Clustering, classification and regression assume that samples near each other, at close proximity, are more similar with each other than those which are farther away.</p></li>
+</ul>
+<p>But what do we mean by distance?</p>
+<p>There are many distance metrics:</p>
+<ul class="simple">
+<li><p>Euclidean distance <span class="math notranslate nohighlight">\(r_{1,2}=\sqrt{(x_1 -x_2)^2 + (y_1 - y_2)^2 + (z_1 -z_2)^2}\)</span></p></li>
+<li><p>Manhattan distance <span class="math notranslate nohighlight">\(r_{1,2}=|x_1-x_2| + |y_1-y_2| + |z_1-z_2|\)</span></p></li>
+<li><p><a class="reference external" href="https://www.statisticshowto.datasciencecentral.com/mahalanobis-distance/">Mahalanobis distance</a>
+<span class="math notranslate nohighlight">\(r_{1,2}= \sqrt{(p_1 – p_2)^T \; C^{-1} \; (p_1 – p_2)}\)</span>, where <span class="math notranslate nohighlight">\(C\)</span> is the covariance matrix.</p></li>
+</ul>
+</div>
+<div class="section" id="scaling-or-normalization-of-the-data">
+<h3><span class="section-number">22.1.3. </span>Scaling or normalization of the data<a class="headerlink" href="#scaling-or-normalization-of-the-data" title="Permalink to this headline">¶</a></h3>
+<p>If the model is using Euclidean or Manhattan distance, it may suffer from different scaling of variables. If the range of <span class="math notranslate nohighlight">\(x_1 \in [0,1]\)</span> and <span class="math notranslate nohighlight">\(x_2 \in [0,100]\)</span>, the distance between two samples is almost solely determined by the second variable, and therefore the information in the first variable is hardly used.</p>
+<p>To elimninate this problem, normalise the varibles first. The most common normalization is to normalize each variable separately to zero mean, <span class="math notranslate nohighlight">\(\bar{x}=0\)</span>, and unit variance (and unit std), <span class="math notranslate nohighlight">\(\sigma_x =1\)</span>, in following way:</p>
+<div class="math notranslate nohighlight">
+\[x=\frac{x-\bar{x}}{\sigma_x}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\bar{x}\)</span> is the mean value of x.</p>
+<p>Scikit Learn includes <code class="docutils literal notranslate"><span class="pre">scale()</span></code>- function which by default standardizes the features:</p>
+<p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.preprocessing</span> <span class="pre">import</span> <span class="pre">scale</span> <span class="pre">x_scaled</span> <span class="pre">=</span> <span class="pre">scale(x)</span></code></p>
+<p>ScikitLearn includes also a <code class="docutils literal notranslate"><span class="pre">StandardScaler</span></code> object, which does the same, but by using similar interface than model objects, which will be usefull when making data processing pipelines.</p>
+<p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.preprocessing</span> <span class="pre">import</span> <span class="pre">StandardScaler</span>&#160; <span class="pre">scaler</span> <span class="pre">=</span> <span class="pre">StandardScaler()</span>&#160; <span class="pre">x_scaled</span> <span class="pre">=</span> <span class="pre">scaler.fit_transform(x)</span></code></p>
+<p>Mahalanobis distance includes build-in normalization process.</p>
+</div>
+<div class="section" id="measures-for-regression-model-fitting">
+<h3><span class="section-number">22.1.4. </span>Measures for regression model fitting<a class="headerlink" href="#measures-for-regression-model-fitting" title="Permalink to this headline">¶</a></h3>
+<p>Terms used below</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(x_i\)</span>: The i:th feature vector</p></li>
+<li><p><span class="math notranslate nohighlight">\(y_i\)</span>: The i:th true value of predicted variable</p></li>
+<li><p><span class="math notranslate nohighlight">\(\hat{y}_i = f(x_i)\)</span>: The predicted <span class="math notranslate nohighlight">\(y\)</span>-value</p></li>
+<li><p><span class="math notranslate nohighlight">\(\overline{y}\)</span>: The mean value of <span class="math notranslate nohighlight">\(y_i\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(n\)</span>: The number of samples in the training data set</p></li>
+</ul>
+<p>In the code <code class="docutils literal notranslate"><span class="pre">yh</span></code> = <span class="math notranslate nohighlight">\(\hat{y}\)</span></p>
+<div class="section" id="root-mean-square-value-of-error-rmse">
+<h4><span class="section-number">22.1.4.1. </span>Root mean square value of error: (RMSE)<a class="headerlink" href="#root-mean-square-value-of-error-rmse" title="Permalink to this headline">¶</a></h4>
+<p>RMSE is the RMS average of the prediction error (residual). RMSE is an absolute mesure, which is not scaled in any range. The unit of the error is the same as the unit of <span class="math notranslate nohighlight">\(y\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\rm{RMSE}=\sqrt{\frac{\sum_{i=0}^{n}(y_i - f(x_{i}))^2}{n}}\]</div>
+<p>This error metrics emphasise large deviations from the true value. It can be calculated using the <code class="docutils literal notranslate"><span class="pre">mean_squared_error()</span></code>-function from <code class="docutils literal notranslate"><span class="pre">sklearn.metrics</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.metrics</span> <span class="pre">import</span> <span class="pre">mean_squared_error</span>&#160; <span class="pre">RMSE=mean_squared_error(y,yh)</span></code></p>
+</div>
+<div class="section" id="mean-absolute-error-mae">
+<h4><span class="section-number">22.1.4.2. </span>Mean absolute error (MAE)<a class="headerlink" href="#mean-absolute-error-mae" title="Permalink to this headline">¶</a></h4>
+<p>MAE is the average of the absoluve value of the prediction error (residual). MAE is an absolute mesure, which is not scaled in any range. The unit of the error is the same as the unit of <span class="math notranslate nohighlight">\(y\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\rm{MAE}=\frac{\sum_{i=0}^{n} |y_i - f(x_{i})| }{n}\]</div>
+<p>Coefficient of determination is the proportion of the variance of the residual divided by the original variance of the data.</p>
+<p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.metrics</span> <span class="pre">import</span> <span class="pre">mean_absolute_error</span>&#160; <span class="pre">MAE=mean_absolute_error(y,yh)</span></code></p>
+</div>
+<div class="section" id="coefficient-of-determination-r-2">
+<h4><span class="section-number">22.1.4.3. </span>Coefficient of determination (<span class="math notranslate nohighlight">\(R^2\)</span>)<a class="headerlink" href="#coefficient-of-determination-r-2" title="Permalink to this headline">¶</a></h4>
+<p>Coefficient of determination, also called as R-squared, measures the ratio of variance of the residual (zero mean of residual assumed) and the variance of the original data. <span class="math notranslate nohighlight">\(R^2\)</span> is always smaller than one. The interpretation of <span class="math notranslate nohighlight">\(R^2\)</span> is that it shows how large fraction of the variance in dependent variable is accounted for by the model. In the perfect case, the prediction is exactly same as <span class="math notranslate nohighlight">\(y\)</span>, the variance of the residual is zero, and <span class="math notranslate nohighlight">\(R^2=1\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[ R^2 = 1- \frac{\sum_{i=0}^{n}(y_i - f(x_{i}))^2}{\sum_{i=0}^{n}(y_i - \overline{y}))^2}\]</div>
+<p>Coefficient of determination is often handy, because it is relative and does not depend on the absolute values of <span class="math notranslate nohighlight">\(y\)</span>. When the absolute error is also important, then RMSE and MAE may be calculated in addition to <span class="math notranslate nohighlight">\(R^2\)</span>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.metrics</span> <span class="pre">import</span> <span class="pre">r2_score</span>&#160; <span class="pre">R2=r2_score(y,yh)</span></code></p>
+</div>
+</div>
+<div class="section" id="measures-for-classification-model-fitting">
+<h3><span class="section-number">22.1.5. </span>Measures for classification model fitting<a class="headerlink" href="#measures-for-classification-model-fitting" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="precision-of-classification-p">
+<h4><span class="section-number">22.1.5.1. </span>Precision of classification (P)<a class="headerlink" href="#precision-of-classification-p" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">accuracy_score()</span></code>-function returns the fraction of correctly classified samples</p>
+<div class="math notranslate nohighlight">
+\[ P = \frac{n_\rm{correct}}{n}\]</div>
+<p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.metrics</span> <span class="pre">import</span> <span class="pre">accuracy_score</span>&#160; <span class="pre">s=accuracy_score(y,</span> <span class="pre">yh)</span></code></p>
+</div>
+<div class="section" id="cohen-s-kappa-kappa">
+<h4><span class="section-number">22.1.5.2. </span>Cohen’s Kappa (<span class="math notranslate nohighlight">\(\kappa\)</span>)<a class="headerlink" href="#cohen-s-kappa-kappa" title="Permalink to this headline">¶</a></h4>
+<p>Cohen’s kappa is a score which expresses the level of agreement between two annotators in a classification problem.  It is generally thought to be a more robust measure than precision, as κ takes into account the possibility of the agreement occurring by chance.</p>
+<p>Cohen’s Kappa is calculated using the above mentioned precision, <span class="math notranslate nohighlight">\(p_o\)</span>, and the hypothetical probability of chance agreement, <span class="math notranslate nohighlight">\(p_e\)</span>. Read more from <a class="reference external" href="https://en.wikipedia.org/wiki/Cohen%27s_kappa">Cohen’s Kappa in Wikipedia</a>.</p>
+<div class="math notranslate nohighlight">
+\[ \kappa = \frac{p_o - p_e}{1 - p_e} \]</div>
+<p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.metrics</span> <span class="pre">import</span> <span class="pre">cohen_kappa_score(x,y)</span>&#160; <span class="pre">s=cohen_kappa_score(y,</span> <span class="pre">yh)</span></code></p>
+</div>
+</div>
+<div class="section" id="overfitting">
+<h3><span class="section-number">22.1.6. </span>Overfitting<a class="headerlink" href="#overfitting" title="Permalink to this headline">¶</a></h3>
+<p>Two essential properties of a good model are that</p>
+<ol class="simple">
+<li><p>It <em>fits to the training data</em>, i.e. the model can predict the dependent variable from the independent variables. The measures for the fitness are for example <span class="math notranslate nohighlight">\(R^2\)</span> or precision.</p></li>
+<li><p>It <em>can generalize</em>, i.e. the model can predict dependent variables also for new data, which is not seen yet</p></li>
+</ol>
+<p>Usually a model can be fitted to the data better, by increasing it’s complexity, i.e. adding more degress of freedom into the model. But because all practical data also contains noise, the danger is that when the complexity of the model increases, it can also model the noise in the data in addition to actual phenomenan.</p>
+<p>When the model is fitted to the data, it is really important to carefully choose correct complexity for the model. If the model is too complex ( it has too many degrees of freedom) it has possibility to model also the noise included in the data. In this kind of case, the model fits very well in  the training data set, but it’s capabilities of predicting new data not yet seen can be week.</p>
+<div class="section" id="example">
+<h4><span class="section-number">22.1.6.1. </span>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h4>
+<p>Lets create a data set by combining a simple second order polynomial with some random data source:</p>
+<div class="math notranslate nohighlight">
+\[ y = 2x^2 + \mathcal{N}(0,6)\]</div>
+<p>Then a second order spline is fitted to the data with two different regularization parameter (smoothness). Consequently the first model is split to 16 pieces (with 17 knots), and the second order spline is fit to each piece separately, whereas the second model is split only in one piece (with 2 knots). Which one is better?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">UnivariateSpline</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+
+<span class="n">N</span><span class="o">=</span><span class="mi">20</span>
+<span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+<span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">spl1</span><span class="o">=</span><span class="n">UnivariateSpline</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.5</span><span class="o">*</span><span class="n">N</span><span class="p">)</span>
+<span class="n">np1</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">spl1</span><span class="o">.</span><span class="n">get_knots</span><span class="p">())</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">spl1</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;A) Number of knots = </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">np1</span><span class="p">))</span>
+
+<span class="n">spl2</span><span class="o">=</span><span class="n">UnivariateSpline</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="o">*</span><span class="n">N</span><span class="p">)</span>
+<span class="n">np2</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">spl2</span><span class="o">.</span><span class="n">get_knots</span><span class="p">())</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">spl2</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;B) Number of knots = </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">np2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;B) Number of knots = 2&#39;)
+</pre></div>
+</div>
+<img alt="_images/SupervisedMachineLearningTerminology_9_1.png" src="_images/SupervisedMachineLearningTerminology_9_1.png" />
+</div>
+</div>
+<p>The first model fits better to the current data, but the second model is still better, because if new data is drawn using the same process, the second model will fit better.</p>
+</div>
+<div class="section" id="try-it">
+<h4><span class="section-number">22.1.6.2. </span>Try it<a class="headerlink" href="#try-it" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use R2 score to measure the fitness</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
+
+<span class="c1"># Create new data from the same model</span>
+<span class="n">y2</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Score the original (training set)</span>
+<span class="n">r2_m1_train</span><span class="o">=</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">spl1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">r2_m2_train</span><span class="o">=</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">spl2</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="c1"># Score the second (testing set)</span>
+<span class="n">r2_m1_test</span><span class="o">=</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y2</span><span class="p">,</span><span class="n">spl1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">r2_m2_test</span><span class="o">=</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y2</span><span class="p">,</span><span class="n">spl2</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Training set, model 1 and model 2.......</span><span class="si">%3.2f</span><span class="s2">, </span><span class="si">%3.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">r2_m1_train</span><span class="p">,</span> <span class="n">r2_m2_train</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; Testing set, model 1 and model 2.......</span><span class="si">%3.2f</span><span class="s2">, </span><span class="si">%3.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">r2_m1_test</span><span class="p">,</span> <span class="n">r2_m2_test</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Training set, model 1 and model 2.......1.00, 0.97
+ Testing set, model 1 and model 2.......0.90, 0.92
+</pre></div>
+</div>
+</div>
+</div>
+<p>The first model is said to be <strong>overfitted</strong> to the data. It fits very well to the training data, but cannot effectively generalize to the new data.</p>
+</div>
+</div>
+</div>
+<div class="section" id="training-validation-and-testing-a-class-anchor-id-traintestvalidate-a">
+<h2><span class="section-number">22.2. </span>Training, Validation and Testing <a class="anchor" id="TrainTestValidate"></a><a class="headerlink" href="#training-validation-and-testing-a-class-anchor-id-traintestvalidate-a" title="Permalink to this headline">¶</a></h2>
+<p>Building predictive models requires following stages</p>
+<ol class="simple">
+<li><p>Model building (training)</p></li>
+<li><p>Model validation (often within an interation/optimisation loop)</p></li>
+<li><p>Model testing (in the end)</p></li>
+</ol>
+<p>Important rules related to model building and testing</p>
+<ol class="simple">
+<li><p>The model cannot be tested using training set, because that would lead to overfitting</p></li>
+<li><p>Test set may not bet used many times, because then you would overfit to the test data</p></li>
+</ol>
+<p>Each stage requires data. The original data can be split in three different sets, one for each stage, but high quality labeled data is usually scarce resource, and in that cases slightly smarter method of using the data is needed.</p>
+<div class="section" id="cross-validation-a-class-anchor-id-crossvalidation-a">
+<h3><span class="section-number">22.2.1. </span>Cross Validation <a class="anchor" id="crossvalidation"></a><a class="headerlink" href="#cross-validation-a-class-anchor-id-crossvalidation-a" title="Permalink to this headline">¶</a></h3>
+<p><img alt="crossvalidation.svg" src="_images/crossvalidation.png" /></p>
+<ul class="simple">
+<li><p>Cross validation is an important technique to utilize the data more efficiently for all supervised training purposes</p></li>
+<li><p>With cross validation, the training set is divided in N-folds.</p></li>
+<li><p>At first (N-1) folds are used for training and 1 fold for validation</p></li>
+<li><p>The process is repeated N times, until every sample has participated in training and validation sets</p></li>
+<li><p>The final score is the average of all N scores</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Clustering.html" title="previous page"><span class="section-number">18. </span>Unsupervised learning</a>
+    <a class='right-next' id="next-link" href="NearestNeighbors.html" title="next page"><span class="section-number">23. </span>Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a></a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Petri Välisuo<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="_static/js/index.js"></script>
+    
+  </body>
+</html>

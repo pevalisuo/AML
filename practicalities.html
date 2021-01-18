@@ -1,0 +1,462 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>About the course &#8212; Applied Machine Learning</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/mystnb.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1. ICAT3190, Module 1, Introduction" href="Introduction.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Applied Machine Learning</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="#">
+   About the course
+  </a>
+ </li>
+</ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction.html">
+   1. ICAT3190, Module 1, Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction.html#python">
+   2. Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction.html#testing-python">
+   3. Testing Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction.html#excercises">
+   4. Excercises
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ReadingAndPlotting.html">
+   5. ICAT3190, Module 2, Reading and plotting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Preprocessing_and_feature_extraction.html">
+   6. Preprocessing and feature extraction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Preprocessing_and_feature_extraction.html#case-one-sound-recognition">
+   7. Case one, sound recognition
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Preprocessing_and_feature_extraction.html#case-2-what-features-could-be-used-to-classify-iris-species">
+   8. Case 2, What features could be used to classify Iris species?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Preprocessing_and_feature_extraction.html#using-features-for-recognizing-species">
+   9. Using features for recognizing species
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Preprocessing_and_feature_extraction.html#how-to-handle-categorial-features-a-class-anchor-id-categoricalf-a">
+   10. How to handle categorial features?
+   <a class="anchor" id="categoricalF">
+   </a>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Preprocessing_and_feature_extraction.html#id1">
+   11. How to handle categorial features?
+   <a class="anchor" id="categoricalF">
+   </a>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Subspace_Projections.html">
+   12. Dimensionality reduction by Subspace projections
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Subspace_Projections.html#non-linear-data">
+   13. Non-Linear data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Subspace_Projections.html#apply-manifold-learning">
+   14. Apply manifold learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Subspace_Projections.html#more-non-linear-data">
+   15. More non-linear data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Subspace_Projections.html#application-to-handwritten-digit-recognition">
+   16. Application to handwritten digit recognition
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Subspace_Projections.html#conclusion">
+   17. Conclusion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Clustering.html">
+   18. Unsupervised learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Clustering.html#clustering">
+   19. Clustering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Clustering.html#other-clustering-methods">
+   20. Other clustering methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Clustering.html#conclusion">
+   21. Conclusion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="SupervisedMachineLearningTerminology.html">
+   22. Supervised machine learning, Terminology
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NearestNeighbors.html">
+   23. Nearest Neighbours methods
+   <a class="anchor" id="nearestneighbours">
+   </a>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="SupportVectorMachine.html">
+   24. Support Vector Machine (SVM)
+   <a class="anchor" id="supportvectormachine">
+   </a>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="SupportVectorMachine.html#non-linear-classes">
+   25. Non-linear classes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="SupportVectorMachine.html#decision-trees-and-forests-a-class-anchor-id-dtaforests-a">
+   26. Decision trees and forests
+   <a class="anchor" id="dtaforests">
+   </a>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="SupportVectorMachine.html#ensemble-methods-a-class-anchor-id-ensemblemethods-a">
+   27. Ensemble methods
+   <a class="anchor" id="ensemblemethods">
+   </a>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="SupportVectorMachine.html#boosting-a-class-anchor-id-boosting-a">
+   28. Boosting
+   <a class="anchor" id="Boosting">
+   </a>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="DecisionTrees.html">
+   29. Decision trees and forests
+   <a class="anchor" id="dtaforests">
+   </a>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="DecisionTrees.html#ensemble-methods-a-class-anchor-id-ensemblemethods-a">
+   30. Ensemble methods
+   <a class="anchor" id="ensemblemethods">
+   </a>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="DecisionTrees.html#boosting-a-class-anchor-id-boosting-a">
+   31. Boosting
+   <a class="anchor" id="Boosting">
+   </a>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Regression.html">
+   32. Linear regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Regression.html#simple-models-are-better-models">
+   33. Simple models are better models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NeuralNetworks.html">
+   34. Artificial Neural Networks (ANN)
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/practicalities.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        
+        <a class="jupyterhub-button" href="https://notebooks.csc.fi/#/blueprint/d1fe6e08032e4c17a0f9e0e222414598/hub/user-redirect/git-pull?repo=https://github.com/pevalisuo/AML.git&urlpath=tree/AML.git/book/practicalities.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#requirements-to-pass-the-course">
+   Requirements to pass the course
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="about-the-course">
+<h1>About the course<a class="headerlink" href="#about-the-course" title="Permalink to this headline">¶</a></h1>
+<p>Students who complete this seminar successfully will be aware of the <em>practical implementation and usage</em> of <strong>machine learning</strong> algorithms. Furthermore, they will be able to <em>apply machine learning algorithms</em> in <em>real problems</em> using efficient programming languages, for example Python.</p>
+<p>What do you seen in the following video? Machine Learning? Artificial Intelligence? Automation?
+<a class="reference external" href="https://www.youtube.com/watch?v=rVlhMGQgDkY">Atlas robot</a></p>
+<ul class="simple">
+<li><p>Is the robot intelligent?</p></li>
+<li><p>Does it have feelings?</p></li>
+<li><p>Is it Ok to bully a robot?</p></li>
+<li><p>Are human rights going to be applicable for future robots?</p></li>
+</ul>
+<div class="section" id="requirements-to-pass-the-course">
+<h2>Requirements to pass the course<a class="headerlink" href="#requirements-to-pass-the-course" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>50% implementation of weekly excercises</p></li>
+<li><p>Report of personal task exceed the passing criteria</p>
+<ol class="simple">
+<li><p>The problem of the task is clearly presented</p></li>
+<li><p>The data used for solving the problem is clearly documented</p></li>
+<li><p>The data preprosessing and feature calculation is clearly justified, explained and implemented. Excellent report cites research litterature to justify the case.</p></li>
+<li><p>Appropriate machine learning algorithms are chosen, the choice is rationally justified indicating knowledge of various machine learning methods, and the implementation is cleanly coded and explained using comments in the code. Again excellent report cites research litterature in this phase.</p></li>
+<li><p>The results are reported using high quality graphics and University’s document template. The graphs in the excellent report are of publication quality and they are correctly referenced in the text.</p></li>
+</ol>
+</li>
+<li><p>Presentation of the task exceeds passing criteria</p>
+<ol class="simple">
+<li><p>Similar criteria than with the report, but in the form of about 20 min presentation</p></li>
+</ol>
+</li>
+<li><p>Having a presentation of the task in class</p></li>
+<li><p>Either attendance of 70% of the presentations or commenting the reports before the presentation in moodle</p></li>
+</ol>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='right-next' id="next-link" href="Introduction.html" title="next page"><span class="section-number">1. </span>ICAT3190, Module 1, Introduction</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Petri Välisuo<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="_static/js/index.js"></script>
+    
+  </body>
+</html>
