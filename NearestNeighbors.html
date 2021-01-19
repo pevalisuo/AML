@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>23. Nearest Neighbours methods &#8212; Applied Machine Learning</title>
+    <title>7. Nearest Neighbours methods &#8212; Applied Machine Learning</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
@@ -39,8 +39,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="24. Support Vector Machine (SVM)" href="SupportVectorMachine.html" />
-    <link rel="prev" title="22. Supervised machine learning, Terminology" href="SupervisedMachineLearningTerminology.html" />
+    <link rel="next" title="8. Support Vector Machine (SVM)" href="SupportVectorMachine.html" />
+    <link rel="prev" title="6. Supervised machine learning, Terminology" href="SupervisedMachineLearningTerminology.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -58,8 +58,6 @@
     
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="index.html">
-  
-  <img src="_static/logo.png" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">Applied Machine Learning</h1>
@@ -83,192 +81,77 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="Introduction.html">
-   1. ICAT3190, Module 1, Introduction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Introduction.html#python">
-   2. Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Introduction.html#testing-python">
-   3. Testing Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Introduction.html#excercises">
-   4. Excercises
+   1. Introduction
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="ReadingAndPlotting.html">
-   5. ICAT3190, Module 2, Reading and plotting
+   2. Reading and plotting
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Preprocessing_and_feature_extraction.html">
-   6. Preprocessing and feature extraction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Preprocessing_and_feature_extraction.html#case-one-sound-recognition">
-   7. Case one, sound recognition
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Preprocessing_and_feature_extraction.html#case-2-what-features-could-be-used-to-classify-iris-species">
-   8. Case 2, What features could be used to classify Iris species?
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Preprocessing_and_feature_extraction.html#using-features-for-recognizing-species">
-   9. Using features for recognizing species
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Preprocessing_and_feature_extraction.html#how-to-handle-categorial-features-a-class-anchor-id-categoricalf-a">
-   10. How to handle categorial features?
-   <a class="anchor" id="categoricalF">
-   </a>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Preprocessing_and_feature_extraction.html#id1">
-   11. How to handle categorial features?
-   <a class="anchor" id="categoricalF">
-   </a>
+   3. Preprocessing and feature extraction
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Subspace_Projections.html">
-   12. Dimensionality reduction by Subspace projections
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Subspace_Projections.html#non-linear-data">
-   13. Non-Linear data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Subspace_Projections.html#apply-manifold-learning">
-   14. Apply manifold learning
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Subspace_Projections.html#more-non-linear-data">
-   15. More non-linear data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Subspace_Projections.html#application-to-handwritten-digit-recognition">
-   16. Application to handwritten digit recognition
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Subspace_Projections.html#conclusion">
-   17. Conclusion
+   4. Dimensionality reduction by Subspace projections
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Clustering.html">
-   18. Unsupervised learning
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Clustering.html#clustering">
-   19. Clustering
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Clustering.html#other-clustering-methods">
-   20. Other clustering methods
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Clustering.html#conclusion">
-   21. Conclusion
+   5. Unsupervised learning
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="SupervisedMachineLearningTerminology.html">
-   22. Supervised machine learning, Terminology
+   6. Supervised machine learning, Terminology
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   23. Nearest Neighbours methods
+   7. Nearest Neighbours methods
    <a class="anchor" id="nearestneighbours">
    </a>
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="SupportVectorMachine.html">
-   24. Support Vector Machine (SVM)
+   8. Support Vector Machine (SVM)
    <a class="anchor" id="supportvectormachine">
    </a>
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="SupportVectorMachine.html#non-linear-classes">
-   25. Non-linear classes
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="SupportVectorMachine.html#decision-trees-and-forests-a-class-anchor-id-dtaforests-a">
-   26. Decision trees and forests
-   <a class="anchor" id="dtaforests">
-   </a>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="SupportVectorMachine.html#ensemble-methods-a-class-anchor-id-ensemblemethods-a">
-   27. Ensemble methods
-   <a class="anchor" id="ensemblemethods">
-   </a>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="SupportVectorMachine.html#boosting-a-class-anchor-id-boosting-a">
-   28. Boosting
-   <a class="anchor" id="Boosting">
-   </a>
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="DecisionTrees.html">
-   29. Decision trees and forests
+   9. Decision trees and forests
    <a class="anchor" id="dtaforests">
    </a>
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="DecisionTrees.html#ensemble-methods-a-class-anchor-id-ensemblemethods-a">
-   30. Ensemble methods
+   10. Ensemble methods
    <a class="anchor" id="ensemblemethods">
    </a>
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="DecisionTrees.html#boosting-a-class-anchor-id-boosting-a">
-   31. Boosting
+   11. Boosting
    <a class="anchor" id="Boosting">
    </a>
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Regression.html">
-   32. Linear regression
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Regression.html#simple-models-are-better-models">
-   33. Simple models are better models
+   12. Regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="NeuralNetworks.html">
-   34. Artificial Neural Networks (ANN)
+   13. Artificial Neural Networks (ANN)
   </a>
  </li>
 </ul>
@@ -360,36 +243,36 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#brute-force-implementation">
-   23.1. Brute force implementation
+   7.1. Brute force implementation
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#pipelining">
-     23.1.1. Pipelining
+     7.1.1. Pipelining
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#visualization-of-the-decision-boundaries">
-   23.2. Visualization of the decision boundaries
+   7.2. Visualization of the decision boundaries
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#variations">
-     23.2.1. Variations
+     7.2.1. Variations
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#nearest-centroid-classifier">
-   23.3. Nearest Centroid Classifier
+   7.3. Nearest Centroid Classifier
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#summary">
-     23.3.1. Summary
+     7.3.1. Summary
     </a>
    </li>
   </ul>
@@ -405,10 +288,10 @@
               <div>
                 
   <div class="section" id="nearest-neighbours-methods-a-class-anchor-id-nearestneighbours-a">
-<h1><span class="section-number">23. </span>Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a><a class="headerlink" href="#nearest-neighbours-methods-a-class-anchor-id-nearestneighbours-a" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">7. </span>Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a><a class="headerlink" href="#nearest-neighbours-methods-a-class-anchor-id-nearestneighbours-a" title="Permalink to this headline">¶</a></h1>
 <p>Nearest Neighbour methods provide some very staightforward methods for supervised machine learning</p>
 <div class="section" id="brute-force-implementation">
-<h2><span class="section-number">23.1. </span>Brute force implementation<a class="headerlink" href="#brute-force-implementation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.1. </span>Brute force implementation<a class="headerlink" href="#brute-force-implementation" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>Set the number of nearest neighbours, <span class="math notranslate nohighlight">\(K\)</span></p></li>
 <li><p>To predict one new sample, calculate its distance to all known training samples</p></li>
@@ -493,7 +376,7 @@ The accuracy of KNN is..... 0.96
 </div>
 </div>
 <div class="section" id="pipelining">
-<h3><span class="section-number">23.1.1. </span>Pipelining<a class="headerlink" href="#pipelining" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">7.1.1. </span>Pipelining<a class="headerlink" href="#pipelining" title="Permalink to this headline">¶</a></h3>
 <p>In Scikit Learn, all methods are build using the same interface. This makes it easier to build larger machine learning systems by combining different stages together as pipelines.</p>
 <p>For example, the scaling of features, dimensionality reduction, and sclassification can be combined as a single pipeline. This is especially usefull, when several datasets (validation data, testing data, production data, etc) needs to be fed through the same stages.</p>
 <div class="cell docutils container">
@@ -524,7 +407,7 @@ The accuracy of KNN is..... 0.96
 </div>
 </div>
 <div class="section" id="visualization-of-the-decision-boundaries">
-<h2><span class="section-number">23.2. </span>Visualization of the decision boundaries<a class="headerlink" href="#visualization-of-the-decision-boundaries" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.2. </span>Visualization of the decision boundaries<a class="headerlink" href="#visualization-of-the-decision-boundaries" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Skip this code if you are not interested</span>
@@ -585,7 +468,7 @@ The accuracy of KNN is..... 0.96
 </div>
 </div>
 <div class="section" id="variations">
-<h3><span class="section-number">23.2.1. </span>Variations<a class="headerlink" href="#variations" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">7.2.1. </span>Variations<a class="headerlink" href="#variations" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Nearest Centroid classifier</p>
 <ul>
@@ -603,7 +486,7 @@ The accuracy of KNN is..... 0.96
 </div>
 </div>
 <div class="section" id="nearest-centroid-classifier">
-<h2><span class="section-number">23.3. </span>Nearest Centroid Classifier<a class="headerlink" href="#nearest-centroid-classifier" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.3. </span>Nearest Centroid Classifier<a class="headerlink" href="#nearest-centroid-classifier" title="Permalink to this headline">¶</a></h2>
 <p>Nearest centroid classifier does not need to store all training data, thats why it is also faster to predict.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -656,7 +539,7 @@ The accuracy of KNN is..... 0.96
 </div>
 </div>
 <div class="section" id="summary">
-<h3><span class="section-number">23.3.1. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">7.3.1. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>kNN is simple classification method</p></li>
 <li><p>kNN supports non-linear and complex decision boundaries</p></li>
@@ -697,8 +580,8 @@ The accuracy of KNN is..... 0.96
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="SupervisedMachineLearningTerminology.html" title="previous page"><span class="section-number">22. </span>Supervised machine learning, Terminology</a>
-    <a class='right-next' id="next-link" href="SupportVectorMachine.html" title="next page"><span class="section-number">24. </span>Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></a>
+    <a class='left-prev' id="prev-link" href="SupervisedMachineLearningTerminology.html" title="previous page"><span class="section-number">6. </span>Supervised machine learning, Terminology</a>
+    <a class='right-next' id="next-link" href="SupportVectorMachine.html" title="next page"><span class="section-number">8. </span>Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

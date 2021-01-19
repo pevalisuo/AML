@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>6. Preprocessing and feature extraction &#8212; Applied Machine Learning</title>
+    <title>3. Preprocessing and feature extraction &#8212; Applied Machine Learning</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
@@ -39,8 +39,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="12. Dimensionality reduction by Subspace projections" href="Subspace_Projections.html" />
-    <link rel="prev" title="5. ICAT3190, Module 2, Reading and plotting" href="ReadingAndPlotting.html" />
+    <link rel="next" title="4. Dimensionality reduction by Subspace projections" href="Subspace_Projections.html" />
+    <link rel="prev" title="2. Reading and plotting" href="ReadingAndPlotting.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -58,8 +58,6 @@
     
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="index.html">
-  
-  <img src="_static/logo.png" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">Applied Machine Learning</h1>
@@ -83,192 +81,77 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="Introduction.html">
-   1. ICAT3190, Module 1, Introduction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Introduction.html#python">
-   2. Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Introduction.html#testing-python">
-   3. Testing Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Introduction.html#excercises">
-   4. Excercises
+   1. Introduction
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="ReadingAndPlotting.html">
-   5. ICAT3190, Module 2, Reading and plotting
+   2. Reading and plotting
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   6. Preprocessing and feature extraction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#case-one-sound-recognition">
-   7. Case one, sound recognition
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#case-2-what-features-could-be-used-to-classify-iris-species">
-   8. Case 2, What features could be used to classify Iris species?
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#using-features-for-recognizing-species">
-   9. Using features for recognizing species
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#how-to-handle-categorial-features-a-class-anchor-id-categoricalf-a">
-   10. How to handle categorial features?
-   <a class="anchor" id="categoricalF">
-   </a>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#id1">
-   11. How to handle categorial features?
-   <a class="anchor" id="categoricalF">
-   </a>
+   3. Preprocessing and feature extraction
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Subspace_Projections.html">
-   12. Dimensionality reduction by Subspace projections
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Subspace_Projections.html#non-linear-data">
-   13. Non-Linear data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Subspace_Projections.html#apply-manifold-learning">
-   14. Apply manifold learning
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Subspace_Projections.html#more-non-linear-data">
-   15. More non-linear data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Subspace_Projections.html#application-to-handwritten-digit-recognition">
-   16. Application to handwritten digit recognition
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Subspace_Projections.html#conclusion">
-   17. Conclusion
+   4. Dimensionality reduction by Subspace projections
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Clustering.html">
-   18. Unsupervised learning
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Clustering.html#clustering">
-   19. Clustering
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Clustering.html#other-clustering-methods">
-   20. Other clustering methods
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Clustering.html#conclusion">
-   21. Conclusion
+   5. Unsupervised learning
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="SupervisedMachineLearningTerminology.html">
-   22. Supervised machine learning, Terminology
+   6. Supervised machine learning, Terminology
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="NearestNeighbors.html">
-   23. Nearest Neighbours methods
+   7. Nearest Neighbours methods
    <a class="anchor" id="nearestneighbours">
    </a>
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="SupportVectorMachine.html">
-   24. Support Vector Machine (SVM)
+   8. Support Vector Machine (SVM)
    <a class="anchor" id="supportvectormachine">
    </a>
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="SupportVectorMachine.html#non-linear-classes">
-   25. Non-linear classes
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="SupportVectorMachine.html#decision-trees-and-forests-a-class-anchor-id-dtaforests-a">
-   26. Decision trees and forests
-   <a class="anchor" id="dtaforests">
-   </a>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="SupportVectorMachine.html#ensemble-methods-a-class-anchor-id-ensemblemethods-a">
-   27. Ensemble methods
-   <a class="anchor" id="ensemblemethods">
-   </a>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="SupportVectorMachine.html#boosting-a-class-anchor-id-boosting-a">
-   28. Boosting
-   <a class="anchor" id="Boosting">
-   </a>
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="DecisionTrees.html">
-   29. Decision trees and forests
+   9. Decision trees and forests
    <a class="anchor" id="dtaforests">
    </a>
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="DecisionTrees.html#ensemble-methods-a-class-anchor-id-ensemblemethods-a">
-   30. Ensemble methods
+   10. Ensemble methods
    <a class="anchor" id="ensemblemethods">
    </a>
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="DecisionTrees.html#boosting-a-class-anchor-id-boosting-a">
-   31. Boosting
+   11. Boosting
    <a class="anchor" id="Boosting">
    </a>
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Regression.html">
-   32. Linear regression
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Regression.html#simple-models-are-better-models">
-   33. Simple models are better models
+   12. Regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="NeuralNetworks.html">
-   34. Artificial Neural Networks (ANN)
+   13. Artificial Neural Networks (ANN)
   </a>
  </li>
 </ul>
@@ -360,18 +243,125 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#machine-learning">
-   6.1. Machine Learning
+   3.1. Machine Learning
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#feature-extraction">
-   6.2. Feature extraction
+   3.2. Feature extraction
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-purpose-of-machine-learning">
-   6.3. The purpose of machine learning
+   3.3. The purpose of machine learning
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#case-one-sound-recognition">
+   3.4. Case one, sound recognition
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#perhaps-there-are-differences-in-the-sound-pressure-level-volume">
+     3.4.1. Perhaps there are differences in the sound pressure level (volume)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#perhaps-studying-different-spectral-components-help">
+     3.4.2. Perhaps studying different spectral components help
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-audio-features">
+     3.4.3. Other audio features
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#case-2-what-features-could-be-used-to-classify-iris-species">
+   3.5. Case 2, What features could be used to classify Iris species?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#features-measured-by-fisher">
+     3.5.1. Features measured by Fisher
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nicer-plots-with-seaborn">
+     3.5.2. Nicer plots with Seaborn
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#quantitative-analysis">
+     3.5.3. Quantitative analysis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visual-analysis-of-mean-and-distribution-using-boxplot">
+     3.5.4. Visual analysis of mean and distribution using boxplot
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#applying-an-external-function-to-data">
+     3.5.5. Applying an external function to data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hypothesis-testing">
+     3.5.6. Hypothesis testing
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#testing-if-distribution-of-the-variables-is-normal">
+       3.5.6.1. Testing if distribution of the variables is normal
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#test-the-similarity-of-petal-length-distributions">
+     3.5.7. Test the similarity of petal_length distributions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#non-parametric-testing">
+     3.5.8. Non-parametric testing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-was-learned">
+   3.6. What was learned?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-features-for-recognizing-species">
+   3.7. Using features for recognizing species
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-handle-categorial-features-a-class-anchor-id-categoricalf-a">
+   3.8. How to handle categorial features?
+   <a class="anchor" id="categoricalF">
+   </a>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example">
+     3.8.1. Example:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#one-hot-encoding-a-class-anchor-id-onehotencoding-a">
+     3.8.2. One hot encoding
+     <a class="anchor" id="OneHotEncoding">
+     </a>
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -384,14 +374,14 @@
               <div>
                 
   <div class="section" id="preprocessing-and-feature-extraction">
-<h1><span class="section-number">6. </span>Preprocessing and feature extraction<a class="headerlink" href="#preprocessing-and-feature-extraction" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">3. </span>Preprocessing and feature extraction<a class="headerlink" href="#preprocessing-and-feature-extraction" title="Permalink to this headline">¶</a></h1>
 <p>This module starts actual machine learning part, by introducing some important concepts and walking through and example using classical statistics. Machine learning is more than statistics, but the covered statistical concepts are very important throughout the course.</p>
 <div class="section" id="machine-learning">
-<h2><span class="section-number">6.1. </span>Machine Learning<a class="headerlink" href="#machine-learning" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1. </span>Machine Learning<a class="headerlink" href="#machine-learning" title="Permalink to this headline">¶</a></h2>
 <p><img alt="machine_learning.svg" src="_images/machine_learning.svg" /></p>
 </div>
 <div class="section" id="feature-extraction">
-<h2><span class="section-number">6.2. </span>Feature extraction<a class="headerlink" href="#feature-extraction" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.2. </span>Feature extraction<a class="headerlink" href="#feature-extraction" title="Permalink to this headline">¶</a></h2>
 <p><img alt="featureextraction_p.svg" src="_images/featureextraction_p.svg" /></p>
 <ul class="simple">
 <li><p>The purpose of feature extraction is to capture relevant properties of the samples into variables.</p></li>
@@ -399,7 +389,7 @@
 </ul>
 </div>
 <div class="section" id="the-purpose-of-machine-learning">
-<h2><span class="section-number">6.3. </span>The purpose of machine learning<a class="headerlink" href="#the-purpose-of-machine-learning" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.3. </span>The purpose of machine learning<a class="headerlink" href="#the-purpose-of-machine-learning" title="Permalink to this headline">¶</a></h2>
 <p>Task is to find a function <span class="math notranslate nohighlight">\(f\)</span>, which predicts variable <span class="math notranslate nohighlight">\(y_i\)</span> based on <span class="math notranslate nohighlight">\(p\)</span> features <span class="math notranslate nohighlight">\(x_{i,j}\)</span>, where <span class="math notranslate nohighlight">\(i \in [0,N]\)</span> and <span class="math notranslate nohighlight">\(j \in [0,P]\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -418,14 +408,13 @@
    \end{bmatrix} \right)
 \end{split}\]</div>
 </div>
-</div>
 <div class="section" id="case-one-sound-recognition">
-<h1><span class="section-number">7. </span>Case one, sound recognition<a class="headerlink" href="#case-one-sound-recognition" title="Permalink to this headline">¶</a></h1>
+<h2><span class="section-number">3.4. </span>Case one, sound recognition<a class="headerlink" href="#case-one-sound-recognition" title="Permalink to this headline">¶</a></h2>
 <p><img alt="featureextraction_p.svg" src="_images/timedomainaudio.png" /></p>
 <p>This sound sample contains noise from wind turbine, by-passing cars and some birds perhaps.</p>
 <p>Can you find good features to find out what is the dominating noise source in which time?</p>
 <div class="section" id="perhaps-there-are-differences-in-the-sound-pressure-level-volume">
-<h2><span class="section-number">7.1. </span>Perhaps there are differences in the sound pressure level (volume)<a class="headerlink" href="#perhaps-there-are-differences-in-the-sound-pressure-level-volume" title="Permalink to this headline">¶</a></h2>
+<h3><span class="section-number">3.4.1. </span>Perhaps there are differences in the sound pressure level (volume)<a class="headerlink" href="#perhaps-there-are-differences-in-the-sound-pressure-level-volume" title="Permalink to this headline">¶</a></h3>
 <p><img alt="SPL of the audio" src="_images/splaudio.png" /></p>
 <p>This picture shows the <a class="reference external" href="https://en.wikipedia.org/wiki/A-weighting">A-weighted</a> sound pressure level (SPL) of the sound signal. It shows what is the subjective volume perceived by a human observer. SPL is a RMS average of the signal over certain time period</p>
 <div class="math notranslate nohighlight">
@@ -433,17 +422,17 @@
 <p>where <span class="math notranslate nohighlight">\(p_{rms}\)</span> is the RMS average of the sound pressure, <span class="math notranslate nohighlight">\(p_0=20~\mu\)</span>P, is the reference sound pressure and ,<span class="math notranslate nohighlight">\(T=1\)</span> s, is a time constant.Notice that <span class="math notranslate nohighlight">\(L_p\)</span> is shown in logarithmic scale. Log transformation may sometimes be helpful.</p>
 </div>
 <div class="section" id="perhaps-studying-different-spectral-components-help">
-<h2><span class="section-number">7.2. </span>Perhaps studying different spectral components help<a class="headerlink" href="#perhaps-studying-different-spectral-components-help" title="Permalink to this headline">¶</a></h2>
+<h3><span class="section-number">3.4.2. </span>Perhaps studying different spectral components help<a class="headerlink" href="#perhaps-studying-different-spectral-components-help" title="Permalink to this headline">¶</a></h3>
 <p><img alt="Sectrogram of the audio" src="_images/sgramaudio.png" /></p>
 <p>This figure is obtained by splitting the signal in 1 second pieces and applying a Fourier transformation to them, and then by plotting the spectrum of each slice vertically. This method is called as Short Time Fourier Transformation (STFT) and is often usefull method for extracting features from the data.</p>
 </div>
 <div class="section" id="other-audio-features">
-<h2><span class="section-number">7.3. </span>Other audio features<a class="headerlink" href="#other-audio-features" title="Permalink to this headline">¶</a></h2>
+<h3><span class="section-number">3.4.3. </span>Other audio features<a class="headerlink" href="#other-audio-features" title="Permalink to this headline">¶</a></h3>
 <p>Take a look at the feature extraction documentation of the <a class="reference external" href="https://librosa.org/doc/latest/feature.html">LibRosa library</a>.</p>
 </div>
 </div>
 <div class="section" id="case-2-what-features-could-be-used-to-classify-iris-species">
-<h1><span class="section-number">8. </span>Case 2, What features could be used to classify Iris species?<a class="headerlink" href="#case-2-what-features-could-be-used-to-classify-iris-species" title="Permalink to this headline">¶</a></h1>
+<h2><span class="section-number">3.5. </span>Case 2, What features could be used to classify Iris species?<a class="headerlink" href="#case-2-what-features-could-be-used-to-classify-iris-species" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setosa</p></th>
@@ -460,7 +449,7 @@
 </table>
 <p><span id="kuvaviite">Wikimedia Commons</span></p>
 <div class="section" id="features-measured-by-fisher">
-<h2><span class="section-number">8.1. </span>Features measured by Fisher<a class="headerlink" href="#features-measured-by-fisher" title="Permalink to this headline">¶</a></h2>
+<h3><span class="section-number">3.5.1. </span>Features measured by Fisher<a class="headerlink" href="#features-measured-by-fisher" title="Permalink to this headline">¶</a></h3>
 <p>One of the most famos data sets of statistics is the Iris-dataset by Fisher. Let’s take a look what features he measured and how do they perform.</p>
 <p>Lets read the data set and plot the head of it.</p>
 <div class="cell docutils container">
@@ -608,8 +597,8 @@ max        7.900000     4.400000      6.900000     2.500000
 </div></div></div>
 </div>
 </div>
-<div class="section" id="seaborn">
-<h2><span class="section-number">8.2. </span>Seaborn<a class="headerlink" href="#seaborn" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nicer-plots-with-seaborn">
+<h3><span class="section-number">3.5.2. </span>Nicer plots with Seaborn<a class="headerlink" href="#nicer-plots-with-seaborn" title="Permalink to this headline">¶</a></h3>
 <p>The Seaborn library is another library for plotting data, in addition to Matplotlib which we used earlier. Seaborn is especially good for statistical plots, mut it has unfortunately totally different API than matplotlib. It may be good to use Matplotlib usually, but it you find some plots inconvenient to be plotted with matplotlib, then it is time to check what seaborn can offer. Easiest way is to check the <a class="reference external" href="https://python-graph-gallery.com/all-charts/">example gallery</a> to see if someone has made a similar plot what you need, and copy and modify the source code, which is given in the gallery.</p>
 <p>Study the pairplots below, and consider following questions:</p>
 <ol class="simple">
@@ -641,7 +630,7 @@ max        7.900000     4.400000      6.900000     2.500000
 </div>
 </div>
 <div class="section" id="quantitative-analysis">
-<h2><span class="section-number">8.3. </span>Quantitative analysis<a class="headerlink" href="#quantitative-analysis" title="Permalink to this headline">¶</a></h2>
+<h3><span class="section-number">3.5.3. </span>Quantitative analysis<a class="headerlink" href="#quantitative-analysis" title="Permalink to this headline">¶</a></h3>
 <p>It looks like petal_length can nicely separate Setosa’s from other species, but not necessary Versicolor from Virginica. Lets try to get some numerical proof if this observation is correct.</p>
 <p>Lets first study the average feature values and their deviations separately in each group. The groupby() function in pandas dataframe provides very handy methods for implementing this. Groupby kind of splits the original dataframe into three different dataframes according to the species class.</p>
 <p>Mean()-function calculates the columnwise mean so in this case it calculates the mean of each feature. Because the dataframe is splitted by species, the result is a matrix, in which each species are in rows, and features in columns. The feature ‘species’, which was used for grouping is removed from the result matrix.</p>
@@ -775,8 +764,9 @@ max        7.900000     4.400000      6.900000     2.500000
 </div></div></div>
 </div>
 <p>It looks like the differences of for example petal_lengths seem to be bigger than the standard deviation. It could be feasible to use it for species recognition.</p>
+</div>
 <div class="section" id="visual-analysis-of-mean-and-distribution-using-boxplot">
-<h3><span class="section-number">8.3.1. </span>Visual analysis of mean and distribution using boxplot<a class="headerlink" href="#visual-analysis-of-mean-and-distribution-using-boxplot" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.5.4. </span>Visual analysis of mean and distribution using boxplot<a class="headerlink" href="#visual-analysis-of-mean-and-distribution-using-boxplot" title="Permalink to this headline">¶</a></h3>
 <p>The boxplot displays the median value (the red lines inside the boxes) and distribution as quartiles (the height of the boxes, and lengths of the whiskers) graphically. The box extends from <em>quartile</em> Q1 below to quartile Q3 above the median. The length of the whiskers is 1.5 times the <em>inter quartile range</em> (IQR) from the box edge, where IQR=Q3-Q1. The values outside of whiskers are interpreted as <em>outliers</em>, and they are plotted as circles.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -791,7 +781,7 @@ max        7.900000     4.400000      6.900000     2.500000
 <p>The boxplot shows that Setosa can be separated from Versicolor and Virginica with no confusion, but there is some overlap between Versicolor and Virginica.</p>
 </div>
 <div class="section" id="applying-an-external-function-to-data">
-<h3><span class="section-number">8.3.2. </span>Applying an external function to data<a class="headerlink" href="#applying-an-external-function-to-data" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.5.5. </span>Applying an external function to data<a class="headerlink" href="#applying-an-external-function-to-data" title="Permalink to this headline">¶</a></h3>
 <p>Sometimes it is necessary to apply also such functions to the data, which are not part of the dataframe. It can be accomplished by using the apply-method as follows. Here the median-function from the NumPy-libary is used. You can also apply your own function to the data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -845,9 +835,8 @@ Name: petal_length, dtype: float64
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="hypothesis-testing">
-<h2><span class="section-number">8.4. </span>Hypothesis testing<a class="headerlink" href="#hypothesis-testing" title="Permalink to this headline">¶</a></h2>
+<h3><span class="section-number">3.5.6. </span>Hypothesis testing<a class="headerlink" href="#hypothesis-testing" title="Permalink to this headline">¶</a></h3>
 <p>Let’s formally study if the petal lengts are significantly different or not by forming two hypothesis:</p>
 <ol class="simple">
 <li><p>The distribution of petal lengths of Setosa species is different than the distribution of petal lengts of other species</p></li>
@@ -856,7 +845,7 @@ Name: petal_length, dtype: float64
 <p>The standard test for these hypothesis is the <a class="reference external" href="https://www.statisticshowto.datasciencecentral.com/probability-and-statistics/t-test/">Student’s T-test</a>.</p>
 <p>But the T-test can only be used if the variables are normally distributed. Let’s test that first.</p>
 <div class="section" id="testing-if-distribution-of-the-variables-is-normal">
-<h3><span class="section-number">8.4.1. </span>Testing if distribution of the variables is normal<a class="headerlink" href="#testing-if-distribution-of-the-variables-is-normal" title="Permalink to this headline">¶</a></h3>
+<h4><span class="section-number">3.5.6.1. </span>Testing if distribution of the variables is normal<a class="headerlink" href="#testing-if-distribution-of-the-variables-is-normal" title="Permalink to this headline">¶</a></h4>
 <p>Read more about normality testing methods from <a class="reference external" href="https://www.statisticshowto.datasciencecentral.com/assumption-of-normality-test/">Statistics howto</a></p>
 <p>Most often used normality test is the D’Agostino-Pearson Test. It can be taken into use by importing the <code class="docutils literal notranslate"><span class="pre">normaltest</span></code> function from the stats module of the Scientific Python package.</p>
 <div class="cell docutils container">
@@ -914,7 +903,7 @@ Name: petal_length, dtype: object
 </div>
 </div>
 <div class="section" id="test-the-similarity-of-petal-length-distributions">
-<h2><span class="section-number">8.5. </span>Test the similarity of petal_length distributions<a class="headerlink" href="#test-the-similarity-of-petal-length-distributions" title="Permalink to this headline">¶</a></h2>
+<h3><span class="section-number">3.5.7. </span>Test the similarity of petal_length distributions<a class="headerlink" href="#test-the-similarity-of-petal-length-distributions" title="Permalink to this headline">¶</a></h3>
 <p>The most often used method for hypothesis testing, is the Student’s T-test, which is also in the stats module of Scientific Python package.</p>
 <p>(<em>We try to use T-test even though we do not have the autorization, because the variable is not normally distributed! The consequence is that whatever the result is, it may not be reliable</em>)</p>
 <p>T-Test supports four different confiurations. Read the documentation and select the correct configuration. The selection is quite straightforward.</p>
@@ -965,7 +954,7 @@ The petal_lengths of Versicolor and Virginica are statistically different : p=0.
 </div>
 </div>
 <div class="section" id="non-parametric-testing">
-<h2><span class="section-number">8.6. </span>Non-parametric testing<a class="headerlink" href="#non-parametric-testing" title="Permalink to this headline">¶</a></h2>
+<h3><span class="section-number">3.5.8. </span>Non-parametric testing<a class="headerlink" href="#non-parametric-testing" title="Permalink to this headline">¶</a></h3>
 <p>Because the data is not normally distributed, we are not allowed to use the T-test, but we need to use non-parametric tests instead. One often used is the <a class="reference external" href="https://en.wikipedia.org/wiki/Mann%E2%80%93Whitney_U_test">Mann-Whitney rank-test</a>. Because this test does not assume anything about the shape of the distributions, it usually needs larger sample size to get reliable estimate of p-values. Sample size bigger than 20 for both classes is recommended.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -982,8 +971,9 @@ The petal_lengths of Versicolor and Virginica are statistically different : p=0.
 </div>
 <p>The p-value of <span class="math notranslate nohighlight">\(4.56 \cdot 10^{-17} &lt; \alpha\)</span> we can conclude that the difference of the petal lenghts of versicolor and virginica is statistically significant. This is reliable result, since it was not necessary to assume any specifig distribution of feature variables.</p>
 </div>
+</div>
 <div class="section" id="what-was-learned">
-<h2><span class="section-number">8.7. </span>What was learned?<a class="headerlink" href="#what-was-learned" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.6. </span>What was learned?<a class="headerlink" href="#what-was-learned" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Some mesured values (petal and sepal widhts and heights in this case) can be used as features, describing the similarities and differences of the samples</p></li>
 <li><p>T-test can be used for testing if the values of the features are the same or different for different classes of samples. If the features are not significantly different, they are not usefull for classification.</p></li>
@@ -992,9 +982,8 @@ The petal_lengths of Versicolor and Virginica are statistically different : p=0.
 </ul>
 <p>Now we can be certain, that the petal lengts are different in all species, and the difference is statistically significant, meaning that they are not different only by chance.</p>
 </div>
-</div>
 <div class="section" id="using-features-for-recognizing-species">
-<h1><span class="section-number">9. </span>Using features for recognizing species<a class="headerlink" href="#using-features-for-recognizing-species" title="Permalink to this headline">¶</a></h1>
+<h2><span class="section-number">3.7. </span>Using features for recognizing species<a class="headerlink" href="#using-features-for-recognizing-species" title="Permalink to this headline">¶</a></h2>
 <p>Now that we know that petal_lengths are different for each species, can this feature be used in recognizing flowers or classifying flower species?</p>
 <p>The following picture shows the position of decision boundary leading to highest precision in classifying Versicolor from Virginica species based on petal length.</p>
 <ul class="simple">
@@ -1067,7 +1056,7 @@ The petal_lengths of Versicolor and Virginica are statistically different : p=0.
 </div>
 </div>
 <div class="section" id="how-to-handle-categorial-features-a-class-anchor-id-categoricalf-a">
-<h1><span class="section-number">10. </span>How to handle categorial features? <a class="anchor" id="categoricalF"></a><a class="headerlink" href="#how-to-handle-categorial-features-a-class-anchor-id-categoricalf-a" title="Permalink to this headline">¶</a></h1>
+<h2><span class="section-number">3.8. </span>How to handle categorial features? <a class="anchor" id="categoricalF"></a><a class="headerlink" href="#how-to-handle-categorial-features-a-class-anchor-id-categoricalf-a" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Features can be</p>
 <ul>
@@ -1081,7 +1070,7 @@ The petal_lengths of Versicolor and Virginica are statistically different : p=0.
 </li>
 </ul>
 <div class="section" id="example">
-<h2><span class="section-number">10.1. </span>Example:<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<h3><span class="section-number">3.8.1. </span>Example:<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
 <p>Assume that the species of the Iris is in fact a categorical feature for some ML algorithm. If you would code them just simply like ‘setosa’ -&gt; 1, ‘versicolor’ -&gt;2 and ‘virginica’ -&gt; 3, the ML algorithm could think it as a numerical feature, and use it to calculate distances between species :(</p>
 <p>The fix is to use so called One Hot Encoding.
 Here is the original data:</p>
@@ -1172,7 +1161,7 @@ Here is the original data:</p>
 </div>
 </div>
 <div class="section" id="one-hot-encoding-a-class-anchor-id-onehotencoding-a">
-<h2><span class="section-number">10.2. </span>One hot encoding  <a class="anchor" id="OneHotEncoding"></a><a class="headerlink" href="#one-hot-encoding-a-class-anchor-id-onehotencoding-a" title="Permalink to this headline">¶</a></h2>
+<h3><span class="section-number">3.8.2. </span>One hot encoding  <a class="anchor" id="OneHotEncoding"></a><a class="headerlink" href="#one-hot-encoding-a-class-anchor-id-onehotencoding-a" title="Permalink to this headline">¶</a></h3>
 <p>Now we can encode the species to number in a safe way:</p>
 <ol class="simple">
 <li><p>Make an encoder and transform the target variable to OneHot format</p></li>
@@ -1231,357 +1220,22 @@ Here is the original data:</p>
   </thead>
   <tbody>
     <tr>
-      <th>59</th>
-      <td>5.2</td>
-      <td>2.7</td>
-      <td>3.9</td>
-      <td>1.4</td>
-      <td>versicolor</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>106</th>
-      <td>4.9</td>
-      <td>2.5</td>
-      <td>4.5</td>
-      <td>1.7</td>
-      <td>virginica</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>91</th>
-      <td>6.1</td>
-      <td>3.0</td>
-      <td>4.6</td>
-      <td>1.4</td>
-      <td>versicolor</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>129</th>
-      <td>7.2</td>
-      <td>3.0</td>
-      <td>5.8</td>
-      <td>1.6</td>
-      <td>virginica</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>70</th>
-      <td>5.9</td>
-      <td>3.2</td>
-      <td>4.8</td>
-      <td>1.8</td>
-      <td>versicolor</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>75</th>
-      <td>6.6</td>
-      <td>3.0</td>
-      <td>4.4</td>
-      <td>1.4</td>
-      <td>versicolor</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>49</th>
-      <td>5.0</td>
-      <td>3.3</td>
-      <td>1.4</td>
-      <td>0.2</td>
-      <td>setosa</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>123</th>
-      <td>6.3</td>
-      <td>2.7</td>
-      <td>4.9</td>
-      <td>1.8</td>
-      <td>virginica</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>4.7</td>
-      <td>3.2</td>
-      <td>1.3</td>
-      <td>0.2</td>
-      <td>setosa</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>82</th>
-      <td>5.8</td>
-      <td>2.7</td>
-      <td>3.9</td>
-      <td>1.2</td>
-      <td>versicolor</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-</div>
-</div>
-<div class="section" id="id1">
-<h1><span class="section-number">11. </span>How to handle categorial features? <a class="anchor" id="categoricalF"></a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><p>Features can be</p>
-<ul>
-<li><p>Real values, like floating points or integers, which can be ordered</p></li>
-<li><p>Categorical features, which is an unordered set of identifiers for separate classes</p></li>
-<li><p>Because you cannot order the categorical features, they do not have distance metrics either</p></li>
-<li><p>Many methods rely on distances, and simply using numbers as categories only makes the operation of the predictor worse</p></li>
-<li><p>Some methods, like Naive Bayesian Classifier (NBC) can use directly categorical features</p></li>
-<li><p>For many others, it is best to use ns <span class="xref myst">One Hot Encoding</span>, where one binary feature is used to represent each category. Therefore a feature with N-categories will be replaced by a N-bit binary vector.</p></li>
-</ul>
-</li>
-</ul>
-<div class="section" id="id2">
-<h2><span class="section-number">11.1. </span>Example:<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p>Assume that the species of the Iris is in fact a categorical feature for some ML algorithm. If you would code them just simply like ‘setosa’ -&gt; 1, ‘versicolor’ -&gt;2 and ‘virginica’ -&gt; 3, the ML algorithm could think it as a numerical feature, and use it to calculate distances between species :(</p>
-<p>The fix is to use so called One Hot Encoding.
-Here is the original data:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="n">iris_dataset</span><span class="o">=</span><span class="n">datasets</span><span class="o">.</span><span class="n">load_iris</span><span class="p">()</span>
-<span class="n">iris</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">iris_dataset</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-<span class="n">iris</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="n">iris_dataset</span><span class="o">.</span><span class="n">feature_names</span>
-<span class="n">iris</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="n">iris_dataset</span><span class="o">.</span><span class="n">target_names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">iris_dataset</span><span class="o">.</span><span class="n">target</span><span class="p">]</span>
-<span class="n">iris</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>sepal length (cm)</th>
-      <th>sepal width (cm)</th>
-      <th>petal length (cm)</th>
-      <th>petal width (cm)</th>
-      <th>species</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
+      <th>46</th>
       <td>5.1</td>
-      <td>3.5</td>
-      <td>1.4</td>
+      <td>3.8</td>
+      <td>1.6</td>
       <td>0.2</td>
       <td>setosa</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>4.9</td>
-      <td>3.0</td>
-      <td>1.4</td>
-      <td>0.2</td>
-      <td>setosa</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>4.7</td>
-      <td>3.2</td>
-      <td>1.3</td>
-      <td>0.2</td>
-      <td>setosa</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>4.6</td>
-      <td>3.1</td>
-      <td>1.5</td>
-      <td>0.2</td>
-      <td>setosa</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>5.0</td>
-      <td>3.6</td>
-      <td>1.4</td>
-      <td>0.2</td>
-      <td>setosa</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-</div>
-<div class="section" id="id3">
-<h2><span class="section-number">11.2. </span>One hot encoding  <a class="anchor" id="OneHotEncoding"></a><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
-<p>Now we can encode the species to number in a safe way:</p>
-<ol class="simple">
-<li><p>Make an encoder and transform the target variable to OneHot format</p></li>
-<li><p>The categorial variable can be currently encoded as integers, strings or any objects OneHotEncoder reads it in the for nxp matrix, where n is number of samples and p is the number of features to be encoded.</p></li>
-<li><p>Originally target was such kind of numpy array, which do not have the second index at all. It has to be (unfortunately) converted to column vector, which is otherwise the same, but it has also the second axis, which has only one value, a nx1 array.</p></li>
-<li><p>This can be done by just simply adding a new dimension into the array, using np.newaxis constant or by using reshape function.</p></li>
-</ol>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OneHotEncoder</span>
-
-<span class="c1"># Change to One hot encoding</span>
-
-<span class="c1"># Add a new column for each species</span>
-<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">iris_dataset</span><span class="o">.</span><span class="n">target_names</span><span class="p">:</span>
-    <span class="n">iris</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
-    
-
-<span class="c1"># The result of the One hot encoding is a sparse matrix, which can be converted to numpy </span>
-<span class="c1"># array using toarray method:</span>
-<span class="n">enc</span><span class="o">=</span><span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">categories</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
-<span class="n">iris</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;setosa&#39;</span><span class="p">:</span><span class="s1">&#39;virginica&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">enc</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">iris_dataset</span><span class="o">.</span><span class="n">target</span><span class="p">[:,</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">])</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
-<span class="c1">#iris.loc[:,&#39;setosa&#39;:&#39;virginica&#39;]=enc.fit_transform(iris_dataset.target.reshape(150,1)).toarray()</span>
-<span class="n">iris</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>sepal length (cm)</th>
-      <th>sepal width (cm)</th>
-      <th>petal length (cm)</th>
-      <th>petal width (cm)</th>
-      <th>species</th>
-      <th>setosa</th>
-      <th>versicolor</th>
-      <th>virginica</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>16</th>
+      <th>84</th>
       <td>5.4</td>
-      <td>3.9</td>
-      <td>1.3</td>
-      <td>0.4</td>
-      <td>setosa</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>115</th>
-      <td>6.4</td>
-      <td>3.2</td>
-      <td>5.3</td>
-      <td>2.3</td>
-      <td>virginica</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>4.7</td>
-      <td>3.2</td>
-      <td>1.3</td>
-      <td>0.2</td>
-      <td>setosa</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>99</th>
-      <td>5.7</td>
-      <td>2.8</td>
-      <td>4.1</td>
-      <td>1.3</td>
-      <td>versicolor</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>68</th>
-      <td>6.2</td>
-      <td>2.2</td>
+      <td>3.0</td>
       <td>4.5</td>
       <td>1.5</td>
-      <td>versicolor</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>108</th>
-      <td>6.7</td>
-      <td>2.5</td>
-      <td>5.8</td>
-      <td>1.8</td>
-      <td>virginica</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>59</th>
-      <td>5.2</td>
-      <td>2.7</td>
-      <td>3.9</td>
-      <td>1.4</td>
       <td>versicolor</td>
       <td>0.0</td>
       <td>1.0</td>
@@ -1599,10 +1253,32 @@ Here is the original data:</p>
       <td>0.0</td>
     </tr>
     <tr>
-      <th>125</th>
-      <td>7.2</td>
+      <th>90</th>
+      <td>5.5</td>
+      <td>2.6</td>
+      <td>4.4</td>
+      <td>1.2</td>
+      <td>versicolor</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>110</th>
+      <td>6.5</td>
       <td>3.2</td>
-      <td>6.0</td>
+      <td>5.1</td>
+      <td>2.0</td>
+      <td>virginica</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>149</th>
+      <td>5.9</td>
+      <td>3.0</td>
+      <td>5.1</td>
       <td>1.8</td>
       <td>virginica</td>
       <td>0.0</td>
@@ -1610,19 +1286,53 @@ Here is the original data:</p>
       <td>1.0</td>
     </tr>
     <tr>
-      <th>143</th>
-      <td>6.8</td>
-      <td>3.2</td>
-      <td>5.9</td>
-      <td>2.3</td>
+      <th>94</th>
+      <td>5.6</td>
+      <td>2.7</td>
+      <td>4.2</td>
+      <td>1.3</td>
+      <td>versicolor</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>114</th>
+      <td>5.8</td>
+      <td>2.8</td>
+      <td>5.1</td>
+      <td>2.4</td>
       <td>virginica</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
     </tr>
+    <tr>
+      <th>4</th>
+      <td>5.0</td>
+      <td>3.6</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>87</th>
+      <td>6.3</td>
+      <td>2.3</td>
+      <td>4.4</td>
+      <td>1.3</td>
+      <td>versicolor</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
   </tbody>
 </table>
 </div></div></div>
+</div>
 </div>
 </div>
 </div>
@@ -1655,8 +1365,8 @@ Here is the original data:</p>
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="ReadingAndPlotting.html" title="previous page"><span class="section-number">5. </span>ICAT3190, Module 2, Reading and plotting</a>
-    <a class='right-next' id="next-link" href="Subspace_Projections.html" title="next page"><span class="section-number">12. </span>Dimensionality reduction by Subspace projections</a>
+    <a class='left-prev' id="prev-link" href="ReadingAndPlotting.html" title="previous page"><span class="section-number">2. </span>Reading and plotting</a>
+    <a class='right-next' id="next-link" href="Subspace_Projections.html" title="next page"><span class="section-number">4. </span>Dimensionality reduction by Subspace projections</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
