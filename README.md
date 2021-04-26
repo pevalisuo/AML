@@ -9,4 +9,5 @@ Lecture notes and excercises for seminar course ICAT3190 Applied Macine Learning
 or in [Binder](https://mybinder.org/v2/gh/pevalisuo/AML/master)
 
 
+
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/pevalisuo/AML/master)
