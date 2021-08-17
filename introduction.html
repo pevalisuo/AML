@@ -1,35 +1,49 @@
 
-
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>1. Introduction &#8212; Applied Machine Learning</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <link href="_static/css/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introduction &#8212; Applied Machine Learning, 2021</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/sphinx-book-theme.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/mystnb.js"></script>
-    <script src="_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -39,16 +53,14 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="2. Preprocessing and feature extraction" href="preprocessing.html" />
-    <link rel="prev" title="About the course" href="practicalities.html" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="docsearch:language" content="en">
-
-
-
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -57,65 +69,92 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="index.html">
-  
-  <img src="_static/logo.png" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">Applied Machine Learning</h1>
-  
-</a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      <img src="_static/ApplesAndOranges.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Applied Machine Learning, 2021</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="nav sidenav_l1">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="practicalities.html">
    About the course
   </a>
  </li>
 </ul>
-<ul class="current nav sidenav_l1">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction.html">
    1. Introduction
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="preprocessing.html">
-   2. Preprocessing and feature extraction
+  <a class="reference internal" href="ReadingAndPlotting.html">
+   2. Reading and plotting
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="reading_and_plotting.html">
-   3. Reading and plotting
+  <a class="reference internal" href="Preprocessing_and_feature_extraction.html">
+   3. Preprocessing and feature extraction
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="supervised.html">
-   4. Supervised machine learning
+  <a class="reference internal" href="Subspace_Projections.html">
+   4. Dimensionality reduction by Subspace projections
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="regression.html">
-   5. Regression
+  <a class="reference internal" href="Clustering.html">
+   5. Unsupervised learning
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="summary.html">
-   6. Summary
+  <a class="reference internal" href="SupervisedMachineLearningTerminology.html">
+   6. Supervised machine learning, Terminology
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NearestNeighbors.html">
+   7. Nearest Neighbours methods
+   <a class="anchor" id="nearestneighbours">
+   </a>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="SupportVectorMachine.html">
+   8. Support Vector Machine (SVM)
+   <a class="anchor" id="supportvectormachine">
+   </a>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="DecisionTrees.html">
+   9. Decision trees and forests
+   <a class="anchor" id="dtaforests">
+   </a>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Regression.html">
+   12. Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NeuralNetworks.html">
+   13. Artificial Neural Networks (ANN)
   </a>
  </li>
 </ul>
 
-</nav>
-
- <!-- To handle the deprecated key -->
+    </div>
+</nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
   Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
@@ -130,25 +169,25 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        <div class="dropdown-buttons-trigger">
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
-    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         
@@ -160,25 +199,32 @@
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
-    
 </div>
-        <!-- Source interaction buttons -->
 
+            <!-- Source interaction buttons -->
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+            <!-- Full screen (wrap in <a> to have style consistency -->
 
-        <!-- Launch buttons -->
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
+        <a class="binder-button" href="https://mybinder.org/v2/gh/pevalisuo/AML.git/master?urlpath=tree/book/introduction.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
         
-        <a class="jupyterhub-button" href="https://notebooks.csc.fi/#/blueprint/d1fe6e08032e4c17a0f9e0e222414598/hub/user-redirect/git-pull?repo=https://github.com/pevalisuo/AML.git&urlpath=tree/AML.git/book/introduction.ipynb"><button type="button"
+        
+        <a class="jupyterhub-button" href="https://notebooks.csc.fi/#/blueprint/d1fe6e08032e4c17a0f9e0e222414598/hub/user-redirect/git-pull?repo=https://github.com/pevalisuo/AML.git&urlpath=tree/AML.git/book/introduction.ipynb&branch=master"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="_static/images/logo_jupyterhub.svg"
@@ -189,84 +235,86 @@
     </div>
 </div>
 
-    </div>
-
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> On this page
         </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#artificial-intelligence-ai">
-   1.1. Artificial intelligence (AI)
+   Artificial intelligence (AI)
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#machine-learning-ml">
-   1.2. Machine Learning (ML)
+   Machine Learning (ML)
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#data-from-iot-networks">
-     1.2.1. Data from IoT networks
+     Data from IoT networks
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#big-data-sources">
-     1.2.2. Big data sources
+     Big data sources
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#how-to-turn-data-to-information">
-     1.2.3. How to turn data to information
+     How to turn data to information
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#before-machine-learning-actually-begins">
-     1.2.4. Before Machine Learning actually begins
+     Before Machine Learning actually begins
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#python">
-   1.3. Python
+   Python
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#python-in-currently-really-popular-in-ml">
-     1.3.1. Python in currently really popular in ML
+     Python in currently really popular in ML
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#installing-python">
-   1.4. Installing Python
+   Installing Python
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#note">
-     1.4.1. Note
+     Note
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#testing-python">
-   1.5. Testing Python
+   Testing Python
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#excercises">
-   1.6. Excercises
+   Excercises
   </a>
  </li>
 </ul>
 
-        </nav>
+            </nav>
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -275,9 +323,9 @@
               <div>
                 
   <div class="section" id="introduction">
-<h1><span class="section-number">1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="artificial-intelligence-ai">
-<h2><span class="section-number">1.1. </span>Artificial intelligence (AI)<a class="headerlink" href="#artificial-intelligence-ai" title="Permalink to this headline">¶</a></h2>
+<h2>Artificial intelligence (AI)<a class="headerlink" href="#artificial-intelligence-ai" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><em>Intelligence demonstrated by machines.</em></p></li>
 <li><p>Some interpretation is that the AI is the methods which are not just yet taken into use. Therefore they may a machine look like an intelligent being, when you don’t understand how it works.</p></li>
@@ -287,14 +335,14 @@
 <p>Humanized AI shows characteristics of all types of competencies (i.e., cognitive, emotional, and social intelligence), is able to be self-conscious and is self-aware in interactions.</p>
 </div>
 <div class="section" id="machine-learning-ml">
-<h2><span class="section-number">1.2. </span>Machine Learning (ML)<a class="headerlink" href="#machine-learning-ml" title="Permalink to this headline">¶</a></h2>
+<h2>Machine Learning (ML)<a class="headerlink" href="#machine-learning-ml" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>Machine learning is a subset of artificial intelligence in the field of computer science that often uses statistical techniques to give computers the ability to “learn” with data, without being explicitly programmed.
 <a class="reference external" href="https://en.wikipedia.org/wiki/Machine_learning">Wikipedia</a></p>
 </div></blockquote>
 <p>Human can learn by copying what the other humans do (learning from data) or they can directly learn the rules (e.g. learning math). Machine learning happens when a machine (e.g. computers) learns from data. Using the rules directly is programming.</p>
 <div class="section" id="data-from-iot-networks">
-<h3><span class="section-number">1.2.1. </span>Data from IoT networks<a class="headerlink" href="#data-from-iot-networks" title="Permalink to this headline">¶</a></h3>
+<h3>Data from IoT networks<a class="headerlink" href="#data-from-iot-networks" title="Permalink to this headline">¶</a></h3>
 <p>The decreasing size, cost and power consumption of micro-controllers have made
 it possible to make previously simple objects digital and smarter. For example
 room temperature thermostats, cameras, power and distribution grid components
@@ -305,7 +353,7 @@ turn have made it possible to store the data collected by the sensors distribute
 the IoT networks.</p>
 </div>
 <div class="section" id="big-data-sources">
-<h3><span class="section-number">1.2.2. </span>Big data sources<a class="headerlink" href="#big-data-sources" title="Permalink to this headline">¶</a></h3>
+<h3>Big data sources<a class="headerlink" href="#big-data-sources" title="Permalink to this headline">¶</a></h3>
 <p>The increasing amounts of data is more and
 more often also openly published in the Internet. Easy access to large data sets
 has attracted researchers and businesses to apply data driven research methods to
@@ -314,7 +362,7 @@ from large data sets. Success in these efforts in turn raises interests in colle
 even more data.</p>
 </div>
 <div class="section" id="how-to-turn-data-to-information">
-<h3><span class="section-number">1.2.3. </span>How to turn data to information<a class="headerlink" href="#how-to-turn-data-to-information" title="Permalink to this headline">¶</a></h3>
+<h3>How to turn data to information<a class="headerlink" href="#how-to-turn-data-to-information" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li><p>If you know the data, and know the rules, you can make a program to make decisions based on data.</p></li>
 <li><p>If you have data and you know the answers, you can let the computer to learn the rules</p></li>
@@ -323,22 +371,22 @@ even more data.</p>
 <img src="kuvat/MachineLearning.svg" alt="MachineLearningVsProgramming" width="800"/>
 </div>
 <div class="section" id="before-machine-learning-actually-begins">
-<h3><span class="section-number">1.2.4. </span>Before Machine Learning actually begins<a class="headerlink" href="#before-machine-learning-actually-begins" title="Permalink to this headline">¶</a></h3>
+<h3>Before Machine Learning actually begins<a class="headerlink" href="#before-machine-learning-actually-begins" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><p>According to the CrowdFlower Data Science report, data scientists spend the majority of their time  cleansing data — and surprisingly this is also their least favorite part of their job. <a class="reference external" href="https://www.datasciencecentral.com/profiles/blogs/artificial-intelligence-vs-machine-learning-vs-deep-learning">Artificial Intelligence vs. Machine Learning vs. Deep Learning</a></p>
 </div></blockquote>
 </div>
 </div>
 <div class="section" id="python">
-<h2><span class="section-number">1.3. </span>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h2>
+<h2>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Why python?&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Why python?&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Why python?
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Why python?
 </pre></div>
 </div>
 </div>
@@ -366,7 +414,7 @@ even more data.</p>
 <li><p>Emacs, VI, or any other editor can be used of course</p></li>
 </ul>
 <div class="section" id="python-in-currently-really-popular-in-ml">
-<h3><span class="section-number">1.3.1. </span>Python in currently really popular in ML<a class="headerlink" href="#python-in-currently-really-popular-in-ml" title="Permalink to this headline">¶</a></h3>
+<h3>Python in currently really popular in ML<a class="headerlink" href="#python-in-currently-really-popular-in-ml" title="Permalink to this headline">¶</a></h3>
 <img src="kuvat/machine-learning-data-science-programming-language.png" alt="MLLanguages" width="500"/>
 <p><a class="reference external" href="https://fossbytes.com/popular-top-programming-languages-machine-learning-data-science/">Fossbytes</a></p>
 <ul class="simple">
@@ -377,7 +425,7 @@ even more data.</p>
 </div>
 </div>
 <div class="section" id="installing-python">
-<h2><span class="section-number">1.4. </span>Installing Python<a class="headerlink" href="#installing-python" title="Permalink to this headline">¶</a></h2>
+<h2>Installing Python<a class="headerlink" href="#installing-python" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>In Linux, it is easy to install python. In ubuntu or debian just say</p>
 <ul>
@@ -394,7 +442,7 @@ even more data.</p>
 </li>
 </ul>
 <div class="section" id="note">
-<h3><span class="section-number">1.4.1. </span>Note<a class="headerlink" href="#note" title="Permalink to this headline">¶</a></h3>
+<h3>Note<a class="headerlink" href="#note" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Today is best to install Python3.</p></li>
 <li><p>You need functional Jupyter environment and Python3 kernel to make the excercises of this course.</p></li>
@@ -403,11 +451,11 @@ even more data.</p>
 </div>
 </div>
 <div class="section" id="testing-python">
-<h2><span class="section-number">1.5. </span>Testing Python<a class="headerlink" href="#testing-python" title="Permalink to this headline">¶</a></h2>
+<h2>Testing Python<a class="headerlink" href="#testing-python" title="Permalink to this headline">¶</a></h2>
 <p>Open an IPython console and try to test some programming</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lines starting with a Hash character, are comments, and they are not executed</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lines starting with a Hash character, are comments, and they are not executed</span>
 <span class="c1"># Note that this example is written in Jupyter Notebook, running Ipython-kernel.</span>
 
 <span class="c1"># The Hello World application in Python is really simple, you just call a print()- </span>
@@ -419,7 +467,7 @@ even more data.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Hello World!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello World!
 Hello Again
 </pre></div>
 </div>
@@ -427,7 +475,7 @@ Hello Again
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print statement can also include C-like formatting strings to print numbers </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print statement can also include C-like formatting strings to print numbers </span>
 <span class="c1"># For loops are used to iterate over lists or other iterable objects.</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
@@ -436,7 +484,7 @@ Hello Again
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Round 0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Round 0
 Round 1
 Round 2
 </pre></div>
@@ -445,7 +493,7 @@ Round 2
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Functions are defined using a def-keyword</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Functions are defined using a def-keyword</span>
 <span class="k">def</span> <span class="nf">sumNumbers</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Very naive implementation of a function, which calculates </span>
@@ -468,7 +516,7 @@ Round 2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Sum of numbers from 1..5 is 15
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sum of numbers from 1..5 is 15
 
 Help on function sumNumbers in module __main__:
 
@@ -478,7 +526,6 @@ sumNumbers(n)
     
     Example:
       x = sumNumbers(5)
-
 </pre></div>
 </div>
 </div>
@@ -490,7 +537,7 @@ sumNumbers(n)
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## Using libraries </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Using libraries </span>
 
 <span class="c1"># Import numpy, which includes similar functions than MATLAB</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -511,8 +558,7 @@ sumNumbers(n)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># Then we plot the calculated sinusoid against the time axis, activate grid and </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Then we plot the calculated sinusoid against the time axis, activate grid and </span>
 <span class="c1"># give names for X and Y axis</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
@@ -522,7 +568,7 @@ sumNumbers(n)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Amplitude&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Amplitude&#39;)
 </pre></div>
 </div>
 <img alt="_images/introduction_17_1.png" src="_images/introduction_17_1.png" />
@@ -530,7 +576,7 @@ sumNumbers(n)
 </div>
 </div>
 <div class="section" id="excercises">
-<h2><span class="section-number">1.6. </span>Excercises<a class="headerlink" href="#excercises" title="Permalink to this headline">¶</a></h2>
+<h2>Excercises<a class="headerlink" href="#excercises" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>Download Notebook 1, make the excercises and submit your finished notebook to Moodle within one week.</p></li>
 <li><p>If facing problems, submit questions in Moodle discussion area for current week. You can also try general chat group for Moodle.</p></li>
@@ -561,15 +607,13 @@ sumNumbers(n)
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="practicalities.html" title="previous page">About the course</a>
-    <a class='right-next' id="next-link" href="preprocessing.html" title="next page"><span class="section-number">2. </span>Preprocessing and feature extraction</a>
+        <div class='prev-next-bottom'>
+            
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -577,7 +621,7 @@ sumNumbers(n)
         
           By Petri Välisuo<br/>
         
-            &copy; Copyright 2020.<br/>
+            &copy; Copyright 2021.<br/>
       </p>
     </div>
   </footer>
@@ -586,8 +630,9 @@ sumNumbers(n)
 
       </div>
     </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    <script src="_static/js/index.js"></script>
-    
+  
   </body>
 </html>

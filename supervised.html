@@ -1,35 +1,49 @@
 
-
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>4. Supervised machine learning &#8212; Applied Machine Learning</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <link href="_static/css/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Supervised machine learning &#8212; Applied Machine Learning, 2021</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/sphinx-book-theme.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/mystnb.js"></script>
-    <script src="_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -37,18 +51,18 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="5. Regression" href="regression.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="unsupervised.html" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="docsearch:language" content="en">
-
-
-
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -57,65 +71,92 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="index.html">
-  
-  <img src="_static/logo.png" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">Applied Machine Learning</h1>
-  
-</a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      <img src="_static/ApplesAndOranges.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Applied Machine Learning, 2021</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="nav sidenav_l1">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="practicalities.html">
    About the course
   </a>
  </li>
 </ul>
-<ul class="current nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="introduction.html">
+  <a class="reference internal" href="Introduction.html">
    1. Introduction
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="preprocessing.html">
-   2. Preprocessing and feature extraction
+  <a class="reference internal" href="ReadingAndPlotting.html">
+   2. Reading and plotting
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="reading_and_plotting.html">
-   3. Reading and plotting
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   4. Supervised machine learning
+  <a class="reference internal" href="Preprocessing_and_feature_extraction.html">
+   3. Preprocessing and feature extraction
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="regression.html">
-   5. Regression
+  <a class="reference internal" href="Subspace_Projections.html">
+   4. Dimensionality reduction by Subspace projections
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="summary.html">
-   6. Summary
+  <a class="reference internal" href="Clustering.html">
+   5. Unsupervised learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="SupervisedMachineLearningTerminology.html">
+   6. Supervised machine learning, Terminology
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NearestNeighbors.html">
+   7. Nearest Neighbours methods
+   <a class="anchor" id="nearestneighbours">
+   </a>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="SupportVectorMachine.html">
+   8. Support Vector Machine (SVM)
+   <a class="anchor" id="supportvectormachine">
+   </a>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="DecisionTrees.html">
+   9. Decision trees and forests
+   <a class="anchor" id="dtaforests">
+   </a>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Regression.html">
+   12. Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NeuralNetworks.html">
+   13. Artificial Neural Networks (ANN)
   </a>
  </li>
 </ul>
 
-</nav>
-
- <!-- To handle the deprecated key -->
+    </div>
+</nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
   Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
@@ -130,25 +171,25 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        <div class="dropdown-buttons-trigger">
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
-    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         
@@ -160,25 +201,32 @@
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
-    
 </div>
-        <!-- Source interaction buttons -->
 
+            <!-- Source interaction buttons -->
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+            <!-- Full screen (wrap in <a> to have style consistency -->
 
-        <!-- Launch buttons -->
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
+        <a class="binder-button" href="https://mybinder.org/v2/gh/pevalisuo/AML.git/master?urlpath=tree/book/supervised.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
         
-        <a class="jupyterhub-button" href="https://notebooks.csc.fi/#/blueprint/d1fe6e08032e4c17a0f9e0e222414598/hub/user-redirect/git-pull?repo=https://github.com/pevalisuo/AML.git&urlpath=tree/AML.git/book/supervised.ipynb"><button type="button"
+        
+        <a class="jupyterhub-button" href="https://notebooks.csc.fi/#/blueprint/d1fe6e08032e4c17a0f9e0e222414598/hub/user-redirect/git-pull?repo=https://github.com/pevalisuo/AML.git&urlpath=tree/AML.git/book/supervised.ipynb&branch=master"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="_static/images/logo_jupyterhub.svg"
@@ -189,37 +237,38 @@
     </div>
 </div>
 
-    </div>
-
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> On this page
         </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#machine-learning-a-class-anchor-id-ml-a">
-   4.1. Machine learning
+   Machine learning
    <a class="anchor" id="ML">
    </a>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-target-of-supervised-machine-learning">
-   4.2. The target of supervised machine learning
+   The target of supervised machine learning
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#training-validation-and-testing-a-class-anchor-id-traintestvalidate-a">
-   4.3. Training, Validation and Testing
+   Training, Validation and Testing
    <a class="anchor" id="TrainTestValidate">
    </a>
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#cross-validation-a-class-anchor-id-crossvalidation-a">
-     4.3.1. Cross Validation
+     Cross Validation
      <a class="anchor" id="crossvalidation">
      </a>
     </a>
@@ -228,36 +277,36 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#distance-metrics-a-class-anchor-id-distance-a">
-   4.4. Distance metrics
+   Distance metrics
    <a class="anchor" id="distance">
    </a>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#scaling">
-   4.5. Scaling
+   Scaling
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#then-scale-it-first">
-     4.5.1. Then scale it first
+     Then scale it first
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#categorial-features">
-   4.6. Categorial features?
+   Categorial features?
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#example">
-     4.6.1. Example:
+     Example:
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#one-hot-encoding-a-class-anchor-id-onehotencoding-a">
-     4.6.2. One hot encoding
+     One hot encoding
      <a class="anchor" id="OneHotEncoding">
      </a>
     </a>
@@ -266,128 +315,128 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#nearest-neighbours-methods-a-class-anchor-id-nearestneighbours-a">
-   4.7. Nearest Neighbours methods
+   Nearest Neighbours methods
    <a class="anchor" id="nearestneighbours">
    </a>
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#brute-force-implementation">
-     4.7.1. Brute force implementation
+     Brute force implementation
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#pipelining">
-     4.7.2. Pipelining
+     Pipelining
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#visualization-of-the-decision-boundaries">
-   4.8. Visualization of the decision boundaries
+   Visualization of the decision boundaries
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#variations">
-     4.8.1. Variations
+     Variations
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#nearest-centroid-classifier">
-   4.9. Nearest Centroid Classifier
+   Nearest Centroid Classifier
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#support-vector-machine-svm-a-class-anchor-id-supportvectormachine-a">
-   4.10. Support Vector Machine (SVM)
+   Support Vector Machine (SVM)
    <a class="anchor" id="supportvectormachine">
    </a>
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#decision-boundary">
-     4.10.1. Decision boundary
+     Decision boundary
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#kernel-svm-a-class-anchor-id-kernelsvm-a">
-   4.11. Kernel SVM
+   Kernel SVM
    <a class="anchor" id="kernelsvm">
    </a>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#non-linear-classes">
-   4.12. Non-linear classes
+   Non-linear classes
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#illustration-of-rbf">
-     4.12.1. Illustration of RBF
+     Illustration of RBF
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#testing-rbf-in-circular-data">
-     4.12.2. Testing RBF in circular data
+     Testing RBF in circular data
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#decision-trees-and-forests-a-class-anchor-id-dtaforests-a">
-   4.13. Decision trees and forests
+   Decision trees and forests
    <a class="anchor" id="dtaforests">
    </a>
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#decision-tree-a-class-anchor-id-decisiontrees-a">
-     4.13.1. Decision tree
+     Decision tree
      <a class="anchor" id="decisiontrees">
      </a>
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#optimize-the-tree-depth">
-     4.13.2. Optimize the tree depth
+     Optimize the tree depth
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#ensemble-methods-a-class-anchor-id-ensemblemethods-a">
-   4.14. Ensemble methods
+   Ensemble methods
    <a class="anchor" id="ensemblemethods">
    </a>
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#bagging-a-class-anchor-id-bagging-a">
-     4.14.1. Bagging
+     Bagging
      <a class="anchor" id="Bagging">
      </a>
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#randomized-trees-a-class-anchor-id-randomizedtrees-a">
-       4.14.1.1. Randomized trees
+       Randomized trees
        <a class="anchor" id="RandomizedTrees">
        </a>
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#extratrees-classifier-extremely-randomized-trees">
-       4.14.1.2. Extratrees classifier (Extremely randomized trees)
+       Extratrees classifier (Extremely randomized trees)
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#optimising-the-parameters-fo-the-extratrees-classifier">
-       4.14.1.3. Optimising the parameters fo the Extratrees classifier
+       Optimising the parameters fo the Extratrees classifier
       </a>
      </li>
     </ul>
@@ -396,28 +445,28 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#boosting-a-class-anchor-id-boosting-a">
-   4.15. Boosting
+   Boosting
    <a class="anchor" id="Boosting">
    </a>
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#adaboost-a-class-anchor-id-adaboost-a">
-     4.15.1. Adaboost
+     Adaboost
      <a class="anchor" id="AdaBoost">
      </a>
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#gradient-tree-boosting-a-class-anchor-id-gbrt-a">
-     4.15.2. Gradient Tree Boosting
+     Gradient Tree Boosting
      <a class="anchor" id="GBRT">
      </a>
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#extreme-gradient-boosting-xgboost-a-class-anchor-id-xgboost-a">
-     4.15.3. Extreme Gradient Boosting (XGBoost)
+     Extreme Gradient Boosting (XGBoost)
      <a class="anchor" id="XGBoost">
      </a>
     </a>
@@ -426,17 +475,18 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#summary">
-   4.16. Summary
+   Summary
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#references">
-   4.17. References
+   References
   </a>
  </li>
 </ul>
 
-        </nav>
+            </nav>
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -445,9 +495,9 @@
               <div>
                 
   <div class="section" id="supervised-machine-learning">
-<h1><span class="section-number">4. </span>Supervised machine learning<a class="headerlink" href="#supervised-machine-learning" title="Permalink to this headline">¶</a></h1>
+<h1>Supervised machine learning<a class="headerlink" href="#supervised-machine-learning" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="machine-learning-a-class-anchor-id-ml-a">
-<h2><span class="section-number">4.1. </span>Machine learning <a class="anchor" id="ML"></a><a class="headerlink" href="#machine-learning-a-class-anchor-id-ml-a" title="Permalink to this headline">¶</a></h2>
+<h2>Machine learning <a class="anchor" id="ML"></a><a class="headerlink" href="#machine-learning-a-class-anchor-id-ml-a" title="Permalink to this headline">¶</a></h2>
 <p><img alt="featureextraction_p.svg" src="_images/featureextraction_p.svg" /></p>
 <ul class="simple">
 <li><p>The purpose of the supervised machine learning is the teach an algorithm to repeat the work done by a reference method</p></li>
@@ -456,7 +506,7 @@
 </ul>
 </div>
 <div class="section" id="the-target-of-supervised-machine-learning">
-<h2><span class="section-number">4.2. </span>The target of supervised machine learning<a class="headerlink" href="#the-target-of-supervised-machine-learning" title="Permalink to this headline">¶</a></h2>
+<h2>The target of supervised machine learning<a class="headerlink" href="#the-target-of-supervised-machine-learning" title="Permalink to this headline">¶</a></h2>
 <p>Task is to find a function <span class="math notranslate nohighlight">\(f\)</span>, which predicts variable <span class="math notranslate nohighlight">\(y_i\)</span> based on <span class="math notranslate nohighlight">\(p\)</span> features <span class="math notranslate nohighlight">\(x_{i,j}\)</span>, where <span class="math notranslate nohighlight">\(i \in [0,N]\)</span> and <span class="math notranslate nohighlight">\(j \in [0,P]\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -476,7 +526,7 @@
 \end{split}\]</div>
 </div>
 <div class="section" id="training-validation-and-testing-a-class-anchor-id-traintestvalidate-a">
-<h2><span class="section-number">4.3. </span>Training, Validation and Testing <a class="anchor" id="TrainTestValidate"></a><a class="headerlink" href="#training-validation-and-testing-a-class-anchor-id-traintestvalidate-a" title="Permalink to this headline">¶</a></h2>
+<h2>Training, Validation and Testing <a class="anchor" id="TrainTestValidate"></a><a class="headerlink" href="#training-validation-and-testing-a-class-anchor-id-traintestvalidate-a" title="Permalink to this headline">¶</a></h2>
 <p>Building predictive models requires following stages</p>
 <ol class="simple">
 <li><p>Model building (training)</p></li>
@@ -490,7 +540,7 @@
 </ol>
 <p>Each stage requires data. The original data can be split in three different sets, one for each stage, but high quality labeled data is usually scarce resource, and in that cases slightly smarter method of using the data is needed.</p>
 <div class="section" id="cross-validation-a-class-anchor-id-crossvalidation-a">
-<h3><span class="section-number">4.3.1. </span>Cross Validation <a class="anchor" id="crossvalidation"></a><a class="headerlink" href="#cross-validation-a-class-anchor-id-crossvalidation-a" title="Permalink to this headline">¶</a></h3>
+<h3>Cross Validation <a class="anchor" id="crossvalidation"></a><a class="headerlink" href="#cross-validation-a-class-anchor-id-crossvalidation-a" title="Permalink to this headline">¶</a></h3>
 <p><img alt="crossvalidation.svg" src="_images/crossvalidation.png" /></p>
 <ul class="simple">
 <li><p>Cross validation is an important technique to utilize the data more efficiently for all supervised training purposes</p></li>
@@ -502,7 +552,7 @@
 </div>
 </div>
 <div class="section" id="distance-metrics-a-class-anchor-id-distance-a">
-<h2><span class="section-number">4.4. </span>Distance metrics <a class="anchor" id="distance"></a><a class="headerlink" href="#distance-metrics-a-class-anchor-id-distance-a" title="Permalink to this headline">¶</a></h2>
+<h2>Distance metrics <a class="anchor" id="distance"></a><a class="headerlink" href="#distance-metrics-a-class-anchor-id-distance-a" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Clustering, classification and regression assume that samples near each other, at close proximity, are more similar with each other than those which are farther away.</p></li>
 </ul>
@@ -516,7 +566,7 @@
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import standard stuff, plus material from Scikit Learn</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import standard stuff, plus material from Scikit Learn</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
@@ -527,7 +577,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a synthetic data set and plot it</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a synthetic data set and plot it</span>
 <span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">datasets</span><span class="o">.</span><span class="n">make_blobs</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Feature 1&#39;</span><span class="p">)</span>
@@ -536,7 +586,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Feature 2&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Feature 2&#39;)
 </pre></div>
 </div>
 <img alt="_images/supervised_7_1.png" src="_images/supervised_7_1.png" />
@@ -544,11 +594,11 @@
 </div>
 </div>
 <div class="section" id="scaling">
-<h2><span class="section-number">4.5. </span>Scaling<a class="headerlink" href="#scaling" title="Permalink to this headline">¶</a></h2>
+<h2>Scaling<a class="headerlink" href="#scaling" title="Permalink to this headline">¶</a></h2>
 <p>What if the scaling is different?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a synthetic data set and plot it</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a synthetic data set and plot it</span>
 <span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">datasets</span><span class="o">.</span><span class="n">make_blobs</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">X2</span><span class="o">=</span> <span class="n">X</span><span class="o">*</span><span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">y2</span><span class="o">=</span><span class="n">y</span>
@@ -559,7 +609,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Feature 2&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Feature 2&#39;)
 </pre></div>
 </div>
 <img alt="_images/supervised_9_1.png" src="_images/supervised_9_1.png" />
@@ -567,15 +617,14 @@
 </div>
 <p>The problem is that the distances are dominated by feature1 and feature 2 is not significant, even though intuitively it seems to be very important for classification.</p>
 <div class="section" id="then-scale-it-first">
-<h3><span class="section-number">4.5.1. </span>Then scale it first<a class="headerlink" href="#then-scale-it-first" title="Permalink to this headline">¶</a></h3>
+<h3>Then scale it first<a class="headerlink" href="#then-scale-it-first" title="Permalink to this headline">¶</a></h3>
 <p>To elimninate the distortion due to scaling, normalise the varibles first. Usullay they are normalized so that the means and standard deviations are are the same. Usually <span class="math notranslate nohighlight">\(\bar{x}=0\)</span>¸ and <span class="math notranslate nohighlight">\(\sigma_x =1\)</span>.</p>
-<div class="math notranslate nohighlight">
-\[x=\frac{x-\bar{x}}{\sigma_x}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\bar{x}\)</span> is the mean value of x.</p>
+<p>$<span class="math notranslate nohighlight">\(x=\frac{x-\bar{x}}{\sigma_x}\)</span><span class="math notranslate nohighlight">\(,
+ where \)</span>\bar{x}$ is the mean value of x.</p>
 <p>Scikit Learn includes StandardScaler() object for standardisation of features:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
 <span class="n">scaler</span><span class="o">=</span><span class="n">StandardScaler</span><span class="p">()</span>
 <span class="n">scaler</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X2</span><span class="p">)</span>
 <span class="n">X2s</span><span class="o">=</span><span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X2</span><span class="p">)</span>
@@ -586,7 +635,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Feature 2&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Feature 2&#39;)
 </pre></div>
 </div>
 <img alt="_images/supervised_12_1.png" src="_images/supervised_12_1.png" />
@@ -597,7 +646,7 @@
 </div>
 </div>
 <div class="section" id="categorial-features">
-<h2><span class="section-number">4.6. </span>Categorial features?<a class="headerlink" href="#categorial-features" title="Permalink to this headline">¶</a></h2>
+<h2>Categorial features?<a class="headerlink" href="#categorial-features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Features can be</p>
 <ul>
@@ -611,13 +660,13 @@
 </li>
 </ul>
 <div class="section" id="example">
-<h3><span class="section-number">4.6.1. </span>Example:<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<h3>Example:<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
 <p>Assume that the species of the Iris is in fact a categorical feature for some ML algorithm. If you would code them just simply like ‘setosa’ -&gt; 1, ‘versicolor’ -&gt;2 and ‘virginica’ -&gt; 3, the ML algorithm could think it as a numerical feature, and use it to calculate distances between species :(</p>
 <p>The fix is to use so called One Hot Encoding.
 Here is the original data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
@@ -702,7 +751,7 @@ Here is the original data:</p>
 </div>
 </div>
 <div class="section" id="one-hot-encoding-a-class-anchor-id-onehotencoding-a">
-<h3><span class="section-number">4.6.2. </span>One hot encoding  <a class="anchor" id="OneHotEncoding"></a><a class="headerlink" href="#one-hot-encoding-a-class-anchor-id-onehotencoding-a" title="Permalink to this headline">¶</a></h3>
+<h3>One hot encoding  <a class="anchor" id="OneHotEncoding"></a><a class="headerlink" href="#one-hot-encoding-a-class-anchor-id-onehotencoding-a" title="Permalink to this headline">¶</a></h3>
 <p>Now we can encode the species to number in a safe way:</p>
 <ol class="simple">
 <li><p>Make an encoder and transform the target variable to OneHot format</p></li>
@@ -712,7 +761,7 @@ Here is the original data:</p>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OneHotEncoder</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OneHotEncoder</span>
 
 <span class="c1"># Change to One hot encoding</span>
 
@@ -761,15 +810,15 @@ Here is the original data:</p>
   </thead>
   <tbody>
     <tr>
-      <th>13</th>
-      <td>4.3</td>
-      <td>3.0</td>
-      <td>1.1</td>
-      <td>0.1</td>
-      <td>setosa</td>
+      <th>106</th>
+      <td>4.9</td>
+      <td>2.5</td>
+      <td>4.5</td>
+      <td>1.7</td>
+      <td>virginica</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
     </tr>
     <tr>
       <th>37</th>
@@ -783,21 +832,32 @@ Here is the original data:</p>
       <td>0.0</td>
     </tr>
     <tr>
-      <th>9</th>
+      <th>53</th>
+      <td>5.5</td>
+      <td>2.3</td>
+      <td>4.0</td>
+      <td>1.3</td>
+      <td>versicolor</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>107</th>
+      <td>7.3</td>
+      <td>2.9</td>
+      <td>6.3</td>
+      <td>1.8</td>
+      <td>virginica</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>34</th>
       <td>4.9</td>
       <td>3.1</td>
       <td>1.5</td>
-      <td>0.1</td>
-      <td>setosa</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>33</th>
-      <td>5.5</td>
-      <td>4.2</td>
-      <td>1.4</td>
       <td>0.2</td>
       <td>setosa</td>
       <td>1.0</td>
@@ -805,70 +865,59 @@ Here is the original data:</p>
       <td>0.0</td>
     </tr>
     <tr>
-      <th>86</th>
+      <th>140</th>
       <td>6.7</td>
       <td>3.1</td>
-      <td>4.7</td>
-      <td>1.5</td>
-      <td>versicolor</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>142</th>
-      <td>5.8</td>
-      <td>2.7</td>
-      <td>5.1</td>
-      <td>1.9</td>
-      <td>virginica</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>91</th>
-      <td>6.1</td>
-      <td>3.0</td>
-      <td>4.6</td>
-      <td>1.4</td>
-      <td>versicolor</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>128</th>
-      <td>6.4</td>
-      <td>2.8</td>
       <td>5.6</td>
-      <td>2.1</td>
+      <td>2.4</td>
       <td>virginica</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
     </tr>
     <tr>
-      <th>23</th>
-      <td>5.1</td>
-      <td>3.3</td>
-      <td>1.7</td>
-      <td>0.5</td>
+      <th>41</th>
+      <td>4.5</td>
+      <td>2.3</td>
+      <td>1.3</td>
+      <td>0.3</td>
       <td>setosa</td>
       <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
     </tr>
     <tr>
-      <th>47</th>
-      <td>4.6</td>
-      <td>3.2</td>
+      <th>40</th>
+      <td>5.0</td>
+      <td>3.5</td>
+      <td>1.3</td>
+      <td>0.3</td>
+      <td>setosa</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>4.4</td>
+      <td>2.9</td>
       <td>1.4</td>
       <td>0.2</td>
       <td>setosa</td>
       <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
+    </tr>
+    <tr>
+      <th>119</th>
+      <td>6.0</td>
+      <td>2.2</td>
+      <td>5.0</td>
+      <td>1.5</td>
+      <td>virginica</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
     </tr>
   </tbody>
 </table>
@@ -877,10 +926,10 @@ Here is the original data:</p>
 </div>
 </div>
 <div class="section" id="nearest-neighbours-methods-a-class-anchor-id-nearestneighbours-a">
-<h2><span class="section-number">4.7. </span>Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a><a class="headerlink" href="#nearest-neighbours-methods-a-class-anchor-id-nearestneighbours-a" title="Permalink to this headline">¶</a></h2>
+<h2>Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a><a class="headerlink" href="#nearest-neighbours-methods-a-class-anchor-id-nearestneighbours-a" title="Permalink to this headline">¶</a></h2>
 <p>Nearest Neighbour methods provide some very staightforward methods for supervised machine learning</p>
 <div class="section" id="brute-force-implementation">
-<h3><span class="section-number">4.7.1. </span>Brute force implementation<a class="headerlink" href="#brute-force-implementation" title="Permalink to this headline">¶</a></h3>
+<h3>Brute force implementation<a class="headerlink" href="#brute-force-implementation" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li><p>Set the number of nearest neighbours, <span class="math notranslate nohighlight">\(K\)</span></p></li>
 <li><p>To predict one new sample, calculate its distance to all known training samples</p></li>
@@ -899,7 +948,7 @@ Here is the original data:</p>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">neighbors</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">neighbors</span>
 <span class="n">n_neighbors</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">knn</span><span class="o">=</span><span class="n">neighbors</span><span class="o">.</span><span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="p">)</span>
 <span class="n">knn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
@@ -908,7 +957,7 @@ Here is the original data:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([1, 0, 1, 0, 0, 0, 2, 2, 1, 0, 0, 0, 1, 0, 2, 1, 2, 0, 2, 2, 2, 2,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 0, 1, 0, 0, 0, 2, 2, 1, 0, 0, 0, 1, 0, 2, 1, 2, 0, 2, 2, 2, 2,
        2, 0, 1, 1, 1, 1, 2, 2, 0, 1, 1, 0, 2, 0, 0, 1, 1, 2, 2, 1, 1, 0,
        0, 0, 1, 1, 2, 2, 0, 1, 0, 1, 2, 2, 1, 1, 0, 1, 1, 2, 2, 2, 2, 1,
        0, 2, 1, 0, 2, 1, 2, 1, 1, 1, 0, 0, 2, 1, 0, 0, 1, 0, 1, 0, 0, 0,
@@ -919,24 +968,24 @@ Here is the original data:</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sklearn.metrics</span> <span class="k">as</span> <span class="nn">metrics</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sklearn.metrics</span> <span class="k">as</span> <span class="nn">metrics</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">metrics</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_true</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="o">=</span><span class="n">knn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The accuracy of KNN in the original data is..... </span><span class="si">%4.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_true</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="o">=</span><span class="n">knn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)))</span>
 
 
 <span class="n">knn2</span><span class="o">=</span><span class="n">neighbors</span><span class="o">.</span><span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="p">)</span>
 <span class="n">knn2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X2s</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The accuracy of KNN in the scaled data is....... </span><span class="si">%4.2f</span><span class="s2">&quot;</span> <span class="o">%</span><span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_true</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="o">=</span><span class="n">knn2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X2s</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The accuracy of KNN in the scaled data is....... </span><span class="si">%4.2f</span><span class="s2">&quot;</span> <span class="o">%</span><span class="k">metrics</span>.accuracy_score(y_true=y, y_pred=knn2.predict(X2s)))
 
 
 <span class="n">knn3</span><span class="o">=</span><span class="n">neighbors</span><span class="o">.</span><span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="p">)</span>
 <span class="n">knn3</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X2</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The accuracy of KNN for badly scaled data is.... </span><span class="si">%4.2f</span><span class="s2">&quot;</span> <span class="o">%</span><span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_true</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="o">=</span><span class="n">knn3</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X2</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The accuracy of KNN for badly scaled data is.... </span><span class="si">%4.2f</span><span class="s2">&quot;</span> <span class="o">%</span><span class="k">metrics</span>.accuracy_score(y_true=y, y_pred=knn3.predict(X2)))
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[[31  2  1]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[31  2  1]
  [ 0 33  0]
  [ 2  0 31]]
 The accuracy of KNN in the original data is..... 0.95
@@ -948,12 +997,12 @@ The accuracy of KNN for badly scaled data is.... 0.75
 </div>
 </div>
 <div class="section" id="pipelining">
-<h3><span class="section-number">4.7.2. </span>Pipelining<a class="headerlink" href="#pipelining" title="Permalink to this headline">¶</a></h3>
+<h3>Pipelining<a class="headerlink" href="#pipelining" title="Permalink to this headline">¶</a></h3>
 <p>In Scikit Learn, all methods are build using the same interface. This makes it easier to build larger machine learning systems by combining different stages together as pipelines.</p>
 <p>For example, the scaling of features, dimensionality reduction, and sclassification can be combined as a single pipeline. This is especially usefull, when several datasets (validation data, testing data, production data, etc) needs to be fed through the same stages.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
 <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">9</span>
 <span class="n">pipeline</span><span class="o">=</span><span class="n">Pipeline</span><span class="p">([</span>
         <span class="p">(</span><span class="s1">&#39;Scaling&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>
@@ -968,7 +1017,7 @@ The accuracy of KNN for badly scaled data is.... 0.75
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[[29  3  2]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[29  3  2]
  [ 1 32  0]
  [ 2  0 31]]
 0.92
@@ -979,10 +1028,10 @@ The accuracy of KNN for badly scaled data is.... 0.75
 </div>
 </div>
 <div class="section" id="visualization-of-the-decision-boundaries">
-<h2><span class="section-number">4.8. </span>Visualization of the decision boundaries<a class="headerlink" href="#visualization-of-the-decision-boundaries" title="Permalink to this headline">¶</a></h2>
+<h2>Visualization of the decision boundaries<a class="headerlink" href="#visualization-of-the-decision-boundaries" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">ListedColormap</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">ListedColormap</span>
 <span class="k">def</span> <span class="nf">plotDB</span><span class="p">(</span><span class="n">predictor</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Plots the Decision Boundary</span>
 <span class="sd">        pipe = classification pipeline</span>
@@ -1029,16 +1078,20 @@ The accuracy of KNN for badly scaled data is.... 0.75
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plotDB</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotDB</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/supervised_25_0.png" src="_images/supervised_25_0.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_11490/3110683384.py:25: MatplotlibDeprecationWarning: shading=&#39;flat&#39; when X and Y have the same dimensions as C is deprecated since 3.3.  Either specify the corners of the quadrilaterals with X and Y, or pass shading=&#39;auto&#39;, &#39;nearest&#39; or &#39;gouraud&#39;, or set rcParams[&#39;pcolor.shading&#39;].  This will become an error two minor releases later.
+  plt.pcolormesh(xx, yy, Z, cmap=cmap_light)
+</pre></div>
+</div>
+<img alt="_images/supervised_25_1.png" src="_images/supervised_25_1.png" />
 </div>
 </div>
 <div class="section" id="variations">
-<h3><span class="section-number">4.8.1. </span>Variations<a class="headerlink" href="#variations" title="Permalink to this headline">¶</a></h3>
+<h3>Variations<a class="headerlink" href="#variations" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Nearest Centroid classifier</p>
 <ul>
@@ -1056,11 +1109,11 @@ The accuracy of KNN for badly scaled data is.... 0.75
 </div>
 </div>
 <div class="section" id="nearest-centroid-classifier">
-<h2><span class="section-number">4.9. </span>Nearest Centroid Classifier<a class="headerlink" href="#nearest-centroid-classifier" title="Permalink to this headline">¶</a></h2>
+<h2>Nearest Centroid Classifier<a class="headerlink" href="#nearest-centroid-classifier" title="Permalink to this headline">¶</a></h2>
 <p>Nearest centroid classifier does not need to store all training data, thats why it is also faster to predict.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neighbors.nearest_centroid</span> <span class="kn">import</span> <span class="n">NearestCentroid</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neighbors.nearest_centroid</span> <span class="kn">import</span> <span class="n">NearestCentroid</span>
 <span class="n">pipelineCentroid</span><span class="o">=</span><span class="n">Pipeline</span><span class="p">([</span>
         <span class="p">(</span><span class="s1">&#39;Scaling&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>
         <span class="p">(</span><span class="s1">&#39;KNN&#39;</span><span class="p">,</span> <span class="n">NearestCentroid</span><span class="p">())</span>
@@ -1073,20 +1126,23 @@ The accuracy of KNN for badly scaled data is.... 0.75
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="stderr docutils container">
-<pre class="stderr literal-block">/home/petri/.conda/envs/Test/lib/python3.7/site-packages/sklearn/utils/deprecation.py:144: FutureWarning: The sklearn.neighbors.nearest_centroid module is  deprecated in version 0.22 and will be removed in version 0.24. The corresponding classes / functions should instead be imported from sklearn.neighbors. Anything that cannot be imported from sklearn.neighbors is now part of the private API.
-  warnings.warn(message, FutureWarning)
-</pre>
-</div>
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>0.91
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_11490</span><span class="o">/</span><span class="mf">2405771635.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">sklearn.neighbors.nearest_centroid</span> <span class="kn">import</span> <span class="n">NearestCentroid</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">pipelineCentroid</span><span class="o">=</span><span class="n">Pipeline</span><span class="p">([</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>         <span class="p">(</span><span class="s1">&#39;Scaling&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>         <span class="p">(</span><span class="s1">&#39;KNN&#39;</span><span class="p">,</span> <span class="n">NearestCentroid</span><span class="p">())</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="p">])</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;sklearn.neighbors.nearest_centroid&#39;
 </pre></div>
 </div>
-<img alt="_images/supervised_28_2.png" src="_images/supervised_28_2.png" />
 </div>
 </div>
 </div>
 <div class="section" id="support-vector-machine-svm-a-class-anchor-id-supportvectormachine-a">
-<h2><span class="section-number">4.10. </span>Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a><a class="headerlink" href="#support-vector-machine-svm-a-class-anchor-id-supportvectormachine-a" title="Permalink to this headline">¶</a></h2>
+<h2>Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a><a class="headerlink" href="#support-vector-machine-svm-a-class-anchor-id-supportvectormachine-a" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>SVM is kind of Jack of All Trades for classifiers</p></li>
 <li><p>It does not save all training samples like NearestNeigbour method, but only the samples near the border of class boundaries.</p></li>
@@ -1096,7 +1152,7 @@ The accuracy of KNN for badly scaled data is.... 0.75
 <li><p>Can be extended to nonlinear decision boundaries using kernels</p></li>
 </ul>
 <div class="section" id="decision-boundary">
-<h3><span class="section-number">4.10.1. </span>Decision boundary<a class="headerlink" href="#decision-boundary" title="Permalink to this headline">¶</a></h3>
+<h3>Decision boundary<a class="headerlink" href="#decision-boundary" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>SVM uses samples near the different clusters to define a decision boundary</p></li>
 <li><p>The boundary which maximises the marginal of the boundary will be selected</p></li>
@@ -1104,7 +1160,7 @@ The accuracy of KNN for badly scaled data is.... 0.75
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
 
 <span class="c1"># Lets create a two-dimensional dataset containing two cluster centers</span>
 <span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">datasets</span><span class="o">.</span><span class="n">make_blobs</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">cluster_std</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
@@ -1117,7 +1173,7 @@ The accuracy of KNN for badly scaled data is.... 0.75
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lets plot the data and optimal decision boundary with support vectors</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lets plot the data and optimal decision boundary with support vectors</span>
 <span class="n">a</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="mf">0.5965</span><span class="p">,</span> <span class="mf">2.33479</span><span class="p">,</span> <span class="mf">0.83645</span><span class="p">,</span> <span class="mf">1.97</span><span class="p">],</span> <span class="p">[</span><span class="mf">2.9567</span><span class="p">,</span> <span class="mf">3.4118</span><span class="p">,</span> <span class="mf">2.11336</span><span class="p">,</span> <span class="mf">2.23518</span><span class="p">],</span>  <span class="n">s</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
@@ -1132,7 +1188,7 @@ The accuracy of KNN for badly scaled data is.... 0.75
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f13d4603f90&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fbfee757898&gt;]
 </pre></div>
 </div>
 <img alt="_images/supervised_32_1.png" src="_images/supervised_32_1.png" />
@@ -1140,7 +1196,7 @@ The accuracy of KNN for badly scaled data is.... 0.75
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lets now try how actual linear SCV would work</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lets now try how actual linear SCV would work</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">svm</span>
 <span class="n">linsvc</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
 <span class="n">linsvc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
@@ -1153,12 +1209,12 @@ The accuracy of KNN for badly scaled data is.... 0.75
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Accurary in the trainint set..1.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accurary in the trainint set..1.000000
 Accurary in the test set......1.000000
-SVC(C=1.0, break_ties=False, cache_size=200, class_weight=None, coef0=0.0,
-    decision_function_shape=&#39;ovr&#39;, degree=3, gamma=&#39;scale&#39;, kernel=&#39;linear&#39;,
-    max_iter=-1, probability=False, random_state=None, shrinking=True,
-    tol=0.001, verbose=False)
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+  decision_function_shape=&#39;ovr&#39;, degree=3, gamma=&#39;auto_deprecated&#39;,
+  kernel=&#39;linear&#39;, max_iter=-1, probability=False, random_state=None,
+  shrinking=True, tol=0.001, verbose=False)
 </pre></div>
 </div>
 <img alt="_images/supervised_33_1.png" src="_images/supervised_33_1.png" />
@@ -1166,7 +1222,7 @@ SVC(C=1.0, break_ties=False, cache_size=200, class_weight=None, coef0=0.0,
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lets try slightly more complex case</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lets try slightly more complex case</span>
 
 <span class="c1"># Lets create a two-dimensional dataset containing three cluster centers</span>
 <span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">datasets</span><span class="o">.</span><span class="n">make_blobs</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">cluster_std</span><span class="o">=</span><span class="mf">1.1</span><span class="p">)</span>
@@ -1179,7 +1235,7 @@ SVC(C=1.0, break_ties=False, cache_size=200, class_weight=None, coef0=0.0,
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lets now try how actual linear SCV would work</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lets now try how actual linear SCV would work</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">svm</span>
 <span class="n">linsvc</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
 <span class="n">linsvc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
@@ -1194,12 +1250,12 @@ SVC(C=1.0, break_ties=False, cache_size=200, class_weight=None, coef0=0.0,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Accurary in the training set..0.920000
-Accurary in the test set......0.980000
-SVC(C=1.0, break_ties=False, cache_size=200, class_weight=None, coef0=0.0,
-    decision_function_shape=&#39;ovr&#39;, degree=3, gamma=&#39;scale&#39;, kernel=&#39;linear&#39;,
-    max_iter=-1, probability=False, random_state=None, shrinking=True,
-    tol=0.001, verbose=False)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accurary in the training set..0.940000
+Accurary in the test set......0.920000
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+  decision_function_shape=&#39;ovr&#39;, degree=3, gamma=&#39;auto_deprecated&#39;,
+  kernel=&#39;linear&#39;, max_iter=-1, probability=False, random_state=None,
+  shrinking=True, tol=0.001, verbose=False)
 </pre></div>
 </div>
 <img alt="_images/supervised_35_1.png" src="_images/supervised_35_1.png" />
@@ -1207,7 +1263,7 @@ SVC(C=1.0, break_ties=False, cache_size=200, class_weight=None, coef0=0.0,
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lets now try how actual linear SCV would work</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lets now try how actual linear SCV would work</span>
 <span class="n">Linsvc</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">LinearSVC</span><span class="p">()</span>
 <span class="n">Linsvc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 <span class="n">plotDB</span><span class="p">(</span><span class="n">Linsvc</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
@@ -1219,25 +1275,29 @@ SVC(C=1.0, break_ties=False, cache_size=200, class_weight=None, coef0=0.0,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Accurary in the trainint set..0.913333
-Accurary in the test set......0.980000
-LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
-          intercept_scaling=1, loss=&#39;squared_hinge&#39;, max_iter=1000,
-          multi_class=&#39;ovr&#39;, penalty=&#39;l2&#39;, random_state=None, tol=0.0001,
-          verbose=0)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.6/dist-packages/sklearn/svm/base.py:931: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  &quot;the number of iterations.&quot;, ConvergenceWarning)
 </pre></div>
 </div>
-<img alt="_images/supervised_36_1.png" src="_images/supervised_36_1.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accurary in the trainint set..0.940000
+Accurary in the test set......0.920000
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss=&#39;squared_hinge&#39;, max_iter=1000,
+     multi_class=&#39;ovr&#39;, penalty=&#39;l2&#39;, random_state=None, tol=0.0001,
+     verbose=0)
+</pre></div>
+</div>
+<img alt="_images/supervised_36_2.png" src="_images/supervised_36_2.png" />
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="kernel-svm-a-class-anchor-id-kernelsvm-a">
-<h2><span class="section-number">4.11. </span>Kernel SVM <a class="anchor" id="kernelsvm"></a><a class="headerlink" href="#kernel-svm-a-class-anchor-id-kernelsvm-a" title="Permalink to this headline">¶</a></h2>
+<h2>Kernel SVM <a class="anchor" id="kernelsvm"></a><a class="headerlink" href="#kernel-svm-a-class-anchor-id-kernelsvm-a" title="Permalink to this headline">¶</a></h2>
 <p>Linear kernel</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lets now try how actual linear SCV would work</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lets now try how actual linear SCV would work</span>
 <span class="n">rbfsvc</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>  <span class="c1"># gamma &gt; 2 means overfitting, try eg 25 and 0.05</span>
 <span class="n">rbfsvc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 <span class="n">plotDB</span><span class="p">(</span><span class="n">rbfsvc</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
@@ -1250,12 +1310,12 @@ LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Accurary in the training set..0.920000
-Accurary in the test set......0.960000
-SVC(C=0.5, break_ties=False, cache_size=200, class_weight=None, coef0=0.0,
-    decision_function_shape=&#39;ovr&#39;, degree=3, gamma=0.01, kernel=&#39;rbf&#39;,
-    max_iter=-1, probability=False, random_state=None, shrinking=True,
-    tol=0.001, verbose=False)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accurary in the training set..0.940000
+Accurary in the test set......0.900000
+SVC(C=0.5, cache_size=200, class_weight=None, coef0=0.0,
+  decision_function_shape=&#39;ovr&#39;, degree=3, gamma=0.01, kernel=&#39;rbf&#39;,
+  max_iter=-1, probability=False, random_state=None, shrinking=True,
+  tol=0.001, verbose=False)
 </pre></div>
 </div>
 <img alt="_images/supervised_38_1.png" src="_images/supervised_38_1.png" />
@@ -1263,7 +1323,7 @@ SVC(C=0.5, break_ties=False, cache_size=200, class_weight=None, coef0=0.0,
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lets test the model with CV in higher nimensions</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lets test the model with CV in higher nimensions</span>
 
 <span class="c1"># Lets create a two-dimensional dataset containing three cluster centers</span>
 <span class="c1">#X,y=datasets.make_blobs(n_samples=200, centers=5, n_features=3, random_state=0, cluster_std=2)</span>
@@ -1293,14 +1353,14 @@ SVC(C=0.5, break_ties=False, cache_size=200, class_weight=None, coef0=0.0,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Mean CV score is 0.93, all scores= [0.96666667 0.96666667 0.93333333 0.86666667 0.9       ]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean CV score is 0.88, all scores= [0.83870968 0.96774194 0.83333333 0.86666667 0.89285714]
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">gamma</span><span class="p">,</span> <span class="n">test_score</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Test score&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">gamma</span><span class="p">,</span> <span class="n">test_score</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Test score&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">gamma</span><span class="p">,</span> <span class="n">train_score</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Train score&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">gamma</span><span class="p">,</span> <span class="n">cv_score</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;CV score&quot;</span><span class="p">)</span>
 <span class="n">best_gamma</span><span class="o">=</span><span class="n">gamma</span><span class="p">[</span><span class="n">cv_score</span><span class="o">.</span><span class="n">argmax</span><span class="p">()]</span>
@@ -1314,8 +1374,8 @@ SVC(C=0.5, break_ties=False, cache_size=200, class_weight=None, coef0=0.0,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Best gamma value is 0.010000
-Accurary in the test set......0.800000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best gamma value is 0.066147
+Accurary in the test set......0.980000
 </pre></div>
 </div>
 <img alt="_images/supervised_40_1.png" src="_images/supervised_40_1.png" />
@@ -1323,10 +1383,10 @@ Accurary in the test set......0.800000
 </div>
 </div>
 <div class="section" id="non-linear-classes">
-<h2><span class="section-number">4.12. </span>Non-linear classes<a class="headerlink" href="#non-linear-classes" title="Permalink to this headline">¶</a></h2>
+<h2>Non-linear classes<a class="headerlink" href="#non-linear-classes" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p>If the data described by <span class="math notranslate nohighlight">\(p_i=[x_i, y_i]^T\)</span> is not linearly separable, it can be made linearly separable by adding a new term, for example <span class="math notranslate nohighlight">\(z_i=x_i^2 + y_i^2\)</span></p></li>
-<li><p>In this case, third dimension is introduced, and the linear classifier can work in the new three dimensional space $ p_i’=[x_i, y_i, z_i]^T $</p></li>
+<li><p>In this case, third dimension is introduced, and the linear classifier can work in the new three dimensional space <span class="math notranslate nohighlight">\( p_i'=[x_i, y_i, z_i]^T \)</span></p></li>
 <li><p>SVM uses this kernel trick to separate non-linear cases</p></li>
 <li><p>The kernel functions include the dot product of two points in a suitable feature space. Thus defining a notion of similarity, with little computational cost even in very high-dimensional spaces.</p></li>
 <li><p>There are many kernel options, most common being</p>
@@ -1341,14 +1401,14 @@ Accurary in the test set......0.800000
 </li>
 </ul>
 <div class="section" id="illustration-of-rbf">
-<h3><span class="section-number">4.12.1. </span>Illustration of RBF<a class="headerlink" href="#illustration-of-rbf" title="Permalink to this headline">¶</a></h3>
+<h3>Illustration of RBF<a class="headerlink" href="#illustration-of-rbf" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>The following code plots the RBF when <span class="math notranslate nohighlight">\(p_i\)</span> is in origo and <span class="math notranslate nohighlight">\(p_j\)</span> moves along x-axis.</p></li>
 <li><p>In real case the RBF is N-dimensional, centered around a sample <span class="math notranslate nohighlight">\(p_i\)</span></p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the radial basis functions (RBF) with different gamma values</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the radial basis functions (RBF) with different gamma values</span>
 <span class="n">xc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">gamma</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="p">]:</span>
     <span class="n">r</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">gamma</span><span class="o">*</span><span class="n">xc</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
@@ -1360,7 +1420,7 @@ Accurary in the test set......0.800000
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;$k([0,0,0]^T, [x,0,0]^T)$&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0,0.5,&#39;$k([0,0,0]^T, [x,0,0]^T)$&#39;)
 </pre></div>
 </div>
 <img alt="_images/supervised_42_1.png" src="_images/supervised_42_1.png" />
@@ -1368,7 +1428,7 @@ Accurary in the test set......0.800000
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test with some example data.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test with some example data.</span>
 <span class="c1"># How to separate two classes with linear decision function</span>
 <span class="c1"># This is one dimensional case, since the second dimension is dummy (only zeros)</span>
 <span class="n">x1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
@@ -1380,7 +1440,7 @@ Accurary in the test set......0.800000
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f13d7748590&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fbfee7eb358&gt;
 </pre></div>
 </div>
 <img alt="_images/supervised_43_1.png" src="_images/supervised_43_1.png" />
@@ -1389,7 +1449,7 @@ Accurary in the test set......0.800000
 <p><strong>Solution:</strong> Use the 8th value as a support vector, and use RBF kernel to increase one more dimesion</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import norm, which calculates || p1- p2 ||^2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import norm, which calculates || p1- p2 ||^2</span>
 <span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="n">norm</span>
 
 <span class="c1"># Define the RBF function</span>
@@ -1408,7 +1468,7 @@ Accurary in the test set......0.800000
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7f13d419b990&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7fbfebb0c080&gt;
 </pre></div>
 </div>
 <img alt="_images/supervised_45_1.png" src="_images/supervised_45_1.png" />
@@ -1417,10 +1477,10 @@ Accurary in the test set......0.800000
 <p>Now the classes are separable, but what is the optimal Gamma value?</p>
 </div>
 <div class="section" id="testing-rbf-in-circular-data">
-<h3><span class="section-number">4.12.2. </span>Testing RBF in circular data<a class="headerlink" href="#testing-rbf-in-circular-data" title="Permalink to this headline">¶</a></h3>
+<h3>Testing RBF in circular data<a class="headerlink" href="#testing-rbf-in-circular-data" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Xc</span><span class="p">,</span><span class="n">yc</span><span class="o">=</span><span class="n">datasets</span><span class="o">.</span><span class="n">make_circles</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Xc</span><span class="p">,</span><span class="n">yc</span><span class="o">=</span><span class="n">datasets</span><span class="o">.</span><span class="n">make_circles</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
 <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">Xc</span><span class="p">,</span><span class="n">yc</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
 
 <span class="n">rbfsvc</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="s1">&#39;scale&#39;</span><span class="p">)</span>
@@ -1435,12 +1495,12 @@ Accurary in the test set......0.800000
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Accurary in the training set..1.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accurary in the training set..1.000000
 Accurary in the test set......1.000000
-SVC(C=1.0, break_ties=False, cache_size=200, class_weight=None, coef0=0.0,
-    decision_function_shape=&#39;ovr&#39;, degree=3, gamma=&#39;scale&#39;, kernel=&#39;rbf&#39;,
-    max_iter=-1, probability=False, random_state=None, shrinking=True,
-    tol=0.001, verbose=False)
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+  decision_function_shape=&#39;ovr&#39;, degree=3, gamma=&#39;scale&#39;, kernel=&#39;rbf&#39;,
+  max_iter=-1, probability=False, random_state=None, shrinking=True,
+  tol=0.001, verbose=False)
 </pre></div>
 </div>
 <img alt="_images/supervised_48_1.png" src="_images/supervised_48_1.png" />
@@ -1448,7 +1508,7 @@ SVC(C=1.0, break_ties=False, cache_size=200, class_weight=None, coef0=0.0,
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rbfsvc</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rbfsvc</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="n">rbfsvc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accurary in the training set..</span><span class="si">%f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_true</span><span class="o">=</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred</span><span class="o">=</span><span class="n">rbfsvc</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)))</span>
@@ -1460,12 +1520,12 @@ SVC(C=1.0, break_ties=False, cache_size=200, class_weight=None, coef0=0.0,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Accurary in the training set..1.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accurary in the training set..1.000000
 Accurary in the test set......1.000000
-SVC(C=1.0, break_ties=False, cache_size=200, class_weight=None, coef0=0.0,
-    decision_function_shape=&#39;ovr&#39;, degree=3, gamma=0.5, kernel=&#39;rbf&#39;,
-    max_iter=-1, probability=False, random_state=None, shrinking=True,
-    tol=0.001, verbose=False)
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+  decision_function_shape=&#39;ovr&#39;, degree=3, gamma=0.5, kernel=&#39;rbf&#39;,
+  max_iter=-1, probability=False, random_state=None, shrinking=True,
+  tol=0.001, verbose=False)
 </pre></div>
 </div>
 <img alt="_images/supervised_49_1.png" src="_images/supervised_49_1.png" />
@@ -1475,12 +1535,12 @@ SVC(C=1.0, break_ties=False, cache_size=200, class_weight=None, coef0=0.0,
 </div>
 </div>
 <div class="section" id="decision-trees-and-forests-a-class-anchor-id-dtaforests-a">
-<h2><span class="section-number">4.13. </span>Decision trees and forests <a class="anchor" id="dtaforests"></a><a class="headerlink" href="#decision-trees-and-forests-a-class-anchor-id-dtaforests-a" title="Permalink to this headline">¶</a></h2>
+<h2>Decision trees and forests <a class="anchor" id="dtaforests"></a><a class="headerlink" href="#decision-trees-and-forests-a-class-anchor-id-dtaforests-a" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="decision-tree-a-class-anchor-id-decisiontrees-a">
-<h3><span class="section-number">4.13.1. </span>Decision tree <a class="anchor" id="decisiontrees"></a><a class="headerlink" href="#decision-tree-a-class-anchor-id-decisiontrees-a" title="Permalink to this headline">¶</a></h3>
+<h3>Decision tree <a class="anchor" id="decisiontrees"></a><a class="headerlink" href="#decision-tree-a-class-anchor-id-decisiontrees-a" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">tree</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">tree</span>
 
 <span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">datasets</span><span class="o">.</span><span class="n">make_blobs</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">cluster_std</span><span class="o">=</span><span class="mf">1.1</span><span class="p">)</span>
 <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
@@ -1497,21 +1557,21 @@ SVC(C=1.0, break_ties=False, cache_size=200, class_weight=None, coef0=0.0,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Accurary in the training set..0.953333
-Accurary in the test set......0.880000
-DecisionTreeClassifier(ccp_alpha=0.0, class_weight=None, criterion=&#39;gini&#39;,
-                       max_depth=2, max_features=None, max_leaf_nodes=None,
-                       min_impurity_decrease=0.0, min_impurity_split=None,
-                       min_samples_leaf=1, min_samples_split=2,
-                       min_weight_fraction_leaf=0.0, presort=&#39;deprecated&#39;,
-                       random_state=None, splitter=&#39;best&#39;)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accurary in the training set..0.913333
+Accurary in the test set......0.980000
+DecisionTreeClassifier(class_weight=None, criterion=&#39;gini&#39;, max_depth=2,
+            max_features=None, max_leaf_nodes=None,
+            min_impurity_decrease=0.0, min_impurity_split=None,
+            min_samples_leaf=1, min_samples_split=2,
+            min_weight_fraction_leaf=0.0, presort=False, random_state=None,
+            splitter=&#39;best&#39;)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plotDB</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotDB</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1521,10 +1581,10 @@ DecisionTreeClassifier(ccp_alpha=0.0, class_weight=None, criterion=&#39;gini&#39
 </div>
 </div>
 <div class="section" id="optimize-the-tree-depth">
-<h3><span class="section-number">4.13.2. </span>Optimize the tree depth<a class="headerlink" href="#optimize-the-tree-depth" title="Permalink to this headline">¶</a></h3>
+<h3>Optimize the tree depth<a class="headerlink" href="#optimize-the-tree-depth" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">N</span><span class="o">=</span><span class="mi">6</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span><span class="o">=</span><span class="mi">6</span>
 <span class="n">train_score</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
 <span class="n">test_score</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
 <span class="n">cv_score</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
@@ -1546,8 +1606,8 @@ DecisionTreeClassifier(ccp_alpha=0.0, class_weight=None, criterion=&#39;gini&#39
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Best depth value is 2.000000
-Accurary in the test set......0.920000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best depth value is 2.000000
+Accurary in the test set......0.880462
 </pre></div>
 </div>
 <img alt="_images/supervised_55_1.png" src="_images/supervised_55_1.png" />
@@ -1563,7 +1623,7 @@ Accurary in the test set......0.920000
 </div>
 </div>
 <div class="section" id="ensemble-methods-a-class-anchor-id-ensemblemethods-a">
-<h2><span class="section-number">4.14. </span>Ensemble methods <a class="anchor" id="ensemblemethods"></a><a class="headerlink" href="#ensemble-methods-a-class-anchor-id-ensemblemethods-a" title="Permalink to this headline">¶</a></h2>
+<h2>Ensemble methods <a class="anchor" id="ensemblemethods"></a><a class="headerlink" href="#ensemble-methods-a-class-anchor-id-ensemblemethods-a" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Bagging in <a class="reference external" href="https://scikit-learn.org/stable/modules/ensemble.html">Skikit Learn</a></p>
 <ul>
@@ -1575,9 +1635,9 @@ Accurary in the test set......0.920000
 <li><p>Boosting is another method to combine multiple predictors</p></li>
 </ul>
 <div class="section" id="bagging-a-class-anchor-id-bagging-a">
-<h3><span class="section-number">4.14.1. </span>Bagging <a class="anchor" id="Bagging"></a><a class="headerlink" href="#bagging-a-class-anchor-id-bagging-a" title="Permalink to this headline">¶</a></h3>
+<h3>Bagging <a class="anchor" id="Bagging"></a><a class="headerlink" href="#bagging-a-class-anchor-id-bagging-a" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="randomized-trees-a-class-anchor-id-randomizedtrees-a">
-<h4><span class="section-number">4.14.1.1. </span>Randomized trees   <a class="anchor" id="RandomizedTrees"></a><a class="headerlink" href="#randomized-trees-a-class-anchor-id-randomizedtrees-a" title="Permalink to this headline">¶</a></h4>
+<h4>Randomized trees   <a class="anchor" id="RandomizedTrees"></a><a class="headerlink" href="#randomized-trees-a-class-anchor-id-randomizedtrees-a" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p>Forest of randomized trees is one famous bagging method. it works as follows</p>
 <ol class="simple">
@@ -1591,7 +1651,7 @@ Accurary in the test set......0.920000
 </ul>
 </div>
 <div class="section" id="extratrees-classifier-extremely-randomized-trees">
-<h4><span class="section-number">4.14.1.2. </span>Extratrees classifier (Extremely randomized trees)<a class="headerlink" href="#extratrees-classifier-extremely-randomized-trees" title="Permalink to this headline">¶</a></h4>
+<h4>Extratrees classifier (Extremely randomized trees)<a class="headerlink" href="#extratrees-classifier-extremely-randomized-trees" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p>Even more random</p></li>
 <li><p>The threshold rules are selected at random for randomly selected features</p></li>
@@ -1600,7 +1660,7 @@ Accurary in the test set......0.920000
 </ul>
 </div>
 <div class="section" id="optimising-the-parameters-fo-the-extratrees-classifier">
-<h4><span class="section-number">4.14.1.3. </span>Optimising the parameters fo the Extratrees classifier<a class="headerlink" href="#optimising-the-parameters-fo-the-extratrees-classifier" title="Permalink to this headline">¶</a></h4>
+<h4>Optimising the parameters fo the Extratrees classifier<a class="headerlink" href="#optimising-the-parameters-fo-the-extratrees-classifier" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p>Extratrees classifier has already many more parameters than normal decision tree.</p></li>
 <li><p>It is not convenient to try them all to find out an optimal combination</p></li>
@@ -1613,7 +1673,7 @@ Accurary in the test set......0.920000
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">ExtraTreesClassifier</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">ExtraTreesClassifier</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
 
 <span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">datasets</span><span class="o">.</span><span class="n">make_blobs</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">cluster_std</span><span class="o">=</span><span class="mf">1.1</span><span class="p">)</span>
@@ -1638,23 +1698,25 @@ Accurary in the test set......0.920000
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Accurary in the training set..0.960000
-Accurary in the test set......0.900000
-ExtraTreesClassifier(bootstrap=False, ccp_alpha=0.0, class_weight=None,
-                     criterion=&#39;gini&#39;, max_depth=4, max_features=&#39;auto&#39;,
-                     max_leaf_nodes=None, max_samples=None,
-                     min_impurity_decrease=0.0, min_impurity_split=None,
-                     min_samples_leaf=1, min_samples_split=4,
-                     min_weight_fraction_leaf=0.0, n_estimators=23, n_jobs=None,
-                     oob_score=False, random_state=None, verbose=0,
-                     warm_start=False)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accurary in the training set..0.933333
+Accurary in the test set......0.920000
+ExtraTreesClassifier(bootstrap=False, class_weight=None, criterion=&#39;gini&#39;,
+           max_depth=3, max_features=&#39;auto&#39;, max_leaf_nodes=None,
+           min_impurity_decrease=0.0, min_impurity_split=None,
+           min_samples_leaf=1, min_samples_split=2,
+           min_weight_fraction_leaf=0.0, n_estimators=20, n_jobs=None,
+           oob_score=False, random_state=None, verbose=0, warm_start=False)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.6/dist-packages/sklearn/model_selection/_search.py:841: DeprecationWarning: The default of the `iid` parameter will change from True to False in version 0.22 and will be removed in 0.24. This will change numeric results when test-set sizes are unequal.
+  DeprecationWarning)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plotDB</span><span class="p">(</span><span class="n">optimal_et</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotDB</span><span class="p">(</span><span class="n">optimal_et</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1666,7 +1728,7 @@ ExtraTreesClassifier(bootstrap=False, ccp_alpha=0.0, class_weight=None,
 </div>
 </div>
 <div class="section" id="boosting-a-class-anchor-id-boosting-a">
-<h2><span class="section-number">4.15. </span>Boosting <a class="anchor" id="Boosting"></a><a class="headerlink" href="#boosting-a-class-anchor-id-boosting-a" title="Permalink to this headline">¶</a></h2>
+<h2>Boosting <a class="anchor" id="Boosting"></a><a class="headerlink" href="#boosting-a-class-anchor-id-boosting-a" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Construct weak random trees and chain them after each other on modified version of the data</p></li>
 <li><p>Examples <a class="reference external" href="https://scikit-learn.org/stable/modules/ensemble.html#adaboost">Adaboost</a>
@@ -1674,7 +1736,7 @@ ExtraTreesClassifier(bootstrap=False, ccp_alpha=0.0, class_weight=None,
 <a class="reference external" href="https://xgboost.readthedocs.io/en/latest/">XGBoost</a></p></li>
 </ul>
 <div class="section" id="adaboost-a-class-anchor-id-adaboost-a">
-<h3><span class="section-number">4.15.1. </span>Adaboost <a class="anchor" id="AdaBoost"></a><a class="headerlink" href="#adaboost-a-class-anchor-id-adaboost-a" title="Permalink to this headline">¶</a></h3>
+<h3>Adaboost <a class="anchor" id="AdaBoost"></a><a class="headerlink" href="#adaboost-a-class-anchor-id-adaboost-a" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li><p>First create one weak predictor, which is perhaps only slightly better than guessing</p></li>
 <li><p>Assign equal weight <span class="math notranslate nohighlight">\(w_i=1/N\)</span> to each of the N samples</p></li>
@@ -1690,11 +1752,11 @@ ExtraTreesClassifier(bootstrap=False, ccp_alpha=0.0, class_weight=None,
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Freund, Y., &amp; Schapire, R. E. (1997). A Decision-Theoretic Generalization of On-Line Learning and an Application to Boosting. Journal of Computer and System Sciences, 55(1), 119–139. https://doi.org/10.1006/jcss.1997.1504 <a class="bibtex reference internal" href="#freund-decision-theoretic-1997" id="id1">[FS97]</a></p></td>
+<tr class="row-even"><td><p>Freund, Y., &amp; Schapire, R. E. (1997). A Decision-Theoretic Generalization of On-Line Learning and an Application to Boosting. Journal of Computer and System Sciences, 55(1), 119–139. <a class="reference external" href="https://doi.org/10.1006/jcss.1997.1504">https://doi.org/10.1006/jcss.1997.1504</a> <a href="#id1"><span class="problematic" id="id2">:cite:`freund_decision-theoretic_1997`</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>Drucker, H. (1997). Improving Regressors using Boosting Techniques. ICML. <a class="bibtex reference internal" href="#drucker-improving-1997" id="id2">[Dru97]</a></p></td>
+<tr class="row-odd"><td><p>Drucker, H. (1997). Improving Regressors using Boosting Techniques. ICML. <a href="#id3"><span class="problematic" id="id4">:cite:`drucker_improving_1997`</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p>Hastie, T., Rosset, S., Zhu, J., &amp; Zou, H. (2009). Multi-class AdaBoost. Statistics and Its Interface, 2(3), 349–360. https://doi.org/10.4310/SII.2009.v2.n3.a8 <a class="bibtex reference internal" href="#hastie-multi-class-2009" id="id3">[HRZZ09]</a></p></td>
+<tr class="row-even"><td><p>Hastie, T., Rosset, S., Zhu, J., &amp; Zou, H. (2009). Multi-class AdaBoost. Statistics and Its Interface, 2(3), 349–360. <a class="reference external" href="https://doi.org/10.4310/SII.2009.v2.n3.a8">https://doi.org/10.4310/SII.2009.v2.n3.a8</a> <a href="#id5"><span class="problematic" id="id6">:cite:`hastie_multi-class_2009`</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p></p></td>
 </tr>
@@ -1702,7 +1764,7 @@ ExtraTreesClassifier(bootstrap=False, ccp_alpha=0.0, class_weight=None,
 </table>
 </div>
 <div class="section" id="gradient-tree-boosting-a-class-anchor-id-gbrt-a">
-<h3><span class="section-number">4.15.2. </span>Gradient Tree Boosting <a class="anchor" id="GBRT"></a><a class="headerlink" href="#gradient-tree-boosting-a-class-anchor-id-gbrt-a" title="Permalink to this headline">¶</a></h3>
+<h3>Gradient Tree Boosting <a class="anchor" id="GBRT"></a><a class="headerlink" href="#gradient-tree-boosting-a-class-anchor-id-gbrt-a" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Also called as Gradient Boosted Regression Trees (GBRT)</p></li>
 <li><p>Improved version of Adaboost</p></li>
@@ -1735,13 +1797,13 @@ ExtraTreesClassifier(bootstrap=False, ccp_alpha=0.0, class_weight=None,
 <tbody>
 <tr class="row-even"><td><p>Breiman, L. (1997). Arcing the edge. Technical Report 486, Statistics Department, University of California at ….</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="bibtex reference internal" href="#breiman-arcing-1997" id="id4">[Bre97]</a></p></td>
+<tr class="row-odd"><td><p><a href="#id7"><span class="problematic" id="id8">:cite:`breiman_arcing_1997`</span></a></p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="extreme-gradient-boosting-xgboost-a-class-anchor-id-xgboost-a">
-<h3><span class="section-number">4.15.3. </span>Extreme Gradient Boosting (XGBoost) <a class="anchor" id="XGBoost"></a><a class="headerlink" href="#extreme-gradient-boosting-xgboost-a-class-anchor-id-xgboost-a" title="Permalink to this headline">¶</a></h3>
+<h3>Extreme Gradient Boosting (XGBoost) <a class="anchor" id="XGBoost"></a><a class="headerlink" href="#extreme-gradient-boosting-xgboost-a-class-anchor-id-xgboost-a" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>A library implementing Gradient Tree Boosting</p></li>
 <li><p>Available for many programming languages</p></li>
@@ -1753,19 +1815,19 @@ ExtraTreesClassifier(bootstrap=False, ccp_alpha=0.0, class_weight=None,
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Friedman, J. H., Hastie, T., &amp; Tibshirani, R. (2000). Additive logistic regression: A statistical view of boosting. https://doi.org/10.1214/aos/1016218223 <a class="bibtex reference internal" href="#friedman-additive-2000-1" id="id5">[2]</a></p></td>
+<tr class="row-even"><td><p>Friedman, J. H., Hastie, T., &amp; Tibshirani, R. (2000). Additive logistic regression: A statistical view of boosting. <a class="reference external" href="https://doi.org/10.1214/aos/1016218223">https://doi.org/10.1214/aos/1016218223</a> <a href="#id9"><span class="problematic" id="id10">:cite:`friedman_additive_2000-1`</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>Friedman, J. H. (2001). Greedy function approximation: A gradient boosting machine. The Annals of Statistics, 29(5), 1189–1232. https://doi.org/10.1214/aos/1013203451 <a class="bibtex reference internal" href="#friedman-greedy-2001" id="id6">[Fri01]</a></p></td>
+<tr class="row-odd"><td><p>Friedman, J. H. (2001). Greedy function approximation: A gradient boosting machine. The Annals of Statistics, 29(5), 1189–1232. <a class="reference external" href="https://doi.org/10.1214/aos/1013203451">https://doi.org/10.1214/aos/1013203451</a> <a href="#id11"><span class="problematic" id="id12">:cite:`friedman_greedy_2001`</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p>Friedman, J. H. (2002). Stochastic gradient boosting. Computational Statistics &amp; Data Analysis, 38(4), 367–378.  https://doi.org/10.1016/S0167-9473(01)00065-2 <a class="bibtex reference internal" href="#friedman-stochastic-2002" id="id7">[3]</a></p></td>
+<tr class="row-even"><td><p>Friedman, J. H. (2002). Stochastic gradient boosting. Computational Statistics &amp; Data Analysis, 38(4), 367–378.  <a class="reference external" href="https://doi.org/10.1016/S0167-9473(01)00065-2">https://doi.org/10.1016/S0167-9473(01)00065-2</a> <a href="#id13"><span class="problematic" id="id14">:cite:`friedman_stochastic_2002`</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>Chen, T., &amp; Guestrin, C. (2016). XGBoost: A Scalable Tree Boosting System. Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining - KDD ’16, 785–794. https://doi.org/10.1145/2939672.2939785 <a class="bibtex reference internal" href="#chen-xgboost-2016" id="id8">[4]</a></p></td>
+<tr class="row-odd"><td><p>Chen, T., &amp; Guestrin, C. (2016). XGBoost: A Scalable Tree Boosting System. Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining - KDD ’16, 785–794. <a class="reference external" href="https://doi.org/10.1145/2939672.2939785">https://doi.org/10.1145/2939672.2939785</a> <a href="#id15"><span class="problematic" id="id16">:cite:`chen_xgboost:_2016`</span></a></p></td>
 </tr>
 </tbody>
 </table>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">GradientBoostingClassifier</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">GradientBoostingClassifier</span>
 <span class="n">bt</span> <span class="o">=</span> <span class="n">GradientBoostingClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">bt</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 
@@ -1776,25 +1838,24 @@ ExtraTreesClassifier(bootstrap=False, ccp_alpha=0.0, class_weight=None,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Accurary in the training set..0.973333
-Accurary in the test set......0.880000
-GradientBoostingClassifier(ccp_alpha=0.0, criterion=&#39;friedman_mse&#39;, init=None,
-                           learning_rate=1, loss=&#39;deviance&#39;, max_depth=1,
-                           max_features=None, max_leaf_nodes=None,
-                           min_impurity_decrease=0.0, min_impurity_split=None,
-                           min_samples_leaf=1, min_samples_split=2,
-                           min_weight_fraction_leaf=0.0, n_estimators=9,
-                           n_iter_no_change=None, presort=&#39;deprecated&#39;,
-                           random_state=0, subsample=1.0, tol=0.0001,
-                           validation_fraction=0.1, verbose=0,
-                           warm_start=False)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accurary in the training set..0.973333
+Accurary in the test set......0.960000
+GradientBoostingClassifier(criterion=&#39;friedman_mse&#39;, init=None,
+              learning_rate=1, loss=&#39;deviance&#39;, max_depth=1,
+              max_features=None, max_leaf_nodes=None,
+              min_impurity_decrease=0.0, min_impurity_split=None,
+              min_samples_leaf=1, min_samples_split=2,
+              min_weight_fraction_leaf=0.0, n_estimators=9,
+              n_iter_no_change=None, presort=&#39;auto&#39;, random_state=0,
+              subsample=1.0, tol=0.0001, validation_fraction=0.1,
+              verbose=0, warm_start=False)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plotDB</span><span class="p">(</span><span class="n">bt</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotDB</span><span class="p">(</span><span class="n">bt</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1805,7 +1866,7 @@ GradientBoostingClassifier(ccp_alpha=0.0, criterion=&#39;friedman_mse&#39;, init
 </div>
 </div>
 <div class="section" id="summary">
-<h2><span class="section-number">4.16. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>SVM is good for high dimensional cases</p></li>
 <li><p>LinearSVC can include a regularization term L2, or L1</p></li>
@@ -1823,37 +1884,7 @@ GradientBoostingClassifier(ccp_alpha=0.0, criterion=&#39;friedman_mse&#39;, init
 </ul>
 </div>
 <div class="section" id="references">
-<h2><span class="section-number">4.17. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<p id="bibtex-bibliography-supervised-0"><dl class="citation">
-<dt class="bibtex label" id="breiman-arcing-1997"><span class="brackets"><a class="fn-backref" href="#id4">Bre97</a></span></dt>
-<dd><p>Leo Breiman. Arcing the edge. Technical Report, Technical Report 486, Statistics Department, University of California at …, 1997.</p>
-</dd>
-<dt class="bibtex label" id="chen-xgboost-2016"><span class="brackets"><a class="fn-backref" href="#id8">4</a></span></dt>
-<dd><p>Tianqi Chen and Carlos Guestrin. XGBoost: A Scalable Tree Boosting System. <em>Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining - KDD ‘16</em>, pages 785–794, 2016. arXiv: 1603.02754. URL: <a class="reference external" href="http://arxiv.org/abs/1603.02754">http://arxiv.org/abs/1603.02754</a>, <a class="reference external" href="https://doi.org/10.1145/2939672.2939785">doi:10.1145/2939672.2939785</a>.</p>
-</dd>
-<dt class="bibtex label" id="drucker-improving-1997"><span class="brackets"><a class="fn-backref" href="#id2">Dru97</a></span></dt>
-<dd><p>Harris Drucker. Improving Regressors using Boosting Techniques. In <em>ICML</em>. 1997.</p>
-</dd>
-<dt class="bibtex label" id="freund-decision-theoretic-1997"><span class="brackets"><a class="fn-backref" href="#id1">FS97</a></span></dt>
-<dd><p>Yoav Freund and Robert E Schapire. A Decision-Theoretic Generalization of On-Line Learning and an Application to Boosting. <em>Journal of Computer and System Sciences</em>, 55(1):119–139, August 1997. URL: <a class="reference external" href="http://www.sciencedirect.com/science/article/pii/S002200009791504X">http://www.sciencedirect.com/science/article/pii/S002200009791504X</a>, <a class="reference external" href="https://doi.org/10.1006/jcss.1997.1504">doi:10.1006/jcss.1997.1504</a>.</p>
-</dd>
-<dt class="bibtex label" id="friedman-additive-2000-1"><span class="brackets"><a class="fn-backref" href="#id5">2</a></span></dt>
-<dd><p>Jerome Friedman, Trevor Hastie, and Robert Tibshirani. Additive logistic regression: a statistical view of boosting (With discussion and a rejoinder by the authors). <em>Annals of Statistics</em>, 28(2):337–407, April 2000. Publisher: Institute of Mathematical Statistics. URL: <a class="reference external" href="https://projecteuclid.org/euclid.aos/1016218223">https://projecteuclid.org/euclid.aos/1016218223</a>, <a class="reference external" href="https://doi.org/10.1214/aos/1016218223">doi:10.1214/aos/1016218223</a>.</p>
-</dd>
-<dt class="bibtex label" id="friedman-greedy-2001"><span class="brackets"><a class="fn-backref" href="#id6">Fri01</a></span></dt>
-<dd><p>Jerome H. Friedman. Greedy function approximation: A gradient boosting machine. <em>The Annals of Statistics</em>, 29(5):1189–1232, October 2001. URL: <a class="reference external" href="https://projecteuclid.org/euclid.aos/1013203451">https://projecteuclid.org/euclid.aos/1013203451</a>, <a class="reference external" href="https://doi.org/10.1214/aos/1013203451">doi:10.1214/aos/1013203451</a>.</p>
-</dd>
-<dt class="bibtex label" id="friedman-stochastic-2002"><span class="brackets"><a class="fn-backref" href="#id7">3</a></span></dt>
-<dd><p>Jerome H. Friedman. Stochastic gradient boosting. <em>Computational Statistics &amp; Data Analysis</em>, 38(4):367–378, February 2002. URL: <a class="reference external" href="http://www.sciencedirect.com/science/article/pii/S0167947301000652">http://www.sciencedirect.com/science/article/pii/S0167947301000652</a>, <a class="reference external" href="https://doi.org/10.1016/S0167-9473(01)00065-2">doi:10.1016/S0167-9473(01)00065-2</a>.</p>
-</dd>
-<dt class="bibtex label" id="friedman-regularization-2010"><span class="brackets">1</span></dt>
-<dd><p>Jerome H. Friedman, Trevor Hastie, and Rob Tibshirani. Regularization Paths for Generalized Linear Models via Coordinate Descent. <em>Journal of Statistical Software</em>, 33(1):1–22, February 2010. URL: <a class="reference external" href="https://www.jstatsoft.org/index.php/jss/article/view/v033i01">https://www.jstatsoft.org/index.php/jss/article/view/v033i01</a>, <a class="reference external" href="https://doi.org/10.18637/jss.v033.i01">doi:10.18637/jss.v033.i01</a>.</p>
-</dd>
-<dt class="bibtex label" id="hastie-multi-class-2009"><span class="brackets"><a class="fn-backref" href="#id3">HRZZ09</a></span></dt>
-<dd><p>Trevor Hastie, Saharon Rosset, Ji Zhu, and Hui Zou. Multi-class AdaBoost. <em>Statistics and Its Interface</em>, 2(3):349–360, 2009. URL: <a class="reference external" href="http://www.intlpress.com/site/pub/pages/journals/items/sii/content/vols/0002/0003/a008/abstract.php">http://www.intlpress.com/site/pub/pages/journals/items/sii/content/vols/0002/0003/a008/abstract.php</a>, <a class="reference external" href="https://doi.org/10.4310/SII.2009.v2.n3.a8">doi:10.4310/SII.2009.v2.n3.a8</a>.</p>
-</dd>
-</dl>
-</p>
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
@@ -1879,15 +1910,13 @@ GradientBoostingClassifier(ccp_alpha=0.0, criterion=&#39;friedman_mse&#39;, init
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="unsupervised.html" title="previous page">&lt;no title&gt;</a>
-    <a class='right-next' id="next-link" href="regression.html" title="next page"><span class="section-number">5. </span>Regression</a>
+        <div class='prev-next-bottom'>
+            
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -1895,7 +1924,7 @@ GradientBoostingClassifier(ccp_alpha=0.0, criterion=&#39;friedman_mse&#39;, init
         
           By Petri Välisuo<br/>
         
-            &copy; Copyright 2020.<br/>
+            &copy; Copyright 2021.<br/>
       </p>
     </div>
   </footer>
@@ -1904,8 +1933,9 @@ GradientBoostingClassifier(ccp_alpha=0.0, criterion=&#39;friedman_mse&#39;, init
 
       </div>
     </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    <script src="_static/js/index.js"></script>
-    
+  
   </body>
 </html>
