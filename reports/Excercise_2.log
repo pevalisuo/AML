@@ -22,7 +22,7 @@ pd.plotting.scatter_matrix(D, figsize=(15,15), marker='o');
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-[0;32m/tmp/ipykernel_11189/3413777684.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/tmp/ipykernel_21325/3413777684.py[0m in [0;36m<module>[0;34m[0m
 [0;32m----> 1[0;31m [0mpd[0m[0;34m.[0m[0mplotting[0m[0;34m.[0m[0mscatter_matrix[0m[0;34m([0m[0mD[0m[0;34m,[0m [0mfigsize[0m[0;34m=[0m[0;34m([0m[0;36m15[0m[0;34m,[0m[0;36m15[0m[0;34m)[0m[0;34m,[0m [0mmarker[0m[0;34m=[0m[0;34m'o'[0m[0;34m)[0m[0;34m;[0m[0;34m[0m[0;34m[0m[0m
 [0m
 [0;31mNameError[0m: name 'D' is not defined
