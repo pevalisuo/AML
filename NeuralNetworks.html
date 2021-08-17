@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>13. Artificial Neural Networks (ANN) &#8212; Applied Machine Learning, 2021</title>
+    <title>11. Artificial Neural Networks (ANN) &#8212; Applied Machine Learning, 2021</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -42,8 +42,6 @@
     <script src="_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -55,7 +53,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="12. Regression" href="Regression.html" />
+    <link rel="prev" title="10. Regression" href="Regression.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -146,12 +144,12 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Regression.html">
-   12. Regression
+   10. Regression
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   13. Artificial Neural Networks (ANN)
+   11. Artificial Neural Networks (ANN)
   </a>
  </li>
 </ul>
@@ -250,49 +248,49 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#neural-networks">
-   13.1. Neural networks
+   11.1. Neural networks
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#perceptron">
-     13.1.1. Perceptron
+     11.1.1. Perceptron
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#activation-functions">
-     13.1.2. Activation functions
+     11.1.2. Activation functions
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#learning-algorithms">
-     13.1.3. Learning algorithms
+     11.1.3. Learning algorithms
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#multi-layer-perceptron">
-     13.1.4. Multi layer perceptron
+     11.1.4. Multi layer perceptron
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#digits-dataset">
-   13.2. Digits dataset
+   11.2. Digits dataset
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#keras-and-pytorch">
-   13.3. Keras and Pytorch
+   11.3. Keras and Pytorch
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pre-trained-models">
-   13.4. Pre trained models
+   11.4. Pre trained models
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#summary">
-   13.5. Summary
+   11.5. Summary
   </a>
  </li>
 </ul>
@@ -307,11 +305,11 @@
               <div>
                 
   <div class="section" id="artificial-neural-networks-ann">
-<h1><span class="section-number">13. </span>Artificial Neural Networks (ANN)<a class="headerlink" href="#artificial-neural-networks-ann" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">11. </span>Artificial Neural Networks (ANN)<a class="headerlink" href="#artificial-neural-networks-ann" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="neural-networks">
-<h2><span class="section-number">13.1. </span>Neural networks<a class="headerlink" href="#neural-networks" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.1. </span>Neural networks<a class="headerlink" href="#neural-networks" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="perceptron">
-<h3><span class="section-number">13.1.1. </span>Perceptron<a class="headerlink" href="#perceptron" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">11.1.1. </span>Perceptron<a class="headerlink" href="#perceptron" title="Permalink to this headline">¶</a></h3>
 <p>Neural network consists of few layers of perceptrons. Each perceptron simulates the operation of neuron. It collects input variables <span class="math notranslate nohighlight">\(x_i\)</span>, weights them with coefficients <span class="math notranslate nohighlight">\(w_i\)</span>, and sums the result to one value. The output value is obtained by scaling the sum between values 0…1 by using an activation function. For classification, the activation function is binary step function, and for regression, it is continuous, like sigmoid function. The neuron can be teached by updating the weights <span class="math notranslate nohighlight">\(w_i\)</span>.</p>
 <p><img alt="Perceptron" src="_images/perceptron.svg" /></p>
 <p>The output of the perceptron is</p>
@@ -322,7 +320,7 @@
 \]</div>
 </div>
 <div class="section" id="activation-functions">
-<h3><span class="section-number">13.1.2. </span>Activation functions<a class="headerlink" href="#activation-functions" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">11.1.2. </span>Activation functions<a class="headerlink" href="#activation-functions" title="Permalink to this headline">¶</a></h3>
 <p>Common activation functions, <span class="math notranslate nohighlight">\(f()\)</span>, are</p>
 <ol class="simple">
 <li><p>Linear</p></li>
@@ -410,7 +408,7 @@
 </div>
 </div>
 <div class="section" id="learning-algorithms">
-<h3><span class="section-number">13.1.3. </span>Learning algorithms<a class="headerlink" href="#learning-algorithms" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">11.1.3. </span>Learning algorithms<a class="headerlink" href="#learning-algorithms" title="Permalink to this headline">¶</a></h3>
 <p>When using Stochastic Gradient Decent (<strong>SGD</strong>) training,  the weights, <span class="math notranslate nohighlight">\(w_i\)</span>, are updated towards the gradient (multidimensional derivative) or the loss function.
 $<span class="math notranslate nohighlight">\(
     w \leftarrow w - \eta \left(\alpha \frac{\partial R(w)}{\partial w} + \frac{\partial L(w)}{\partial w}\right),
@@ -419,7 +417,7 @@ $<span class="math notranslate nohighlight">\(
 <p><strong>Adams</strong> is slightly more advanced and can optimize the parameters of the search, and find optimum faster. Another common learning method is <strong>L-BFGS</strong> (Limited memory, Broyden-Fletcher-Goldfarb-Shannon). It is also using the second derivatives of the search space and is thus faster, when the derivatives and memory resources are available.</p>
 </div>
 <div class="section" id="multi-layer-perceptron">
-<h3><span class="section-number">13.1.4. </span>Multi layer perceptron<a class="headerlink" href="#multi-layer-perceptron" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">11.1.4. </span>Multi layer perceptron<a class="headerlink" href="#multi-layer-perceptron" title="Permalink to this headline">¶</a></h3>
 <p>A single perceptron can only handle simple problems. For more complex problems, a network of several layers of perceptrons are needed. These networks are called as Multi Layer Perceptron networks (MLP) or artificial neural networks (ANN). When the number of hidden layer is large, the network is called as Deep Neural Network (DNN) and it is one example of Deep Learning.</p>
 <p><img alt="Perceptron" src="_images/mlp.svg" /></p>
 <p>Try to train multi layer neural network models in <a class="reference external" href="https://playground.tensorflow.org/">Neural Network Playground</a>.</p>
@@ -470,7 +468,7 @@ Prediction accuracy is 0.943
 </div>
 </div>
 <div class="section" id="digits-dataset">
-<h2><span class="section-number">13.2. </span>Digits dataset<a class="headerlink" href="#digits-dataset" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.2. </span>Digits dataset<a class="headerlink" href="#digits-dataset" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">digits</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_digits</span><span class="p">()</span>
@@ -523,7 +521,7 @@ Prediction accuracy in CV 0.8770349736923553
 </div>
 </div>
 <div class="section" id="keras-and-pytorch">
-<h2><span class="section-number">13.3. </span>Keras and Pytorch<a class="headerlink" href="#keras-and-pytorch" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.3. </span>Keras and Pytorch<a class="headerlink" href="#keras-and-pytorch" title="Permalink to this headline">¶</a></h2>
 <p>MLP classifier and regressors use only CPU resources, but to utilize real power of ANN, they are often ran in massive parallel hardware, such as GPU:s. This is not necessary for simple neural network models shown above, but they become more important when the number of hidden layers in the network model increases and the model becomes deeper.</p>
 <p>Frameworks often used for Deep Neural Networks are for example Keras and Pytorch.</p>
 <p><a class="reference external" href="https://keras.io/examples/">Keras examples</a></p>
@@ -531,13 +529,13 @@ Prediction accuracy in CV 0.8770349736923553
 <p><a class="reference external" href="https://towardsdatascience.com/keras-vs-pytorch-for-deep-learning-a013cb63870d">PyTorch vs Keras</a></p>
 </div>
 <div class="section" id="pre-trained-models">
-<h2><span class="section-number">13.4. </span>Pre trained models<a class="headerlink" href="#pre-trained-models" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.4. </span>Pre trained models<a class="headerlink" href="#pre-trained-models" title="Permalink to this headline">¶</a></h2>
 <p>Since the training of the neural network models is so time consuming, an important topics in deep learning are pre trained models and transfer learning (the model trained to one application is used in another related application without retraining, or partial re-training.</p>
 <p>Some huge deep networks can be also used as general purpose neural networks. One of the biggest network this far is the Generative Pre-trained Transformer 3 (<a class="reference external" href="https://en.wikipedia.org/wiki/GPT-3">GPT-3</a>), which is suitable for many Natural Language Processing (NLP) tasks. GPT-3 sisältää 175 billion (<span class="math notranslate nohighlight">\(175 \cdot 10^9\)</span>) parameters. GPT-3 can generate text wich is difficult to distinguish from a human writer.</p>
 <p><a class="reference external" href="https://www.theguardian.com/commentisfree/2020/sep/08/robot-wrote-this-article-gpt-3">A robot wrote this entire article. Are you scared yet, human</a></p>
 </div>
 <div class="section" id="summary">
-<h2><span class="section-number">13.5. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.5. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li></li>
 </ul>
@@ -575,7 +573,7 @@ Prediction accuracy in CV 0.8770349736923553
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="Regression.html" title="previous page"><span class="section-number">12. </span>Regression</a>
+    <a class='left-prev' id="prev-link" href="Regression.html" title="previous page"><span class="section-number">10. </span>Regression</a>
 
         </div>
         

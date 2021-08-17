@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>12. Regression &#8212; Applied Machine Learning, 2021</title>
+    <title>10. Regression &#8212; Applied Machine Learning, 2021</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -42,8 +42,6 @@
     <script src="_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -55,7 +53,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="13. Artificial Neural Networks (ANN)" href="NeuralNetworks.html" />
+    <link rel="next" title="11. Artificial Neural Networks (ANN)" href="NeuralNetworks.html" />
     <link rel="prev" title="9. Decision trees and forests" href="DecisionTrees.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -147,12 +145,12 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   12. Regression
+   10. Regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="NeuralNetworks.html">
-   13. Artificial Neural Networks (ANN)
+   11. Artificial Neural Networks (ANN)
   </a>
  </li>
 </ul>
@@ -251,24 +249,24 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#linear-regression">
-   12.1. Linear regression
+   10.1. Linear regression
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#ordinary-least-mean-squares-using-p-features">
-     12.1.1. Ordinary Least Mean Squares using p-features
+     10.1.1. Ordinary Least Mean Squares using p-features
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-fitness-of-a-regression-model">
-   12.2. The fitness of a regression model
+   10.2. The fitness of a regression model
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#coefficient-of-determination-r-2">
-     12.2.1. Coefficient of determination,
+     10.2.1. Coefficient of determination,
      <span class="math notranslate nohighlight">
       \(R^2\)
      </span>
@@ -276,58 +274,58 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#root-mean-square-error-rmse">
-     12.2.2. Root Mean Square Error, RMSE
+     10.2.2. Root Mean Square Error, RMSE
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#regularization-and-model-simplicication">
-   12.3. Regularization and model simplicication
+   10.3. Regularization and model simplicication
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#regularization">
-     12.3.1. Regularization
+     10.3.1. Regularization
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#l2-regularization-ridge-regression">
-       12.3.1.1. L2 regularization, Ridge regression
+       10.3.1.1. L2 regularization, Ridge regression
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#l1-regularization-lasso">
-       12.3.1.2. L1 regularization, LASSO
+       10.3.1.2. L1 regularization, LASSO
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#elastic-nets">
-       12.3.1.3. Elastic nets
+       10.3.1.3. Elastic nets
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#gradient-tree-boosting">
-       12.3.1.4. Gradient Tree Boosting
+       10.3.1.4. Gradient Tree Boosting
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#boston-house-prizes-example">
-     12.3.2. Boston house prizes example
+     10.3.2. Boston house prizes example
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#gradient-tree-regression">
-   12.4. Gradient tree regression
+   10.4. Gradient tree regression
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#recursive-feature-elimination">
-   12.5. Recursive feature elimination
+   10.5. Recursive feature elimination
   </a>
  </li>
 </ul>
@@ -342,12 +340,12 @@
               <div>
                 
   <div class="section" id="regression">
-<h1><span class="section-number">12. </span>Regression<a class="headerlink" href="#regression" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">10. </span>Regression<a class="headerlink" href="#regression" title="Permalink to this headline">¶</a></h1>
 <p>Regression is used when prediction a continuous dependent variable using one ore more independent variables.</p>
 <div class="section" id="linear-regression">
-<h2><span class="section-number">12.1. </span>Linear regression<a class="headerlink" href="#linear-regression" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.1. </span>Linear regression<a class="headerlink" href="#linear-regression" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="ordinary-least-mean-squares-using-p-features">
-<h3><span class="section-number">12.1.1. </span>Ordinary Least Mean Squares using p-features<a class="headerlink" href="#ordinary-least-mean-squares-using-p-features" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">10.1.1. </span>Ordinary Least Mean Squares using p-features<a class="headerlink" href="#ordinary-least-mean-squares-using-p-features" title="Permalink to this headline">¶</a></h3>
 <div class="math notranslate nohighlight">
 \[
     \hat{y}_i = \beta_1 x_{i,1} + \beta_2 x_{i,2} + \beta_3 x_{i,3} + \cdots + \beta_p x_{i,p} + \epsilon_i
@@ -377,10 +375,10 @@ $$</p>
 </div>
 </div>
 <div class="section" id="the-fitness-of-a-regression-model">
-<h2><span class="section-number">12.2. </span>The fitness of a regression model<a class="headerlink" href="#the-fitness-of-a-regression-model" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.2. </span>The fitness of a regression model<a class="headerlink" href="#the-fitness-of-a-regression-model" title="Permalink to this headline">¶</a></h2>
 <p>The fitness of a regression model is often estimated using coefficient of determination (<span class="math notranslate nohighlight">\(R^2\)</span>) or Root Mean Square Error of prediction (RMSE).</p>
 <div class="section" id="coefficient-of-determination-r-2">
-<h3><span class="section-number">12.2.1. </span>Coefficient of determination, <span class="math notranslate nohighlight">\(R^2\)</span><a class="headerlink" href="#coefficient-of-determination-r-2" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">10.2.1. </span>Coefficient of determination, <span class="math notranslate nohighlight">\(R^2\)</span><a class="headerlink" href="#coefficient-of-determination-r-2" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Coefficient_of_determination">coefficient of determination</a>, <span class="math notranslate nohighlight">\(R^2\)</span>, defines how large proportion of the variance in <span class="math notranslate nohighlight">\(y\)</span> is explained by the model. <span class="math notranslate nohighlight">\(R^2\)</span> is zero if the model cannot predict anything and it is 1 when the model fit is perfect.</p>
 <div class="math notranslate nohighlight">
 \[
@@ -393,7 +391,7 @@ $$</p>
 \]</div>
 </div>
 <div class="section" id="root-mean-square-error-rmse">
-<h3><span class="section-number">12.2.2. </span>Root Mean Square Error, RMSE<a class="headerlink" href="#root-mean-square-error-rmse" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">10.2.2. </span>Root Mean Square Error, RMSE<a class="headerlink" href="#root-mean-square-error-rmse" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://towardsdatascience.com/what-does-rmse-really-mean-806b65f2e48e">RMSE</a>, is another often used measure for model fitness. RMSE shows the average prediction error in the same units and scale than <span class="math notranslate nohighlight">\(y\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[
@@ -402,7 +400,7 @@ $$</p>
 </div>
 </div>
 <div class="section" id="regularization-and-model-simplicication">
-<h2><span class="section-number">12.3. </span>Regularization and model simplicication<a class="headerlink" href="#regularization-and-model-simplicication" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.3. </span>Regularization and model simplicication<a class="headerlink" href="#regularization-and-model-simplicication" title="Permalink to this headline">¶</a></h2>
 <p><img alt="William_of_Ockham_-_Logica_1341.jpg" src="_images/William_of_Ockham_-_Logica_1341_s.jpg" /></p>
 <p><span id="kuvaviite">Ockham - from a manuscipt of Ockham’s Summa Logicae, MS Gonville and Caius College, Cambridge, 464/571, fol. 69r</span></p>
 <blockquote>
@@ -418,7 +416,7 @@ $$</p>
 </ul>
 <p>Therefore it is important to use means for simplifying data and making the models more stable.</p>
 <div class="section" id="regularization">
-<h3><span class="section-number">12.3.1. </span>Regularization<a class="headerlink" href="#regularization" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">10.3.1. </span>Regularization<a class="headerlink" href="#regularization" title="Permalink to this headline">¶</a></h3>
 <p>Can you solve the following system of equations?
 $<span class="math notranslate nohighlight">\(
 \begin{cases} 3x + y + z = 5\\ 8x – 4y =  4z\end{cases}
@@ -460,7 +458,7 @@ $<span class="math notranslate nohighlight">\(
 \begin{cases} x = 1\\ y=1 \\ z=1\end{cases}
 \end{split}\]</div>
 <div class="laatikko">Regularization is a method in adding information (requirement) to solve a system or to avoid overfitting by reducing degrees of freedom.</div><div class="section" id="l2-regularization-ridge-regression">
-<h4><span class="section-number">12.3.1.1. </span>L2 regularization, Ridge regression<a class="headerlink" href="#l2-regularization-ridge-regression" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">10.3.1.1. </span>L2 regularization, Ridge regression<a class="headerlink" href="#l2-regularization-ridge-regression" title="Permalink to this headline">¶</a></h4>
 <div class="math notranslate nohighlight">
 \[
    Obj(\Theta) = \underbrace{\sum_{i=1}^{n} (y_i - \sum_{j=1}^p \beta_j x_{ij})^2}_{L(\Theta)} + \underbrace{\lambda \sum_{j=1}^p \beta_j^2}_{\Omega(\Theta)}
@@ -476,7 +474,7 @@ $<span class="math notranslate nohighlight">\(
 Hoerl, Arthur E., ja Robert W. Kennard. ”Ridge Regression: Biased Estimation for Nonorthogonal Problems”. Technometrics 12, nro 1 (1. Feb 1970): 55–67. https://doi.org/10.1080/00401706.1970.10488634.
 </div></div>
 <div class="section" id="l1-regularization-lasso">
-<h4><span class="section-number">12.3.1.2. </span>L1 regularization, LASSO<a class="headerlink" href="#l1-regularization-lasso" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">10.3.1.2. </span>L1 regularization, LASSO<a class="headerlink" href="#l1-regularization-lasso" title="Permalink to this headline">¶</a></h4>
 <div class="math notranslate nohighlight">
 \[
    Obj(\Theta) = \underbrace{\sum_{i=1}^{n} (y_i - \sum_{j=1}^p \beta_j x_{ij})^2}_{L(\Theta)} + \lambda \sum_{j=1}^p |\beta_j|
@@ -491,7 +489,7 @@ Hoerl, Arthur E., ja Robert W. Kennard. ”Ridge Regression: Biased Estimation f
 <div class="citation">Tibshirani, Robert. ”Regression Shrinkage and Selection Via the Lasso”. Journal of the Royal Statistical Society: Series B (Methodological) 58, nro 1 (1996): 267–88. https://doi.org/10.1111/j.2517-6161.1996.tb02080.x.
 </div></div>
 <div class="section" id="elastic-nets">
-<h4><span class="section-number">12.3.1.3. </span>Elastic nets<a class="headerlink" href="#elastic-nets" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">10.3.1.3. </span>Elastic nets<a class="headerlink" href="#elastic-nets" title="Permalink to this headline">¶</a></h4>
 <div class="math notranslate nohighlight">
 \[
    Obj(\Theta) = \underbrace{\sum_{i=1}^{n} (y_i - \sum_{j=1}^p \beta_j x_{ij})^2}_{L(\Theta)} + \lambda \sum_{j=1}^p \left( (1-\alpha) \beta_i^2 + \alpha |\beta_j| \right)
@@ -505,7 +503,7 @@ Hoerl, Arthur E., ja Robert W. Kennard. ”Ridge Regression: Biased Estimation f
 <div class="citation">Zou, Hui, ja Trevor Hastie. ”Regularization and variable selection via the elastic net”. Journal of the Royal Statistical Society: Series B (Statistical Methodology) 67, nro 2 (1. April 2005): 301–20. https://doi.org/10.1111/j.1467-9868.2005.00503.x.</div>
 </div>
 <div class="section" id="gradient-tree-boosting">
-<h4><span class="section-number">12.3.1.4. </span>Gradient Tree Boosting<a class="headerlink" href="#gradient-tree-boosting" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">10.3.1.4. </span>Gradient Tree Boosting<a class="headerlink" href="#gradient-tree-boosting" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p>Also called as Gradient Boosted Regression Trees (GBRT)</p></li>
 <li><p>The GBRT has similar formal loss function and measure for complexity as linear regrssion</p></li>
@@ -515,7 +513,7 @@ Hoerl, Arthur E., ja Robert W. Kennard. ”Ridge Regression: Biased Estimation f
 </div>
 </div>
 <div class="section" id="boston-house-prizes-example">
-<h3><span class="section-number">12.3.2. </span>Boston house prizes example<a class="headerlink" href="#boston-house-prizes-example" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">10.3.2. </span>Boston house prizes example<a class="headerlink" href="#boston-house-prizes-example" title="Permalink to this headline">¶</a></h3>
 <p>Can the house prizes be predicted? Which parameters affect most to the house prizes?</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    - CRIM     per capita crime rate by town
     - ZN       proportion of residential land zoned for lots over 25,000 sq.ft.
@@ -842,7 +840,7 @@ Training score.... 0.6820275797709414
 </div>
 </div>
 <div class="section" id="gradient-tree-regression">
-<h2><span class="section-number">12.4. </span>Gradient tree regression<a class="headerlink" href="#gradient-tree-regression" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.4. </span>Gradient tree regression<a class="headerlink" href="#gradient-tree-regression" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">GradientBoostingRegressor</span>
@@ -1232,7 +1230,7 @@ Training score.... 0.9304873266368128
 </div>
 </div>
 <div class="section" id="recursive-feature-elimination">
-<h2><span class="section-number">12.5. </span>Recursive feature elimination<a class="headerlink" href="#recursive-feature-elimination" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.5. </span>Recursive feature elimination<a class="headerlink" href="#recursive-feature-elimination" title="Permalink to this headline">¶</a></h2>
 <p>Needs to be written…</p>
 </div>
 </div>
@@ -1263,7 +1261,7 @@ Training score.... 0.9304873266368128
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="DecisionTrees.html" title="previous page"><span class="section-number">9. </span>Decision trees and forests <a class="anchor" id="dtaforests"></a></a>
-    <a class='right-next' id="next-link" href="NeuralNetworks.html" title="next page"><span class="section-number">13. </span>Artificial Neural Networks (ANN)</a>
+    <a class='right-next' id="next-link" href="NeuralNetworks.html" title="next page"><span class="section-number">11. </span>Artificial Neural Networks (ANN)</a>
 
         </div>
         
