@@ -29,6 +29,28 @@ Students who complete this course successfully will be aware of the *practical i
     1. Appropriate machine learning algorithms are chosen, the choice is rationally justified indicating knowledge of various machine learning methods, and the implementation is cleanly coded and explained using comments in the code. Again excellent report cites research literature in this phase.
     1. The results are reported using high quality graphics and University's document template. The graphs in the excellent report are of publication quality and they are correctly referenced in the text.
  1. Acting as an opponent of at least one report.
+ 
+The report is written using the writing guidelines of University of Vaasa. Ready made templates for Word and Overleaf are provided in the following pages:
+1. [Vaasan yliopiston kirjoitusohjeet](https://uva.libguides.com/kirjoitusohjeet)
+1. [University of Vaasa, writing guidelines](https://uva.libguides.com/writingguidelines)
+ 
+### Grade
+The final grade is calculated based on points. The points can be gathered by solving weekly exercises and making the project work and writing a report of it. Maximum amount of points is shown in the following table:
+
+ | Task | Exercise | 
+ |------|------------|
+ | Exercise 1 | 10 p |
+ | Exercise 2 | 10 p |
+ | Exercise 3 | 10 p |
+ | Exercise 4 | 10 p |
+ | Exercise 5 | 10 p |
+ | Exercise 6 | 10 p |
+ | Exercise 7 | 10 p |
+ | Exercise 8 | 10 p |
+ | Exercise 9 | 10 p |
+ | (Exercise 10) | (10 p) |
+ | Project work | 50 p |
+ | **Total** | **140 (150) p** |
 
 +++
 
@@ -64,3 +86,13 @@ This weekly schedule is also shown in the following figure.
 ![Course Schedule](kuvat/CourseSchedule.svg)
 
 M<n> are the weekly meetings, they take about 2H of time. The reading of the materials, with videos takes about 2H as well. The solving of the exercises should not take more than 4H/week. The final project should be worth of about 30H of work for each student.
+
++++
+
+### Solving exercises
+
++++
+
+The exercises are given in the form of [Jupyter Notebooks](https://jupyter.org/), which are kind of interactive documents, which you are suppose fill according to the instructions in the notebook. You can run them in Google Colab, Binder or in a Jupyter environment which you install in your own computer.
+
+When you are finis
