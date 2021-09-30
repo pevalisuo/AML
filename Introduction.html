@@ -42,8 +42,6 @@
     <script src="_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -192,11 +190,14 @@
 
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/Introduction.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+        <a class="dropdown-buttons"
+            href="_sources/Introduction.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Introduction.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -248,104 +249,87 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#about-the-course">
-   1.1. About the course
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#requirements-to-pass-the-course">
-     1.1.1. Requirements to pass the course
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#machine-learning-and-artificial-intelligence">
-   1.2. Machine learning and Artificial intelligence
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#artificial-intelligence-ai">
-   1.3. Artificial intelligence (AI)
+   1.1. Artificial intelligence (AI)
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#machine-learning-ml">
-   1.4. Machine Learning (ML)
+   1.2. Machine Learning (ML)
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#data-from-iot-networks">
-     1.4.1. Data from IoT networks
+     1.2.1. Data from IoT networks
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#big-data-sources">
-     1.4.2. Big data sources
+     1.2.2. Big data sources
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#sports">
-     1.4.3. Sports
+     1.2.3. Sports
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#politics">
-     1.4.4. Politics
+     1.2.4. Politics
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#social-media">
-     1.4.5. Social media
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#how-to-turn-data-to-information">
-     1.4.6. How to turn data to information
+     1.2.5. Social media
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#before-machine-learning-actually-begins">
-     1.4.7. Before Machine Learning actually begins
+     1.2.6. Before Machine Learning actually begins
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-turn-data-to-information">
+     1.2.7. How to turn data to information
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#python">
-   1.5. Python
+   1.3. Python
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#python-in-currently-really-popular-in-ml">
-     1.5.1. Python in currently really popular in ML
+     1.3.1. Python in currently really popular in ML
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#running-python-without-installation">
-     1.5.2. Running Python without installation
+     1.3.2. Running Python without installation
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#installing-python">
-     1.5.3. Installing Python
+     1.3.3. Installing Python
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#note">
-     1.5.4. Note
+     1.3.4. Note
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#testing-python">
-   1.6. Testing Python
+   1.4. Testing Python
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#excercises">
-   1.7. Excercises
+   1.5. Excercises
   </a>
  </li>
 </ul>
@@ -361,39 +345,8 @@
                 
   <div class="section" id="introduction">
 <h1><span class="section-number">1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="about-the-course">
-<h2><span class="section-number">1.1. </span>About the course<a class="headerlink" href="#about-the-course" title="Permalink to this headline">¶</a></h2>
-<p>Students who complete this seminar successfully will be aware of the <em>practical implementation and usage</em> of <strong>machine learning</strong> algorithms. Furthermore, they will be able to <em>apply machine learning algorithms</em> in <em>real problems</em> using efficient programming languages, for example Python.</p>
-<div class="section" id="requirements-to-pass-the-course">
-<h3><span class="section-number">1.1.1. </span>Requirements to pass the course<a class="headerlink" href="#requirements-to-pass-the-course" title="Permalink to this headline">¶</a></h3>
-<ol class="simple">
-<li><p>50% implementation of weekly excercises</p></li>
-<li><p>Report of personal task exceed the passing criteria</p>
-<ol class="simple">
-<li><p>The problem of the task is clearly presented</p></li>
-<li><p>The data used for solving the problem is clearly documented</p></li>
-<li><p>The data preprosessing and feature calculation is clearly justified, explained and implemented. Excellent report cites research litterature to justify the case.</p></li>
-<li><p>Appropriate machine learning algorithms are chosen, the choice is rationally justified indicating knowledge of various machine learning methods, and the implementation is cleanly coded and explained using comments in the code. Again excellent report cites research litterature in this phase.</p></li>
-<li><p>The results are reported using high quality graphics and University’s document template. The graphs in the excellent report are of publication quality and they are correctly referenced in the text.</p></li>
-</ol>
-</li>
-<li><p>Acting as an opponent of at least one report.</p></li>
-</ol>
-</div>
-</div>
-<div class="section" id="machine-learning-and-artificial-intelligence">
-<h2><span class="section-number">1.2. </span>Machine learning and Artificial intelligence<a class="headerlink" href="#machine-learning-and-artificial-intelligence" title="Permalink to this headline">¶</a></h2>
-<p>What do you seen in the following video? Machine Learning? Artificial Intelligence? Automation?
-<a class="reference external" href="https://www.youtube.com/watch?v=rVlhMGQgDkY">Atlas robot</a></p>
-<ul class="simple">
-<li><p>Is the robot intelligent?</p></li>
-<li><p>Does it have feelings?</p></li>
-<li><p>Is it Ok to bully a robot?</p></li>
-<li><p>Are human rights going to be applicable for future robots?</p></li>
-</ul>
-</div>
 <div class="section" id="artificial-intelligence-ai">
-<h2><span class="section-number">1.3. </span>Artificial intelligence (AI)<a class="headerlink" href="#artificial-intelligence-ai" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.1. </span>Artificial intelligence (AI)<a class="headerlink" href="#artificial-intelligence-ai" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><em>Intelligence demonstrated by machines.</em></p></li>
 <li><p>Some interpretation is that the AI is the methods which are not just yet taken into use. Therefore they may a machine look like an intelligent being, when you don’t understand how it works.</p></li>
@@ -403,14 +356,14 @@
 <p>Humanized AI shows characteristics of all types of competencies (i.e., cognitive, emotional, and social intelligence), is able to be self-conscious and is self-aware in interactions.</p>
 </div>
 <div class="section" id="machine-learning-ml">
-<h2><span class="section-number">1.4. </span>Machine Learning (ML)<a class="headerlink" href="#machine-learning-ml" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.2. </span>Machine Learning (ML)<a class="headerlink" href="#machine-learning-ml" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>Machine learning is a subset of artificial intelligence in the field of computer science that often uses statistical techniques to give computers the ability to “learn” with data, without being explicitly programmed.
 <a class="reference external" href="https://en.wikipedia.org/wiki/Machine_learning">Wikipedia</a></p>
 </div></blockquote>
 <p>Human can learn by copying what the other humans do (learning from data) or they can directly learn the rules (e.g. learning math). Machine learning happens when a machine (e.g. computers) learns from data. Using the rules directly is programming.</p>
 <div class="section" id="data-from-iot-networks">
-<h3><span class="section-number">1.4.1. </span>Data from IoT networks<a class="headerlink" href="#data-from-iot-networks" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.2.1. </span>Data from IoT networks<a class="headerlink" href="#data-from-iot-networks" title="Permalink to this headline">¶</a></h3>
 <p>The decreasing size, cost and power consumption of micro-controllers have made
 it possible to make previously simple objects digital and smarter. For example
 room temperature thermostats, cameras, power and distribution grid components
@@ -421,7 +374,7 @@ turn have made it possible to store the data collected by the sensors distribute
 the IoT networks.</p>
 </div>
 <div class="section" id="big-data-sources">
-<h3><span class="section-number">1.4.2. </span>Big data sources<a class="headerlink" href="#big-data-sources" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.2.2. </span>Big data sources<a class="headerlink" href="#big-data-sources" title="Permalink to this headline">¶</a></h3>
 <p>The increasing amounts of data is more and
 more often also openly published in the Internet. Easy access to large data sets
 has attracted researchers and businesses to apply data driven research methods to
@@ -430,44 +383,46 @@ from large data sets. Success in these efforts in turn raises interests in colle
 even more data.</p>
 </div>
 <div class="section" id="sports">
-<h3><span class="section-number">1.4.3. </span>Sports<a class="headerlink" href="#sports" title="Permalink to this headline">¶</a></h3>
-<img src="kuvat/Kirittaret.jpg" alt="kirittaret" width="800"/>
+<h3><span class="section-number">1.2.3. </span>Sports<a class="headerlink" href="#sports" title="Permalink to this headline">¶</a></h3>
+ <img src="kuvat/Kirittaret.jpg" alt="kirittaret" width="500"/>
 <p>Jyväskylä Kirittäret won the Finnish championship of baseball. They say that they had collected more data than they competitors about previous games. It is nowadays common in sports that the own and competing teams are hevily analyzed. Data analytics and machine learning is even more heavily used in international sports events.</p>
 </div>
 <div class="section" id="politics">
-<h3><span class="section-number">1.4.4. </span>Politics<a class="headerlink" href="#politics" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.2.4. </span>Politics<a class="headerlink" href="#politics" title="Permalink to this headline">¶</a></h3>
 <p>Statistics and ML plays a significant role also in the USA precidential elections. The opinions of the people in different states are known, and speeches written based on statistics. <a class="reference external" href="https://en.wikipedia.org/wiki/Cambridge_Analytica">Cambridge Analytica</a> had a significant role in the previous elections already. Data mining based political consulting was their main business. Their interference to elections was recarded as scandalous by some, and they regard CA as <a class="reference external" href="https://www.politico.com/news/2020/02/19/trump-cambridge-analytica-oczkowski-114075">controversial company</a>. Some governmental organizations, <a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Research_Agency">Internet Reserch Agency</a>, do utilize similar methods trying to affect to other nations. Perhaps these methods are staying for good, but it is really important for a citizen to understand it.</p>
 </div>
 <div class="section" id="social-media">
-<h3><span class="section-number">1.4.5. </span>Social media<a class="headerlink" href="#social-media" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.2.5. </span>Social media<a class="headerlink" href="#social-media" title="Permalink to this headline">¶</a></h3>
 <p>The participants of this course may find a document <a class="reference external" href="https://www.netflix.com/title/81254224">Valvontakapitalismin vaarat / Social Dilemma</a> as interesting. It describes the social media as a system, where AI and ML is analyzing the users, and the algorithms try to keep them addicted. According to he movie, the users are the product which are sold to advertisers and opinion leaders. The social media is said to build discussion bubbles which form a tailor made view to the reality for each user, thus polarizing the views. Social media provides excellent possibilities to analyze the behaviour and opinions of the individuals in almost real time and act upon.</p>
 </div>
+<div class="section" id="before-machine-learning-actually-begins">
+<h3><span class="section-number">1.2.6. </span>Before Machine Learning actually begins<a class="headerlink" href="#before-machine-learning-actually-begins" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>According to the CrowdFlower Data Science report, data scientists spend the majority of their time  cleansing data — and surprisingly this is also their least favorite part of their job. <a class="reference external" href="https://www.datasciencecentral.com/profiles/blogs/artificial-intelligence-vs-machine-learning-vs-deep-learning">Artificial Intelligence vs. Machine Learning vs. Deep Learning</a></p>
+</div></blockquote>
+</div>
 <div class="section" id="how-to-turn-data-to-information">
-<h3><span class="section-number">1.4.6. </span>How to turn data to information<a class="headerlink" href="#how-to-turn-data-to-information" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.2.7. </span>How to turn data to information<a class="headerlink" href="#how-to-turn-data-to-information" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li><p>If you know the data, and know the rules, you can make a program to make decisions based on data.</p></li>
 <li><p>If you have data and you know the answers, you can let the computer to learn the rules</p></li>
 <li><p>If you have the data, but don’t know anything, you can explore the data with unsupervised method</p></li>
 </ol>
-<img src="kuvat/MachineLearning.svg" alt="MachineLearningVsProgramming" width="800"/>
-</div>
-<div class="section" id="before-machine-learning-actually-begins">
-<h3><span class="section-number">1.4.7. </span>Before Machine Learning actually begins<a class="headerlink" href="#before-machine-learning-actually-begins" title="Permalink to this headline">¶</a></h3>
-<blockquote>
-<div><p>According to the CrowdFlower Data Science report, data scientists spend the majority of their time  cleansing data — and surprisingly this is also their least favorite part of their job. <a class="reference external" href="https://www.datasciencecentral.com/profiles/blogs/artificial-intelligence-vs-machine-learning-vs-deep-learning">Artificial Intelligence vs. Machine Learning vs. Deep Learning</a></p>
-</div></blockquote>
-</div>
+<img src="kuvat/MachineLearning.svg" alt="MachineLearningVsProgramming" width="800"/></div>
 </div>
 <div class="section" id="python">
-<h2><span class="section-number">1.5. </span>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.3. </span>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Why python?&quot;</span><span class="p">)</span>
+<span class="n">question</span><span class="o">=</span><span class="s2">&quot;And how is python related to machine learning anyway?&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">question</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Why python?
+And how is python related to machine learning anyway?
 </pre></div>
 </div>
 </div>
@@ -496,7 +451,7 @@ even more data.</p>
 <li><p>Sometimes it is convenient to work just by using interactive <a class="reference external" href="https://ipython.org/">IPython</a> console</p></li>
 </ul>
 <div class="section" id="python-in-currently-really-popular-in-ml">
-<h3><span class="section-number">1.5.1. </span>Python in currently really popular in ML<a class="headerlink" href="#python-in-currently-really-popular-in-ml" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.3.1. </span>Python in currently really popular in ML<a class="headerlink" href="#python-in-currently-really-popular-in-ml" title="Permalink to this headline">¶</a></h3>
 <img src="kuvat/machine-learning-data-science-programming-language.png" alt="MLLanguages" width="500"/>
 <p><a class="reference external" href="https://fossbytes.com/popular-top-programming-languages-machine-learning-data-science/">Fossbytes</a></p>
 <ul class="simple">
@@ -506,20 +461,20 @@ even more data.</p>
 </ul>
 </div>
 <div class="section" id="running-python-without-installation">
-<h3><span class="section-number">1.5.2. </span>Running Python without installation<a class="headerlink" href="#running-python-without-installation" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.3.2. </span>Running Python without installation<a class="headerlink" href="#running-python-without-installation" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Run it in the Jupyter Notebooks</p>
 <ul>
-<li><p>from <a class="reference external" href="https://notebooks.csc.fi/#/blueprint/b0bf0fdc4ff941738e5af553d6eec864">CSC notebook server</a>. This is the recommended method. All libraries, notebooks and data is copied from the github repository of the course to be available for making exercises. CSC server takes about 30 seconds to start and performs pretty good. Maximum lifetime is 8 hours.</p></li>
-<li><p>from <a class="reference external" href="https://mybinder.org/v2/gh/pevalisuo/AML/master">Binder</a>. This method also copies all maetrials and notebooks from github repository. Takes probably longer to start than CSC version and has shorter lifetime, but performs better than CSC version.</p></li>
+<li><p>Run it in <a class="reference external" href="https://colab.research.google.com/github/pevalisuo/AML/">Google Co-lab</a>, which is a modified version of Jupyter Notebook. This is the recommended method, if you have a Google account. You need to select from the menu, which file to open. Copy it in your own Google drive to make modifications.</p></li>
+<li><p>from <a class="reference external" href="https://mybinder.org/v2/gh/pevalisuo/AML/master">Binder</a>. This method copies all materials and notebooks from GitHUB repository. Takes probably longer to start than Co-Lab or CSC versions and has shorter lifetime, but performs better than CSC version.</p></li>
+<li><p>from <a class="reference external" href="https://notebooks.csc.fi/#/blueprint/b0bf0fdc4ff941738e5af553d6eec864">CSC notebook server</a>. All libraries, notebooks and data is copied from the GitHUB repository of the course to be available for making exercises. CSC server takes about 30 seconds to start and performs pretty good. Maximum lifetime is 8 hours.</p></li>
 </ul>
 </li>
 <li><p>Run it in <a class="reference external" href="https://repl.it/">Repl.it</a>. This can be used for fast interactive programming session, but is does not support notebooks. You can configure it to copy the materials from GitHub as well.</p></li>
-<li><p>Run python notebooks in <a class="reference external" href="https://colab.research.google.com">Google Co-Lab</a>. It does not automatically sync with GitHub, but you can copy the data in your Google drive.</p></li>
 </ul>
 </div>
 <div class="section" id="installing-python">
-<h3><span class="section-number">1.5.3. </span>Installing Python<a class="headerlink" href="#installing-python" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.3.3. </span>Installing Python<a class="headerlink" href="#installing-python" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>In Linux, it is easy to install python. In ubuntu or debian just say</p>
 <ul>
@@ -537,7 +492,7 @@ even more data.</p>
 </ul>
 </div>
 <div class="section" id="note">
-<h3><span class="section-number">1.5.4. </span>Note<a class="headerlink" href="#note" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.3.4. </span>Note<a class="headerlink" href="#note" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Today is best to install Python3.</p></li>
 <li><p>You need functional Jupyter environment and Python3 kernel to make the excercises of this course.</p></li>
@@ -546,7 +501,7 @@ even more data.</p>
 </div>
 </div>
 <div class="section" id="testing-python">
-<h2><span class="section-number">1.6. </span>Testing Python<a class="headerlink" href="#testing-python" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.4. </span>Testing Python<a class="headerlink" href="#testing-python" title="Permalink to this headline">¶</a></h2>
 <p>Open Jupyter notebook or IPython console and try to test some programming</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -671,7 +626,7 @@ sumNumbers(n)
 </div>
 </div>
 <div class="section" id="excercises">
-<h2><span class="section-number">1.7. </span>Excercises<a class="headerlink" href="#excercises" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.5. </span>Excercises<a class="headerlink" href="#excercises" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>Download Notebook 1, make the excercises and submit your finished notebook to Moodle within one week.</p></li>
 <li><p>If facing problems, submit questions in Moodle discussion area for current week. You can also try general chat group for Moodle.</p></li>
