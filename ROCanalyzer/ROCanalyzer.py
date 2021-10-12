@@ -19,6 +19,10 @@ class Window(QtWidgets.QDialog):
         # a figure instance to plot on
         self.figurePDF = Figure()
         self.figureROC = Figure()
+        
+        # Axis for plotting
+        self.axPDF=None
+        self.axROC=None
 
         self.xdata=[]
         self.ydata1=[]
@@ -119,52 +123,70 @@ class Window(QtWidgets.QDialog):
 
 
         self.replot()
+        
+    def plotConfusionMatrix(self, TP, TN, FP, FN):
+        print("                   |  P       |  N       |")
+        print("                   -----------------------")
+        print("Predicted positive | TP=%2d%%  | FP=%2d%%  |" % (TP*100, FP*100))
+        print("Predicted negative | FN=%2d%%  | TN=%2d%%  |" % (FN*100, TN*100))
+        print("                   -----------------------")
 
     def replot(self):
         
         # create an axis
-        axPDF = self.figurePDF.add_subplot(111)
+        if self.axPDF==None:
+            self.axPDF = self.figurePDF.add_subplot(111)
         
         # discards the old graph
-        axPDF.clear()
+        self.axPDF.clear()
         
         # plot data
-        axPDF.plot(self.xdata, self.ydata1, 'b', label='X(A=true)')
-        axPDF.plot(self.xdata, self.ydata2, 'r', label='X(A=False)')
+        self.axPDF.plot(self.xdata, self.ydata1, 'b', label='X(A=true)')
+        self.axPDF.plot(self.xdata, self.ydata2, 'r', label='X(A=False)')
 
         # Decision boundary location
         dloc=self.sliderPDF.value()/100.*(max(self.xdata)-min(self.xdata))+min(self.xdata)
-        axPDF.vlines(dloc, 0, max(max(self.ydata1), max(self.ydata2)), linestyles='dashed')
-        axPDF.set_xlabel('X')
-        axPDF.set_ylabel('Probability')
-        axPDF.legend()
-        axPDF.set_title('PDF of X')
+        self.axPDF.vlines(dloc, 0, max(max(self.ydata1), max(self.ydata2)), linestyles='dashed')
+        self.axPDF.set_xlabel('X')
+        self.axPDF.set_ylabel('Probability')
+        self.axPDF.legend()
+        self.axPDF.set_title('PDF of X')
         
         # refresh canvas
         self.canvasPDF.draw()
 
         # create an axis for ROC
-        axROC = self.figureROC.add_subplot(111)
+        if self.axROC==None:
+            self.axROC = self.figureROC.add_subplot(111)
         
         # discards the old graph
-        axROC.clear()
+        self.axROC.clear()
         
         if self.plotroc:
             
             # plot data
-            axROC.plot(self.rocx, self.rocy, 'b')
+            self.axROC.plot(self.rocx, self.rocy, 'b')
             sensitivity=sum(self.ydata1[self.xdata<dloc])/sum(self.ydata1)
             specificity=1-sum(self.ydata2[self.xdata<dloc])/sum(self.ydata2)
-            axROC.plot(1-specificity, sensitivity, 'ro')
-            axROC.vlines(1-specificity, 0, 1, linestyles='dashed')
-            axROC.hlines(sensitivity, 0, 1, linestyles='dashed')
-            axROC.plot([0,1], [0,1], 'grey')
-            axROC.set_xlabel('1-Specificity, False positive')
-            axROC.set_ylabel('Sensitivity, True positive')
-            axROC.set_title('ROC')
+            self.axROC.plot(1-specificity, sensitivity, 'ro')
+            self.axROC.vlines(1-specificity, 0, 1, linestyles='dashed')
+            self.axROC.hlines(sensitivity, 0, 1, linestyles='dashed')
+            self.axROC.plot([0,1], [0,1], 'grey')
+            self.axROC.set_xlabel('1-Specificity, False positive')
+            self.axROC.set_ylabel('Sensitivity, True positive')
+            self.axROC.set_title('ROC')
+        
+        if self.plotroc:
+            TP=sensitivity*100
+            FP=(1-specificity)*100
+            FN=(1-sensitivity)*100
+            TN=specificity*100
+            self.axROC.text(0.7,0.15,"Confusion matrix")
+            self.axROC.text(0.7,0.10,"TP=%2d%% | FP=%2d%%" % (TP,FP))
+            self.axROC.text(0.7,0.05,"FN=%2d%% | TN=%2d%%" % (FN,TN))
         # refresh canvas
         self.canvasROC.draw()
-
+        
     def buttonClose(self):
         print("Closing")
 

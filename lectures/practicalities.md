@@ -95,7 +95,7 @@ M<n> are the weekly meetings, they take about 2H of time. The reading of the mat
 
 The exercises are given in the form of [Jupyter Notebooks](https://jupyter.org/), which are kind of interactive documents, which you are suppose fill according to the instructions in the notebook. You can run them in Google Colab, Binder or in a Jupyter environment which you install in your own computer.
 
-When you have finished the notebook, download it from Jupyter in notebook format (`.ipynb`) and upload the notebook in Moodle. 
+When you have finished the notebook, download it from Jupyter in notebook format (`.ipynb`) and upload the notebook in Moodle.
 
 ```{code-cell} ipython3
 
