@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>5. Unsupervised learning &#8212; Applied Machine Learning, 2021</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -31,21 +31,23 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -56,7 +58,10 @@
     <link rel="next" title="6. Supervised machine learning, Terminology" href="SupervisedMachineLearningTerminology.html" />
     <link rel="prev" title="4. Dimensionality reduction by Subspace projections" href="Subspace_Projections.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -350,7 +355,7 @@
         
               <div>
                 
-  <div class="section" id="unsupervised-learning">
+  <div class="tex2jax_ignore mathjax_ignore section" id="unsupervised-learning">
 <h1><span class="section-number">5. </span>Unsupervised learning<a class="headerlink" href="#unsupervised-learning" title="Permalink to this headline">¶</a></h1>
 <p>This lecture covers the following topics</p>
 <ol class="simple">
@@ -626,9 +631,15 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Clustering_14_0.png" src="_images/Clustering_14_0.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/petri/venv/python3/lib/python3.9/site-packages/sklearn/manifold/_t_sne.py:780: FutureWarning: The default initialization in TSNE will change from &#39;random&#39; to &#39;pca&#39; in 1.2.
+  warnings.warn(
+/home/petri/venv/python3/lib/python3.9/site-packages/sklearn/manifold/_t_sne.py:790: FutureWarning: The default learning rate in TSNE will change from 200.0 to &#39;auto&#39; in 1.2.
+  warnings.warn(
+</pre></div>
+</div>
 <img alt="_images/Clustering_14_1.png" src="_images/Clustering_14_1.png" />
 <img alt="_images/Clustering_14_2.png" src="_images/Clustering_14_2.png" />
+<img alt="_images/Clustering_14_3.png" src="_images/Clustering_14_3.png" />
 </div>
 </div>
 <p>The cluster centers can be read from the kmeans object</p>
@@ -639,16 +650,16 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-22.51277  , -24.47995  ],
-       [ 11.44384  ,  58.98068  ],
-       [ 58.67075  ,   3.7604215],
-       [ 24.890926 , -46.25069  ],
-       [-28.618832 ,  43.49982  ],
-       [ 26.17624  ,  -5.102732 ],
-       [-56.750923 , -18.868591 ],
-       [  2.7634945, -17.9793   ],
-       [-23.897602 ,   1.9687912],
-       [  1.764371 ,  18.446451 ]], dtype=float32)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-31.89191  , -18.649845 ],
+       [ 49.05327  ,   2.2915397],
+       [-21.60861  ,  26.401426 ],
+       [ -7.015506 , -55.168194 ],
+       [-64.96643  ,  10.28909  ],
+       [ 11.164866 ,   4.2243295],
+       [ 22.84113  ,  29.140562 ],
+       [ 27.882452 , -31.350878 ],
+       [ -3.2667582,  -8.566281 ],
+       [  2.2947323,  41.47712  ]], dtype=float32)
 </pre></div>
 </div>
 </div>
@@ -680,38 +691,38 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Raw data
-[[177   0   0   0   1   0   0   0   0   0]
- [  0   0  99   1   0   0   1   2  55  24]
- [  1   2   8  13   0   3   0   0   2 148]
- [  0  11   7 156   0   7   2   0   0   0]
- [  0   0   4   0 166   8   0   0   3   0]
- [  0  48   0   2   2   0 129   1   0   0]
- [  1   0   3   0   0   0   0 177   0   0]
- [  0   0   3   0   0 176   0   0   0   0]
- [  0  52 101   2   0   4   5   2   5   3]
- [  0 139   1   8   0   7   5   0  20   0]]
+[[  0 177   0   0   1   0   0   0   0   0]
+ [ 99   0   1   0   0   0  55   2  24   1]
+ [  8   1  13   2   0   3   2   0 148   0]
+ [  7   0 155  13   0   6   0   0   0   2]
+ [  2   0   0   0 162  10   7   0   0   0]
+ [  0   0   0  43   1   0   0   1   0 137]
+ [  2   1   0   0   0   0   1 177   0   0]
+ [  2   0   0   0   0 170   2   0   0   5]
+ [101   0   2  51   0   3   6   2   3   6]
+ [  0   0   6 139   0   8  20   0   0   7]]
 PCA
-[[  3   0  12   0   2 160   0   1   0   0]
- [  5  87   0   0  27   0   9   4  50   0]
- [  4   1   0   3  32   0   5   0  13 119]
- [ 26   0   0  97  11   0  12   0   0  37]
- [  0   5  24   0   0   0   3 144   5   0]
- [ 44   0   5   1  47   6  22   2  52   3]
- [  0   0 150   0   0   8   0  21   2   0]
- [  0  21   0   0   1   0 114   1  41   1]
- [  4   4   0   0  72   0  24   1  65   4]
- [121   0   1  15  18   0   9   0  10   6]]
+[[  1   0 157   1   0   0   0  15   0   4]
+ [ 29  51   0   1  86   0   9   0   0   6]
+ [ 34  11   0   0   1   3   9   0 115   4]
+ [ 11   0   0   0   0  96  12   0  39  25]
+ [  0   7   0 149   6   0   3  16   0   0]
+ [ 46  46   6   2   0   1  28   5   3  45]
+ [  0   2   7  27   0   0   0 145   0   0]
+ [  1  39   0   0  21   0 117   0   1   0]
+ [ 72  58   0   1   4   0  29   0   4   6]
+ [ 18  10   0   0   0  22   9   1   7 113]]
 t-SNE
-[[  0 178   0   0   0   0   0   0   0   0]
- [  0   0   0   0   0 141  27  14   0   0]
- [  1   0   0   0   0   0 166  10   0   0]
- [176   0   0   1   0   0   0   0   4   2]
- [  0   0 178   0   0   0   0   3   0   0]
- [  0   0   0   0   1   0   0   0   1 180]
- [  0   0   0   0 180   0   0   1   0   0]
- [  0   0   0 179   0   0   0   0   0   0]
- [  0   0   0   0   0   3   0 171   0   0]
- [  1   0   0  10   0  20   0   3 144   2]]
+[[  0   0   0   0 178   0   0   0   0   0]
+ [  0   0   0   0   0   4   0  27 151   0]
+ [  0   1   0   0   0   6   0 170   0   0]
+ [  0   1   2   0   0   0 180   0   0   0]
+ [178   0   0   0   0   3   0   0   0   0]
+ [  0   0 179   1   0   0   0   0   0   2]
+ [  0   0   0 180   0   1   0   0   0   0]
+ [  0 179   0   0   0   0   0   0   0   0]
+ [  0   0   0   0   0 166   0   4   4   0]
+ [  0   9   2   0   0   4   2   0  20 143]]
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(449.73636363636354, 0.5, &#39;Digit&#39;)
@@ -804,8 +815,8 @@ t-SNE
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fdfe41b30a0&gt;,
- &lt;matplotlib.lines.Line2D at 0x7fdfe41b31c0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fbfecbb2d60&gt;,
+ &lt;matplotlib.lines.Line2D at 0x7fbfecbb2c40&gt;]
 </pre></div>
 </div>
 <img alt="_images/Clustering_25_1.png" src="_images/Clustering_25_1.png" />
@@ -867,19 +878,25 @@ t-SNE
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[  0   0 178   0   0   0   0   0   0   0]
- [  0  27   0   0 140   0   0   0  15   0]
- [  1 166   0   0   0   0   0   0  10   0]
- [  1   0   0   0   0   0   0   0  16 166]
- [  3   0   0   0   0   0   0 178   0   0]
- [  0   0   0   2   0 179   1   0   0   0]
- [  0   0   0   0   0   0 181   0   0   0]
- [179   0   0   0   0   0   0   0   0   0]
- [  0   0   0   0   4   0   0   0 170   0]
- [ 11   0   0 142  20   2   0   0   2   3]]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/petri/venv/python3/lib/python3.9/site-packages/sklearn/manifold/_t_sne.py:780: FutureWarning: The default initialization in TSNE will change from &#39;random&#39; to &#39;pca&#39; in 1.2.
+  warnings.warn(
+/home/petri/venv/python3/lib/python3.9/site-packages/sklearn/manifold/_t_sne.py:790: FutureWarning: The default learning rate in TSNE will change from 200.0 to &#39;auto&#39; in 1.2.
+  warnings.warn(
 </pre></div>
 </div>
-<img alt="_images/Clustering_27_1.png" src="_images/Clustering_27_1.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[178   0   0   0   0   0   0   0   0   0]
+ [  0 154   0   0   0  27   0   0   0   1]
+ [  0   0   0   0   0 166   0   0   1  10]
+ [  0   0   0   0   0   0   1   0 180   2]
+ [  0   0   0 178   0   0   3   0   0   0]
+ [  0   0   2   0   1   0   0 179   0   0]
+ [  0   0   0   0 181   0   0   0   0   0]
+ [  0   0   0   0   0   0 179   0   0   0]
+ [  0   8   0   0   0   0   0   0   0 166]
+ [  0  20 142   0   0   0  11   2   3   2]]
+</pre></div>
+</div>
+<img alt="_images/Clustering_27_2.png" src="_images/Clustering_27_2.png" />
 </div>
 </div>
 <p>GMM is probabilistic model supporting also prediction probabilities. In other words, it can tell what is the probability of a certain sample in belonging to a certain cluster. For example let’s calculated all probabilities and then visualize the probabilities of sample 19 in belonging to certain clusters.</p>
@@ -924,7 +941,7 @@ t-SNE
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x7fdfdc6386d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x7fbfecb1c100&gt;
 </pre></div>
 </div>
 <img alt="_images/Clustering_31_1.png" src="_images/Clustering_31_1.png" />
@@ -994,14 +1011,12 @@ t-SNE
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0 1 2 3 4 5 6 7 8 9]
+[0 0 1 4 6 7 8 9 9 9]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0 2 2 3 3 5 5 6 6 7]
-</pre></div>
-</div>
+<img alt="_images/Clustering_35_2.png" src="_images/Clustering_35_2.png" />
 <img alt="_images/Clustering_35_3.png" src="_images/Clustering_35_3.png" />
 <img alt="_images/Clustering_35_4.png" src="_images/Clustering_35_4.png" />
-<img alt="_images/Clustering_35_5.png" src="_images/Clustering_35_5.png" />
 </div>
 </div>
 </div>
@@ -1124,8 +1139,7 @@ t-SNE
       </div>
     </div>
   
-  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>
