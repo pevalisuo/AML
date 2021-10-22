@@ -4,9 +4,8 @@ numpy
 scipy
 seaborn
 pandas
-scikit.learn
+scikit-learn
 h5py
-#nbgrader
 statsmodels
 tables
 pyarrow
