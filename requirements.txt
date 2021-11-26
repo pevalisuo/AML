@@ -12,4 +12,6 @@ pyarrow
 nltk
 requester
 beautifulsoup4
+gensim
+pyLDAvis
 
