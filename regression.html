@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Regression &#8212; Applied Machine Learning, 2021</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
@@ -152,12 +153,27 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Regression.html">
-   10. Regression
+   10. Regression and regularisation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="NeuralNetworks.html">
    11. Artificial Neural Networks (ANN)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Learning_model_parameters.html">
+   12. Model learning strategies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NLP.html">
+   18. Natural Language Processing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NLP-UWB.html">
+   20. Ultra Wide Band positioning literature analysis
   </a>
  </li>
 </ul>
@@ -312,7 +328,7 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="regression">
+  <section class="tex2jax_ignore mathjax_ignore" id="regression">
 <h1>Regression<a class="headerlink" href="#regression" title="Permalink to this headline">¶</a></h1>
 <p>Simple models are better models
 <img alt="William_of_Ockham_-_Logica_1341.jpg" src="_images/William_of_Ockham_-_Logica_1341_s.jpg" /></p>
@@ -321,7 +337,7 @@
 <div><p>“Simpler solutions are more likely to be correct than complex ones”</p>
 <p>William of Ockham</p>
 </div></blockquote>
-<div class="section" id="regularization">
+<section id="regularization">
 <h2>Regularization<a class="headerlink" href="#regularization" title="Permalink to this headline">¶</a></h2>
 <p>Can you solve the following system of equations?
 $<span class="math notranslate nohighlight">\(
@@ -358,10 +374,10 @@ $<span class="math notranslate nohighlight">\(
 \[\begin{split}
 \begin{cases} x = 1\\ y=1 \\ z=1\end{cases}
 \end{split}\]</div>
-<div class="laatikko">Regularization is a method in adding information (requirement) to solve a system or to avoid overfitting by reducing degrees of freedom.</div></div>
-<div class="section" id="linear-regression">
+<div class="laatikko">Regularization is a method in adding information (requirement) to solve a system or to avoid overfitting by reducing degrees of freedom.</div></section>
+<section id="linear-regression">
 <h2>Linear regression<a class="headerlink" href="#linear-regression" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="ordinary-least-mean-squares-using-p-features">
+<section id="ordinary-least-mean-squares-using-p-features">
 <h3>Ordinary Least Mean Squares using p-features<a class="headerlink" href="#ordinary-least-mean-squares-using-p-features" title="Permalink to this headline">¶</a></h3>
 <div class="math notranslate nohighlight">
 \[
@@ -375,8 +391,8 @@ $<span class="math notranslate nohighlight">\(
 <li><p>Classic regression, usually the first choice</p></li>
 <li><p>Does not work well when <strong>p is large</strong> and there is <strong>noise</strong> in the training data</p></li>
 </ul>
-</div>
-<div class="section" id="l2-regularization-ridge-regression">
+</section>
+<section id="l2-regularization-ridge-regression">
 <h3>L2 regularization, Ridge regression<a class="headerlink" href="#l2-regularization-ridge-regression" title="Permalink to this headline">¶</a></h3>
 <div class="math notranslate nohighlight">
 \[
@@ -396,8 +412,8 @@ $<span class="math notranslate nohighlight">\(
 <hr class="docutils" />
 <div class=citation>
 Hoerl, Arthur E., ja Robert W. Kennard. ”Ridge Regression: Biased Estimation for Nonorthogonal Problems”. Technometrics 12, nro 1 (1. Feb 1970): 55–67. https://doi.org/10.1080/00401706.1970.10488634.
-</div></div>
-<div class="section" id="l1-regularization-lasso">
+</div></section>
+<section id="l1-regularization-lasso">
 <h3>L1 regularization, LASSO<a class="headerlink" href="#l1-regularization-lasso" title="Permalink to this headline">¶</a></h3>
 <div class="math notranslate nohighlight">
 \[
@@ -416,8 +432,8 @@ $<span class="math notranslate nohighlight">\(
 \)</span>$</p>
 <hr class="docutils" />
 <div class="citation">Tibshirani, Robert. ”Regression Shrinkage and Selection Via the Lasso”. Journal of the Royal Statistical Society: Series B (Methodological) 58, nro 1 (1996): 267–88. https://doi.org/10.1111/j.2517-6161.1996.tb02080.x.
-</div></div>
-<div class="section" id="elastic-nets">
+</div></section>
+<section id="elastic-nets">
 <h3>Elastic nets<a class="headerlink" href="#elastic-nets" title="Permalink to this headline">¶</a></h3>
 <div class="math notranslate nohighlight">
 \[
@@ -436,8 +452,8 @@ $<span class="math notranslate nohighlight">\(
 \)</span>$</p>
 <hr class="docutils" />
 <div class="citation">Zou, Hui, ja Trevor Hastie. ”Regularization and variable selection via the elastic net”. Journal of the Royal Statistical Society: Series B (Statistical Methodology) 67, nro 2 (1. April 2005): 301–20. https://doi.org/10.1111/j.1467-9868.2005.00503.x.</div>
-</div>
-<div class="section" id="gradient-tree-boosting">
+</section>
+<section id="gradient-tree-boosting">
 <h3>Gradient Tree Boosting<a class="headerlink" href="#gradient-tree-boosting" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Also called as Gradient Boosted Regression Trees (GBRT)</p></li>
@@ -445,9 +461,9 @@ $<span class="math notranslate nohighlight">\(
 </ul>
 <div class="math notranslate nohighlight">
 \[Obj(\Theta) = \underbrace{L(\Theta)}_{Training Loss} + \underbrace{\Omega(\Theta)}_{Regularization}\]</div>
-</div>
-</div>
-<div class="section" id="boston-house-prizes-example">
+</section>
+</section>
+<section id="boston-house-prizes-example">
 <h2>Boston house prizes example<a class="headerlink" href="#boston-house-prizes-example" title="Permalink to this headline">¶</a></h2>
 <p>Can the house prizes be predicted? Which parameters affect most to the house prizes?</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    - CRIM     per capita crime rate by town
@@ -489,7 +505,7 @@ $<span class="math notranslate nohighlight">\(
     dataset unless the purpose of the code is to study and educate about
     ethical issues in data science and machine learning.
 
-    In this case special case, you can fetch the dataset from the original
+    In this special case, you can fetch the dataset from the original
     source::
 
         import pandas as pd
@@ -502,13 +518,13 @@ $<span class="math notranslate nohighlight">\(
         target = raw_df.values[1::2, 2]
 
     Alternative datasets include the California housing dataset (i.e.
-    func:`~sklearn.datasets.fetch_california_housing`) and the Ames housing
-    dataset. You can load the datasets as follows:
+    :func:`~sklearn.datasets.fetch_california_housing`) and the Ames housing
+    dataset. You can load the datasets as follows::
 
         from sklearn.datasets import fetch_california_housing
         housing = fetch_california_housing()
 
-    for the California housing dataset and:
+    for the California housing dataset and::
 
         from sklearn.datasets import fetch_openml
         housing = fetch_openml(name=&quot;house_prices&quot;, as_frame=True)
@@ -599,12 +615,12 @@ Training score.... 0.7388703133867616
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CV score.......... 0.431848787926522
-Training score.... 0.6825842212709925
-</pre></div>
-</div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/petri/venv/python3/lib/python3.9/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
   warnings.warn(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CV score.......... 0.431848787926522
+Training score.... 0.6825842212709925
 </pre></div>
 </div>
 <img alt="_images/regression_14_2.png" src="_images/regression_14_2.png" />
@@ -629,12 +645,12 @@ Training score.... 0.6825842212709925
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CV score.......... 0.47265251919410584
-Training score.... 0.6861018474345026
-</pre></div>
-</div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/petri/venv/python3/lib/python3.9/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
   warnings.warn(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CV score.......... 0.47265251919410584
+Training score.... 0.6861018474345026
 </pre></div>
 </div>
 <img alt="_images/regression_15_2.png" src="_images/regression_15_2.png" />
@@ -692,8 +708,8 @@ Training score.... 0.6820275797709414
 <img alt="_images/regression_17_2.png" src="_images/regression_17_2.png" />
 </div>
 </div>
-</div>
-<div class="section" id="gradient-tree-regression">
+</section>
+<section id="gradient-tree-regression">
 <h2>Gradient tree regression<a class="headerlink" href="#gradient-tree-regression" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -718,8 +734,8 @@ Training score.... 0.6820275797709414
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CV score.......... 0.707031687672674
-Training score.... 0.9706297007288854
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CV score.......... 0.657281505734013
+Training score.... 0.9673481970989694
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/petri/venv/python3/lib/python3.9/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
@@ -745,19 +761,19 @@ Training score.... 0.9706297007288854
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0     CRIM= 0.05
- 1       ZN= 0.00
- 2    INDUS= 0.06
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0     CRIM= 0.04
+ 1       ZN= 0.03
+ 2    INDUS= 0.10
  3     CHAS= 0.01
- 4      NOX= 0.05
- 5       RM= 0.38
- 6      AGE= 0.01
+ 4      NOX= 0.06
+ 5       RM= 0.23
+ 6      AGE= 0.02
  7      DIS= 0.06
- 8      RAD= 0.01
- 9      TAX= 0.05
+ 8      RAD= 0.00
+ 9      TAX= 0.03
 10  PTRATIO= 0.08
-11        B= 0.01
-12    LSTAT= 0.22
+11        B= 0.03
+12    LSTAT= 0.32
 </pre></div>
 </div>
 <img alt="_images/regression_20_1.png" src="_images/regression_20_1.png" />
@@ -788,12 +804,12 @@ Training score.... 0.9706297007288854
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 5 12 10]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[12  5  2]
 (506, 3)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CV score.......... 0.5948834127717845
-Training score.... 0.9278484513308207
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CV score.......... 0.564715118948158
+Training score.... 0.9304873266368128
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/petri/venv/python3/lib/python3.9/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
@@ -806,8 +822,8 @@ Training score.... 0.9278484513308207
 <img alt="_images/regression_21_4.png" src="_images/regression_21_4.png" />
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

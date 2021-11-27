@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>6. Supervised machine learning, Terminology &#8212; Applied Machine Learning, 2021</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
@@ -154,12 +155,27 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Regression.html">
-   10. Regression
+   10. Regression and regularisation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="NeuralNetworks.html">
    11. Artificial Neural Networks (ANN)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Learning_model_parameters.html">
+   12. Model learning strategies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NLP.html">
+   18. Natural Language Processing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NLP-UWB.html">
+   20. Ultra Wide Band positioning literature analysis
   </a>
  </li>
 </ul>
@@ -373,12 +389,12 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="supervised-machine-learning-terminology">
+  <section class="tex2jax_ignore mathjax_ignore" id="supervised-machine-learning-terminology">
 <h1><span class="section-number">6. </span>Supervised machine learning, Terminology<a class="headerlink" href="#supervised-machine-learning-terminology" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="training-process">
+<section id="training-process">
 <h2><span class="section-number">6.1. </span>Training process<a class="headerlink" href="#training-process" title="Permalink to this headline">¶</a></h2>
 <p><img alt="featureextraction_p.svg" src="_images/featureextraction_p.svg" /></p>
-<div class="section" id="mathematical-notation">
+<section id="mathematical-notation">
 <h3><span class="section-number">6.1.1. </span>Mathematical notation<a class="headerlink" href="#mathematical-notation" title="Permalink to this headline">¶</a></h3>
 <p>Task is to find a function <span class="math notranslate nohighlight">\(f\)</span>, which predicts variable <span class="math notranslate nohighlight">\(y_i\)</span> based on <span class="math notranslate nohighlight">\(p\)</span> features <span class="math notranslate nohighlight">\(x_{i,j}\)</span>, where <span class="math notranslate nohighlight">\(i \in [0,N]\)</span> and <span class="math notranslate nohighlight">\(j \in [0,P]\)</span>.</p>
 <div class="math notranslate nohighlight">
@@ -406,9 +422,9 @@
 <li><p>There are many methods for implementing both classification and regression</p></li>
 <li><p>Variable <span class="math notranslate nohighlight">\(y\)</span> is called as dependent variable and <span class="math notranslate nohighlight">\(x\)</span> as independent variable, since the values of <span class="math notranslate nohighlight">\(y\)</span> depend on <span class="math notranslate nohighlight">\(y\)</span>.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="distance-metrics-a-class-anchor-id-distance-a">
+</section>
+</section>
+<section id="distance-metrics-a-class-anchor-id-distance-a">
 <h2><span class="section-number">6.2. </span>Distance metrics <a class="anchor" id="distance"></a><a class="headerlink" href="#distance-metrics-a-class-anchor-id-distance-a" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Clustering, classification and regression assume that samples near each other, at close proximity, are more similar with each other than those which are farther away.</p></li>
@@ -421,8 +437,8 @@
 <li><p><a class="reference external" href="https://www.statisticshowto.datasciencecentral.com/mahalanobis-distance/">Mahalanobis distance</a>
 <span class="math notranslate nohighlight">\(r_{1,2}= \sqrt{(p_1 – p_2)^T \; C^{-1} \; (p_1 – p_2)}\)</span>, where <span class="math notranslate nohighlight">\(C\)</span> is the covariance matrix.</p></li>
 </ul>
-</div>
-<div class="section" id="scaling-or-normalization-of-the-data">
+</section>
+<section id="scaling-or-normalization-of-the-data">
 <h2><span class="section-number">6.3. </span>Scaling or normalization of the data<a class="headerlink" href="#scaling-or-normalization-of-the-data" title="Permalink to this headline">¶</a></h2>
 <p>If the model is using Euclidean or Manhattan distance, it may suffer from different scaling of variables. If the range of <span class="math notranslate nohighlight">\(x_1 \in [0,1]\)</span> and <span class="math notranslate nohighlight">\(x_2 \in [0,100]\)</span>, the distance between two samples is almost solely determined by the second variable, and therefore the information in the first variable is hardly used.</p>
 <p>To elimninate this problem, normalise the varibles first. The most common normalization is to normalize each variable separately to zero mean, <span class="math notranslate nohighlight">\(\bar{x}=0\)</span>, and unit variance (and unit std), <span class="math notranslate nohighlight">\(\sigma_x =1\)</span>, in following way:</p>
@@ -433,8 +449,8 @@
 <p>ScikitLearn includes also a <code class="docutils literal notranslate"><span class="pre">StandardScaler</span></code> object, which does the same, but by using similar interface than model objects, which will be usefull when making data processing pipelines.</p>
 <p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.preprocessing</span> <span class="pre">import</span> <span class="pre">StandardScaler</span>&#160; <span class="pre">scaler</span> <span class="pre">=</span> <span class="pre">StandardScaler()</span>&#160; <span class="pre">x_scaled</span> <span class="pre">=</span> <span class="pre">scaler.fit_transform(x)</span></code></p>
 <p>Mahalanobis distance includes build-in normalization process.</p>
-</div>
-<div class="section" id="measures-for-regression-model-fitting">
+</section>
+<section id="measures-for-regression-model-fitting">
 <h2><span class="section-number">6.4. </span>Measures for regression model fitting<a class="headerlink" href="#measures-for-regression-model-fitting" title="Permalink to this headline">¶</a></h2>
 <p>Terms used below</p>
 <ul class="simple">
@@ -445,50 +461,50 @@
 <li><p><span class="math notranslate nohighlight">\(n\)</span>: The number of samples in the training data set</p></li>
 </ul>
 <p>In the code <code class="docutils literal notranslate"><span class="pre">yh</span></code> = <span class="math notranslate nohighlight">\(\hat{y}\)</span></p>
-<div class="section" id="root-mean-square-value-of-error-rmse">
+<section id="root-mean-square-value-of-error-rmse">
 <h3><span class="section-number">6.4.1. </span>Root mean square value of error: (RMSE)<a class="headerlink" href="#root-mean-square-value-of-error-rmse" title="Permalink to this headline">¶</a></h3>
 <p>RMSE is the RMS average of the prediction error (residual). RMSE is an absolute mesure, which is not scaled in any range. The unit of the error is the same as the unit of <span class="math notranslate nohighlight">\(y\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\rm{RMSE}=\sqrt{\frac{\sum_{i=0}^{n}(y_i - f(x_{i}))^2}{n}}\]</div>
 <p>This error metrics emphasise large deviations from the true value. It can be calculated using the <code class="docutils literal notranslate"><span class="pre">mean_squared_error()</span></code>-function from <code class="docutils literal notranslate"><span class="pre">sklearn.metrics</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.metrics</span> <span class="pre">import</span> <span class="pre">mean_squared_error</span>&#160; <span class="pre">RMSE=mean_squared_error(y,yh)</span></code></p>
-</div>
-<div class="section" id="mean-absolute-error-mae">
+</section>
+<section id="mean-absolute-error-mae">
 <h3><span class="section-number">6.4.2. </span>Mean absolute error (MAE)<a class="headerlink" href="#mean-absolute-error-mae" title="Permalink to this headline">¶</a></h3>
 <p>MAE is the average of the absoluve value of the prediction error (residual). MAE is an absolute mesure, which is not scaled in any range. The unit of the error is the same as the unit of <span class="math notranslate nohighlight">\(y\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\rm{MAE}=\frac{\sum_{i=0}^{n} |y_i - f(x_{i})| }{n}\]</div>
 <p>Coefficient of determination is the proportion of the variance of the residual divided by the original variance of the data.</p>
 <p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.metrics</span> <span class="pre">import</span> <span class="pre">mean_absolute_error</span>&#160; <span class="pre">MAE=mean_absolute_error(y,yh)</span></code></p>
-</div>
-<div class="section" id="coefficient-of-determination-r-2">
+</section>
+<section id="coefficient-of-determination-r-2">
 <h3><span class="section-number">6.4.3. </span>Coefficient of determination (<span class="math notranslate nohighlight">\(R^2\)</span>)<a class="headerlink" href="#coefficient-of-determination-r-2" title="Permalink to this headline">¶</a></h3>
 <p>Coefficient of determination, also called as R-squared, measures the ratio of variance of the residual (zero mean of residual assumed) and the variance of the original data. <span class="math notranslate nohighlight">\(R^2\)</span> is always smaller than one. The interpretation of <span class="math notranslate nohighlight">\(R^2\)</span> is that it shows how large fraction of the variance in dependent variable is accounted for by the model. In the perfect case, the prediction is exactly same as <span class="math notranslate nohighlight">\(y\)</span>, the variance of the residual is zero, and <span class="math notranslate nohighlight">\(R^2=1\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[ R^2 = 1- \frac{\sum_{i=0}^{n}(y_i - f(x_{i}))^2}{\sum_{i=0}^{n}(y_i - \overline{y}))^2}\]</div>
 <p>Coefficient of determination is often handy, because it is relative and does not depend on the absolute values of <span class="math notranslate nohighlight">\(y\)</span>. When the absolute error is also important, then RMSE and MAE may be calculated in addition to <span class="math notranslate nohighlight">\(R^2\)</span>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.metrics</span> <span class="pre">import</span> <span class="pre">r2_score</span>&#160; <span class="pre">R2=r2_score(y,yh)</span></code></p>
-</div>
-</div>
-<div class="section" id="measures-for-classification-model-fitting">
+</section>
+</section>
+<section id="measures-for-classification-model-fitting">
 <h2><span class="section-number">6.5. </span>Measures for classification model fitting<a class="headerlink" href="#measures-for-classification-model-fitting" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="precision-of-classification-p">
+<section id="precision-of-classification-p">
 <h3><span class="section-number">6.5.1. </span>Precision of classification (P)<a class="headerlink" href="#precision-of-classification-p" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">accuracy_score()</span></code>-function returns the fraction of correctly classified samples</p>
 <div class="math notranslate nohighlight">
 \[ P = \frac{n_\rm{correct}}{n}\]</div>
 <p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.metrics</span> <span class="pre">import</span> <span class="pre">accuracy_score</span>&#160; <span class="pre">s=accuracy_score(y,</span> <span class="pre">yh)</span></code></p>
-</div>
-<div class="section" id="cohen-s-kappa-kappa">
+</section>
+<section id="cohen-s-kappa-kappa">
 <h3><span class="section-number">6.5.2. </span>Cohen’s Kappa (<span class="math notranslate nohighlight">\(\kappa\)</span>)<a class="headerlink" href="#cohen-s-kappa-kappa" title="Permalink to this headline">¶</a></h3>
 <p>Cohen’s kappa is a score which expresses the level of agreement between two annotators in a classification problem.  It is generally thought to be a more robust measure than precision, as κ takes into account the possibility of the agreement occurring by chance.</p>
 <p>Cohen’s Kappa is calculated using the above mentioned precision, <span class="math notranslate nohighlight">\(p_o\)</span>, and the hypothetical probability of chance agreement, <span class="math notranslate nohighlight">\(p_e\)</span>. Read more from <a class="reference external" href="https://en.wikipedia.org/wiki/Cohen%27s_kappa">Cohen’s Kappa in Wikipedia</a>.</p>
 <div class="math notranslate nohighlight">
 \[ \kappa = \frac{p_o - p_e}{1 - p_e} \]</div>
 <p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.metrics</span> <span class="pre">import</span> <span class="pre">cohen_kappa_score(x,y)</span>&#160; <span class="pre">s=cohen_kappa_score(y,</span> <span class="pre">yh)</span></code></p>
-</div>
-</div>
-<div class="section" id="overfitting">
+</section>
+</section>
+<section id="overfitting">
 <h2><span class="section-number">6.6. </span>Overfitting<a class="headerlink" href="#overfitting" title="Permalink to this headline">¶</a></h2>
 <p>Two essential properties of a good model are that</p>
 <ol class="simple">
@@ -497,7 +513,7 @@
 </ol>
 <p>Usually a model can be fitted to the data better, by increasing it’s complexity, i.e. adding more degress of freedom into the model. But because all practical data also contains noise, the danger is that when the complexity of the model increases, it can also model the noise in the data in addition to actual phenomenan.</p>
 <p>When the model is fitted to the data, it is really important to carefully choose correct complexity for the model. If the model is too complex ( it has too many degrees of freedom) it has possibility to model also the noise included in the data. In this kind of case, the model fits very well in  the training data set, but it’s capabilities of predicting new data not yet seen can be week.</p>
-<div class="section" id="example">
+<section id="example">
 <h3><span class="section-number">6.6.1. </span>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
 <p>Lets create a data set by combining a simple second order polynomial with some random data source:</p>
 <div class="math notranslate nohighlight">
@@ -543,7 +559,7 @@
 </div>
 </div>
 <p>The first model fits better to the current data, but the second model is still better, because if new data is drawn using the same process, the second model will fit better.</p>
-<div class="section" id="try-it">
+<section id="try-it">
 <h4><span class="section-number">6.6.1.1. </span>Try it<a class="headerlink" href="#try-it" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -574,10 +590,10 @@
 </div>
 </div>
 <p>The first model is said to be <strong>overfitted</strong> to the data. It fits very well to the training data, but cannot effectively generalize to the new data.</p>
-</div>
-</div>
-</div>
-<div class="section" id="training-validation-and-testing-a-class-anchor-id-traintestvalidate-a">
+</section>
+</section>
+</section>
+<section id="training-validation-and-testing-a-class-anchor-id-traintestvalidate-a">
 <h2><span class="section-number">6.7. </span>Training, Validation and Testing <a class="anchor" id="TrainTestValidate"></a><a class="headerlink" href="#training-validation-and-testing-a-class-anchor-id-traintestvalidate-a" title="Permalink to this headline">¶</a></h2>
 <p>Building predictive models requires following stages</p>
 <ol class="simple">
@@ -591,7 +607,7 @@
 <li><p>Test set may not bet used many times, because then you would overfit to the test data</p></li>
 </ol>
 <p>Each stage requires data. The original data can be split in three different sets, one for each stage, but high quality labeled data is usually scarce resource, and in that cases slightly smarter method of using the data is needed.</p>
-<div class="section" id="cross-validation-a-class-anchor-id-crossvalidation-a">
+<section id="cross-validation-a-class-anchor-id-crossvalidation-a">
 <h3><span class="section-number">6.7.1. </span>Cross Validation <a class="anchor" id="crossvalidation"></a><a class="headerlink" href="#cross-validation-a-class-anchor-id-crossvalidation-a" title="Permalink to this headline">¶</a></h3>
 <p><img alt="crossvalidation.svg" src="_images/crossvalidation.png" /></p>
 <ul class="simple">
@@ -601,9 +617,9 @@
 <li><p>The process is repeated N times, until every sample has participated in training and validation sets</p></li>
 <li><p>The final score is the average of all N scores</p></li>
 </ul>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

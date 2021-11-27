@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Introduction &#8212; Applied Machine Learning, 2021</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
@@ -150,12 +151,27 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Regression.html">
-   10. Regression
+   10. Regression and regularisation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="NeuralNetworks.html">
    11. Artificial Neural Networks (ANN)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Learning_model_parameters.html">
+   12. Model learning strategies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NLP.html">
+   18. Natural Language Processing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NLP-UWB.html">
+   20. Ultra Wide Band positioning literature analysis
   </a>
  </li>
 </ul>
@@ -329,9 +345,9 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="introduction">
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="artificial-intelligence-ai">
+<section id="artificial-intelligence-ai">
 <h2>Artificial intelligence (AI)<a class="headerlink" href="#artificial-intelligence-ai" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><em>Intelligence demonstrated by machines.</em></p></li>
@@ -340,15 +356,15 @@
 <li><p>When/if we someday fully inderstand human brain, do we still call it intelligent or just an automaton.</p></li>
 </ul>
 <p>Humanized AI shows characteristics of all types of competencies (i.e., cognitive, emotional, and social intelligence), is able to be self-conscious and is self-aware in interactions.</p>
-</div>
-<div class="section" id="machine-learning-ml">
+</section>
+<section id="machine-learning-ml">
 <h2>Machine Learning (ML)<a class="headerlink" href="#machine-learning-ml" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>Machine learning is a subset of artificial intelligence in the field of computer science that often uses statistical techniques to give computers the ability to “learn” with data, without being explicitly programmed.
 <a class="reference external" href="https://en.wikipedia.org/wiki/Machine_learning">Wikipedia</a></p>
 </div></blockquote>
 <p>Human can learn by copying what the other humans do (learning from data) or they can directly learn the rules (e.g. learning math). Machine learning happens when a machine (e.g. computers) learns from data. Using the rules directly is programming.</p>
-<div class="section" id="data-from-iot-networks">
+<section id="data-from-iot-networks">
 <h3>Data from IoT networks<a class="headerlink" href="#data-from-iot-networks" title="Permalink to this headline">¶</a></h3>
 <p>The decreasing size, cost and power consumption of micro-controllers have made
 it possible to make previously simple objects digital and smarter. For example
@@ -358,8 +374,8 @@ are ready to reach these ubiquitous sensors, creating so called Internet of Thin
 (IoT) with them. The connectivity and reduced costs in storage technologies in
 turn have made it possible to store the data collected by the sensors distributed in
 the IoT networks.</p>
-</div>
-<div class="section" id="big-data-sources">
+</section>
+<section id="big-data-sources">
 <h3>Big data sources<a class="headerlink" href="#big-data-sources" title="Permalink to this headline">¶</a></h3>
 <p>The increasing amounts of data is more and
 more often also openly published in the Internet. Easy access to large data sets
@@ -367,8 +383,8 @@ has attracted researchers and businesses to apply data driven research methods t
 various data sources and to collect even more data in pursuing to extract value
 from large data sets. Success in these efforts in turn raises interests in collecting
 even more data.</p>
-</div>
-<div class="section" id="how-to-turn-data-to-information">
+</section>
+<section id="how-to-turn-data-to-information">
 <h3>How to turn data to information<a class="headerlink" href="#how-to-turn-data-to-information" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li><p>If you know the data, and know the rules, you can make a program to make decisions based on data.</p></li>
@@ -376,15 +392,15 @@ even more data.</p>
 <li><p>If you have the data, but don’t know anything, you can explore the data with unsupervised method</p></li>
 </ol>
 <img src="kuvat/MachineLearning.svg" alt="MachineLearningVsProgramming" width="800"/>
-</div>
-<div class="section" id="before-machine-learning-actually-begins">
+</section>
+<section id="before-machine-learning-actually-begins">
 <h3>Before Machine Learning actually begins<a class="headerlink" href="#before-machine-learning-actually-begins" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><p>According to the CrowdFlower Data Science report, data scientists spend the majority of their time  cleansing data — and surprisingly this is also their least favorite part of their job. <a class="reference external" href="https://www.datasciencecentral.com/profiles/blogs/artificial-intelligence-vs-machine-learning-vs-deep-learning">Artificial Intelligence vs. Machine Learning vs. Deep Learning</a></p>
 </div></blockquote>
-</div>
-</div>
-<div class="section" id="python">
+</section>
+</section>
+<section id="python">
 <h2>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -420,7 +436,7 @@ even more data.</p>
 <li><p><a class="reference external" href="https://jupyter.org/">Jupyter</a> notebooks and jupyterlab are web based programming environments, which support also dozens of other languages</p></li>
 <li><p>Emacs, VI, or any other editor can be used of course</p></li>
 </ul>
-<div class="section" id="python-in-currently-really-popular-in-ml">
+<section id="python-in-currently-really-popular-in-ml">
 <h3>Python in currently really popular in ML<a class="headerlink" href="#python-in-currently-really-popular-in-ml" title="Permalink to this headline">¶</a></h3>
 <img src="kuvat/machine-learning-data-science-programming-language.png" alt="MLLanguages" width="500"/>
 <p><a class="reference external" href="https://fossbytes.com/popular-top-programming-languages-machine-learning-data-science/">Fossbytes</a></p>
@@ -429,9 +445,9 @@ even more data.</p>
 <li><p>Julia is rising Fast</p></li>
 <li><p>R has been very popular, but may be decreasing</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="installing-python">
+</section>
+</section>
+<section id="installing-python">
 <h2>Installing Python<a class="headerlink" href="#installing-python" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>In Linux, it is easy to install python. In ubuntu or debian just say</p>
@@ -448,16 +464,16 @@ even more data.</p>
 </ul>
 </li>
 </ul>
-<div class="section" id="note">
+<section id="note">
 <h3>Note<a class="headerlink" href="#note" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Today is best to install Python3.</p></li>
 <li><p>You need functional Jupyter environment and Python3 kernel to make the excercises of this course.</p></li>
 <li><p>Anaconda and Python is already installed in the classroom TF4110</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="testing-python">
+</section>
+</section>
+<section id="testing-python">
 <h2>Testing Python<a class="headerlink" href="#testing-python" title="Permalink to this headline">¶</a></h2>
 <p>Open an IPython console and try to test some programming</p>
 <div class="cell docutils container">
@@ -581,16 +597,16 @@ sumNumbers(n)
 <img alt="_images/introduction_17_1.png" src="_images/introduction_17_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="excercises">
+</section>
+<section id="excercises">
 <h2>Excercises<a class="headerlink" href="#excercises" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>Download Notebook 1, make the excercises and submit your finished notebook to Moodle within one week.</p></li>
 <li><p>If facing problems, submit questions in Moodle discussion area for current week. You can also try general chat group for Moodle.</p></li>
 <li><p>If the problem is not solved, we can try to solve it in the next lecture</p></li>
 </ol>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

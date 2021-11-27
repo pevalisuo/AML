@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>5. Unsupervised learning &#8212; Applied Machine Learning, 2021</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
@@ -154,12 +155,27 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Regression.html">
-   10. Regression
+   10. Regression and regularisation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="NeuralNetworks.html">
    11. Artificial Neural Networks (ANN)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Learning_model_parameters.html">
+   12. Model learning strategies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NLP.html">
+   18. Natural Language Processing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NLP-UWB.html">
+   20. Ultra Wide Band positioning literature analysis
   </a>
  </li>
 </ul>
@@ -355,7 +371,7 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="unsupervised-learning">
+  <section class="tex2jax_ignore mathjax_ignore" id="unsupervised-learning">
 <h1><span class="section-number">5. </span>Unsupervised learning<a class="headerlink" href="#unsupervised-learning" title="Permalink to this headline">¶</a></h1>
 <p>This lecture covers the following topics</p>
 <ol class="simple">
@@ -371,7 +387,7 @@
 </ol>
 <p>Read more details from the <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/index.html">Python Data Science Handbook</a> by Jake VanderPlas published under Creative Commons <a class="reference external" href="https://creativecommons.org/licenses/by-nc-nd/3.0/us/legalcode">CC-BY-NC-ND license</a>.</p>
 <p><img alt="Python Data Science Handbook" src="_images/PDSH-cover-small.png" /></p>
-<div class="section" id="clustering">
+<section id="clustering">
 <h2><span class="section-number">5.1. </span>Clustering<a class="headerlink" href="#clustering" title="Permalink to this headline">¶</a></h2>
 <p>A Cluster</p>
 <blockquote>
@@ -402,8 +418,8 @@
 <li><p>The result of clustering is just clusters and their memberships, the algorithm does not name the clusters nor understand what are the objects in certain cluster.</p></li>
 <li><p>Many clustering methods needs the number of clusters to be given <em>a priori</em>.</p></li>
 </ul>
-</div>
-<div class="section" id="k-means">
+</section>
+<section id="k-means">
 <h2><span class="section-number">5.2. </span>k-Means<a class="headerlink" href="#k-means" title="Permalink to this headline">¶</a></h2>
 <p>k-Means is a simple clustering algorithms based on arithmetic distances and Expectation-Maximization (E-M) algorithm. It is simple and usefull in many cases.</p>
 <p>The K-means algorithm aims to choose cluster centers (centroids) that minimise the inertia, or within-cluster sum-of-squares criterion presented by the following objective function, <span class="math notranslate nohighlight">\(J\)</span>:</p>
@@ -419,7 +435,7 @@
 <li><p>k-Means uses euqlidean distance, and it is therefore necessary to normalize the input variables before clustering</p></li>
 <li><p>The correlation between variables is a problem, and therefore it is good to decorrelate the variables first, for example using PCA</p></li>
 </ul>
-<div class="section" id="example-case">
+<section id="example-case">
 <h3><span class="section-number">5.2.1. </span>Example case<a class="headerlink" href="#example-case" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -431,7 +447,7 @@
 </div>
 </div>
 </div>
-<div class="section" id="create-2d-sample-data-using-sample-data-generator">
+<section id="create-2d-sample-data-using-sample-data-generator">
 <h4><span class="section-number">5.2.1.1. </span>Create 2D sample data using sample data generator<a class="headerlink" href="#create-2d-sample-data-using-sample-data-generator" title="Permalink to this headline">¶</a></h4>
 <p>Import <code class="docutils literal notranslate"><span class="pre">make_blobs</span></code> from <code class="docutils literal notranslate"><span class="pre">datasets</span></code> library and generate a random dataset, which contain 4 clusters of data. Each cluster contains 2D normal distributed data with specified standard deviation.</p>
 <div class="cell docutils container">
@@ -449,8 +465,8 @@
 <img alt="_images/Clustering_7_0.png" src="_images/Clustering_7_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="apply-kmeans">
+</section>
+<section id="apply-kmeans">
 <h4><span class="section-number">5.2.1.2. </span>Apply KMeans<a class="headerlink" href="#apply-kmeans" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -471,10 +487,10 @@
 <img alt="_images/Clustering_9_0.png" src="_images/Clustering_9_0.png" />
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="the-expectation-maximization-algorithm">
+</section>
+</section>
+</section>
+<section id="the-expectation-maximization-algorithm">
 <h2><span class="section-number">5.3. </span>The expectation Maximization algorithm<a class="headerlink" href="#the-expectation-maximization-algorithm" title="Permalink to this headline">¶</a></h2>
 <p>The expecation maximization algorithms is an iterative method for optimisation of the objective function. It consists of alternating expectation and maximization steps.</p>
 <p>The following code shows how the expectation and maximization steps iterate in finding optimal k-Means solution. In k-Means, the expectation is simply the evaluation of the objective function, to sum of distances from samples to the nearest cluster centers. The maximization step is made by moving the cluster center to better position to the center point of the current cluster content. The algorithms is initialized by given a number of cluster centers or at least number of clusters. Often the initial positions of cluster centers will be initialized randomly. The high densities of samples starts attracting the cluster centers, and at the same time, the competition of samples repels cluster centers farther away from each other. The algorithm may converge to different solutions if initialized differently.</p>
@@ -558,7 +574,7 @@
 <img alt="_images/Clustering_12_0.png" src="_images/Clustering_12_0.png" />
 </div>
 </div>
-<div class="section" id="application-to-digits-recognition">
+<section id="application-to-digits-recognition">
 <h3><span class="section-number">5.3.1. </span>Application to digits recognition<a class="headerlink" href="#application-to-digits-recognition" title="Permalink to this headline">¶</a></h3>
 <p>The digits recognition may be too high dimensional for direct k-Means clustering. Therefore preprocessing with PCA or t-SNE could be good ideas. Let’s try all three options to find out</p>
 <ol class="simple">
@@ -650,16 +666,16 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-31.89191  , -18.649845 ],
-       [ 49.05327  ,   2.2915397],
-       [-21.60861  ,  26.401426 ],
-       [ -7.015506 , -55.168194 ],
-       [-64.96643  ,  10.28909  ],
-       [ 11.164866 ,   4.2243295],
-       [ 22.84113  ,  29.140562 ],
-       [ 27.882452 , -31.350878 ],
-       [ -3.2667582,  -8.566281 ],
-       [  2.2947323,  41.47712  ]], dtype=float32)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 59.21653  ,  -2.2259395],
+       [  1.9847298,  19.464434 ],
+       [ -8.00427  , -28.253628 ],
+       [-30.486319 , -19.95196  ],
+       [-50.152737 ,   9.189388 ],
+       [ 31.596918 ,  35.873627 ],
+       [ -7.459325 ,  47.524174 ],
+       [ 16.898573 , -14.551679 ],
+       [ 13.366139 , -57.173504 ],
+       [-13.228192 ,   1.9541519]], dtype=float32)
 </pre></div>
 </div>
 </div>
@@ -691,38 +707,38 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Raw data
-[[  0 177   0   0   1   0   0   0   0   0]
- [ 99   0   1   0   0   0  55   2  24   1]
- [  8   1  13   2   0   3   2   0 148   0]
- [  7   0 155  13   0   6   0   0   0   2]
- [  2   0   0   0 162  10   7   0   0   0]
- [  0   0   0  43   1   0   0   1   0 137]
- [  2   1   0   0   0   0   1 177   0   0]
- [  2   0   0   0   0 170   2   0   0   5]
- [101   0   2  51   0   3   6   2   3   6]
- [  0   0   6 139   0   8  20   0   0   7]]
+[[  0   0   0   2   0 176   0   0   0   0]
+ [  2   1 100   0   1   0  24   0   0  54]
+ [  0   0   8   0  13   1 148   2   2   3]
+ [  0   2   7   0 156   0   1   6  11   0]
+ [  0   0   2 167   0   0   0  10   0   2]
+ [  1 136   0   2   1   0   0   0  42   0]
+ [177   0   3   0   0   1   0   0   0   0]
+ [  0   0   2   0   0   0   0 167   0  10]
+ [  2   4 102   0   2   0   3   3  48  10]
+ [  0   6   1   0   6   0   0   8 139  20]]
 PCA
-[[  1   0 157   1   0   0   0  15   0   4]
- [ 29  51   0   1  86   0   9   0   0   6]
- [ 34  11   0   0   1   3   9   0 115   4]
- [ 11   0   0   0   0  96  12   0  39  25]
- [  0   7   0 149   6   0   3  16   0   0]
- [ 46  46   6   2   0   1  28   5   3  45]
- [  0   2   7  27   0   0   0 145   0   0]
- [  1  39   0   0  21   0 117   0   1   0]
- [ 72  58   0   1   4   0  29   0   4   6]
- [ 18  10   0   0   0  22   9   1   7 113]]
+[[  0  15   1 157   4   0   0   1   0   0]
+ [  9   0  29   0   6  87   0   3  48   0]
+ [  7   0  34   0   4   1 115   0  13   3]
+ [ 12   0  11   0  21   0  43   0   0  96]
+ [  3  16   0   0   0   7   0 150   5   0]
+ [ 24   5  46   6  46   0   3   2  49   1]
+ [  0 144   0   7   0   0   0  28   2   0]
+ [116   0   1   0   0  20   1   1  40   0]
+ [ 24   0  69   0   8   4   4   1  64   0]
+ [  9   1  17   0  96   0   8   0  10  39]]
 t-SNE
-[[  0   0   0   0 178   0   0   0   0   0]
- [  0   0   0   0   0   4   0  27 151   0]
- [  0   1   0   0   0   6   0 170   0   0]
- [  0   1   2   0   0   0 180   0   0   0]
- [178   0   0   0   0   3   0   0   0   0]
- [  0   0 179   1   0   0   0   0   0   2]
- [  0   0   0 180   0   1   0   0   0   0]
- [  0 179   0   0   0   0   0   0   0   0]
- [  0   0   0   0   0 166   0   4   4   0]
- [  0   9   2   0   0   4   2   0  20 143]]
+[[178   0   0   0   0   0   0   0   0   0]
+ [  0 143   0   0  27   0   0   0   0  12]
+ [  0   0   0   0 167   0   0   0   0  10]
+ [  0   0   0 179   0   0   2   2   0   0]
+ [  0   0   0   0   0 178   3   0   0   0]
+ [  0   0   1   0   0   0   0 180   1   0]
+ [  0   0   0   0   0   0   0   0 180   1]
+ [  0   0   0   0   0   0 179   0   0   0]
+ [  0   4   0   0   0   0   0   0   0 170]
+ [  0  20 143   2   0   0  11   2   0   2]]
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(449.73636363636354, 0.5, &#39;Digit&#39;)
@@ -731,13 +747,13 @@ t-SNE
 <img alt="_images/Clustering_18_2.png" src="_images/Clustering_18_2.png" />
 </div>
 </div>
-</div>
-<div class="section" id="k-means-assumptions">
+</section>
+<section id="k-means-assumptions">
 <h3><span class="section-number">5.3.2. </span>k-Means assumptions<a class="headerlink" href="#k-means-assumptions" title="Permalink to this headline">¶</a></h3>
 <p>Take a look at the graphical representation of <a class="reference external" href="https://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_assumptions.html">k-Means assumptions</a>.</p>
-</div>
-</div>
-<div class="section" id="gaussian-mixture-models">
+</section>
+</section>
+<section id="gaussian-mixture-models">
 <h2><span class="section-number">5.4. </span>Gaussian mixture models<a class="headerlink" href="#gaussian-mixture-models" title="Permalink to this headline">¶</a></h2>
 <p>Gaussian mixture model builds, using mixtures of normal distributions, a combined probability distribution which fit to the data is maximized using Epectation Maximization algorithm.</p>
 <p>The steps in GMM are very similar than in k-Means.</p>
@@ -747,7 +763,7 @@ t-SNE
 <li><p>Expectation step: Calculate the probability of each sample <span class="math notranslate nohighlight">\(x_i\)</span> belonging to each cluster <span class="math notranslate nohighlight">\(c_j\)</span>, and assign samples to those clusters where the probability, or expected membership, is the highest.</p></li>
 <li><p>Maximization: Calculate the mean values and standard deviations of the members of each cluster and update the means and deviations of each distribution</p></li>
 </ol>
-<div class="section" id="lambda-functions">
+<section id="lambda-functions">
 <h3><span class="section-number">5.4.1. </span>Lambda functions<a class="headerlink" href="#lambda-functions" title="Permalink to this headline">¶</a></h3>
 <p>Small unnamed functions are sometimes quite convenient in programming. They are often called as <a class="reference external" href="https://en.wikipedia.org/wiki/Anonymous_function">lambda functions</a>, and they can be used in many programming languages. This is how they are defined in Python:</p>
 <ul class="simple">
@@ -758,8 +774,8 @@ t-SNE
 </ul>
 <p>The following statements creates a function which squares a value
 <code class="docutils literal notranslate"><span class="pre">square</span> <span class="pre">=</span> <span class="pre">lambda</span> <span class="pre">x:</span> <span class="pre">x**2</span></code></p>
-</div>
-<div class="section" id="example-of-em-for-gmm-in-one-dimensional-case">
+</section>
+<section id="example-of-em-for-gmm-in-one-dimensional-case">
 <h3><span class="section-number">5.4.2. </span>Example of EM for GMM in one dimensional case<a class="headerlink" href="#example-of-em-for-gmm-in-one-dimensional-case" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -815,8 +831,8 @@ t-SNE
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fbfecbb2d60&gt;,
- &lt;matplotlib.lines.Line2D at 0x7fbfecbb2c40&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fbb809741f0&gt;,
+ &lt;matplotlib.lines.Line2D at 0x7fbb80974310&gt;]
 </pre></div>
 </div>
 <img alt="_images/Clustering_25_1.png" src="_images/Clustering_25_1.png" />
@@ -884,16 +900,16 @@ t-SNE
   warnings.warn(
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[178   0   0   0   0   0   0   0   0   0]
- [  0 154   0   0   0  27   0   0   0   1]
- [  0   0   0   0   0 166   0   0   1  10]
- [  0   0   0   0   0   0   1   0 180   2]
- [  0   0   0 178   0   0   3   0   0   0]
- [  0   0   2   0   1   0   0 179   0   0]
- [  0   0   0   0 181   0   0   0   0   0]
- [  0   0   0   0   0   0 179   0   0   0]
- [  0   8   0   0   0   0   0   0   0 166]
- [  0  20 142   0   0   0  11   2   3   2]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[  0   0   0 178   0   0   0   0   0   0]
+ [  0 155  27   0   0   0   0   0   0   0]
+ [  0   0 167   0   0   0   0  10   0   0]
+ [  0   0   0   0   0   2 179   2   0   0]
+ [  0   0   0   0   0   3   0   0 178   0]
+ [  1   0   0   0   1   0   0   0   0 180]
+ [  0   0   0   0 180   0   0   1   0   0]
+ [  0   0   0   0   0 179   0   0   0   0]
+ [  0   4   0   0   0   0   0 170   0   0]
+ [142  20   0   0   0  11   3   2   0   2]]
 </pre></div>
 </div>
 <img alt="_images/Clustering_27_2.png" src="_images/Clustering_27_2.png" />
@@ -915,8 +931,8 @@ t-SNE
 <img alt="_images/Clustering_29_1.png" src="_images/Clustering_29_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="sampling-data">
+</section>
+<section id="sampling-data">
 <h3><span class="section-number">5.4.3. </span>Sampling data<a class="headerlink" href="#sampling-data" title="Permalink to this headline">¶</a></h3>
 <p>The Gaussian Mixture Model is actually a probabilistic density model of the data. It can be therefore used for sampling new data samples from the domain of the original data. Those samples are distributed in the same way than the original data, and the samples are drawn from each cluster.</p>
 <div class="cell docutils container">
@@ -941,14 +957,14 @@ t-SNE
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x7fbfecb1c100&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x7fbb19eb48b0&gt;
 </pre></div>
 </div>
 <img alt="_images/Clustering_31_1.png" src="_images/Clustering_31_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="trial-for-sampling-random-characters">
+</section>
+<section id="trial-for-sampling-random-characters">
 <h3><span class="section-number">5.4.4. </span>Trial for sampling random characters<a class="headerlink" href="#trial-for-sampling-random-characters" title="Permalink to this headline">¶</a></h3>
 <p>Having trained the GMM model, we could draw random characters from the distribution of original data, and transform them back to 64-dimensional feature space. This can be only done when using PCA, since there is no inverse transform for manifold methods.</p>
 <p>Lets first recall the code which was able to print the characters, and define a function of it.</p>
@@ -1008,10 +1024,10 @@ t-SNE
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0 1 2 3 4 5 6 7 8 9]
+[0 1 2 3 4 5 6 7 8 9]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0 1 2 3 4 5 6 7 8 9]
-[0 0 1 4 6 7 8 9 9 9]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1 1 2 2 3 6 7 7 8 8]
 </pre></div>
 </div>
 <img alt="_images/Clustering_35_2.png" src="_images/Clustering_35_2.png" />
@@ -1019,8 +1035,8 @@ t-SNE
 <img alt="_images/Clustering_35_4.png" src="_images/Clustering_35_4.png" />
 </div>
 </div>
-</div>
-<div class="section" id="the-results-of-pca-forward-and-inverse-transformation-and-gmm-random-sampling">
+</section>
+<section id="the-results-of-pca-forward-and-inverse-transformation-and-gmm-random-sampling">
 <h3><span class="section-number">5.4.5. </span>The results of PCA forward and inverse transformation and GMM random sampling<a class="headerlink" href="#the-results-of-pca-forward-and-inverse-transformation-and-gmm-random-sampling" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Even four dimensional PCA didn’t yet capture very well the details of the the caracters. This was already known based on our experimentation with PCA in the last lecture.</p></li>
@@ -1030,9 +1046,9 @@ t-SNE
 <li><p>Higher dimensionality in PCA space does not help, because then the linear GMM model does not work very well any longer due to so called curse of dimensionality</p></li>
 <li><p>Non-linear manifold methods produced better transformation in low-dimensional space, but they do not have inverse transformations.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="other-clustering-methods">
+</section>
+</section>
+<section id="other-clustering-methods">
 <h2><span class="section-number">5.5. </span>Other clustering methods<a class="headerlink" href="#other-clustering-methods" title="Permalink to this headline">¶</a></h2>
 <p>There are plenty of other clustering methods with different properties. Some of them can handle non-linear cluster better than others, some are fast and some slow. Some can be parallelized and some can handle very large amounts of data. The understanding of operation and limitations of these basic clustering methods shown above, you should be able to compare other methods listed <a class="reference external" href="https://scikit-learn.org/stable/modules/clustering.html">clustering topic of scikit learn</a>, and choose the most suitable. Because all of those available in scikit.learn implement the same object oriented API, it is easy to try many of them in your practical case.</p>
 <p>Some questions you can ask when selecting a clustering algorithm</p>
@@ -1046,8 +1062,8 @@ t-SNE
 <li><p>Can it handle high dimensional data?</p></li>
 <li><p>Does it need to predict probabilities?</p></li>
 </ul>
-</div>
-<div class="section" id="conclusion">
+</section>
+<section id="conclusion">
 <h2><span class="section-number">5.6. </span>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
 <p>k-Means algorithm</p>
 <ul class="simple">
@@ -1068,8 +1084,8 @@ t-SNE
 <li><p>Can be used for sampling new data based on the same distribution as existing data</p></li>
 </ul>
 <p>There are plenty of other clustering algorithms, which are well documented and easy to take into use.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

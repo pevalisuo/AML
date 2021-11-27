@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>8. Support Vector Machine (SVM) &#8212; Applied Machine Learning, 2021</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
@@ -154,12 +155,27 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Regression.html">
-   10. Regression
+   10. Regression and regularisation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="NeuralNetworks.html">
    11. Artificial Neural Networks (ANN)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Learning_model_parameters.html">
+   12. Model learning strategies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NLP.html">
+   18. Natural Language Processing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NLP-UWB.html">
+   20. Ultra Wide Band positioning literature analysis
   </a>
  </li>
 </ul>
@@ -301,7 +317,7 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="support-vector-machine-svm-a-class-anchor-id-supportvectormachine-a">
+  <section class="tex2jax_ignore mathjax_ignore" id="support-vector-machine-svm-a-class-anchor-id-supportvectormachine-a">
 <h1><span class="section-number">8. </span>Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a><a class="headerlink" href="#support-vector-machine-svm-a-class-anchor-id-supportvectormachine-a" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p>SVM is kind of Jack of All Trades for classifiers, because it is quite versatile and powerfull</p></li>
@@ -311,7 +327,7 @@
 <li><p>Can be used for both classification and regression</p></li>
 <li><p>Can be extended to nonlinear decision boundaries using kernels</p></li>
 </ul>
-<div class="section" id="decision-boundary">
+<section id="decision-boundary">
 <h2><span class="section-number">8.1. </span>Decision boundary<a class="headerlink" href="#decision-boundary" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>SVM uses samples near the different clusters to define a decision boundary</p></li>
@@ -356,7 +372,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f42b7420850&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fa479cf4460&gt;]
 </pre></div>
 </div>
 <img alt="_images/SupportVectorMachine_3_1.png" src="_images/SupportVectorMachine_3_1.png" />
@@ -416,7 +432,7 @@ SVC(kernel=&#39;linear&#39;)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accurary in the training set..0.920000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accurary in the training set..0.926667
 Accurary in the test set......0.920000
 SVC(kernel=&#39;linear&#39;)
 </pre></div>
@@ -439,7 +455,7 @@ SVC(kernel=&#39;linear&#39;)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accurary in the trainint set..0.926667
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accurary in the trainint set..0.933333
 Accurary in the test set......0.920000
 LinearSVC()
 </pre></div>
@@ -447,8 +463,8 @@ LinearSVC()
 <img alt="_images/SupportVectorMachine_7_1.png" src="_images/SupportVectorMachine_7_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="kernel-svm-a-class-anchor-id-kernelsvm-a">
+</section>
+<section id="kernel-svm-a-class-anchor-id-kernelsvm-a">
 <h2><span class="section-number">8.2. </span>Kernel SVM <a class="anchor" id="kernelsvm"></a><a class="headerlink" href="#kernel-svm-a-class-anchor-id-kernelsvm-a" title="Permalink to this headline">¶</a></h2>
 <p>Linear kernel</p>
 <div class="cell docutils container">
@@ -467,7 +483,7 @@ LinearSVC()
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accurary in the training set..0.933333
-Accurary in the test set......0.920000
+Accurary in the test set......0.900000
 SVC(C=0.5, gamma=0.1)
 </pre></div>
 </div>
@@ -506,7 +522,7 @@ SVC(C=0.5, gamma=0.1)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean CV score is 0.91, all scores= [0.93333333 0.93333333 0.93333333 0.83333333 0.93333333]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean CV score is 0.92, all scores= [0.93333333 0.93333333 0.96666667 0.9        0.86666667]
 </pre></div>
 </div>
 </div>
@@ -527,15 +543,15 @@ SVC(C=0.5, gamma=0.1)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best gamma value is 0.017626
-Accurary in the test set......0.980000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best gamma value is 0.012080
+Accurary in the test set......0.840000
 </pre></div>
 </div>
 <img alt="_images/SupportVectorMachine_11_1.png" src="_images/SupportVectorMachine_11_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="non-linear-svm">
+</section>
+<section id="non-linear-svm">
 <h2><span class="section-number">8.3. </span>Non-linear SVM<a class="headerlink" href="#non-linear-svm" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p>If the data described by <span class="math notranslate nohighlight">\(p_i=[x_i, y_i]^T\)</span> is not linearly separable, it can be made linearly separable by adding a new term, for example <span class="math notranslate nohighlight">\(z_i=x_i^2 + y_i^2\)</span></p></li>
@@ -553,7 +569,7 @@ Accurary in the test set......0.980000
    k(p_i, p_j) = \exp ( - \gamma \Vert p_i-p_j \Vert^2) \]</div>
 </li>
 </ul>
-<div class="section" id="illustration-of-rbf">
+<section id="illustration-of-rbf">
 <h3><span class="section-number">8.3.1. </span>Illustration of RBF<a class="headerlink" href="#illustration-of-rbf" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>The following code plots the RBF when <span class="math notranslate nohighlight">\(p_i\)</span> is in origo and <span class="math notranslate nohighlight">\(p_j\)</span> moves along x-axis.</p></li>
@@ -593,7 +609,7 @@ Accurary in the test set......0.980000
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f42b7246250&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fa472972b50&gt;
 </pre></div>
 </div>
 <img alt="_images/SupportVectorMachine_14_1.png" src="_images/SupportVectorMachine_14_1.png" />
@@ -621,15 +637,15 @@ Accurary in the test set......0.980000
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7f42b5784f10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7fa4729c5790&gt;
 </pre></div>
 </div>
 <img alt="_images/SupportVectorMachine_16_1.png" src="_images/SupportVectorMachine_16_1.png" />
 </div>
 </div>
 <p>Now the classes are separable, but what is the optimal Gamma value?</p>
-</div>
-<div class="section" id="testing-rbf-in-circular-data">
+</section>
+<section id="testing-rbf-in-circular-data">
 <h3><span class="section-number">8.3.2. </span>Testing RBF in circular data<a class="headerlink" href="#testing-rbf-in-circular-data" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -679,9 +695,9 @@ SVC(gamma=0.5)
 </div>
 </div>
 <p>Read more from <a class="reference external" href="https://www.analyticsvidhya.com/blog/2017/09/understaing-support-vector-machine-example-code/">Understanding SVM</a></p>
-</div>
-</div>
-<div class="section" id="summary">
+</section>
+</section>
+<section id="summary">
 <h2><span class="section-number">8.4. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>SVM is good for high dimensional cases</p></li>
@@ -694,8 +710,8 @@ SVC(gamma=0.5)
 <li><p>It has also problems if there is plenty of noise in the data, so that classes are overlapping</p></li>
 <li></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

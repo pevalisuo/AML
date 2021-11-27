@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Reading and plotting &#8212; Applied Machine Learning, 2021</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
@@ -150,12 +151,27 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Regression.html">
-   10. Regression
+   10. Regression and regularisation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="NeuralNetworks.html">
    11. Artificial Neural Networks (ANN)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Learning_model_parameters.html">
+   12. Model learning strategies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NLP.html">
+   18. Natural Language Processing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NLP-UWB.html">
+   20. Ultra Wide Band positioning literature analysis
   </a>
  </li>
 </ul>
@@ -312,9 +328,9 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="reading-and-plotting">
+  <section class="tex2jax_ignore mathjax_ignore" id="reading-and-plotting">
 <h1>Reading and plotting<a class="headerlink" href="#reading-and-plotting" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="reading-different-data-formats">
+<section id="reading-different-data-formats">
 <h2>Reading different data formats<a class="headerlink" href="#reading-different-data-formats" title="Permalink to this headline">¶</a></h2>
 <p>Data comes in many differents forms. Few common data formats are:</p>
 <ul class="simple">
@@ -326,13 +342,13 @@
 <li><p>Databases usign Structured Query Language (SQL)</p></li>
 <li><p>And many many others. See more from <a class="reference external" href="http://fileformats.archiveteam.org/wiki/Scientific_Data_formats">Wikipedia</a></p></li>
 </ul>
-</div>
-<div class="section" id="asphalt-heat-data">
+</section>
+<section id="asphalt-heat-data">
 <h2>Asphalt heat data<a class="headerlink" href="#asphalt-heat-data" title="Permalink to this headline">¶</a></h2>
 <p>The data is clearly in CSV-file with three columns, where field separator is semicolon. The first column is a timestamp in ISO format. Other columns are numerical and they use decimal points. The first row is a colun header.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Timestamp;</span> <span class="pre">Irradiance;</span> <span class="pre">Heatflux</span> <span class="pre">2014-10-01</span> <span class="pre">03:00:20;</span>&#160;&#160; <span class="pre">0.2;</span> <span class="pre">-83.1</span> <span class="pre">2014-10-01</span> <span class="pre">03:15:20;</span>&#160;&#160; <span class="pre">0.2;</span> <span class="pre">-82.8</span> <span class="pre">2014-10-01</span> <span class="pre">03:30:20;</span>&#160;&#160; <span class="pre">0.1;</span> <span class="pre">-82.5</span> <span class="pre">2014-10-01</span> <span class="pre">03:45:20;</span>&#160;&#160; <span class="pre">0.1;</span> <span class="pre">-82.3</span> <span class="pre">2014-10-01</span> <span class="pre">04:00:20;</span>&#160;&#160; <span class="pre">0.1;</span> <span class="pre">2014-10-01</span> <span class="pre">04:15:20;</span>&#160;&#160; <span class="pre">0.1;</span> <span class="pre">-82.2</span> <span class="pre">......</span></code></p>
-</div>
-<div class="section" id="pandas">
+</section>
+<section id="pandas">
 <h2>Pandas<a class="headerlink" href="#pandas" title="Permalink to this headline">¶</a></h2>
 <p>Parsing simple CSV data files is easy with many methods, but it is easiest, if you use <a class="reference external" href="https://pandas.pydata.org/">Pandas</a> statistics package. And because Pandas provides so many other features as well, let’s take a closer look on that. Read <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/10min.html">10 minutes to Pandas</a> at this stage.</p>
 <p>It is really convenient to let Pandas parse the timestamps by defining the columns whics are being parsed with <code class="docutils literal notranslate"><span class="pre">parse_dates</span></code> argument. You can just list the columns which contain timestamp values.</p>
@@ -417,8 +433,8 @@
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="missing-data">
+</section>
+<section id="missing-data">
 <h2>Missing data<a class="headerlink" href="#missing-data" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>In the original CSV-file, Heatflux data corresponding timestamp <code class="docutils literal notranslate"><span class="pre">2014-10-01</span> <span class="pre">04:00:20</span></code> is missing</p></li>
@@ -725,7 +741,7 @@ dtype: float64
 </table>
 </div></div></div>
 </div>
-<div class="section" id="other-methods-for-handling-missing-data">
+<section id="other-methods-for-handling-missing-data">
 <h3>Other methods for handling missing data<a class="headerlink" href="#other-methods-for-handling-missing-data" title="Permalink to this headline">¶</a></h3>
 <p>The default handling of missing data is to skip them. The dataframe can be also be preprocessed to handle the missing data in following ways:</p>
 <ol class="simple">
@@ -841,9 +857,9 @@ dtype: float64
 </table>
 </div></div></div>
 </div>
-</div>
-</div>
-<div class="section" id="summary">
+</section>
+</section>
+<section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
 <p>There is ofthe missing values in the data. They can be handled with many methods, but all of them have consequences.</p>
 <ul class="simple">
@@ -852,8 +868,8 @@ dtype: float64
 <li><p>Pandas and other sofware support many missing data handling policies if the default is not sufficient</p></li>
 <li><p>Make sure that you know how your missing data hanling method affects to the statistics</p></li>
 </ul>
-</div>
-<div class="section" id="slicing-pandas-data-frame">
+</section>
+<section id="slicing-pandas-data-frame">
 <h2>Slicing pandas data frame<a class="headerlink" href="#slicing-pandas-data-frame" title="Permalink to this headline">¶</a></h2>
 <p>Pandas dataframes support really versatile methods for indexing in columnvise and rowvise directions</p>
 <ul class="simple">
@@ -892,7 +908,7 @@ Name: Irradiance, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_463217/650362887.py:1: FutureWarning: Indexing a DataFrame with a datetimelike index using a single string to slice the rows, like `frame[string]`, is deprecated and will be removed in a future version. Use `frame.loc[string]` instead.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1043628/650362887.py:1: FutureWarning: Indexing a DataFrame with a datetimelike index using a single string to slice the rows, like `frame[string]`, is deprecated and will be removed in a future version. Use `frame.loc[string]` instead.
   D[&#39;2014-10-15 00&#39;]
 </pre></div>
 </div>
@@ -966,7 +982,7 @@ Name: Heatflux, dtype: float64
 </div>
 </div>
 <p>Read more from the tutorialspoint article <a class="reference external" href="https://www.tutorialspoint.com/python_pandas/python_pandas_indexing_and_selecting_data.htm">Python Pandas - Indexing and Selecting Data</a>.</p>
-<div class="section" id="plotting">
+<section id="plotting">
 <h3>Plotting<a class="headerlink" href="#plotting" title="Permalink to this headline">¶</a></h3>
 <p>The data in the dataframe can be plotted almost automatically.</p>
 <div class="cell docutils container">
@@ -978,7 +994,7 @@ Name: Heatflux, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_463217/765122387.py:1: FutureWarning: Indexing a DataFrame with a datetimelike index using a single string to slice the rows, like `frame[string]`, is deprecated and will be removed in a future version. Use `frame.loc[string]` instead.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1043628/765122387.py:1: FutureWarning: Indexing a DataFrame with a datetimelike index using a single string to slice the rows, like `frame[string]`, is deprecated and will be removed in a future version. Use `frame.loc[string]` instead.
   ax=(D[&#39;2014-10-01&#39;]).plot()
 </pre></div>
 </div>
@@ -998,7 +1014,7 @@ Name: Heatflux, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_463217/1046862904.py:1: FutureWarning: Indexing a DataFrame with a datetimelike index using a single string to slice the rows, like `frame[string]`, is deprecated and will be removed in a future version. Use `frame.loc[string]` instead.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1043628/1046862904.py:1: FutureWarning: Indexing a DataFrame with a datetimelike index using a single string to slice the rows, like `frame[string]`, is deprecated and will be removed in a future version. Use `frame.loc[string]` instead.
   ax=(D[&#39;2014-10-01&#39;]).interpolate().plot()
 </pre></div>
 </div>
@@ -1008,9 +1024,9 @@ Name: Heatflux, dtype: float64
 <img alt="_images/reading_and_plotting_28_2.png" src="_images/reading_and_plotting_28_2.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="more-challenging-dataset">
+</section>
+</section>
+<section id="more-challenging-dataset">
 <h2>More challenging dataset<a class="headerlink" href="#more-challenging-dataset" title="Permalink to this headline">¶</a></h2>
 <p>Water quality data (CSV)</p>
 <p><code class="docutils literal notranslate"><span class="pre">name</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">station;ID-number</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">station;ETRS-coordinates</span> <span class="pre">east;ETRS-coordinates</span> <span class="pre">north;max</span> <span class="pre">depth</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">station;date;sampling</span> <span class="pre">depth;Faecal</span> <span class="pre">enterococci</span> <span class="pre">(kpl/100ml);Oxygen</span> <span class="pre">saturation</span> <span class="pre">(kyll.%);Dissolved</span> <span class="pre">oxygen</span> <span class="pre">(mg/l);Suspended</span> <span class="pre">solids,</span> <span class="pre">coarse</span> <span class="pre">(mg/l);Chlorophyll</span> <span class="pre">a</span> <span class="pre">(µg/l);Total</span> <span class="pre">phosphorous,</span> <span class="pre">unfiltered</span> <span class="pre">(µg/l);Total</span> <span class="pre">nitrogen,</span> <span class="pre">unfiltered</span> <span class="pre">(µg/l);Coliform</span> <span class="pre">bacteria</span> <span class="pre">thermotolerant</span> <span class="pre">(kpl/100ml);Temperature</span> <span class="pre">(°C);Nitrate</span> <span class="pre">as</span> <span class="pre">nitrogen,</span> <span class="pre">unfiltered</span> <span class="pre">(µg/l);Nitrate</span> <span class="pre">as</span> <span class="pre">nitrogen,</span> <span class="pre">unfiltered</span> <span class="pre">(µg/l);Nitrite</span> <span class="pre">nitrate</span> <span class="pre">as</span> <span class="pre">nitrogen,</span> <span class="pre">unfiltered</span> <span class="pre">(µg/l);Secchi</span> <span class="pre">depth</span> <span class="pre">(m);pH</span>&#160; <span class="pre">;Salinity</span> <span class="pre">(&lt;89&gt;);Turbidity</span> <span class="pre">(FNU);Conductivity</span> <span class="pre">(mS/m)</span> <span class="pre">Et</span> <span class="pre">kaup</span> <span class="pre">selkä</span> <span class="pre">1;5520;227911;7005357;2.4;19.3.1974</span> <span class="pre">0:00;;;;;;;;;;;;;;0.5;;;;</span> <span class="pre">Et</span> <span class="pre">kaup</span> <span class="pre">selkä</span> <span class="pre">1;5520;227911;7005357;2.4;19.3.1974</span> <span class="pre">0:00;1,0;0;56;7.9;;;14;4100;0;0.3;;;;;4.6;;8.1;231</span> <span class="pre">Et</span> <span class="pre">kaup</span> <span class="pre">selkä</span> <span class="pre">1;5520;227911;7005357;2.4;12.6.1974</span> <span class="pre">0:00;;;;;;;;;;;;;;1.1;;;;</span> <span class="pre">Et</span> <span class="pre">kaup</span> <span class="pre">selkä</span> <span class="pre">1;5520;227911;7005357;2.4;12.6.1974</span> <span class="pre">0:00;1,0;0;104;10.3;;;20;410;0;14.5;;;;;8.1;;;627</span> <span class="pre">Et</span> <span class="pre">kaup</span> <span class="pre">selkä</span> <span class="pre">1;5520;227911;7005357;2.4;21.10.1974</span> <span class="pre">0:00;;;;;;;;;;;;;;1;;;;</span> <span class="pre">Et</span> <span class="pre">kaup</span> <span class="pre">selkä</span> <span class="pre">1;5520;227911;7005357;2.4;21.10.1974</span> <span class="pre">0:00;1,0;3;93;12.2;;;20;1200;79;2.9;;;;;7.2;;;594</span> <span class="pre">Et</span> <span class="pre">kaup</span> <span class="pre">selkä</span> <span class="pre">1;5520;227911;7005357;2.4;4.6.1975</span> <span class="pre">0:00;;;;;;;;;;;;;;1;;;;</span> <span class="pre">Et</span> <span class="pre">kaup</span> <span class="pre">selkä</span> <span class="pre">1;5520;227911;7005357;2.4;4.6.1975</span> <span class="pre">0:00;1,0;2;102;11;;;40;560;17;10.5;;;;;6.7;;7.8;390</span></code></p>
@@ -1029,7 +1045,7 @@ Name: Heatflux, dtype: float64
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(790, 23)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_463217/2272983003.py:5: FutureWarning: Indexing a DataFrame with a datetimelike index using a single string to slice the rows, like `frame[string]`, is deprecated and will be removed in a future version. Use `frame.loc[string]` instead.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1043628/2272983003.py:5: FutureWarning: Indexing a DataFrame with a datetimelike index using a single string to slice the rows, like `frame[string]`, is deprecated and will be removed in a future version. Use `frame.loc[string]` instead.
   WD[&#39;1987-07&#39;].iloc[:,4:]
 </pre></div>
 </div>
@@ -1195,7 +1211,7 @@ Name: Heatflux, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_463217/2203944145.py:1: FutureWarning: Indexing a DataFrame with a datetimelike index using a single string to slice the rows, like `frame[string]`, is deprecated and will be removed in a future version. Use `frame.loc[string]` instead.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1043628/2203944145.py:1: FutureWarning: Indexing a DataFrame with a datetimelike index using a single string to slice the rows, like `frame[string]`, is deprecated and will be removed in a future version. Use `frame.loc[string]` instead.
   WD.groupby(&#39;date&#39;).first()[&#39;1987-07&#39;].iloc[:,4:]
 </pre></div>
 </div>
@@ -1503,8 +1519,8 @@ Name: Heatflux, dtype: float64
 </table>
 </div></div></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

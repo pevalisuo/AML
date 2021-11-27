@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Supervised machine learning &#8212; Applied Machine Learning, 2021</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
@@ -152,12 +153,27 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Regression.html">
-   10. Regression
+   10. Regression and regularisation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="NeuralNetworks.html">
    11. Artificial Neural Networks (ANN)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Learning_model_parameters.html">
+   12. Model learning strategies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NLP.html">
+   18. Natural Language Processing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NLP-UWB.html">
+   20. Ultra Wide Band positioning literature analysis
   </a>
  </li>
 </ul>
@@ -501,9 +517,9 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="supervised-machine-learning">
+  <section class="tex2jax_ignore mathjax_ignore" id="supervised-machine-learning">
 <h1>Supervised machine learning<a class="headerlink" href="#supervised-machine-learning" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="machine-learning-a-class-anchor-id-ml-a">
+<section id="machine-learning-a-class-anchor-id-ml-a">
 <h2>Machine learning <a class="anchor" id="ML"></a><a class="headerlink" href="#machine-learning-a-class-anchor-id-ml-a" title="Permalink to this headline">¶</a></h2>
 <p><img alt="featureextraction_p.svg" src="_images/featureextraction_p.svg" /></p>
 <ul class="simple">
@@ -511,8 +527,8 @@
 <li><p>This is usefull if the reference method is more expensive, slower or it has other problems</p></li>
 <li><p>Often the reference method is a human observer, and it can be replaced with an algorithm</p></li>
 </ul>
-</div>
-<div class="section" id="the-target-of-supervised-machine-learning">
+</section>
+<section id="the-target-of-supervised-machine-learning">
 <h2>The target of supervised machine learning<a class="headerlink" href="#the-target-of-supervised-machine-learning" title="Permalink to this headline">¶</a></h2>
 <p>Task is to find a function <span class="math notranslate nohighlight">\(f\)</span>, which predicts variable <span class="math notranslate nohighlight">\(y_i\)</span> based on <span class="math notranslate nohighlight">\(p\)</span> features <span class="math notranslate nohighlight">\(x_{i,j}\)</span>, where <span class="math notranslate nohighlight">\(i \in [0,N]\)</span> and <span class="math notranslate nohighlight">\(j \in [0,P]\)</span>.</p>
 <div class="math notranslate nohighlight">
@@ -531,8 +547,8 @@
      x_{n1} &amp; x_{n2} &amp; x_{n3} &amp; \dots  &amp; x_{np}
    \end{bmatrix} \right)
 \end{split}\]</div>
-</div>
-<div class="section" id="training-validation-and-testing-a-class-anchor-id-traintestvalidate-a">
+</section>
+<section id="training-validation-and-testing-a-class-anchor-id-traintestvalidate-a">
 <h2>Training, Validation and Testing <a class="anchor" id="TrainTestValidate"></a><a class="headerlink" href="#training-validation-and-testing-a-class-anchor-id-traintestvalidate-a" title="Permalink to this headline">¶</a></h2>
 <p>Building predictive models requires following stages</p>
 <ol class="simple">
@@ -546,7 +562,7 @@
 <li><p>Test set may not bet used many times, because then you would overfit to the test data</p></li>
 </ol>
 <p>Each stage requires data. The original data can be split in three different sets, one for each stage, but high quality labeled data is usually scarce resource, and in that cases slightly smarter method of using the data is needed.</p>
-<div class="section" id="cross-validation-a-class-anchor-id-crossvalidation-a">
+<section id="cross-validation-a-class-anchor-id-crossvalidation-a">
 <h3>Cross Validation <a class="anchor" id="crossvalidation"></a><a class="headerlink" href="#cross-validation-a-class-anchor-id-crossvalidation-a" title="Permalink to this headline">¶</a></h3>
 <p><img alt="crossvalidation.svg" src="_images/crossvalidation.png" /></p>
 <ul class="simple">
@@ -556,9 +572,9 @@
 <li><p>The process is repeated N times, until every sample has participated in training and validation sets</p></li>
 <li><p>The final score is the average of all N scores</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="distance-metrics-a-class-anchor-id-distance-a">
+</section>
+</section>
+<section id="distance-metrics-a-class-anchor-id-distance-a">
 <h2>Distance metrics <a class="anchor" id="distance"></a><a class="headerlink" href="#distance-metrics-a-class-anchor-id-distance-a" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Clustering, classification and regression assume that samples near each other, at close proximity, are more similar with each other than those which are farther away.</p></li>
@@ -599,8 +615,8 @@
 <img alt="_images/supervised_7_1.png" src="_images/supervised_7_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="scaling">
+</section>
+<section id="scaling">
 <h2>Scaling<a class="headerlink" href="#scaling" title="Permalink to this headline">¶</a></h2>
 <p>What if the scaling is different?</p>
 <div class="cell docutils container">
@@ -623,7 +639,7 @@
 </div>
 </div>
 <p>The problem is that the distances are dominated by feature1 and feature 2 is not significant, even though intuitively it seems to be very important for classification.</p>
-<div class="section" id="then-scale-it-first">
+<section id="then-scale-it-first">
 <h3>Then scale it first<a class="headerlink" href="#then-scale-it-first" title="Permalink to this headline">¶</a></h3>
 <p>To elimninate the distortion due to scaling, normalise the varibles first. Usullay they are normalized so that the means and standard deviations are are the same. Usually <span class="math notranslate nohighlight">\(\bar{x}=0\)</span>¸ and <span class="math notranslate nohighlight">\(\sigma_x =1\)</span>.</p>
 <p>$<span class="math notranslate nohighlight">\(x=\frac{x-\bar{x}}{\sigma_x}\)</span><span class="math notranslate nohighlight">\(,
@@ -650,9 +666,9 @@
 </div>
 <p>Now both features have equal weights.</p>
 <p>But beware outliers when scaling features. Only one outlier can spoil your scaling! There are also robust scalers.</p>
-</div>
-</div>
-<div class="section" id="categorial-features">
+</section>
+</section>
+<section id="categorial-features">
 <h2>Categorial features?<a class="headerlink" href="#categorial-features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Features can be</p>
@@ -666,7 +682,7 @@
 </ul>
 </li>
 </ul>
-<div class="section" id="example">
+<section id="example">
 <h3>Example:<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
 <p>Assume that the species of the Iris is in fact a categorical feature for some ML algorithm. If you would code them just simply like ‘setosa’ -&gt; 1, ‘versicolor’ -&gt;2 and ‘virginica’ -&gt; 3, the ML algorithm could think it as a numerical feature, and use it to calculate distances between species :(</p>
 <p>The fix is to use so called One Hot Encoding.
@@ -756,8 +772,8 @@ Here is the original data:</p>
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="one-hot-encoding-a-class-anchor-id-onehotencoding-a">
+</section>
+<section id="one-hot-encoding-a-class-anchor-id-onehotencoding-a">
 <h3>One hot encoding  <a class="anchor" id="OneHotEncoding"></a><a class="headerlink" href="#one-hot-encoding-a-class-anchor-id-onehotencoding-a" title="Permalink to this headline">¶</a></h3>
 <p>Now we can encode the species to number in a safe way:</p>
 <ol class="simple">
@@ -817,21 +833,10 @@ Here is the original data:</p>
   </thead>
   <tbody>
     <tr>
-      <th>7</th>
-      <td>5.0</td>
-      <td>3.4</td>
-      <td>1.5</td>
-      <td>0.2</td>
-      <td>setosa</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>96</th>
-      <td>5.7</td>
-      <td>2.9</td>
-      <td>4.2</td>
+      <th>89</th>
+      <td>5.5</td>
+      <td>2.5</td>
+      <td>4.0</td>
       <td>1.3</td>
       <td>versicolor</td>
       <td>0.0</td>
@@ -839,65 +844,10 @@ Here is the original data:</p>
       <td>0.0</td>
     </tr>
     <tr>
-      <th>142</th>
-      <td>5.8</td>
-      <td>2.7</td>
-      <td>5.1</td>
-      <td>1.9</td>
-      <td>virginica</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>83</th>
-      <td>6.0</td>
-      <td>2.7</td>
-      <td>5.1</td>
-      <td>1.6</td>
-      <td>versicolor</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>111</th>
-      <td>6.4</td>
-      <td>2.7</td>
-      <td>5.3</td>
-      <td>1.9</td>
-      <td>virginica</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>116</th>
-      <td>6.5</td>
-      <td>3.0</td>
-      <td>5.5</td>
-      <td>1.8</td>
-      <td>virginica</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>56</th>
-      <td>6.3</td>
-      <td>3.3</td>
-      <td>4.7</td>
-      <td>1.6</td>
-      <td>versicolor</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>5.1</td>
-      <td>3.5</td>
-      <td>1.4</td>
+      <th>42</th>
+      <td>4.4</td>
+      <td>3.2</td>
+      <td>1.3</td>
       <td>0.2</td>
       <td>setosa</td>
       <td>1.0</td>
@@ -905,37 +855,103 @@ Here is the original data:</p>
       <td>0.0</td>
     </tr>
     <tr>
-      <th>69</th>
+      <th>132</th>
+      <td>6.4</td>
+      <td>2.8</td>
       <td>5.6</td>
-      <td>2.5</td>
+      <td>2.2</td>
+      <td>virginica</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>5.4</td>
       <td>3.9</td>
-      <td>1.1</td>
+      <td>1.7</td>
+      <td>0.4</td>
+      <td>setosa</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>117</th>
+      <td>7.7</td>
+      <td>3.8</td>
+      <td>6.7</td>
+      <td>2.2</td>
+      <td>virginica</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>110</th>
+      <td>6.5</td>
+      <td>3.2</td>
+      <td>5.1</td>
+      <td>2.0</td>
+      <td>virginica</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>92</th>
+      <td>5.8</td>
+      <td>2.6</td>
+      <td>4.0</td>
+      <td>1.2</td>
       <td>versicolor</td>
       <td>0.0</td>
       <td>1.0</td>
       <td>0.0</td>
     </tr>
     <tr>
-      <th>127</th>
-      <td>6.1</td>
-      <td>3.0</td>
-      <td>4.9</td>
+      <th>107</th>
+      <td>7.3</td>
+      <td>2.9</td>
+      <td>6.3</td>
       <td>1.8</td>
       <td>virginica</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
     </tr>
+    <tr>
+      <th>113</th>
+      <td>5.7</td>
+      <td>2.5</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>virginica</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>5.2</td>
+      <td>3.4</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-</div>
-</div>
-<div class="section" id="nearest-neighbours-methods-a-class-anchor-id-nearestneighbours-a">
+</section>
+</section>
+<section id="nearest-neighbours-methods-a-class-anchor-id-nearestneighbours-a">
 <h2>Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a><a class="headerlink" href="#nearest-neighbours-methods-a-class-anchor-id-nearestneighbours-a" title="Permalink to this headline">¶</a></h2>
 <p>Nearest Neighbour methods provide some very staightforward methods for supervised machine learning</p>
-<div class="section" id="brute-force-implementation">
+<section id="brute-force-implementation">
 <h3>Brute force implementation<a class="headerlink" href="#brute-force-implementation" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li><p>Set the number of nearest neighbours, <span class="math notranslate nohighlight">\(K\)</span></p></li>
@@ -1002,8 +1018,8 @@ The accuracy of KNN for badly scaled data is.... 0.75
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="pipelining">
+</section>
+<section id="pipelining">
 <h3>Pipelining<a class="headerlink" href="#pipelining" title="Permalink to this headline">¶</a></h3>
 <p>In Scikit Learn, all methods are build using the same interface. This makes it easier to build larger machine learning systems by combining different stages together as pipelines.</p>
 <p>For example, the scaling of features, dimensionality reduction, and sclassification can be combined as a single pipeline. This is especially usefull, when several datasets (validation data, testing data, production data, etc) needs to be fed through the same stages.</p>
@@ -1032,9 +1048,9 @@ The accuracy of KNN for badly scaled data is.... 0.75
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="visualization-of-the-decision-boundaries">
+</section>
+</section>
+<section id="visualization-of-the-decision-boundaries">
 <h2>Visualization of the decision boundaries<a class="headerlink" href="#visualization-of-the-decision-boundaries" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1090,14 +1106,14 @@ The accuracy of KNN for badly scaled data is.... 0.75
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_463310/3110683384.py:25: MatplotlibDeprecationWarning: shading=&#39;flat&#39; when X and Y have the same dimensions as C is deprecated since 3.3.  Either specify the corners of the quadrilaterals with X and Y, or pass shading=&#39;auto&#39;, &#39;nearest&#39; or &#39;gouraud&#39;, or set rcParams[&#39;pcolor.shading&#39;].  This will become an error two minor releases later.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1043745/3110683384.py:25: MatplotlibDeprecationWarning: shading=&#39;flat&#39; when X and Y have the same dimensions as C is deprecated since 3.3.  Either specify the corners of the quadrilaterals with X and Y, or pass shading=&#39;auto&#39;, &#39;nearest&#39; or &#39;gouraud&#39;, or set rcParams[&#39;pcolor.shading&#39;].  This will become an error two minor releases later.
   plt.pcolormesh(xx, yy, Z, cmap=cmap_light)
 </pre></div>
 </div>
 <img alt="_images/supervised_25_1.png" src="_images/supervised_25_1.png" />
 </div>
 </div>
-<div class="section" id="variations">
+<section id="variations">
 <h3>Variations<a class="headerlink" href="#variations" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Nearest Centroid classifier</p>
@@ -1113,9 +1129,9 @@ The accuracy of KNN for badly scaled data is.... 0.75
 </ul>
 </li>
 </ul>
-</div>
-</div>
-<div class="section" id="nearest-centroid-classifier">
+</section>
+</section>
+<section id="nearest-centroid-classifier">
 <h2>Nearest Centroid Classifier<a class="headerlink" href="#nearest-centroid-classifier" title="Permalink to this headline">¶</a></h2>
 <p>Nearest centroid classifier does not need to store all training data, thats why it is also faster to predict.</p>
 <div class="cell docutils container">
@@ -1135,7 +1151,7 @@ The accuracy of KNN for badly scaled data is.... 0.75
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_463310</span><span class="o">/</span><span class="mf">2405771635.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1043745</span><span class="o">/</span><span class="mf">2405771635.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">sklearn.neighbors.nearest_centroid</span> <span class="kn">import</span> <span class="n">NearestCentroid</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">pipelineCentroid</span><span class="o">=</span><span class="n">Pipeline</span><span class="p">([</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span>         <span class="p">(</span><span class="s1">&#39;Scaling&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>
@@ -1147,8 +1163,8 @@ The accuracy of KNN for badly scaled data is.... 0.75
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="support-vector-machine-svm-a-class-anchor-id-supportvectormachine-a">
+</section>
+<section id="support-vector-machine-svm-a-class-anchor-id-supportvectormachine-a">
 <h2>Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a><a class="headerlink" href="#support-vector-machine-svm-a-class-anchor-id-supportvectormachine-a" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>SVM is kind of Jack of All Trades for classifiers</p></li>
@@ -1158,7 +1174,7 @@ The accuracy of KNN for badly scaled data is.... 0.75
 <li><p>Can be used for both classification and regression</p></li>
 <li><p>Can be extended to nonlinear decision boundaries using kernels</p></li>
 </ul>
-<div class="section" id="decision-boundary">
+<section id="decision-boundary">
 <h3>Decision boundary<a class="headerlink" href="#decision-boundary" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>SVM uses samples near the different clusters to define a decision boundary</p></li>
@@ -1297,9 +1313,9 @@ LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
 <img alt="_images/supervised_36_2.png" src="_images/supervised_36_2.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="kernel-svm-a-class-anchor-id-kernelsvm-a">
+</section>
+</section>
+<section id="kernel-svm-a-class-anchor-id-kernelsvm-a">
 <h2>Kernel SVM <a class="anchor" id="kernelsvm"></a><a class="headerlink" href="#kernel-svm-a-class-anchor-id-kernelsvm-a" title="Permalink to this headline">¶</a></h2>
 <p>Linear kernel</p>
 <div class="cell docutils container">
@@ -1388,8 +1404,8 @@ Accurary in the test set......0.980000
 <img alt="_images/supervised_40_1.png" src="_images/supervised_40_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="non-linear-classes">
+</section>
+<section id="non-linear-classes">
 <h2>Non-linear classes<a class="headerlink" href="#non-linear-classes" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p>If the data described by <span class="math notranslate nohighlight">\(p_i=[x_i, y_i]^T\)</span> is not linearly separable, it can be made linearly separable by adding a new term, for example <span class="math notranslate nohighlight">\(z_i=x_i^2 + y_i^2\)</span></p></li>
@@ -1407,7 +1423,7 @@ Accurary in the test set......0.980000
    k(p_i, p_j) = \exp ( - \gamma \Vert p_i-p_j \Vert^2) \]</div>
 </li>
 </ul>
-<div class="section" id="illustration-of-rbf">
+<section id="illustration-of-rbf">
 <h3>Illustration of RBF<a class="headerlink" href="#illustration-of-rbf" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>The following code plots the RBF when <span class="math notranslate nohighlight">\(p_i\)</span> is in origo and <span class="math notranslate nohighlight">\(p_j\)</span> moves along x-axis.</p></li>
@@ -1482,8 +1498,8 @@ Accurary in the test set......0.980000
 </div>
 </div>
 <p>Now the classes are separable, but what is the optimal Gamma value?</p>
-</div>
-<div class="section" id="testing-rbf-in-circular-data">
+</section>
+<section id="testing-rbf-in-circular-data">
 <h3>Testing RBF in circular data<a class="headerlink" href="#testing-rbf-in-circular-data" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1539,11 +1555,11 @@ SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
 </div>
 </div>
 <p>Read more from <a class="reference external" href="https://www.analyticsvidhya.com/blog/2017/09/understaing-support-vector-machine-example-code/">Understanding SVM</a></p>
-</div>
-</div>
-<div class="section" id="decision-trees-and-forests-a-class-anchor-id-dtaforests-a">
+</section>
+</section>
+<section id="decision-trees-and-forests-a-class-anchor-id-dtaforests-a">
 <h2>Decision trees and forests <a class="anchor" id="dtaforests"></a><a class="headerlink" href="#decision-trees-and-forests-a-class-anchor-id-dtaforests-a" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="decision-tree-a-class-anchor-id-decisiontrees-a">
+<section id="decision-tree-a-class-anchor-id-decisiontrees-a">
 <h3>Decision tree <a class="anchor" id="decisiontrees"></a><a class="headerlink" href="#decision-tree-a-class-anchor-id-decisiontrees-a" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1586,8 +1602,8 @@ DecisionTreeClassifier(class_weight=None, criterion=&#39;gini&#39;, max_depth=2,
 <img alt="_images/supervised_53_0.png" src="_images/supervised_53_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="optimize-the-tree-depth">
+</section>
+<section id="optimize-the-tree-depth">
 <h3>Optimize the tree depth<a class="headerlink" href="#optimize-the-tree-depth" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1627,9 +1643,9 @@ Accurary in the test set......0.880462
 <li><p>Therefore do not use test data in optimising the model. Use it only in the end, when you have selected the optimal model using cross validation</p></li>
 </ul>
 <p>Red more from <a class="reference external" href="https://scikit-learn.org/stable/modules/tree.html">Skikit Learn</a></p>
-</div>
-</div>
-<div class="section" id="ensemble-methods-a-class-anchor-id-ensemblemethods-a">
+</section>
+</section>
+<section id="ensemble-methods-a-class-anchor-id-ensemblemethods-a">
 <h2>Ensemble methods <a class="anchor" id="ensemblemethods"></a><a class="headerlink" href="#ensemble-methods-a-class-anchor-id-ensemblemethods-a" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Bagging in <a class="reference external" href="https://scikit-learn.org/stable/modules/ensemble.html">Skikit Learn</a></p>
@@ -1641,9 +1657,9 @@ Accurary in the test set......0.880462
 </li>
 <li><p>Boosting is another method to combine multiple predictors</p></li>
 </ul>
-<div class="section" id="bagging-a-class-anchor-id-bagging-a">
+<section id="bagging-a-class-anchor-id-bagging-a">
 <h3>Bagging <a class="anchor" id="Bagging"></a><a class="headerlink" href="#bagging-a-class-anchor-id-bagging-a" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="randomized-trees-a-class-anchor-id-randomizedtrees-a">
+<section id="randomized-trees-a-class-anchor-id-randomizedtrees-a">
 <h4>Randomized trees   <a class="anchor" id="RandomizedTrees"></a><a class="headerlink" href="#randomized-trees-a-class-anchor-id-randomizedtrees-a" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p>Forest of randomized trees is one famous bagging method. it works as follows</p>
@@ -1656,8 +1672,8 @@ Accurary in the test set......0.880462
 </li>
 <li><p>Read more from <a class="reference external" href="https://scikit-learn.org/stable/modules/ensemble.html#forests-of-randomized-trees">Skikit Learn</a></p></li>
 </ul>
-</div>
-<div class="section" id="extratrees-classifier-extremely-randomized-trees">
+</section>
+<section id="extratrees-classifier-extremely-randomized-trees">
 <h4>Extratrees classifier (Extremely randomized trees)<a class="headerlink" href="#extratrees-classifier-extremely-randomized-trees" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p>Even more random</p></li>
@@ -1665,8 +1681,8 @@ Accurary in the test set......0.880462
 <li><p>The best thresholding rules are voted</p></li>
 <li><p>Read more from <a class="reference external" href="https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees">Skikit Learn</a></p></li>
 </ul>
-</div>
-<div class="section" id="optimising-the-parameters-fo-the-extratrees-classifier">
+</section>
+<section id="optimising-the-parameters-fo-the-extratrees-classifier">
 <h4>Optimising the parameters fo the Extratrees classifier<a class="headerlink" href="#optimising-the-parameters-fo-the-extratrees-classifier" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p>Extratrees classifier has already many more parameters than normal decision tree.</p></li>
@@ -1731,10 +1747,10 @@ ExtraTreesClassifier(bootstrap=False, class_weight=None, criterion=&#39;gini&#39
 <img alt="_images/supervised_62_0.png" src="_images/supervised_62_0.png" />
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="boosting-a-class-anchor-id-boosting-a">
+</section>
+</section>
+</section>
+<section id="boosting-a-class-anchor-id-boosting-a">
 <h2>Boosting <a class="anchor" id="Boosting"></a><a class="headerlink" href="#boosting-a-class-anchor-id-boosting-a" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Construct weak random trees and chain them after each other on modified version of the data</p></li>
@@ -1742,7 +1758,7 @@ ExtraTreesClassifier(bootstrap=False, class_weight=None, criterion=&#39;gini&#39
 <a class="reference external" href="https://scikit-learn.org/stable/modules/ensemble.html#gradient-tree-boosting">Gradient Tree Boosting</a>
 <a class="reference external" href="https://xgboost.readthedocs.io/en/latest/">XGBoost</a></p></li>
 </ul>
-<div class="section" id="adaboost-a-class-anchor-id-adaboost-a">
+<section id="adaboost-a-class-anchor-id-adaboost-a">
 <h3>Adaboost <a class="anchor" id="AdaBoost"></a><a class="headerlink" href="#adaboost-a-class-anchor-id-adaboost-a" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li><p>First create one weak predictor, which is perhaps only slightly better than guessing</p></li>
@@ -1769,8 +1785,8 @@ ExtraTreesClassifier(bootstrap=False, class_weight=None, criterion=&#39;gini&#39
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="gradient-tree-boosting-a-class-anchor-id-gbrt-a">
+</section>
+<section id="gradient-tree-boosting-a-class-anchor-id-gbrt-a">
 <h3>Gradient Tree Boosting <a class="anchor" id="GBRT"></a><a class="headerlink" href="#gradient-tree-boosting-a-class-anchor-id-gbrt-a" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Also called as Gradient Boosted Regression Trees (GBRT)</p></li>
@@ -1808,8 +1824,8 @@ ExtraTreesClassifier(bootstrap=False, class_weight=None, criterion=&#39;gini&#39
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="extreme-gradient-boosting-xgboost-a-class-anchor-id-xgboost-a">
+</section>
+<section id="extreme-gradient-boosting-xgboost-a-class-anchor-id-xgboost-a">
 <h3>Extreme Gradient Boosting (XGBoost) <a class="anchor" id="XGBoost"></a><a class="headerlink" href="#extreme-gradient-boosting-xgboost-a-class-anchor-id-xgboost-a" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>A library implementing Gradient Tree Boosting</p></li>
@@ -1870,9 +1886,9 @@ GradientBoostingClassifier(criterion=&#39;friedman_mse&#39;, init=None,
 <img alt="_images/supervised_69_0.png" src="_images/supervised_69_0.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="summary">
+</section>
+</section>
+<section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>SVM is good for high dimensional cases</p></li>
@@ -1889,11 +1905,11 @@ GradientBoostingClassifier(criterion=&#39;friedman_mse&#39;, init=None,
 <li><p>SVM does not work so well for really big data sizes</p></li>
 <li><p>It has also problems if there is plenty of noise in the data, so that classes are overlapping</p></li>
 </ul>
-</div>
-<div class="section" id="references">
+</section>
+<section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

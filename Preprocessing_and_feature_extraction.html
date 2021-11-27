@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>3. Preprocessing and feature extraction &#8212; Applied Machine Learning, 2021</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
@@ -154,12 +155,27 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Regression.html">
-   10. Regression
+   10. Regression and regularisation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="NeuralNetworks.html">
    11. Artificial Neural Networks (ANN)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Learning_model_parameters.html">
+   12. Model learning strategies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NLP.html">
+   18. Natural Language Processing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NLP-UWB.html">
+   20. Ultra Wide Band positioning literature analysis
   </a>
  </li>
 </ul>
@@ -389,22 +405,22 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="preprocessing-and-feature-extraction">
+  <section class="tex2jax_ignore mathjax_ignore" id="preprocessing-and-feature-extraction">
 <h1><span class="section-number">3. </span>Preprocessing and feature extraction<a class="headerlink" href="#preprocessing-and-feature-extraction" title="Permalink to this headline">¶</a></h1>
 <p>This module starts actual machine learning part, by introducing some important concepts and walking through and example using classical statistics. Machine learning is more than statistics, but the covered statistical concepts are very important throughout the course.</p>
-<div class="section" id="machine-learning">
+<section id="machine-learning">
 <h2><span class="section-number">3.1. </span>Machine Learning<a class="headerlink" href="#machine-learning" title="Permalink to this headline">¶</a></h2>
 <p><img alt="machine_learning.svg" src="_images/machine_learning.svg" /></p>
-</div>
-<div class="section" id="feature-extraction">
+</section>
+<section id="feature-extraction">
 <h2><span class="section-number">3.2. </span>Feature extraction<a class="headerlink" href="#feature-extraction" title="Permalink to this headline">¶</a></h2>
 <p><img alt="featureextraction_p.svg" src="_images/featureextraction_p.svg" /></p>
 <ul class="simple">
 <li><p>The purpose of feature extraction is to capture relevant properties of the samples into variables.</p></li>
 <li><p>Feature extraction requires domain knowledge and needs to be rethought for every project. It is therefore one of the most time consuming parts of machine learning processes.</p></li>
 </ul>
-</div>
-<div class="section" id="the-purpose-of-machine-learning">
+</section>
+<section id="the-purpose-of-machine-learning">
 <h2><span class="section-number">3.3. </span>The purpose of machine learning<a class="headerlink" href="#the-purpose-of-machine-learning" title="Permalink to this headline">¶</a></h2>
 <p>Task is to find a function <span class="math notranslate nohighlight">\(f\)</span>, which predicts variable <span class="math notranslate nohighlight">\(y_i\)</span> based on <span class="math notranslate nohighlight">\(p\)</span> features <span class="math notranslate nohighlight">\(x_{i,j}\)</span>, where <span class="math notranslate nohighlight">\(i \in [0,N]\)</span> and <span class="math notranslate nohighlight">\(j \in [0,P]\)</span>.</p>
 <div class="math notranslate nohighlight">
@@ -423,31 +439,31 @@
      x_{n1} &amp; x_{n2} &amp; x_{n3} &amp; \dots  &amp; x_{np}
    \end{bmatrix} \right)
 \end{split}\]</div>
-</div>
-<div class="section" id="case-one-sound-recognition">
+</section>
+<section id="case-one-sound-recognition">
 <h2><span class="section-number">3.4. </span>Case one, sound recognition<a class="headerlink" href="#case-one-sound-recognition" title="Permalink to this headline">¶</a></h2>
 <p><img alt="featureextraction_p.svg" src="_images/timedomainaudio.png" /></p>
 <p>This sound sample contains noise from wind turbine, by-passing cars and some birds perhaps.</p>
 <p>Can you find good features to find out what is the dominating noise source in which time?</p>
-<div class="section" id="perhaps-there-are-differences-in-the-sound-pressure-level-volume">
+<section id="perhaps-there-are-differences-in-the-sound-pressure-level-volume">
 <h3><span class="section-number">3.4.1. </span>Perhaps there are differences in the sound pressure level (volume)<a class="headerlink" href="#perhaps-there-are-differences-in-the-sound-pressure-level-volume" title="Permalink to this headline">¶</a></h3>
 <p><img alt="SPL of the audio" src="_images/splaudio.png" /></p>
 <p>This picture shows the <a class="reference external" href="https://en.wikipedia.org/wiki/A-weighting">A-weighted</a> sound pressure level (SPL) of the sound signal. It shows what is the subjective volume perceived by a human observer. SPL is a RMS average of the signal over certain time period</p>
 <div class="math notranslate nohighlight">
 \[L_p = 20 \log_{10}\left( \frac{p_{rms}}{p_0}\right) \qquad p_{rms} = \sqrt{\frac{1}{T} \int_0^T p(t)^2 dt}\]</div>
 <p>where <span class="math notranslate nohighlight">\(p_{rms}\)</span> is the RMS average of the sound pressure, <span class="math notranslate nohighlight">\(p_0=20~\mu\)</span>P, is the reference sound pressure and ,<span class="math notranslate nohighlight">\(T=1\)</span> s, is a time constant.Notice that <span class="math notranslate nohighlight">\(L_p\)</span> is shown in logarithmic scale. Log transformation may sometimes be helpful.</p>
-</div>
-<div class="section" id="perhaps-studying-different-spectral-components-help">
+</section>
+<section id="perhaps-studying-different-spectral-components-help">
 <h3><span class="section-number">3.4.2. </span>Perhaps studying different spectral components help<a class="headerlink" href="#perhaps-studying-different-spectral-components-help" title="Permalink to this headline">¶</a></h3>
 <p><img alt="Sectrogram of the audio" src="_images/sgramaudio.png" /></p>
 <p>This figure is obtained by splitting the signal in 1 second pieces and applying a Fourier transformation to them, and then by plotting the spectrum of each slice vertically. This method is called as Short Time Fourier Transformation (STFT) and is often usefull method for extracting features from the data.</p>
-</div>
-<div class="section" id="other-audio-features">
+</section>
+<section id="other-audio-features">
 <h3><span class="section-number">3.4.3. </span>Other audio features<a class="headerlink" href="#other-audio-features" title="Permalink to this headline">¶</a></h3>
 <p>Take a look at the feature extraction documentation of the <a class="reference external" href="https://librosa.org/doc/latest/feature.html">LibRosa library</a>.</p>
-</div>
-</div>
-<div class="section" id="case-2-what-features-could-be-used-to-classify-iris-species">
+</section>
+</section>
+<section id="case-2-what-features-could-be-used-to-classify-iris-species">
 <h2><span class="section-number">3.5. </span>Case 2, What features could be used to classify Iris species?<a class="headerlink" href="#case-2-what-features-could-be-used-to-classify-iris-species" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-auto table">
 <thead>
@@ -467,7 +483,7 @@
 </tr>
 </tbody>
 </table>
-<div class="section" id="features-measured-by-fisher">
+<section id="features-measured-by-fisher">
 <h3><span class="section-number">3.5.1. </span>Features measured by Fisher<a class="headerlink" href="#features-measured-by-fisher" title="Permalink to this headline">¶</a></h3>
 <p>One of the most famos data sets of statistics is the Iris-dataset by Fisher. Let’s take a look what features he measured and how do they perform.</p>
 <p>Lets read the data set and plot the head of it.</p>
@@ -615,8 +631,8 @@ max        7.900000     4.400000      6.900000     2.500000
 <p>150 rows × 5 columns</p>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="nicer-plots-with-seaborn">
+</section>
+<section id="nicer-plots-with-seaborn">
 <h3><span class="section-number">3.5.2. </span>Nicer plots with Seaborn<a class="headerlink" href="#nicer-plots-with-seaborn" title="Permalink to this headline">¶</a></h3>
 <p>The Seaborn library is another library for plotting data, in addition to Matplotlib which we used earlier. Seaborn is especially good for statistical plots, mut it has unfortunately totally different API than matplotlib. It may be good to use Matplotlib usually, but it you find some plots inconvenient to be plotted with matplotlib, then it is time to check what seaborn can offer. Easiest way is to check the <a class="reference external" href="https://python-graph-gallery.com/all-charts/">example gallery</a> to see if someone has made a similar plot what you need, and copy and modify the source code, which is given in the gallery.</p>
 <p>Study the pairplots below, and consider following questions:</p>
@@ -647,8 +663,8 @@ max        7.900000     4.400000      6.900000     2.500000
 <img alt="_images/Preprocessing_and_feature_extraction_13_0.png" src="_images/Preprocessing_and_feature_extraction_13_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="quantitative-analysis">
+</section>
+<section id="quantitative-analysis">
 <h3><span class="section-number">3.5.3. </span>Quantitative analysis<a class="headerlink" href="#quantitative-analysis" title="Permalink to this headline">¶</a></h3>
 <p>It looks like petal_length can nicely separate Setosa’s from other species, but not necessary Versicolor from Virginica. Lets try to get some numerical proof if this observation is correct.</p>
 <p>Lets first study the average feature values and their deviations separately in each group. The groupby() function in pandas dataframe provides very handy methods for implementing this. Groupby kind of splits the original dataframe into three different dataframes according to the species class.</p>
@@ -783,8 +799,8 @@ max        7.900000     4.400000      6.900000     2.500000
 </div></div></div>
 </div>
 <p>It looks like the differences of for example petal_lengths seem to be bigger than the standard deviation. It could be feasible to use it for species recognition.</p>
-</div>
-<div class="section" id="visual-analysis-of-mean-and-distribution-using-boxplot">
+</section>
+<section id="visual-analysis-of-mean-and-distribution-using-boxplot">
 <h3><span class="section-number">3.5.4. </span>Visual analysis of mean and distribution using boxplot<a class="headerlink" href="#visual-analysis-of-mean-and-distribution-using-boxplot" title="Permalink to this headline">¶</a></h3>
 <p>The boxplot displays the median value (the red lines inside the boxes) and distribution as quartiles (the height of the boxes, and lengths of the whiskers) graphically. The box extends from <em>quartile</em> Q1 below to quartile Q3 above the median. The length of the whiskers is 1.5 times the <em>inter quartile range</em> (IQR) from the box edge, where IQR=Q3-Q1. The values outside of whiskers are interpreted as <em>outliers</em>, and they are plotted as circles.</p>
 <div class="cell docutils container">
@@ -798,8 +814,8 @@ max        7.900000     4.400000      6.900000     2.500000
 </div>
 </div>
 <p>The boxplot shows that Setosa can be separated from Versicolor and Virginica with no confusion, but there is some overlap between Versicolor and Virginica.</p>
-</div>
-<div class="section" id="applying-an-external-function-to-data">
+</section>
+<section id="applying-an-external-function-to-data">
 <h3><span class="section-number">3.5.5. </span>Applying an external function to data<a class="headerlink" href="#applying-an-external-function-to-data" title="Permalink to this headline">¶</a></h3>
 <p>Sometimes it is necessary to apply also such functions to the data, which are not part of the dataframe. It can be accomplished by using the apply-method as follows. Here the median-function from the NumPy-libary is used. You can also apply your own function to the data.</p>
 <div class="cell docutils container">
@@ -853,8 +869,8 @@ Name: petal_length, dtype: float64
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="hypothesis-testing">
+</section>
+<section id="hypothesis-testing">
 <h3><span class="section-number">3.5.6. </span>Hypothesis testing<a class="headerlink" href="#hypothesis-testing" title="Permalink to this headline">¶</a></h3>
 <p>Let’s formally study if the petal lengts are significantly different or not by forming two hypothesis:</p>
 <ol class="simple">
@@ -863,7 +879,7 @@ Name: petal_length, dtype: float64
 </ol>
 <p>The standard test for these hypothesis is the <a class="reference external" href="https://www.statisticshowto.datasciencecentral.com/probability-and-statistics/t-test/">Student’s T-test</a>.</p>
 <p>But the T-test can only be used if the variables are normally distributed. Let’s test that first.</p>
-<div class="section" id="testing-if-distribution-of-the-variables-is-normal">
+<section id="testing-if-distribution-of-the-variables-is-normal">
 <h4><span class="section-number">3.5.6.1. </span>Testing if distribution of the variables is normal<a class="headerlink" href="#testing-if-distribution-of-the-variables-is-normal" title="Permalink to this headline">¶</a></h4>
 <p>Read more about normality testing methods from <a class="reference external" href="https://www.statisticshowto.datasciencecentral.com/assumption-of-normality-test/">Statistics howto</a></p>
 <p>Most often used normality test is the D’Agostino-Pearson Test. It can be taken into use by importing the <code class="docutils literal notranslate"><span class="pre">normaltest</span></code> function from the stats module of the Scientific Python package.</p>
@@ -919,9 +935,9 @@ Name: petal_length, dtype: object
 </div>
 </div>
 <p>The data does not justify us to safely conclude that the data would be normally distributed! The visual inspection of the distribution shown in the Seaborn pairplot support this result.</p>
-</div>
-</div>
-<div class="section" id="test-the-similarity-of-petal-length-distributions">
+</section>
+</section>
+<section id="test-the-similarity-of-petal-length-distributions">
 <h3><span class="section-number">3.5.7. </span>Test the similarity of petal_length distributions<a class="headerlink" href="#test-the-similarity-of-petal-length-distributions" title="Permalink to this headline">¶</a></h3>
 <p>The most often used method for hypothesis testing, is the Student’s T-test, which is also in the stats module of Scientific Python package.</p>
 <p>(<em>We try to use T-test even though we do not have the autorization, because the variable is not normally distributed! The consequence is that whatever the result is, it may not be reliable</em>)</p>
@@ -971,8 +987,8 @@ The petal_lengths of Versicolor and Virginica are statistically different : p=0.
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="non-parametric-testing">
+</section>
+<section id="non-parametric-testing">
 <h3><span class="section-number">3.5.8. </span>Non-parametric testing<a class="headerlink" href="#non-parametric-testing" title="Permalink to this headline">¶</a></h3>
 <p>Because the data is not normally distributed, we are not allowed to use the T-test, but we need to use non-parametric tests instead. One often used is the <a class="reference external" href="https://en.wikipedia.org/wiki/Mann%E2%80%93Whitney_U_test">Mann-Whitney rank-test</a>. Because this test does not assume anything about the shape of the distributions, it usually needs larger sample size to get reliable estimate of p-values. Sample size bigger than 20 for both classes is recommended.</p>
 <div class="cell docutils container">
@@ -989,9 +1005,9 @@ The petal_lengths of Versicolor and Virginica are statistically different : p=0.
 </div>
 </div>
 <p>The p-value of <span class="math notranslate nohighlight">\(4.56 \cdot 10^{-17} &lt; \alpha\)</span> we can conclude that the difference of the petal lenghts of versicolor and virginica is statistically significant. This is reliable result, since it was not necessary to assume any specifig distribution of feature variables.</p>
-</div>
-</div>
-<div class="section" id="what-was-learned">
+</section>
+</section>
+<section id="what-was-learned">
 <h2><span class="section-number">3.6. </span>What was learned?<a class="headerlink" href="#what-was-learned" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Some mesured values (petal and sepal widhts and heights in this case) can be used as features, describing the similarities and differences of the samples</p></li>
@@ -1000,8 +1016,8 @@ The petal_lengths of Versicolor and Virginica are statistically different : p=0.
 <li><p>Non-parametric tests can be used if the data is not normally distributed, but it may need larger sample size</p></li>
 </ul>
 <p>Now we can be certain, that the petal lengts are different in all species, and the difference is statistically significant, meaning that they are not different only by chance.</p>
-</div>
-<div class="section" id="using-features-for-recognizing-species">
+</section>
+<section id="using-features-for-recognizing-species">
 <h2><span class="section-number">3.7. </span>Using features for recognizing species<a class="headerlink" href="#using-features-for-recognizing-species" title="Permalink to this headline">¶</a></h2>
 <p>Now that we know that petal_lengths are different for each species, can this feature be used in recognizing flowers or classifying flower species?</p>
 <p>The following picture shows the position of decision boundary leading to highest precision in classifying Versicolor from Virginica species based on petal length.</p>
@@ -1073,8 +1089,8 @@ The petal_lengths of Versicolor and Virginica are statistically different : p=0.
 <img alt="_images/Preprocessing_and_feature_extraction_40_0.png" src="_images/Preprocessing_and_feature_extraction_40_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="how-to-handle-categorial-features-a-class-anchor-id-categoricalf-a">
+</section>
+<section id="how-to-handle-categorial-features-a-class-anchor-id-categoricalf-a">
 <h2><span class="section-number">3.8. </span>How to handle categorial features? <a class="anchor" id="categoricalF"></a><a class="headerlink" href="#how-to-handle-categorial-features-a-class-anchor-id-categoricalf-a" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Features can be</p>
@@ -1088,7 +1104,7 @@ The petal_lengths of Versicolor and Virginica are statistically different : p=0.
 </ul>
 </li>
 </ul>
-<div class="section" id="example">
+<section id="example">
 <h3><span class="section-number">3.8.1. </span>Example:<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
 <p>Assume that the species of the Iris is in fact a categorical feature for some ML algorithm. If you would code them just simply like ‘setosa’ -&gt; 1, ‘versicolor’ -&gt;2 and ‘virginica’ -&gt; 3, the ML algorithm could think it as a numerical feature, and use it to calculate distances between species :(</p>
 <p>The fix is to use so called One Hot Encoding.
@@ -1178,8 +1194,8 @@ Here is the original data:</p>
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="one-hot-encoding-a-class-anchor-id-onehotencoding-a">
+</section>
+<section id="one-hot-encoding-a-class-anchor-id-onehotencoding-a">
 <h3><span class="section-number">3.8.2. </span>One hot encoding  <a class="anchor" id="OneHotEncoding"></a><a class="headerlink" href="#one-hot-encoding-a-class-anchor-id-onehotencoding-a" title="Permalink to this headline">¶</a></h3>
 <p>Now we can encode the species to number in a safe way:</p>
 <ol class="simple">
@@ -1239,42 +1255,9 @@ Here is the original data:</p>
   </thead>
   <tbody>
     <tr>
-      <th>29</th>
-      <td>4.7</td>
-      <td>3.2</td>
-      <td>1.6</td>
-      <td>0.2</td>
-      <td>setosa</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>136</th>
-      <td>6.3</td>
-      <td>3.4</td>
-      <td>5.6</td>
-      <td>2.4</td>
-      <td>virginica</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>49</th>
-      <td>5.0</td>
-      <td>3.3</td>
-      <td>1.4</td>
-      <td>0.2</td>
-      <td>setosa</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>4.9</td>
-      <td>3.1</td>
+      <th>32</th>
+      <td>5.2</td>
+      <td>4.1</td>
       <td>1.5</td>
       <td>0.1</td>
       <td>setosa</td>
@@ -1283,54 +1266,10 @@ Here is the original data:</p>
       <td>0.0</td>
     </tr>
     <tr>
-      <th>131</th>
-      <td>7.9</td>
-      <td>3.8</td>
-      <td>6.4</td>
-      <td>2.0</td>
-      <td>virginica</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>45</th>
-      <td>4.8</td>
+      <th>88</th>
+      <td>5.6</td>
       <td>3.0</td>
-      <td>1.4</td>
-      <td>0.3</td>
-      <td>setosa</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>5.7</td>
-      <td>3.8</td>
-      <td>1.7</td>
-      <td>0.3</td>
-      <td>setosa</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>77</th>
-      <td>6.7</td>
-      <td>3.0</td>
-      <td>5.0</td>
-      <td>1.7</td>
-      <td>versicolor</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>89</th>
-      <td>5.5</td>
-      <td>2.5</td>
-      <td>4.0</td>
+      <td>4.1</td>
       <td>1.3</td>
       <td>versicolor</td>
       <td>0.0</td>
@@ -1338,11 +1277,88 @@ Here is the original data:</p>
       <td>0.0</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>5.0</td>
-      <td>3.6</td>
-      <td>1.4</td>
+      <th>135</th>
+      <td>7.7</td>
+      <td>3.0</td>
+      <td>6.1</td>
+      <td>2.3</td>
+      <td>virginica</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>5.7</td>
+      <td>4.4</td>
+      <td>1.5</td>
+      <td>0.4</td>
+      <td>setosa</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>105</th>
+      <td>7.6</td>
+      <td>3.0</td>
+      <td>6.6</td>
+      <td>2.1</td>
+      <td>virginica</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>100</th>
+      <td>6.3</td>
+      <td>3.3</td>
+      <td>6.0</td>
+      <td>2.5</td>
+      <td>virginica</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.7</td>
+      <td>3.2</td>
+      <td>1.3</td>
       <td>0.2</td>
+      <td>setosa</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>5.0</td>
+      <td>3.4</td>
+      <td>1.6</td>
+      <td>0.4</td>
+      <td>setosa</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.6</td>
+      <td>3.1</td>
+      <td>1.5</td>
+      <td>0.2</td>
+      <td>setosa</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>5.1</td>
+      <td>3.8</td>
+      <td>1.5</td>
+      <td>0.3</td>
       <td>setosa</td>
       <td>1.0</td>
       <td>0.0</td>
@@ -1352,9 +1368,9 @@ Here is the original data:</p>
 </table>
 </div></div></div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

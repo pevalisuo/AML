@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>11. Artificial Neural Networks (ANN) &#8212; Applied Machine Learning, 2021</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
@@ -55,7 +56,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="10. Regression" href="Regression.html" />
+    <link rel="next" title="12. Model learning strategies" href="Learning_model_parameters.html" />
+    <link rel="prev" title="10. Regression and regularisation" href="Regression.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -153,12 +155,27 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Regression.html">
-   10. Regression
+   10. Regression and regularisation
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    11. Artificial Neural Networks (ANN)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Learning_model_parameters.html">
+   12. Model learning strategies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NLP.html">
+   18. Natural Language Processing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NLP-UWB.html">
+   20. Ultra Wide Band positioning literature analysis
   </a>
  </li>
 </ul>
@@ -271,35 +288,94 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implementation-of-activation-functions">
+     11.1.3. Implementation of activation functions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implementation-of-perceptron">
+     11.1.4. Implementation of perceptron
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#testing-of-a-perceptron">
+     11.1.5. Testing of a perceptron
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#learning-algorithms">
-     11.1.3. Learning algorithms
+     11.1.6. Learning algorithms
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#multi-layer-perceptron">
-     11.1.4. Multi layer perceptron
+     11.1.7. Multi layer perceptron
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#training-a-neural-network">
+   11.2. Training a neural network
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#when-to-stop-training">
+     11.2.1. When to stop training
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example">
+   11.3. Example
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#digits-dataset">
-   11.2. Digits dataset
+   11.4. Digits dataset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#time-series-analysis">
+   11.5. Time series analysis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#convolutional-neural-network">
+   11.6. Convolutional neural network
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#keras-and-pytorch">
-   11.3. Keras and Pytorch
+   11.7. Keras and Pytorch
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-code-for-simple-keras-processing">
+     11.7.1. Example code for simple Keras processing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#convolutional-neural-network-with-keral">
+     11.7.2. Convolutional neural network with Keral
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pre-trained-models">
-   11.4. Pre trained models
+   11.8. Pre trained models
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#more-information">
+   11.9. More information
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#summary">
-   11.5. Summary
+   11.10. Summary
   </a>
  </li>
 </ul>
@@ -313,22 +389,22 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="artificial-neural-networks-ann">
+  <section class="tex2jax_ignore mathjax_ignore" id="artificial-neural-networks-ann">
 <h1><span class="section-number">11. </span>Artificial Neural Networks (ANN)<a class="headerlink" href="#artificial-neural-networks-ann" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="neural-networks">
+<section id="neural-networks">
 <h2><span class="section-number">11.1. </span>Neural networks<a class="headerlink" href="#neural-networks" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="perceptron">
+<section id="perceptron">
 <h3><span class="section-number">11.1.1. </span>Perceptron<a class="headerlink" href="#perceptron" title="Permalink to this headline">¶</a></h3>
 <p>Neural network consists of few layers of perceptrons. Each perceptron simulates the operation of neuron. It collects input variables <span class="math notranslate nohighlight">\(x_i\)</span>, weights them with coefficients <span class="math notranslate nohighlight">\(w_i\)</span>, and sums the result to one value. The output value is obtained by scaling the sum between values 0…1 by using an activation function. For classification, the activation function is binary step function, and for regression, it is continuous, like sigmoid function. The neuron can be teached by updating the weights <span class="math notranslate nohighlight">\(w_i\)</span>.</p>
 <p><img alt="Perceptron" src="_images/perceptron.svg" /></p>
 <p>The output of the perceptron is</p>
 <div class="math notranslate nohighlight">
 \[
-  y = f\left(\mathbf{x} \cdot \mathbf{w} + b\right) 
-  = f\left( \Sigma_{i=1}^{n} (x_i w_i) + b \right)
+  y = f\left(\mathbf{x} \cdot \mathbf{w} + w_0\right) 
+  = f\left( \Sigma_{i=1}^{n} (x_i w_i) + w_0 \right)
 \]</div>
-</div>
-<div class="section" id="activation-functions">
+</section>
+<section id="activation-functions">
 <h3><span class="section-number">11.1.2. </span>Activation functions<a class="headerlink" href="#activation-functions" title="Permalink to this headline">¶</a></h3>
 <p>Common activation functions, <span class="math notranslate nohighlight">\(f()\)</span>, are</p>
 <ol class="simple">
@@ -341,6 +417,12 @@
 <p>A problem with both sigmoid and hyperbolic tangent is, however, that they saturate to constant output when the input is large or small, which leads to derivative approaching to zero which slows down the training.</p>
 <p>ReLu is simple activation function which supports fast learning due to being mostly linear and allows learning complex problems being piecewise non-linear. ReLu is especially usefull when training deep neural networks.</p>
 <p>Read more about activation function from <a class="reference external" href="https://machinelearningmastery.com/rectified-linear-activation-function-for-deep-learning-neural-networks/">RELU for deep learning NN</a>.</p>
+<p>Sigmoid: $<span class="math notranslate nohighlight">\( f(x)=\frac{1}{1+e^{-x}} \)</span>$</p>
+<p>Tanh: $<span class="math notranslate nohighlight">\(f(x)=\frac{e^x - e^{-x}}{e^x + e^{-x}} \)</span>$</p>
+<p>Relu: $<span class="math notranslate nohighlight">\(f(x) = \begin{cases} 0 &amp;  \text{if} ~ x&lt;0 \\ x &amp; \text{otherwise} \end{cases}\)</span>$</p>
+</section>
+<section id="implementation-of-activation-functions">
+<h3><span class="section-number">11.1.3. </span>Implementation of activation functions<a class="headerlink" href="#implementation-of-activation-functions" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -348,7 +430,15 @@
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
 
-<span class="n">sigmoid</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">))</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">interactive</span><span class="p">,</span> <span class="n">fixed</span><span class="p">,</span> <span class="n">interact_manual</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sigmoid</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">))</span>
 <span class="n">tanh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tanh</span>
 <span class="n">relu</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
 <span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
@@ -364,9 +454,12 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/NeuralNetworks_2_0.png" src="_images/NeuralNetworks_2_0.png" />
+<img alt="_images/NeuralNetworks_6_0.png" src="_images/NeuralNetworks_6_0.png" />
 </div>
 </div>
+</section>
+<section id="implementation-of-perceptron">
+<h3><span class="section-number">11.1.4. </span>Implementation of perceptron<a class="headerlink" href="#implementation-of-perceptron" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">perceptron</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">W</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">):</span>
@@ -383,12 +476,12 @@
 </div>
 </div>
 </div>
+</section>
+<section id="testing-of-a-perceptron">
+<h3><span class="section-number">11.1.5. </span>Testing of a perceptron<a class="headerlink" href="#testing-of-a-perceptron" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">interactive</span><span class="p">,</span> <span class="n">fixed</span><span class="p">,</span> <span class="n">interact_manual</span>
-<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
-
-<span class="n">W</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">])</span>
 <span class="n">N</span><span class="o">=</span><span class="mi">100</span>
 <span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
 <span class="n">y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
@@ -401,34 +494,59 @@
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
     
-
 <span class="n">interact</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">w0</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">3.0</span><span class="p">,</span><span class="mf">3.0</span><span class="p">),</span><span class="n">w1</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">,</span> <span class="s1">&#39;tanh&#39;</span><span class="p">,</span> <span class="s1">&#39;relu&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "3a414d6c05b0473b93af9056bd5854ae"}
-</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.test(w0=0.0, w1=1.0, activation=&#39;sigmoid&#39;)&gt;
+<img alt="_images/NeuralNetworks_10_0.png" src="_images/NeuralNetworks_10_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.test(w0=0.0, w1=1.0, activation=&#39;sigmoid&#39;)&gt;
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="learning-algorithms">
-<h3><span class="section-number">11.1.3. </span>Learning algorithms<a class="headerlink" href="#learning-algorithms" title="Permalink to this headline">¶</a></h3>
-<p>When using Stochastic Gradient Decent (<strong>SGD</strong>) training,  the weights, <span class="math notranslate nohighlight">\(w_i\)</span>, are updated towards the gradient (multidimensional derivative) or the loss function.
+</section>
+<section id="learning-algorithms">
+<h3><span class="section-number">11.1.6. </span>Learning algorithms<a class="headerlink" href="#learning-algorithms" title="Permalink to this headline">¶</a></h3>
+<p>When using Stochastic Gradient Descent (<strong>SGD</strong>) training,  the weights, <span class="math notranslate nohighlight">\(w_i\)</span>, are updated towards the gradient (multidimensional derivative) or the loss function.
 $<span class="math notranslate nohighlight">\(
     w \leftarrow w - \eta \left(\alpha \frac{\partial R(w)}{\partial w} + \frac{\partial L(w)}{\partial w}\right),
 \)</span>$</p>
 <p>where <span class="math notranslate nohighlight">\(\eta\)</span> is the learning rate, <span class="math notranslate nohighlight">\(\alpha\)</span> is the regularization term (L2 penalty for exessive model complexity), <span class="math notranslate nohighlight">\(R\)</span> is a function related to model complexity and <span class="math notranslate nohighlight">\(L\)</span> is a loss function. The weights of the model are simply updated to the direction where the model loss is reduced and model complexity is reduced.</p>
 <p><strong>Adams</strong> is slightly more advanced and can optimize the parameters of the search, and find optimum faster. Another common learning method is <strong>L-BFGS</strong> (Limited memory, Broyden-Fletcher-Goldfarb-Shannon). It is also using the second derivatives of the search space and is thus faster, when the derivatives and memory resources are available.</p>
-</div>
-<div class="section" id="multi-layer-perceptron">
-<h3><span class="section-number">11.1.4. </span>Multi layer perceptron<a class="headerlink" href="#multi-layer-perceptron" title="Permalink to this headline">¶</a></h3>
+<p><img alt="Training of MLP" src="_images/mlp_training.svg" /></p>
+</section>
+<section id="multi-layer-perceptron">
+<h3><span class="section-number">11.1.7. </span>Multi layer perceptron<a class="headerlink" href="#multi-layer-perceptron" title="Permalink to this headline">¶</a></h3>
 <p>A single perceptron can only handle simple problems. For more complex problems, a network of several layers of perceptrons are needed. These networks are called as Multi Layer Perceptron networks (MLP) or artificial neural networks (ANN). When the number of hidden layer is large, the network is called as Deep Neural Network (DNN) and it is one example of Deep Learning.</p>
 <p><img alt="Perceptron" src="_images/mlp.svg" /></p>
+</section>
+</section>
+<section id="training-a-neural-network">
+<h2><span class="section-number">11.2. </span>Training a neural network<a class="headerlink" href="#training-a-neural-network" title="Permalink to this headline">¶</a></h2>
+<p>Training of a neural network is carried out through following steps</p>
+<ol class="simple">
+<li><p>The training data, including input data <span class="math notranslate nohighlight">\(X\)</span> and the correct answers <span class="math notranslate nohighlight">\(y\)</span> is selected</p></li>
+<li><p>The training data is split in one or more <strong>batches</strong></p></li>
+<li><p>The training of the network is carried out it <strong>iterations</strong>, each iteration uses one batch of training data. The results of the network is compared against the correct output, and the coefficients of the network are updated to produce better results next time</p></li>
+<li><p>The training is proceed in next iteration, until all batches of input data is consumed</p></li>
+<li><p>At this time one <strong>EPOCH</strong> passed. The training often continues by using the same data again, and the whole training process can last from one EPOCH up to hundreds of EPOCHs.</p></li>
+</ol>
+<section id="when-to-stop-training">
+<h3><span class="section-number">11.2.1. </span>When to stop training<a class="headerlink" href="#when-to-stop-training" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>The performance of the network usually improves when the traning continues.</p></li>
+<li><p>The learning is fast in the beginning, but slows down after the network is well trained already</p></li>
+<li><p>If the training continues too long, the network starts memorizing the training data and the performance is still seemingly improving, but the network’s capability to predict new data starts decreasing. This situation is called as overfitting.</p></li>
+<li><p>The amount of overfitting may be monitored by testing the prediction also in the separate validation set which is not used for training.</p></li>
+<li><p>When the performance in the validation set starts decreasing, it is time to stop training.</p></li>
+</ul>
+<p><img alt="When to stop trainig" src="_images/stoptraining.svg" /></p>
 <p>Try to train multi layer neural network models in <a class="reference external" href="https://playground.tensorflow.org/">Neural Network Playground</a>.</p>
+</section>
+</section>
+<section id="example">
+<h2><span class="section-number">11.3. </span>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <p>The above Iris example can be classified using Multi Layer Perceptron Classifier (MLPC) but SVM already handled that problem well and because the number of samples in the dataset is only 150, it is only sufficient for training very thin MLPC. Therefore, lets create an artificial classification problem with 1000 samples and tree partly overlapping classes to make the problem more challengin and train an MLPC for solving it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -464,29 +582,34 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[309  17   9]
- [ 10 321   4]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[308  19   8]
+ [  8 323   4]
  [  4  13 313]]
-Prediction accuracy is 0.943
+Prediction accuracy is 0.944
 </pre></div>
 </div>
-<img alt="_images/NeuralNetworks_9_1.png" src="_images/NeuralNetworks_9_1.png" />
+<img alt="_images/NeuralNetworks_18_1.png" src="_images/NeuralNetworks_18_1.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="digits-dataset">
-<h2><span class="section-number">11.2. </span>Digits dataset<a class="headerlink" href="#digits-dataset" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="digits-dataset">
+<h2><span class="section-number">11.4. </span>Digits dataset<a class="headerlink" href="#digits-dataset" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">digits</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_digits</span><span class="p">()</span>
 <span class="n">X</span><span class="o">=</span><span class="n">digits</span><span class="o">.</span><span class="n">data</span>
 <span class="n">y</span><span class="o">=</span><span class="n">digits</span><span class="o">.</span><span class="n">target</span>
 
-<span class="n">predictor</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,),</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">predictor</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,),</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
 <span class="n">predictor</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
 
 <span class="n">classes</span> <span class="o">=</span> <span class="n">predictor</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/petri/venv/python3/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (1000) reached and the optimization hasn&#39;t converged yet.
+  warnings.warn(
 </pre></div>
 </div>
 </div>
@@ -508,57 +631,227 @@ Prediction accuracy is 0.943
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prediction accuracy is 0.943
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prediction accuracy is 0.944
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/petri/venv/python3/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (1000) reached and the optimization hasn&#39;t converged yet.
   warnings.warn(
+/home/petri/venv/python3/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (1000) reached and the optimization hasn&#39;t converged yet.
+  warnings.warn(
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[178   0   0   0   0   0   0   0   0   0]
- [  0 182   0   0   0   0   0   0   0   0]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[177   0   0   0   0   0   1   0   0   0]
+ [  0 181   0   0   0   0   0   1   0   0]
  [  0   0 177   0   0   0   0   0   0   0]
- [  0   0   0 183   0   0   0   0   0   0]
+ [  0   0   1 180   0   2   0   0   0   0]
  [  0   0   0   0 181   0   0   0   0   0]
- [  0   0   0   0   0 182   0   0   0   0]
- [  0   0   0   0   0   0 181   0   0   0]
- [  0   0   0   0   0   0   0 179   0   0]
- [  0   0   0   0   0   0   0   0 174   0]
- [  0   0   0   0   0   0   0   0   0 180]]
-Prediction accuracy is    1.0
-Prediction accuracy in CV 0.8859455277004024
+ [  0   0   0   0   0 178   0   2   0   2]
+ [  0   2   0   0   0   0 179   0   0   0]
+ [  0   0   0   0   0   0   0 178   0   1]
+ [  0   1   0   1   1   0   0   0 171   0]
+ [  0   0   0   0   0   1   0   1   0 178]]
+Prediction accuracy is    0.9905397885364496
+Prediction accuracy in CV 0.8770473537604456
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="keras-and-pytorch">
-<h2><span class="section-number">11.3. </span>Keras and Pytorch<a class="headerlink" href="#keras-and-pytorch" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="time-series-analysis">
+<h2><span class="section-number">11.5. </span>Time series analysis<a class="headerlink" href="#time-series-analysis" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>In it’s standard form, the neural network has no understanding of time, and it is therefore not very suitable for time series analysis, for example in predicting future values</p></li>
+<li><p>Several variations of Neural Networks are however suitable for time series analysis</p></li>
+<li><p>Recurrent Neural Networks (RNN), for example Recurreng Gate Units (GRU) and Long-Short-Term Memory (LSTM) networks are common methods for time series analysis with ANN</p></li>
+<li><p>Read more from <a class="reference external" href="https://stanford.edu/~shervine/teaching/cs-230/cheatsheet-recurrent-neural-networks">Recurrent Neural Networks cheatsheet</a></p></li>
+</ul>
+<p><img alt="RNNimage" src="_images/RNN.svg" /></p>
+</section>
+<section id="convolutional-neural-network">
+<h2><span class="section-number">11.6. </span>Convolutional neural network<a class="headerlink" href="#convolutional-neural-network" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>In deep image analysis networks, it is efficient to combine neural network with efficient image processing functions, such as convolution and subsampling (pooling).</p></li>
+<li><p>The following CNN network consists of</p>
+<ul>
+<li><p>4 filters in the first convolutional layer , producing four feature maps for each image channel</p></li>
+<li><p>a subsampling layer, for example 3x3 max pooling with stride=3, to reduce the image size to one third</p></li>
+<li><p>3 filters in the second convolutional layer, producing three features maps from each previous feature maps</p></li>
+<li><p>a second subsampling layer, to reduce the image size</p></li>
+<li><p>A fully connected layer of neurons</p></li>
+<li><p>An output layer of output neurons</p></li>
+</ul>
+</li>
+</ul>
+<p><img alt="Convolutional neural network" src="_images/cnn.png" /></p>
+<p>A nice description of convolutional neural network (CNN) is <a class="reference external" href="https://wiki.pathmind.com/convolutional-network">here</a>.</p>
+</section>
+<section id="keras-and-pytorch">
+<h2><span class="section-number">11.7. </span>Keras and Pytorch<a class="headerlink" href="#keras-and-pytorch" title="Permalink to this headline">¶</a></h2>
 <p>MLP classifier and regressors use only CPU resources, but to utilize real power of ANN, they are often ran in massive parallel hardware, such as GPU:s. This is not necessary for simple neural network models shown above, but they become more important when the number of hidden layers in the network model increases and the model becomes deeper.</p>
-<p>Frameworks often used for Deep Neural Networks are for example Keras and Pytorch.</p>
+<p>Frameworks often used for Deep Neural Networks are for example Keras, Tensorflow and PyTorch.</p>
+<ul class="simple">
+<li><p>Keras is a high level libary which uses underlying Tensorflow</p></li>
+<li><p>PyTorch is lower level python interface for Torch library</p></li>
+</ul>
 <p><a class="reference external" href="https://keras.io/examples/">Keras examples</a></p>
 <p><a class="reference external" href="https://towardsdatascience.com/keras-vs-pytorch-for-deep-learning-a013cb63870d">Keras vs Pytorch for Deep Learning</a></p>
 <p><a class="reference external" href="https://towardsdatascience.com/keras-vs-pytorch-for-deep-learning-a013cb63870d">PyTorch vs Keras</a></p>
+<p><a class="reference external" href="https://keras.io/why_keras/">Why to choose Keras</a></p>
+<section id="example-code-for-simple-keras-processing">
+<h3><span class="section-number">11.7.1. </span>Example code for simple Keras processing<a class="headerlink" href="#example-code-for-simple-keras-processing" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">from</span> <span class="nn">tensorflow</span> <span class="kn">import</span> <span class="n">keras</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">layers</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">CenterCrop</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Rescaling</span>
+
+<span class="c1"># Example image data, with values in the [0, 255] range</span>
+<span class="n">training_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span>
+
+<span class="c1"># Some preprocessing of the data</span>
+<span class="n">cropper</span> <span class="o">=</span> <span class="n">CenterCrop</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">Rescaling</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span> <span class="o">/</span> <span class="mi">255</span><span class="p">)</span>
+
+<span class="n">output_data</span> <span class="o">=</span> <span class="n">scaler</span><span class="p">(</span><span class="n">cropper</span><span class="p">(</span><span class="n">training_data</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;shape:&quot;</span><span class="p">,</span> <span class="n">output_data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;min:&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">output_data</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;max:&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">output_data</span><span class="p">))</span>
+</pre></div>
 </div>
-<div class="section" id="pre-trained-models">
-<h2><span class="section-number">11.4. </span>Pre trained models<a class="headerlink" href="#pre-trained-models" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>shape: (64, 150, 150, 3)
+min: 0.0
+max: 1.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="convolutional-neural-network-with-keral">
+<h3><span class="section-number">11.7.2. </span>Convolutional neural network with Keral<a class="headerlink" href="#convolutional-neural-network-with-keral" title="Permalink to this headline">¶</a></h3>
+<p>The CNN model consists of layers, and the Keras API allows building the layered CNN model in very straightforward manner. Keras contains also many functions for preprocessing images and generating variations from existing image database, because the model contains plenty of parameters and needs therefore a large set of training images.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define an input layer, which can be arbitrary size, but include 3 channels (RGB)</span>
+<span class="n">inputs</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+<span class="c1"># Center-crop images to 150x150</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">CenterCrop</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">150</span><span class="p">)(</span><span class="n">inputs</span><span class="p">)</span>
+
+<span class="c1"># Rescale images to [0, 1]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">Rescaling</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span> <span class="o">/</span> <span class="mi">255</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Apply some convolution and pooling layers</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">filters</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">MaxPooling2D</span><span class="p">(</span><span class="n">pool_size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># 50x50</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">filters</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">MaxPooling2D</span><span class="p">(</span><span class="n">pool_size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># 16x16</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">filters</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Apply global average pooling to get flat feature vectors</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">GlobalAveragePooling2D</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Add a dense classifier on top</span>
+<span class="n">num_classes</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">outputs</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">num_classes</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;softmax&quot;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Instantiate the model object</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="n">outputs</span><span class="p">)</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span>
+<span class="n">processed_data</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">processed_data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(64, 10)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;model_1&quot;
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ input_2 (InputLayer)        [(None, None, None, 3)]   0         
+                                                                 
+ center_crop_3 (CenterCrop)  (None, 150, 150, 3)       0         
+                                                                 
+ rescaling_3 (Rescaling)     (None, 150, 150, 3)       0         
+                                                                 
+ conv2d_3 (Conv2D)           (None, 148, 148, 32)      896       
+                                                                 
+ max_pooling2d_2 (MaxPooling  (None, 49, 49, 32)       0         
+ 2D)                                                             
+                                                                 
+ conv2d_4 (Conv2D)           (None, 47, 47, 32)        9248      
+                                                                 
+ max_pooling2d_3 (MaxPooling  (None, 15, 15, 32)       0         
+ 2D)                                                             
+                                                                 
+ conv2d_5 (Conv2D)           (None, 13, 13, 32)        9248      
+                                                                 
+ global_average_pooling2d_1   (None, 32)               0         
+ (GlobalAveragePooling2D)                                        
+                                                                 
+ dense_1 (Dense)             (None, 10)                330       
+                                                                 
+=================================================================
+Total params: 19,722
+Trainable params: 19,722
+Non-trainable params: 0
+_________________________________________________________________
+</pre></div>
+</div>
+</div>
+</div>
+<p>The next steps would be the compile and train the model. Then the performance in the training set and validation set would be tested. You can see the full process in <a class="reference external" href="https://www.geeksforgeeks.org/opencv-and-keras-traffic-sign-classification-for-self-driving-car/?ref=rp">OpenCV and Keras | Traffic Sign Classification for Self-Driving Car</a></p>
+<p>Notice that the model consist of nearly 20 thousand parameters. I takes plenty of data and time to train the model. The training time can be from 10 minutes to days, depending of the complexity of the model and the calculation capacity available.</p>
+</section>
+</section>
+<section id="pre-trained-models">
+<h2><span class="section-number">11.8. </span>Pre trained models<a class="headerlink" href="#pre-trained-models" title="Permalink to this headline">¶</a></h2>
 <p>Since the training of the neural network models is so time consuming, an important topics in deep learning are pre trained models and transfer learning (the model trained to one application is used in another related application without retraining, or partial re-training.</p>
 <p>Some huge deep networks can be also used as general purpose neural networks. One of the biggest network this far is the Generative Pre-trained Transformer 3 (<a class="reference external" href="https://en.wikipedia.org/wiki/GPT-3">GPT-3</a>), which is suitable for many Natural Language Processing (NLP) tasks. GPT-3 sisältää 175 billion (<span class="math notranslate nohighlight">\(175 \cdot 10^9\)</span>) parameters. GPT-3 can generate text wich is difficult to distinguish from a human writer.</p>
 <p><a class="reference external" href="https://www.theguardian.com/commentisfree/2020/sep/08/robot-wrote-this-article-gpt-3">A robot wrote this entire article. Are you scared yet, human</a></p>
-</div>
-<div class="section" id="summary">
-<h2><span class="section-number">11.5. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="more-information">
+<h2><span class="section-number">11.9. </span>More information<a class="headerlink" href="#more-information" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li></li>
+<li><p><a class="reference external" href="https://www.geeksforgeeks.org/opencv-and-keras-traffic-sign-classification-for-self-driving-car/?ref=rp">OpenCV and Keras | Traffic Sign Classification for Self-Driving Car</a></p></li>
+<li><p>Read more from <a class="reference external" href="https://keras.io/getting_started/intro_to_keras_for_engineers/">Keras for engineers</a></p></li>
+<li><p><a class="reference external" href="https://stanford.edu/~shervine/teaching/cs-230/cheatsheet-convolutional-neural-networks">Convolutional Neural Networks cheatsheet</a></p></li>
+<li><p><a class="reference external" href="https://stanford.edu/~shervine/teaching/cs-230/cheatsheet-recurrent-neural-networks">Recurrent Neural Networks cheatsheet</a></p></li>
 </ul>
-</div>
-</div>
-
-
-<script type="application/vnd.jupyter.widget-state+json">
-{"state": {"bc26ea3076b74d72b92d307109d43444": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "3a414d6c05b0473b93af9056bd5854ae": {"model_name": "VBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": ["widget-interact"], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "VBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "VBoxView", "box_style": "", "children": ["IPY_MODEL_9deacad982a3474791ff9bf437bf0f21", "IPY_MODEL_5a8aa6485ce14a47bf8afb2f8261f60a", "IPY_MODEL_d8dc5bc980314c4dbb863a61d43f3463", "IPY_MODEL_e36fb1f708a74599a3966f920047547c"], "layout": "IPY_MODEL_bc26ea3076b74d72b92d307109d43444"}}, "c07ca7e720e64ec9a2e2258246807c7d": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "21e05eb423c5473fa9e2246d2f7b1ed9": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "9deacad982a3474791ff9bf437bf0f21": {"model_name": "FloatSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "FloatSliderView", "continuous_update": true, "description": "w0", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_c07ca7e720e64ec9a2e2258246807c7d", "max": 3.0, "min": -3.0, "orientation": "horizontal", "readout": true, "readout_format": ".2f", "step": 0.1, "style": "IPY_MODEL_21e05eb423c5473fa9e2246d2f7b1ed9", "value": 0.0}}, "55632d77f92c435092e17429c49bbe40": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "a1fc13d1f6cd4d95b2dfb24fbce4329a": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "5a8aa6485ce14a47bf8afb2f8261f60a": {"model_name": "FloatSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "FloatSliderView", "continuous_update": true, "description": "w1", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_55632d77f92c435092e17429c49bbe40", "max": 1.0, "min": -1.0, "orientation": "horizontal", "readout": true, "readout_format": ".2f", "step": 0.1, "style": "IPY_MODEL_a1fc13d1f6cd4d95b2dfb24fbce4329a", "value": 1.0}}, "2133d5bc861348bd9409c09225a032ec": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "b8d5be1d5f794591b4afeea8e49d6f1f": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "d8dc5bc980314c4dbb863a61d43f3463": {"model_name": "DropdownModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DropdownModel", "_options_labels": ["sigmoid", "tanh", "relu"], "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "DropdownView", "description": "activation", "description_tooltip": null, "disabled": false, "index": 0, "layout": "IPY_MODEL_2133d5bc861348bd9409c09225a032ec", "style": "IPY_MODEL_b8d5be1d5f794591b4afeea8e49d6f1f"}}, "6c000466dfde4554b0266597f94998c6": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "e36fb1f708a74599a3966f920047547c": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_6c000466dfde4554b0266597f94998c6", "msg_id": "", "outputs": [{"output_type": "display_data", "metadata": {}, "data": {"text/plain": "<Figure size 432x288 with 1 Axes>", "image/png": "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rGvRME/nVsAEfElJCY4ePYrFixfj7rvvxieffCJ1SW775ptv0NraioyMDKlL8ah169bhtttug1zuH6edyWRCbGwsFAoFAEChUCAmJgYmk0niyvrH6XRi/fr1mDlzptSluOW1117DvHnzkJCQIHUp/VJZWYnIyEi88cYbuPvuu/Hggw/i0KFDHn0OvxmiWbBgwS/2OL799lsIggCTyYSPPvoIjY2NuP/++5GUlITrr79+gCvtmau2bN++Ha+++irWrFkzwFW5p6fX5VI4bt26FVu2bMG6desGsjy6ihdffBEhISFYsmSJ1KX02eHDh3H8+HE888wzUpfSb4IgoLKyEmPHjsWzzz6Lo0eP4le/+hW+/PLL7pGI/vKbgN+wYYPL38fFxSEzMxNyuRx6vR4333wzjh075pMB76othw4dQl1dHRYuXAig68Ox3bt3o6mpCU8++eRAldhrPb0uAPDll1/iL3/5C95//32/GjozGo2oqamBIAhQKBQQBAG1tbUwGo1Sl+a23NxcnDt3Du+8847fvJP6uR9++AElJSWYNWsWAKC6uhqPPvooXn75ZUybNk3i6vrGaDRCqVR2DwGmpaUhKioKZWVlmDBhgmeeRAwQb7/9tvjqq6+KoiiKbW1tYmZmprhv3z6Jq+q/Z599Vvzwww+lLsNtX3/9tThjxgyxvLxc6lLcsmTJEnHjxo2iKIrixo0bxSVLlkhckfteffVVccmSJWJ7e7vUpXjMjBkzxFOnTkldhtsefvhhce/evaIoimJpaal4ww03iM3NzR47fsDc8KOzsxMvvPACiouLAQBZWVlYunSpxFX137JlyzB+/Hi/fDsNADfeeCNUKhV0Ol33z95//32/+fC4pKQEy5YtQ0tLC8LDw5Gbm4sRI0ZIXVafnTlzBpmZmUhMTERQUBAAICEhAW+++abElfXPzJkz8c4772D06NFSl+KWyspKPP/882hqaoJSqcTvfvc73HrrrR47fsAEPBERXc7/BuGIiKhXGPBERAGKAU9EFKAY8EREAYoBT0QUoBjwREQBigFPRBSgGPBERAHqfwDInoNyBqaP+gAAAABJRU5ErkJggg==\n"}}]}}}, "version_major": 2, "version_minor": 0}
-</script>
-
+</section>
+<section id="summary">
+<h2><span class="section-number">11.10. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Artificial Neural Networks (ANN) based on perceptrons, are versatile machine learning methods for both regression and classification. Deep and dense networks can learn to handle complex tasks, but the deeper the network, the more training data is needed.</p></li>
+<li><p>Deep learning can be implemented using many hidden layers in ANN. Deep learning requires large amount of training data.</p></li>
+<li><p>Deep learning is often used for image processing with convolutional neural networks</p></li>
+<li><p>Keras and PyTorch are common libraries for implementing deep learning. They can utilize both CPU:s and NVidia GPU:s for training and predicting</p></li>
+</ul>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -594,10 +887,19 @@ Prediction accuracy in CV 0.8859455277004024
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">10. </span>Regression</p>
+                <p class="prevnext-title"><span class="section-number">10. </span>Regression and regularisation</p>
             </div>
         </a>
     </div>
+     <div id="next">
+        <a class="right-next" href="Learning_model_parameters.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">12. </span>Model learning strategies</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
 
 </div>
         

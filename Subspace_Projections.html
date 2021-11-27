@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>4. Dimensionality reduction by Subspace projections &#8212; Applied Machine Learning, 2021</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
@@ -154,12 +155,27 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Regression.html">
-   10. Regression
+   10. Regression and regularisation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="NeuralNetworks.html">
    11. Artificial Neural Networks (ANN)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Learning_model_parameters.html">
+   12. Model learning strategies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NLP.html">
+   18. Natural Language Processing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NLP-UWB.html">
+   20. Ultra Wide Band positioning literature analysis
   </a>
  </li>
 </ul>
@@ -372,13 +388,13 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="dimensionality-reduction-by-subspace-projections">
+  <section class="tex2jax_ignore mathjax_ignore" id="dimensionality-reduction-by-subspace-projections">
 <h1><span class="section-number">4. </span>Dimensionality reduction by Subspace projections<a class="headerlink" href="#dimensionality-reduction-by-subspace-projections" title="Permalink to this headline">¶</a></h1>
 <p>Lets assume that there is a random design matrix, <span class="math notranslate nohighlight">\(X\)</span>, whose dimensions are <span class="math notranslate nohighlight">\(n\times p\)</span>, where <span class="math notranslate nohighlight">\(n\)</span> is the number of samples and <span class="math notranslate nohighlight">\(p\)</span> is the number of features.</p>
 <p>The dimensionality of every sample is the number of features, <span class="math notranslate nohighlight">\(p\)</span>.</p>
 <p>Dimensionality reductions means transforming the data from a high dimensional (<span class="math notranslate nohighlight">\(p\)</span>) representation to the lower dimensional representation (<span class="math notranslate nohighlight">\('\)</span>), still retaining usefull properties of the original data. When dimensionality reduction is applied to matrix <span class="math notranslate nohighlight">\(X_{n\times p}\)</span> the resulting reduced matrix,  <span class="math notranslate nohighlight">\(X_{n\times p'}\)</span>  will have as many samples as the original matrix, but the number of features is reduced.</p>
 <p>These goals can be met, if the projection method is first fitted to the data, so that the axis of new <span class="math notranslate nohighlight">\(p'\)</span> dimensional space are aligned optimally to the data.</p>
-<div class="section" id="principal-component-analysis-pca">
+<section id="principal-component-analysis-pca">
 <h2><span class="section-number">4.1. </span>Principal Component Analysis (PCA)<a class="headerlink" href="#principal-component-analysis-pca" title="Permalink to this headline">¶</a></h2>
 <p>PCA is one of the most well known dimensionality reduction methods. It transforms the set of observations with possibly correlated variables (=features) into a set of values of linearly uncorrelated variables, called principal components.</p>
 <p>PCA transformation is defined in such a way that the first principal component has the largest possible variance and the rest of the components are ordered according to their variances in descending order.</p>
@@ -465,8 +481,8 @@ where S is the diagonal matrix of singular values (eigenvalues) \)</span>s_i$ an
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="projecting-linear-data">
+</section>
+<section id="projecting-linear-data">
 <h2><span class="section-number">4.2. </span>Projecting linear data<a class="headerlink" href="#projecting-linear-data" title="Permalink to this headline">¶</a></h2>
 <p>Visualize the data first. Plot the points in the 2D dataset as scatter plot, using the magnitude of values (<span class="math notranslate nohighlight">\(\sqrt{x_1^2 + x_2^2}\)</span>) as color index. Big values will be plotted as red, and small values as blue.</p>
 <div class="cell docutils container">
@@ -482,7 +498,7 @@ where S is the diagonal matrix of singular values (eigenvalues) \)</span>s_i$ an
 <img alt="_images/Subspace_Projections_5_0.png" src="_images/Subspace_Projections_5_0.png" />
 </div>
 </div>
-<div class="section" id="calculate-new-coordinates-with-maximum-variance">
+<section id="calculate-new-coordinates-with-maximum-variance">
 <h3><span class="section-number">4.2.1. </span>Calculate new coordinates with maximum variance<a class="headerlink" href="#calculate-new-coordinates-with-maximum-variance" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -503,8 +519,8 @@ where S is the diagonal matrix of singular values (eigenvalues) \)</span>s_i$ an
 <img alt="_images/Subspace_Projections_7_0.png" src="_images/Subspace_Projections_7_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="scale-the-data-and-plot-it-again">
+</section>
+<section id="scale-the-data-and-plot-it-again">
 <h3><span class="section-number">4.2.2. </span>Scale the data and plot it again<a class="headerlink" href="#scale-the-data-and-plot-it-again" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -520,8 +536,8 @@ where S is the diagonal matrix of singular values (eigenvalues) \)</span>s_i$ an
 <img alt="_images/Subspace_Projections_9_0.png" src="_images/Subspace_Projections_9_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="plot-the-data-along-these-new-axis-by-rotating-the-data-with-affine-transformation">
+</section>
+<section id="plot-the-data-along-these-new-axis-by-rotating-the-data-with-affine-transformation">
 <h3><span class="section-number">4.2.3. </span>Plot the data along these new axis by rotating the data with Affine transformation<a class="headerlink" href="#plot-the-data-along-these-new-axis-by-rotating-the-data-with-affine-transformation" title="Permalink to this headline">¶</a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -564,9 +580,9 @@ Xr = R \times X =
 <img alt="_images/Subspace_Projections_12_0.png" src="_images/Subspace_Projections_12_0.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="pca-how-to-do-all-previously-shown-steps-for-you">
+</section>
+</section>
+<section id="pca-how-to-do-all-previously-shown-steps-for-you">
 <h2><span class="section-number">4.3. </span>PCA: How to do all previously shown steps for you<a class="headerlink" href="#pca-how-to-do-all-previously-shown-steps-for-you" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -585,13 +601,13 @@ Xr = R \times X =
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.99024945, 0.00975055])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.98829836, 0.01170164])
 </pre></div>
 </div>
 <img alt="_images/Subspace_Projections_14_1.png" src="_images/Subspace_Projections_14_1.png" />
 </div>
 </div>
-<div class="section" id="pca-is-based-on-singular-value-decomposition">
+<section id="pca-is-based-on-singular-value-decomposition">
 <h3><span class="section-number">4.3.1. </span>PCA is based on singular value decomposition<a class="headerlink" href="#pca-is-based-on-singular-value-decomposition" title="Permalink to this headline">¶</a></h3>
 <p>Singular alue decomposition, decomposes matrix X into three components</p>
 <p><code class="docutils literal notranslate"><span class="pre">U,S,E</span> <span class="pre">=</span> <span class="pre">svd(X)</span></code></p>
@@ -612,7 +628,7 @@ Xr = R \times X =
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-0.70710678 -0.70710678]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.70710678  0.70710678]
  [ 0.70710678 -0.70710678]]
 Equals
 [[-0.70710678 -0.70710678]
@@ -633,8 +649,8 @@ Equals
 <img alt="_images/Subspace_Projections_17_0.png" src="_images/Subspace_Projections_17_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="reconstruct-data">
+</section>
+<section id="reconstruct-data">
 <h3><span class="section-number">4.3.2. </span>Reconstruct data<a class="headerlink" href="#reconstruct-data" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -652,9 +668,9 @@ Equals
 <img alt="_images/Subspace_Projections_19_0.png" src="_images/Subspace_Projections_19_0.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="non-linear-data">
+</section>
+</section>
+<section id="non-linear-data">
 <h2><span class="section-number">4.4. </span>Non-Linear data<a class="headerlink" href="#non-linear-data" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -687,7 +703,7 @@ Equals
 <img alt="_images/Subspace_Projections_22_1.png" src="_images/Subspace_Projections_22_1.png" />
 </div>
 </div>
-<div class="section" id="try-pca">
+<section id="try-pca">
 <h3><span class="section-number">4.4.1. </span>Try PCA<a class="headerlink" href="#try-pca" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -704,15 +720,15 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.97998279, 0.02001721])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.97821949, 0.02178051])
 </pre></div>
 </div>
 <img alt="_images/Subspace_Projections_24_1.png" src="_images/Subspace_Projections_24_1.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="manifold-learning">
+</section>
+</section>
+<section id="manifold-learning">
 <h2><span class="section-number">4.5. </span>Manifold learning<a class="headerlink" href="#manifold-learning" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -738,8 +754,8 @@ Equals
 <img alt="_images/Subspace_Projections_26_1.png" src="_images/Subspace_Projections_26_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="more-non-linear-data">
+</section>
+<section id="more-non-linear-data">
 <h2><span class="section-number">4.6. </span>More non-linear data<a class="headerlink" href="#more-non-linear-data" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -772,7 +788,7 @@ Equals
 <img alt="_images/Subspace_Projections_29_1.png" src="_images/Subspace_Projections_29_1.png" />
 </div>
 </div>
-<div class="section" id="pca-can-not-reduce-dimensionality">
+<section id="pca-can-not-reduce-dimensionality">
 <h3><span class="section-number">4.6.1. </span>PCA can not reduce dimensionality<a class="headerlink" href="#pca-can-not-reduce-dimensionality" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -789,14 +805,14 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.60512556, 0.39487444])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.62294443, 0.37705557])
 </pre></div>
 </div>
 <img alt="_images/Subspace_Projections_31_1.png" src="_images/Subspace_Projections_31_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="aply-t-sne">
+</section>
+<section id="aply-t-sne">
 <h3><span class="section-number">4.6.2. </span>Aply t-SNE<a class="headerlink" href="#aply-t-sne" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -822,9 +838,9 @@ Equals
 <img alt="_images/Subspace_Projections_33_1.png" src="_images/Subspace_Projections_33_1.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="application-to-handwritten-digit-recognition">
+</section>
+</section>
+<section id="application-to-handwritten-digit-recognition">
 <h2><span class="section-number">4.7. </span>Application to handwritten digit recognition<a class="headerlink" href="#application-to-handwritten-digit-recognition" title="Permalink to this headline">¶</a></h2>
 <p>The handwriting recognition dataset contains 1797 digitized hand written written characters. The characters are digitized using 8x8 grid, so each sample is represented by 64 parameters. Each parameter can have a value from 0 to 15.</p>
 <ul class="simple">
@@ -844,7 +860,7 @@ Equals
 </div>
 </div>
 </div>
-<div class="section" id="print-some-of-the-numbers-in-the-database">
+<section id="print-some-of-the-numbers-in-the-database">
 <h3><span class="section-number">4.7.1. </span>Print some of the numbers in the database<a class="headerlink" href="#print-some-of-the-numbers-in-the-database" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -872,8 +888,8 @@ Equals
 <img alt="_images/Subspace_Projections_37_0.png" src="_images/Subspace_Projections_37_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="dimensionality-reduction-using-pca">
+</section>
+<section id="dimensionality-reduction-using-pca">
 <h3><span class="section-number">4.7.2. </span>Dimensionality reduction using PCA<a class="headerlink" href="#dimensionality-reduction-using-pca" title="Permalink to this headline">¶</a></h3>
 <p>Apply PCA to the data, keeping at first up to 32 dimensions to study how much variance is explained by each principal component.</p>
 <div class="cell docutils container">
@@ -969,8 +985,8 @@ Equals
 <img alt="_images/Subspace_Projections_45_1.png" src="_images/Subspace_Projections_45_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="handwritten-digits-case">
+</section>
+<section id="handwritten-digits-case">
 <h3><span class="section-number">4.7.3. </span>Handwritten digits case<a class="headerlink" href="#handwritten-digits-case" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Linear methods were not succesfull retaining enough information for handwritten digits recognition when the dimensionality of data was reduced from 64 to 2. The explained variance ratio inferes that quite many principal components, like more than 10 would be needed for this problem.</p></li>
@@ -979,9 +995,9 @@ Equals
 <li><p>The non-linear methods were clearly slower than PCA</p></li>
 <li><p>PCA is more simple to understand</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="conclusion">
+</section>
+</section>
+<section id="conclusion">
 <h2><span class="section-number">4.8. </span>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>PCA is a powerfull method for transforming data into low dimensional subspace</p></li>
@@ -998,8 +1014,8 @@ I. T. Jolliffe, “Discarding Variables in a Principal Component Analysis. I: Ar
 C. M. Bishop, “Pattern recognition and machine learning,” CERN Document Server, 2006. https://cds.cern.ch/record/998831 (accessed Oct. 02, 2020).
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

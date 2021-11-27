@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>7. Nearest Neighbours methods &#8212; Applied Machine Learning, 2021</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
@@ -154,12 +155,27 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Regression.html">
-   10. Regression
+   10. Regression and regularisation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="NeuralNetworks.html">
    11. Artificial Neural Networks (ANN)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Learning_model_parameters.html">
+   12. Model learning strategies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NLP.html">
+   18. Natural Language Processing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NLP-UWB.html">
+   20. Ultra Wide Band positioning literature analysis
   </a>
  </li>
 </ul>
@@ -301,10 +317,10 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="nearest-neighbours-methods-a-class-anchor-id-nearestneighbours-a">
+  <section class="tex2jax_ignore mathjax_ignore" id="nearest-neighbours-methods-a-class-anchor-id-nearestneighbours-a">
 <h1><span class="section-number">7. </span>Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a><a class="headerlink" href="#nearest-neighbours-methods-a-class-anchor-id-nearestneighbours-a" title="Permalink to this headline">¶</a></h1>
 <p>Nearest Neighbour methods provide some very staightforward methods for supervised machine learning</p>
-<div class="section" id="brute-force-implementation">
+<section id="brute-force-implementation">
 <h2><span class="section-number">7.1. </span>Brute force implementation<a class="headerlink" href="#brute-force-implementation" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>Set the number of nearest neighbours, <span class="math notranslate nohighlight">\(K\)</span></p></li>
@@ -389,7 +405,7 @@ The accuracy of KNN is..... 0.96
 </div>
 </div>
 </div>
-<div class="section" id="pipelining">
+<section id="pipelining">
 <h3><span class="section-number">7.1.1. </span>Pipelining<a class="headerlink" href="#pipelining" title="Permalink to this headline">¶</a></h3>
 <p>In Scikit Learn, all methods are build using the same interface. This makes it easier to build larger machine learning systems by combining different stages together as pipelines.</p>
 <p>For example, the scaling of features, dimensionality reduction, and sclassification can be combined as a single pipeline. This is especially usefull, when several datasets (validation data, testing data, production data, etc) needs to be fed through the same stages.</p>
@@ -418,9 +434,9 @@ The accuracy of KNN is..... 0.96
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="visualization-of-the-decision-boundaries">
+</section>
+</section>
+<section id="visualization-of-the-decision-boundaries">
 <h2><span class="section-number">7.2. </span>Visualization of the decision boundaries<a class="headerlink" href="#visualization-of-the-decision-boundaries" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -481,7 +497,7 @@ The accuracy of KNN is..... 0.96
 <img alt="_images/NearestNeighbors_8_0.png" src="_images/NearestNeighbors_8_0.png" />
 </div>
 </div>
-<div class="section" id="variations">
+<section id="variations">
 <h3><span class="section-number">7.2.1. </span>Variations<a class="headerlink" href="#variations" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Nearest Centroid classifier</p>
@@ -497,9 +513,9 @@ The accuracy of KNN is..... 0.96
 </ul>
 </li>
 </ul>
-</div>
-</div>
-<div class="section" id="nearest-centroid-classifier">
+</section>
+</section>
+<section id="nearest-centroid-classifier">
 <h2><span class="section-number">7.3. </span>Nearest Centroid Classifier<a class="headerlink" href="#nearest-centroid-classifier" title="Permalink to this headline">¶</a></h2>
 <p>Nearest centroid classifier does not need to store all training data, thats why it is also faster to predict.</p>
 <div class="cell docutils container">
@@ -546,14 +562,14 @@ The accuracy of KNN is..... 0.96
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f9e653ea3a0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f89d4939be0&gt;
 </pre></div>
 </div>
 <img alt="_images/NearestNeighbors_12_1.png" src="_images/NearestNeighbors_12_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="summary">
+</section>
+<section id="summary">
 <h2><span class="section-number">7.4. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>kNN is simple classification method</p></li>
@@ -563,8 +579,8 @@ The accuracy of KNN is..... 0.96
 <li><p>NCA is a supervised dimensionality reduction method, which performs sometimes better than unsupervised dimensionality reduction methods, such as PCA</p></li>
 <li><p>Both NCA and PCA can be used as a preprocessing step before kNN classification</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
