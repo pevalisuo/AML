@@ -16,5 +16,8 @@ launch_buttons:
     notebook_interface : "classic" # "jupyterlab" or "classic"
     jupyterhub_url: "https://notebooks.csc.fi/#/blueprint/d1fe6e08032e4c17a0f9e0e222414598"
 
-
+execute:
+  exclude_patters:
+    - NeuralNetworks
+    
     

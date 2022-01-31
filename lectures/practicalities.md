@@ -48,25 +48,24 @@ The final grade is calculated based on points. The points can be gathered by sol
  | Exercise 7 | 10 p |
  | Exercise 8 | 10 p |
  | Exercise 9 | 10 p |
- | (Exercise 10) | (10 p) |
- | Project work | 50 p |
- | **Total** | **140 (150) p** |
+ | Project work | 60 p |
+ | **Total** | **150 p** |
 
 +++
 
 ### Semester schedule
-The course starts in 29th of September and ends before the mid of December. The weekly meetings are arranged at the following times:
+The course starts in 1st of February and ends 6th of May 2022. The recommended weekly schedule is the following:
 
-1. 2021-09-29 at 12:15, Introduction
-2. 2021-10-06 at 12:15, Reading and cleaning data and plotting 
-3. 2021-10-13 at 12:15, Preprocessing and feature extraction
-4. 2021-10-21 at 14:15, Unsupervised ML
-5. 2021-10-27 at 12:15, Unsupervised ML
-6. 2021-11-03 at 12:15, Supervised ML methods
-7. 2021-11-10 at 12:15, Supervised ML methods
-8. 2021-11-17 at 12:15, Evaluation and optimization of models
-9. 2021-11-24 at 12:15, Deep learning and on-line learning
-10. 2021-12-02 at 14:15, Project work Q/A
+1. Week 5, Introduction
+2. Week 6, Reading and cleaning data and plotting 
+3. Week 7, Preprocessing and feature extraction
+4. Week 8, Unsupervised ML
+5. Week 9, Unsupervised ML
+6. Week 10, Supervised ML methods
+7. Week 11, Supervised ML methods
+8. Week 12, Evaluation and optimization of models
+9. Week 13, Deep learning and NLP
+10. Week 14 Project work
 
 +++
 
@@ -74,18 +73,13 @@ The course starts in 29th of September and ends before the mid of December. The 
 
 +++
 
-The weekly activities are planned as follows. You should 
+The weekly activities are planned as follows. The planned time needed is shown in parentheses.
 
-1. Read the theory material of the current week before the weekly meeting. You can also watch the video materials to help in learning process.
-1. Check also the exercises of the current week before the meeting.
-1. Join the weekly virtual meeting in Zoom to discuss about the theory and exercises and to see model solutions for selected exercises. The meetings are not mandatory.
-1. After the meeting, solve the week's exercises and return them before the next meeting begins (even if you are not attending)
-
-This weekly schedule is also shown in the following figure.
-
-![Course Schedule](kuvat/CourseSchedule.svg)
-
-M<n> are the weekly meetings, they take about 2H of time. The reading of the materials, with videos takes about 2H as well. The solving of the exercises should not take more than 4H/week. The final project should be worth of about 30H of work for each student.
+1. Read the theory material of the current week, and watch the video materials if you find them useful (4h)
+1. Solve the week's exercises and submit them (4h)
+1. In case you have any problems, send a question to the [General discussion](https://moodle.uwasa.fi/mod/forum/view.php?id=373020) group.
+1. If you find questions where you can answer, you may help the others by answering. For good answers, some extra points will be given. Do not give a direct answer to the problems though.
+1. 30 hours is reserved for the course project in the end of the course.
 
 +++
 

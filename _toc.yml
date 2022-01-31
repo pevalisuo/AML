@@ -7,4 +7,8 @@ sections:
 - file: unsupervised
 - file: supervised
 - file: regression
+- file: NeuralNetworks.ipynb
+- file: Learning_model_parameters
+- file: NLP.ipynb
+- file: NLP-UWB.ipynb
 - file: summary
