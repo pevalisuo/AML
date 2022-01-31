@@ -43,8 +43,6 @@
     <script src="_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
@@ -407,21 +405,24 @@ the 1930s.Depending on the field of application, it is also named thediscrete Ka
 the Hotelling transform in multivariate quality control, singular
 value decomposition (SVD), and eigenvalue decomposition
 (EVD).</p>
-<p>Mathematically PCA projection works like this:
-$<span class="math notranslate nohighlight">\(
+<p>Mathematically PCA projection works like this:</p>
+<div class="math notranslate nohighlight">
+\[
     Y_{n\times p'} = X_{n\times p} ~ E_{p\times p'},
-\)</span>$</p>
+\]</div>
 <p>where <span class="math notranslate nohighlight">\(n\)</span> is number of samples, <span class="math notranslate nohighlight">\(p\)</span> is number of variables (or features), <span class="math notranslate nohighlight">\(p'\)</span> is possibly reduced number of features, <span class="math notranslate nohighlight">\(X\)</span> is the design matrix, input to PCA, <span class="math notranslate nohighlight">\(E\)</span> is matrix of eigenvectors, <span class="math notranslate nohighlight">\(Y\)</span> is a matrix of principal components, projections.</p>
 <p>The most important component of <span class="math notranslate nohighlight">\(Y\)</span> is the first column, and the rest of them carry less information in decreasing order. Dimensionality reduction is achieved by simply discarding the rightmost columns of <span class="math notranslate nohighlight">\(Y\)</span>.</p>
-<p>Original data can be reconstructed as follows:
-$<span class="math notranslate nohighlight">\(
+<p>Original data can be reconstructed as follows:</p>
+<div class="math notranslate nohighlight">
+\[
     X_{n\times p} = Y_{n\times p'} ~ E_{p'\times p},
-\)</span>$</p>
-<p>Eigenvalues and eigenvectors can be calculated for example using Singular Value Decomposition (SVD)
-$<span class="math notranslate nohighlight">\(
+\]</div>
+<p>Eigenvalues and eigenvectors can be calculated for example using Singular Value Decomposition (SVD)</p>
+<div class="math notranslate nohighlight">
+\[
    X = USV^T,
-\)</span><span class="math notranslate nohighlight">\(
-where S is the diagonal matrix of singular values (eigenvalues) \)</span>s_i$ and columns of V are principal directions/axis (or eigenvectors).</p>
+\]</div>
+<p>where S is the diagonal matrix of singular values (eigenvalues) <span class="math notranslate nohighlight">\(s_i\)</span> and columns of V are principal directions/axis (or eigenvectors).</p>
 <p>See references <a class="reference external" href="#references">1-4</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -601,7 +602,7 @@ Xr = R \times X =
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.98829836, 0.01170164])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.99268408, 0.00731592])
 </pre></div>
 </div>
 <img alt="_images/Subspace_Projections_14_1.png" src="_images/Subspace_Projections_14_1.png" />
@@ -720,7 +721,7 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.97821949, 0.02178051])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.97156215, 0.02843785])
 </pre></div>
 </div>
 <img alt="_images/Subspace_Projections_24_1.png" src="_images/Subspace_Projections_24_1.png" />
@@ -805,7 +806,7 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.62294443, 0.37705557])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.55300163, 0.44699837])
 </pre></div>
 </div>
 <img alt="_images/Subspace_Projections_31_1.png" src="_images/Subspace_Projections_31_1.png" />

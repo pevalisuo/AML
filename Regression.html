@@ -43,8 +43,6 @@
     <script src="_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
@@ -366,9 +364,12 @@
 <h1><span class="section-number">10. </span>Regression and regularisation<a class="headerlink" href="#regression-and-regularisation" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p>Regression is used when prediction a continuous dependent variable using one ore more independent variables.</p></li>
+<li><p>Most well known classical regression model is Ordinary Least Mean Squares (OLS) regression</p></li>
 <li><p>Classical regression is not working well when the number of features is large or when the data contains plenty of noise or the dependency is non-linear</p></li>
 <li><p>Application areas of classical regression can be extended by using regularisation</p></li>
-<li><p>Non-linear regression models SVR, RFR, GBRT</p></li>
+<li><p>Non-linear regression models are better when the dependency is not linear</p></li>
+<li><p>Many new regression models can also tolerate high dimensionality and non gaussian noise better than classical methods</p></li>
+<li><p>Some often used regression methods, also suited for non-linear dependencies and high-dimensional data are Suppor Vector Regression (SVR), Random Forest Regression (RFR), and Gradient Boosted Regression Trees (GBRT). See the discussion of usage of corresponding Support Vector Machine (SVM), Random Forest, and Gradient Boosting for classification, since their operating principles are the same for regression and classification.</p></li>
 <li><p>Recursive feature elimination/addition are useful methods for model optimisation and feature selection</p></li>
 </ul>
 <section id="ordinary-least-mean-squares-ols-regression">
@@ -384,19 +385,27 @@
 \[
     \hat{y}_i = \beta_0 + \beta_1 x_{i,1} + \beta_2 x_{i,2} + \beta_3 x_{i,3} + \cdots + \beta_p x_{i,p} + \epsilon_i
 \]</div>
-<p>Cost function to be minimized (square error):
-$<span class="math notranslate nohighlight">\(
+<p>Cost function to be minimized (square error):</p>
+<div class="math notranslate nohighlight">
+\[
    Obj(\Theta) = L(\Theta) = \sum_{i=1}^{n} (y_i - \sum_{j=1}^p \beta_j x_{ij})^2
-\)</span>$</p>
+\]</div>
 <p>This Classic regression, usually the first choice to be tested. It Does not work well when <strong>p is large</strong> and when the training data contains <strong>plenty of noise</strong></p>
 <p>The <strong>prediction</strong> with the model is the following:</p>
 <div class="math notranslate nohighlight">
-\[  \hat{y} = \beta_0 + \beta_1 x_1 + \beta_2 x_2, ..., \beta_n x_n + \epsilon\]</div>
+\[  
+\hat{y} = \beta_0 + \beta_1 x_1 + \beta_2 x_2, ..., \beta_n x_n + \epsilon
+\]</div>
 <p>In 1-dimensional case, the regression is simply</p>
 <div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned}  \hat{y} = \beta_0 + \beta_1 x + \epsilon$$,\\where $\beta_1$ is the reciprocal and $\beta_0$ is the constant (the y-axis crossing point) and $\epsilon$ is the prediction error. The optimal solution is when the squared sum of error (Loss function, $L()$) between predicted and true values is minimized:\end{aligned}\end{align} \]</div>
-<p>L(\beta) = \sum_{i=1}^{n} (y_i - \hat{y})^2
-$$</p>
+\[  
+\hat{y} = \beta_0 + \beta_1 x + \epsilon,
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\beta_1\)</span> is the reciprocal and <span class="math notranslate nohighlight">\(\beta_0\)</span> is the constant (the y-axis crossing point) and <span class="math notranslate nohighlight">\(\epsilon\)</span> is the prediction error. The optimal solution is when the squared sum of error (Loss function, <span class="math notranslate nohighlight">\(L()\)</span>) between predicted and true values is minimized:</p>
+<div class="math notranslate nohighlight">
+\[
+   L(\beta) = \sum_{i=1}^{n} (y_i - \hat{y})^2
+\]</div>
 <p>The linear regression has a well known solution, which can be calculated very efficiently (closed form):</p>
 <div class="math notranslate nohighlight">
 \[
