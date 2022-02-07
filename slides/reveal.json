@@ -1,0 +1,35 @@
+{
+    "chalkboard": {
+        "boardmarkerWidth": 5,
+        "chalkWidth": 8,
+        "readOnly": false,
+        "src": "drawings/chalkboard.json",
+        "toggleChalkboardButton": { "left": "30px", "bottom": "30px", "top": "auto", "right": "auto" },
+        "toggleNotesButton": { "left": "30px", "bottom": "30px", "top": "auto", "right": "auto" },
+        "eraser": {"radius": 20, "src": "plugin/chalkboard/img/sponge.png"} 
+        },
+    "math": {
+        "TeX": { 
+            "Macros": { 
+                "XX": "{\\bf X}",
+                "YY": "{\\bf Y}",
+                "PP": "{\\bf P}",
+                "SS": "{\\bf S}",
+                "UU": "{\\bf U}",
+                "VV": "{\\bf V}",
+                "EE": "{\\bf E}"
+            } 
+        }
+    },
+    "audio": {
+        "prefix": "audio/",
+        "suffix": ".webm",
+        "textToSpeechURL": "http://api.voicerss.org/?key=4187879a75ea4a21a627ecbdd2689cb1&hl=en-gb&c=webm&src=",
+        "autoplay": "false",
+        "defaultText": "true",
+        "defaultNotes": "false",
+        "advance": 2000,
+        "defaultDuration": 5
+    },
+    "autoslide": 3000
+}

@@ -1,0 +1,10 @@
+{
+    "scripts": [
+        "plugin/chalkboard/plugin.js",
+        "plugin/reveal.js-menu/menu.js",
+        "plugin/audio-slideshow/plugin.js",
+        "plugin/audio-slideshow/recorder.js",
+        "plugin/audio-slideshow/RecordRTC.js",
+        "plugin.js"
+        ]
+}
