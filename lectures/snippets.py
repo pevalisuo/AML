@@ -3,7 +3,12 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 sns.set()
 
-
+def fourportdata():
+    N=20
+    Theta={'R' : 5.0}
+    I=np.linspace(0,5,N)
+    V=Theta['R']*I + 2*np.random.normal(size=N)
+    return (I,V)
 
 from matplotlib.colors import ListedColormap
 def plotDB(predictor, X, y, steps=100, figsize=None):
@@ -51,3 +56,5 @@ def DisplaySupportVectors(X,y,svc):
         a,b=X[i]
         c=y[i]
         plt.plot(a,b, '%sx' % (colors[c]), ms=8)
+        
+        
