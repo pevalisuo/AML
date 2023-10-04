@@ -1,526 +1,442 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Supervised machine learning &#8212; Applied Machine Learning, 2021</title>
-    
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'supervised';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="practicalities.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="_static/ApplesAndOranges.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Applied Machine Learning, 2021</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="_static/ApplesAndOranges.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/ApplesAndOranges.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="practicalities.html">
+                    About the course
+                </a>
+            </li>
+        </ul>
         <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="practicalities.html">
-   About the course
-  </a>
- </li>
-</ul>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Introduction.html">
-   1. Introduction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ReadingAndPlotting.html">
-   2. Reading and plotting
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Preprocessing_and_feature_extraction.html">
-   3. Preprocessing and feature extraction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Subspace_Projections.html">
-   4. Dimensionality reduction by Subspace projections
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Clustering.html">
-   5. Unsupervised learning
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="SupervisedMachineLearningTerminology.html">
-   6. Supervised machine learning, Terminology
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="NearestNeighbors.html">
-   7. Nearest Neighbours methods
-   <a class="anchor" id="nearestneighbours">
-   </a>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="SupportVectorMachine.html">
-   8. Support Vector Machine (SVM)
-   <a class="anchor" id="supportvectormachine">
-   </a>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="DecisionTrees.html">
-   9. Decision trees and forests
-   <a class="anchor" id="dtaforests">
-   </a>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Regression.html">
-   10. Regression and regularisation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="NeuralNetworks.html">
-   11. Artificial Neural Networks (ANN)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Learning_model_parameters.html">
-   12. Model learning strategies
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="NLP.html">
-   18. Natural Language Processing
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="NLP-UWB.html">
-   20. Ultra Wide Band positioning literature analysis
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ReadingAndPlotting.html">2. Reading and plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Preprocessing_and_feature_extraction.html">3. Preprocessing and feature extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Subspace_Projections.html">4. Dimensionality reduction by Subspace projections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Clustering.html">5. Unsupervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SupervisedMachineLearningTerminology.html">6. Supervised machine learning, Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NearestNeighbors.html">7. Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="SupportVectorMachine.html">8. Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="DecisionTrees.html">9. Decision trees and forests <a class="anchor" id="dtaforests"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Regression.html">10. Regression and regularisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NeuralNetworks.html">11. Artificial Neural Networks (ANN)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Learning_model_parameters.html">12. Model learning strategies</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="NLP.html">18. Natural Language Processing</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="NLP-UWB.html">20. Ultra Wide Band positioning literature analysis</a></li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/supervised.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-            <!-- Source interaction buttons -->
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
+<div class="sbt-scroll-pixel-helper"></div>
 
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/pevalisuo/AML.git/master?urlpath=tree/book/supervised.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        <a class="jupyterhub-button" href="https://notebooks.csc.fi/#/blueprint/d1fe6e08032e4c17a0f9e0e222414598/hub/user-redirect/git-pull?repo=https://github.com/pevalisuo/AML.git&urlpath=tree/AML.git/book/supervised.ipynb&branch=master"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
-                data-placement="left"><img class="jupyterhub-button-logo"
-                    src="_static/images/logo_jupyterhub.svg"
-                    alt="Interact on JupyterHub">JupyterHub</button></a>
-        
-        
-        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://notebooks.csc.fi/#/blueprint/d1fe6e08032e4c17a0f9e0e222414598/hub/user-redirect/git-pull?repo=https%3A//github.com/pevalisuo/AML.git&urlpath=tree/AML.git/book/supervised.ipynb&branch=master" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onJupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+  </ul>
 </div>
 
-        </div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/supervised.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Supervised machine learning</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#machine-learning-a-class-anchor-id-ml-a">
-   Machine learning
-   <a class="anchor" id="ML">
-   </a>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-target-of-supervised-machine-learning">
-   The target of supervised machine learning
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#training-validation-and-testing-a-class-anchor-id-traintestvalidate-a">
-   Training, Validation and Testing
-   <a class="anchor" id="TrainTestValidate">
-   </a>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#cross-validation-a-class-anchor-id-crossvalidation-a">
-     Cross Validation
-     <a class="anchor" id="crossvalidation">
-     </a>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#distance-metrics-a-class-anchor-id-distance-a">
-   Distance metrics
-   <a class="anchor" id="distance">
-   </a>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#scaling">
-   Scaling
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#then-scale-it-first">
-     Then scale it first
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#categorial-features">
-   Categorial features?
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example">
-     Example:
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#one-hot-encoding-a-class-anchor-id-onehotencoding-a">
-     One hot encoding
-     <a class="anchor" id="OneHotEncoding">
-     </a>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#nearest-neighbours-methods-a-class-anchor-id-nearestneighbours-a">
-   Nearest Neighbours methods
-   <a class="anchor" id="nearestneighbours">
-   </a>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#brute-force-implementation">
-     Brute force implementation
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pipelining">
-     Pipelining
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#visualization-of-the-decision-boundaries">
-   Visualization of the decision boundaries
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#variations">
-     Variations
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#nearest-centroid-classifier">
-   Nearest Centroid Classifier
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#support-vector-machine-svm-a-class-anchor-id-supportvectormachine-a">
-   Support Vector Machine (SVM)
-   <a class="anchor" id="supportvectormachine">
-   </a>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#decision-boundary">
-     Decision boundary
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#kernel-svm-a-class-anchor-id-kernelsvm-a">
-   Kernel SVM
-   <a class="anchor" id="kernelsvm">
-   </a>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#non-linear-classes">
-   Non-linear classes
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#illustration-of-rbf">
-     Illustration of RBF
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#testing-rbf-in-circular-data">
-     Testing RBF in circular data
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#decision-trees-and-forests-a-class-anchor-id-dtaforests-a">
-   Decision trees and forests
-   <a class="anchor" id="dtaforests">
-   </a>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#decision-tree-a-class-anchor-id-decisiontrees-a">
-     Decision tree
-     <a class="anchor" id="decisiontrees">
-     </a>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#optimize-the-tree-depth">
-     Optimize the tree depth
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ensemble-methods-a-class-anchor-id-ensemblemethods-a">
-   Ensemble methods
-   <a class="anchor" id="ensemblemethods">
-   </a>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#bagging-a-class-anchor-id-bagging-a">
-     Bagging
-     <a class="anchor" id="Bagging">
-     </a>
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#randomized-trees-a-class-anchor-id-randomizedtrees-a">
-       Randomized trees
-       <a class="anchor" id="RandomizedTrees">
-       </a>
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#extratrees-classifier-extremely-randomized-trees">
-       Extratrees classifier (Extremely randomized trees)
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#optimising-the-parameters-fo-the-extratrees-classifier">
-       Optimising the parameters fo the Extratrees classifier
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#boosting-a-class-anchor-id-boosting-a">
-   Boosting
-   <a class="anchor" id="Boosting">
-   </a>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#adaboost-a-class-anchor-id-adaboost-a">
-     Adaboost
-     <a class="anchor" id="AdaBoost">
-     </a>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#gradient-tree-boosting-a-class-anchor-id-gbrt-a">
-     Gradient Tree Boosting
-     <a class="anchor" id="GBRT">
-     </a>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#extreme-gradient-boosting-xgboost-a-class-anchor-id-xgboost-a">
-     Extreme Gradient Boosting (XGBoost)
-     <a class="anchor" id="XGBoost">
-     </a>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#summary">
-   Summary
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#references">
-   References
-  </a>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning-a-class-anchor-id-ml-a">Machine learning <a class="anchor" id="ML"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-target-of-supervised-machine-learning">The target of supervised machine learning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-validation-and-testing-a-class-anchor-id-traintestvalidate-a">Training, Validation and Testing <a class="anchor" id="TrainTestValidate"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-validation-a-class-anchor-id-crossvalidation-a">Cross Validation <a class="anchor" id="crossvalidation"></a></a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distance-metrics-a-class-anchor-id-distance-a">Distance metrics <a class="anchor" id="distance"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scaling">Scaling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#then-scale-it-first">Then scale it first</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#categorial-features">Categorial features?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#one-hot-encoding-a-class-anchor-id-onehotencoding-a">One hot encoding  <a class="anchor" id="OneHotEncoding"></a></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nearest-neighbours-methods-a-class-anchor-id-nearestneighbours-a">Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#brute-force-implementation">Brute force implementation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pipelining">Pipelining</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-of-the-decision-boundaries">Visualization of the decision boundaries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variations">Variations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nearest-centroid-classifier">Nearest Centroid Classifier</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#support-vector-machine-svm-a-class-anchor-id-supportvectormachine-a">Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-boundary">Decision boundary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-svm-a-class-anchor-id-kernelsvm-a">Kernel SVM <a class="anchor" id="kernelsvm"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-classes">Non-linear classes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#illustration-of-rbf">Illustration of RBF</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-rbf-in-circular-data">Testing RBF in circular data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-trees-and-forests-a-class-anchor-id-dtaforests-a">Decision trees and forests <a class="anchor" id="dtaforests"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-tree-a-class-anchor-id-decisiontrees-a">Decision tree <a class="anchor" id="decisiontrees"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimize-the-tree-depth">Optimize the tree depth</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ensemble-methods-a-class-anchor-id-ensemblemethods-a">Ensemble methods <a class="anchor" id="ensemblemethods"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bagging-a-class-anchor-id-bagging-a">Bagging <a class="anchor" id="Bagging"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#randomized-trees-a-class-anchor-id-randomizedtrees-a">Randomized trees   <a class="anchor" id="RandomizedTrees"></a></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#extratrees-classifier-extremely-randomized-trees">Extratrees classifier (Extremely randomized trees)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#optimising-the-parameters-fo-the-extratrees-classifier">Optimising the parameters fo the Extratrees classifier</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boosting-a-class-anchor-id-boosting-a">Boosting <a class="anchor" id="Boosting"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adaboost-a-class-anchor-id-adaboost-a">Adaboost <a class="anchor" id="AdaBoost"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-tree-boosting-a-class-anchor-id-gbrt-a">Gradient Tree Boosting <a class="anchor" id="GBRT"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extreme-gradient-boosting-xgboost-a-class-anchor-id-xgboost-a">Extreme Gradient Boosting (XGBoost) <a class="anchor" id="XGBoost"></a></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="supervised-machine-learning">
-<h1>Supervised machine learning<a class="headerlink" href="#supervised-machine-learning" title="Permalink to this headline">¶</a></h1>
+<h1>Supervised machine learning<a class="headerlink" href="#supervised-machine-learning" title="Permalink to this heading">#</a></h1>
 <section id="machine-learning-a-class-anchor-id-ml-a">
-<h2>Machine learning <a class="anchor" id="ML"></a><a class="headerlink" href="#machine-learning-a-class-anchor-id-ml-a" title="Permalink to this headline">¶</a></h2>
+<h2>Machine learning <a class="anchor" id="ML"></a><a class="headerlink" href="#machine-learning-a-class-anchor-id-ml-a" title="Permalink to this heading">#</a></h2>
 <p><img alt="featureextraction_p.svg" src="_images/featureextraction_p.svg" /></p>
 <ul class="simple">
 <li><p>The purpose of the supervised machine learning is the teach an algorithm to repeat the work done by a reference method</p></li>
@@ -529,7 +445,7 @@
 </ul>
 </section>
 <section id="the-target-of-supervised-machine-learning">
-<h2>The target of supervised machine learning<a class="headerlink" href="#the-target-of-supervised-machine-learning" title="Permalink to this headline">¶</a></h2>
+<h2>The target of supervised machine learning<a class="headerlink" href="#the-target-of-supervised-machine-learning" title="Permalink to this heading">#</a></h2>
 <p>Task is to find a function <span class="math notranslate nohighlight">\(f\)</span>, which predicts variable <span class="math notranslate nohighlight">\(y_i\)</span> based on <span class="math notranslate nohighlight">\(p\)</span> features <span class="math notranslate nohighlight">\(x_{i,j}\)</span>, where <span class="math notranslate nohighlight">\(i \in [0,N]\)</span> and <span class="math notranslate nohighlight">\(j \in [0,P]\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -549,21 +465,21 @@
 \end{split}\]</div>
 </section>
 <section id="training-validation-and-testing-a-class-anchor-id-traintestvalidate-a">
-<h2>Training, Validation and Testing <a class="anchor" id="TrainTestValidate"></a><a class="headerlink" href="#training-validation-and-testing-a-class-anchor-id-traintestvalidate-a" title="Permalink to this headline">¶</a></h2>
+<h2>Training, Validation and Testing <a class="anchor" id="TrainTestValidate"></a><a class="headerlink" href="#training-validation-and-testing-a-class-anchor-id-traintestvalidate-a" title="Permalink to this heading">#</a></h2>
 <p>Building predictive models requires following stages</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Model building (training)</p></li>
 <li><p>Model validation (often within an interation/optimisation loop)</p></li>
 <li><p>Model testing (in the end)</p></li>
 </ol>
 <p>Important rules related to model building and testing</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>The model cannot be tested using training set, because that would lead to overfitting</p></li>
 <li><p>Test set may not bet used many times, because then you would overfit to the test data</p></li>
 </ol>
 <p>Each stage requires data. The original data can be split in three different sets, one for each stage, but high quality labeled data is usually scarce resource, and in that cases slightly smarter method of using the data is needed.</p>
 <section id="cross-validation-a-class-anchor-id-crossvalidation-a">
-<h3>Cross Validation <a class="anchor" id="crossvalidation"></a><a class="headerlink" href="#cross-validation-a-class-anchor-id-crossvalidation-a" title="Permalink to this headline">¶</a></h3>
+<h3>Cross Validation <a class="anchor" id="crossvalidation"></a><a class="headerlink" href="#cross-validation-a-class-anchor-id-crossvalidation-a" title="Permalink to this heading">#</a></h3>
 <p><img alt="crossvalidation.svg" src="_images/crossvalidation.png" /></p>
 <ul class="simple">
 <li><p>Cross validation is an important technique to utilize the data more efficiently for all supervised training purposes</p></li>
@@ -575,7 +491,7 @@
 </section>
 </section>
 <section id="distance-metrics-a-class-anchor-id-distance-a">
-<h2>Distance metrics <a class="anchor" id="distance"></a><a class="headerlink" href="#distance-metrics-a-class-anchor-id-distance-a" title="Permalink to this headline">¶</a></h2>
+<h2>Distance metrics <a class="anchor" id="distance"></a><a class="headerlink" href="#distance-metrics-a-class-anchor-id-distance-a" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Clustering, classification and regression assume that samples near each other, at close proximity, are more similar with each other than those which are farther away.</p></li>
 </ul>
@@ -612,12 +528,12 @@
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Feature 2&#39;)
 </pre></div>
 </div>
-<img alt="_images/supervised_7_1.png" src="_images/supervised_7_1.png" />
+<img alt="_images/d21b172a31e90f6d2d5e767a9a5582d80f3b02d31eff20db7007dbe0bd776c5a.png" src="_images/d21b172a31e90f6d2d5e767a9a5582d80f3b02d31eff20db7007dbe0bd776c5a.png" />
 </div>
 </div>
 </section>
 <section id="scaling">
-<h2>Scaling<a class="headerlink" href="#scaling" title="Permalink to this headline">¶</a></h2>
+<h2>Scaling<a class="headerlink" href="#scaling" title="Permalink to this heading">#</a></h2>
 <p>What if the scaling is different?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -635,12 +551,12 @@
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Feature 2&#39;)
 </pre></div>
 </div>
-<img alt="_images/supervised_9_1.png" src="_images/supervised_9_1.png" />
+<img alt="_images/f88c87e43691c3bdc3b1e7fed0be49ea85c800f72f5ff6b3dbacaa32b37f311a.png" src="_images/f88c87e43691c3bdc3b1e7fed0be49ea85c800f72f5ff6b3dbacaa32b37f311a.png" />
 </div>
 </div>
 <p>The problem is that the distances are dominated by feature1 and feature 2 is not significant, even though intuitively it seems to be very important for classification.</p>
 <section id="then-scale-it-first">
-<h3>Then scale it first<a class="headerlink" href="#then-scale-it-first" title="Permalink to this headline">¶</a></h3>
+<h3>Then scale it first<a class="headerlink" href="#then-scale-it-first" title="Permalink to this heading">#</a></h3>
 <p>To elimninate the distortion due to scaling, normalise the varibles first. Usullay they are normalized so that the means and standard deviations are are the same. Usually <span class="math notranslate nohighlight">\(\bar{x}=0\)</span>¸ and <span class="math notranslate nohighlight">\(\sigma_x =1\)</span>.</p>
 <p>$<span class="math notranslate nohighlight">\(x=\frac{x-\bar{x}}{\sigma_x}\)</span><span class="math notranslate nohighlight">\(,
  where \)</span>\bar{x}$ is the mean value of x.</p>
@@ -661,7 +577,7 @@
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Feature 2&#39;)
 </pre></div>
 </div>
-<img alt="_images/supervised_12_1.png" src="_images/supervised_12_1.png" />
+<img alt="_images/e282980a9422f387266dd76a88e253fb2f0e7545a8d2de3dbfc3dd521e726716.png" src="_images/e282980a9422f387266dd76a88e253fb2f0e7545a8d2de3dbfc3dd521e726716.png" />
 </div>
 </div>
 <p>Now both features have equal weights.</p>
@@ -669,7 +585,7 @@
 </section>
 </section>
 <section id="categorial-features">
-<h2>Categorial features?<a class="headerlink" href="#categorial-features" title="Permalink to this headline">¶</a></h2>
+<h2>Categorial features?<a class="headerlink" href="#categorial-features" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Features can be</p>
 <ul>
@@ -683,7 +599,7 @@
 </li>
 </ul>
 <section id="example">
-<h3>Example:<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<h3>Example:<a class="headerlink" href="#example" title="Permalink to this heading">#</a></h3>
 <p>Assume that the species of the Iris is in fact a categorical feature for some ML algorithm. If you would code them just simply like ‘setosa’ -&gt; 1, ‘versicolor’ -&gt;2 and ‘virginica’ -&gt; 3, the ML algorithm could think it as a numerical feature, and use it to calculate distances between species :(</p>
 <p>The fix is to use so called One Hot Encoding.
 Here is the original data:</p>
@@ -774,9 +690,9 @@ Here is the original data:</p>
 </div>
 </section>
 <section id="one-hot-encoding-a-class-anchor-id-onehotencoding-a">
-<h3>One hot encoding  <a class="anchor" id="OneHotEncoding"></a><a class="headerlink" href="#one-hot-encoding-a-class-anchor-id-onehotencoding-a" title="Permalink to this headline">¶</a></h3>
+<h3>One hot encoding  <a class="anchor" id="OneHotEncoding"></a><a class="headerlink" href="#one-hot-encoding-a-class-anchor-id-onehotencoding-a" title="Permalink to this heading">#</a></h3>
 <p>Now we can encode the species to number in a safe way:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Make an encoder and transform the target variable to OneHot format</p></li>
 <li><p>The categorial variable can be currently encoded as integers, strings or any objects OneHotEncoder reads it in the for nxp matrix, where n is number of samples and p is the number of features to be encoded.</p></li>
 <li><p>Originally target was such kind of numpy array, which do not have the second index at all. It has to be (unfortunately) converted to column vector, which is otherwise the same, but it has also the second axis, which has only one value, a nx1 array.</p></li>
@@ -833,70 +749,92 @@ Here is the original data:</p>
   </thead>
   <tbody>
     <tr>
-      <th>109</th>
-      <td>7.2</td>
-      <td>3.6</td>
-      <td>6.1</td>
+      <th>106</th>
+      <td>4.9</td>
       <td>2.5</td>
-      <td>virginica</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>4.7</td>
-      <td>3.2</td>
-      <td>1.3</td>
-      <td>0.2</td>
-      <td>setosa</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>78</th>
-      <td>6.0</td>
-      <td>2.9</td>
       <td>4.5</td>
-      <td>1.5</td>
-      <td>versicolor</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
+      <td>1.7</td>
+      <td>virginica</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
     </tr>
     <tr>
-      <th>120</th>
-      <td>6.9</td>
+      <th>143</th>
+      <td>6.8</td>
       <td>3.2</td>
-      <td>5.7</td>
+      <td>5.9</td>
       <td>2.3</td>
       <td>virginica</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
     </tr>
     <tr>
-      <th>43</th>
-      <td>5.0</td>
-      <td>3.5</td>
-      <td>1.6</td>
-      <td>0.6</td>
-      <td>setosa</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <th>114</th>
+      <td>5.8</td>
+      <td>2.8</td>
+      <td>5.1</td>
+      <td>2.4</td>
+      <td>virginica</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
     </tr>
     <tr>
-      <th>10</th>
+      <th>5</th>
       <td>5.4</td>
-      <td>3.7</td>
-      <td>1.5</td>
+      <td>3.9</td>
+      <td>1.7</td>
+      <td>0.4</td>
+      <td>setosa</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>4.6</td>
+      <td>3.4</td>
+      <td>1.4</td>
+      <td>0.3</td>
+      <td>setosa</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>111</th>
+      <td>6.4</td>
+      <td>2.7</td>
+      <td>5.3</td>
+      <td>1.9</td>
+      <td>virginica</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>5.0</td>
+      <td>3.2</td>
+      <td>1.2</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>121</th>
+      <td>5.6</td>
+      <td>2.8</td>
+      <td>4.9</td>
+      <td>2.0</td>
+      <td>virginica</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>27</th>
@@ -905,42 +843,20 @@ Here is the original data:</p>
       <td>1.5</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
-      <th>30</th>
-      <td>4.8</td>
-      <td>3.1</td>
+      <th>25</th>
+      <td>5.0</td>
+      <td>3.0</td>
       <td>1.6</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>87</th>
-      <td>6.3</td>
-      <td>2.3</td>
-      <td>4.4</td>
-      <td>1.3</td>
-      <td>versicolor</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>5.1</td>
-      <td>3.7</td>
-      <td>1.5</td>
-      <td>0.4</td>
-      <td>setosa</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
   </tbody>
 </table>
@@ -949,11 +865,11 @@ Here is the original data:</p>
 </section>
 </section>
 <section id="nearest-neighbours-methods-a-class-anchor-id-nearestneighbours-a">
-<h2>Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a><a class="headerlink" href="#nearest-neighbours-methods-a-class-anchor-id-nearestneighbours-a" title="Permalink to this headline">¶</a></h2>
+<h2>Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a><a class="headerlink" href="#nearest-neighbours-methods-a-class-anchor-id-nearestneighbours-a" title="Permalink to this heading">#</a></h2>
 <p>Nearest Neighbour methods provide some very staightforward methods for supervised machine learning</p>
 <section id="brute-force-implementation">
-<h3>Brute force implementation<a class="headerlink" href="#brute-force-implementation" title="Permalink to this headline">¶</a></h3>
-<ol class="simple">
+<h3>Brute force implementation<a class="headerlink" href="#brute-force-implementation" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
 <li><p>Set the number of nearest neighbours, <span class="math notranslate nohighlight">\(K\)</span></p></li>
 <li><p>To predict one new sample, calculate its distance to all known training samples</p></li>
 <li><p>Order the list of distances</p></li>
@@ -1020,7 +936,7 @@ The accuracy of KNN for badly scaled data is.... 0.75
 </div>
 </section>
 <section id="pipelining">
-<h3>Pipelining<a class="headerlink" href="#pipelining" title="Permalink to this headline">¶</a></h3>
+<h3>Pipelining<a class="headerlink" href="#pipelining" title="Permalink to this heading">#</a></h3>
 <p>In Scikit Learn, all methods are build using the same interface. This makes it easier to build larger machine learning systems by combining different stages together as pipelines.</p>
 <p>For example, the scaling of features, dimensionality reduction, and sclassification can be combined as a single pipeline. This is especially usefull, when several datasets (validation data, testing data, production data, etc) needs to be fed through the same stages.</p>
 <div class="cell docutils container">
@@ -1051,12 +967,12 @@ The accuracy of KNN for badly scaled data is.... 0.75
 </section>
 </section>
 <section id="visualization-of-the-decision-boundaries">
-<h2>Visualization of the decision boundaries<a class="headerlink" href="#visualization-of-the-decision-boundaries" title="Permalink to this headline">¶</a></h2>
+<h2>Visualization of the decision boundaries<a class="headerlink" href="#visualization-of-the-decision-boundaries" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">ListedColormap</span>
 <span class="k">def</span> <span class="nf">plotDB</span><span class="p">(</span><span class="n">predictor</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Plots the Decision Boundary</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Plots the Decision Boundary</span>
 <span class="sd">        pipe = classification pipeline</span>
 <span class="sd">        X is the training data used for training the classifier</span>
 <span class="sd">        steps = number of x and y steps in calculating the boundary</span>
@@ -1106,15 +1022,11 @@ The accuracy of KNN for badly scaled data is.... 0.75
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_330041/3110683384.py:25: MatplotlibDeprecationWarning: shading=&#39;flat&#39; when X and Y have the same dimensions as C is deprecated since 3.3.  Either specify the corners of the quadrilaterals with X and Y, or pass shading=&#39;auto&#39;, &#39;nearest&#39; or &#39;gouraud&#39;, or set rcParams[&#39;pcolor.shading&#39;].  This will become an error two minor releases later.
-  plt.pcolormesh(xx, yy, Z, cmap=cmap_light)
-</pre></div>
-</div>
-<img alt="_images/supervised_25_1.png" src="_images/supervised_25_1.png" />
+<img alt="_images/4e142c746322687bd94621c811bf353ad2d1152f1b09284c930aad8614a9fb61.png" src="_images/4e142c746322687bd94621c811bf353ad2d1152f1b09284c930aad8614a9fb61.png" />
 </div>
 </div>
 <section id="variations">
-<h3>Variations<a class="headerlink" href="#variations" title="Permalink to this headline">¶</a></h3>
+<h3>Variations<a class="headerlink" href="#variations" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Nearest Centroid classifier</p>
 <ul>
@@ -1132,7 +1044,7 @@ The accuracy of KNN for badly scaled data is.... 0.75
 </section>
 </section>
 <section id="nearest-centroid-classifier">
-<h2>Nearest Centroid Classifier<a class="headerlink" href="#nearest-centroid-classifier" title="Permalink to this headline">¶</a></h2>
+<h2>Nearest Centroid Classifier<a class="headerlink" href="#nearest-centroid-classifier" title="Permalink to this heading">#</a></h2>
 <p>Nearest centroid classifier does not need to store all training data, thats why it is also faster to predict.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1151,12 +1063,13 @@ The accuracy of KNN for badly scaled data is.... 0.75
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_330041</span><span class="o">/</span><span class="mf">2405771635.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">sklearn.neighbors.nearest_centroid</span> <span class="kn">import</span> <span class="n">NearestCentroid</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">pipelineCentroid</span><span class="o">=</span><span class="n">Pipeline</span><span class="p">([</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span>         <span class="p">(</span><span class="s1">&#39;Scaling&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span>         <span class="p">(</span><span class="s1">&#39;KNN&#39;</span><span class="p">,</span> <span class="n">NearestCentroid</span><span class="p">())</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">pipelineCentroid</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X2s</span><span class="p">,</span><span class="n">y2</span><span class="p">)</span>
 
 <span class="ne">ModuleNotFoundError</span>: No module named &#39;sklearn.neighbors.nearest_centroid&#39;
 </pre></div>
@@ -1165,7 +1078,7 @@ The accuracy of KNN for badly scaled data is.... 0.75
 </div>
 </section>
 <section id="support-vector-machine-svm-a-class-anchor-id-supportvectormachine-a">
-<h2>Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a><a class="headerlink" href="#support-vector-machine-svm-a-class-anchor-id-supportvectormachine-a" title="Permalink to this headline">¶</a></h2>
+<h2>Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a><a class="headerlink" href="#support-vector-machine-svm-a-class-anchor-id-supportvectormachine-a" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>SVM is kind of Jack of All Trades for classifiers</p></li>
 <li><p>It does not save all training samples like NearestNeigbour method, but only the samples near the border of class boundaries.</p></li>
@@ -1175,7 +1088,7 @@ The accuracy of KNN for badly scaled data is.... 0.75
 <li><p>Can be extended to nonlinear decision boundaries using kernels</p></li>
 </ul>
 <section id="decision-boundary">
-<h3>Decision boundary<a class="headerlink" href="#decision-boundary" title="Permalink to this headline">¶</a></h3>
+<h3>Decision boundary<a class="headerlink" href="#decision-boundary" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>SVM uses samples near the different clusters to define a decision boundary</p></li>
 <li><p>The boundary which maximises the marginal of the boundary will be selected</p></li>
@@ -1214,7 +1127,7 @@ The accuracy of KNN for badly scaled data is.... 0.75
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fbfee757898&gt;]
 </pre></div>
 </div>
-<img alt="_images/supervised_32_1.png" src="_images/supervised_32_1.png" />
+<img alt="_images/39909649b8b2c61972a0275d8efc1319acf13b8961f62c49a4895b5cf0259e41.png" src="_images/39909649b8b2c61972a0275d8efc1319acf13b8961f62c49a4895b5cf0259e41.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1240,7 +1153,7 @@ SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
   shrinking=True, tol=0.001, verbose=False)
 </pre></div>
 </div>
-<img alt="_images/supervised_33_1.png" src="_images/supervised_33_1.png" />
+<img alt="_images/f26676093d2c99924d00c3da2a3e1eaa88915cb0ffa04af6cfd78b36adf7f198.png" src="_images/f26676093d2c99924d00c3da2a3e1eaa88915cb0ffa04af6cfd78b36adf7f198.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1281,7 +1194,7 @@ SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
   shrinking=True, tol=0.001, verbose=False)
 </pre></div>
 </div>
-<img alt="_images/supervised_35_1.png" src="_images/supervised_35_1.png" />
+<img alt="_images/bef5386a815f03b9c5b0abbd0dc4f981a9ecf9724a0bb53aaa4bae42cff58b6e.png" src="_images/bef5386a815f03b9c5b0abbd0dc4f981a9ecf9724a0bb53aaa4bae42cff58b6e.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1310,13 +1223,13 @@ LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
      verbose=0)
 </pre></div>
 </div>
-<img alt="_images/supervised_36_2.png" src="_images/supervised_36_2.png" />
+<img alt="_images/d32e37453b1e3fd72dd08e595b4d3e13e9bc499f6d37eb12a9bbc68803ba2bba.png" src="_images/d32e37453b1e3fd72dd08e595b4d3e13e9bc499f6d37eb12a9bbc68803ba2bba.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="kernel-svm-a-class-anchor-id-kernelsvm-a">
-<h2>Kernel SVM <a class="anchor" id="kernelsvm"></a><a class="headerlink" href="#kernel-svm-a-class-anchor-id-kernelsvm-a" title="Permalink to this headline">¶</a></h2>
+<h2>Kernel SVM <a class="anchor" id="kernelsvm"></a><a class="headerlink" href="#kernel-svm-a-class-anchor-id-kernelsvm-a" title="Permalink to this heading">#</a></h2>
 <p>Linear kernel</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1341,7 +1254,7 @@ SVC(C=0.5, cache_size=200, class_weight=None, coef0=0.0,
   tol=0.001, verbose=False)
 </pre></div>
 </div>
-<img alt="_images/supervised_38_1.png" src="_images/supervised_38_1.png" />
+<img alt="_images/710cae9dc1cc07da3c0a347ba89a5d3eaab641938be7b1191b04673a8c7e2f4c.png" src="_images/710cae9dc1cc07da3c0a347ba89a5d3eaab641938be7b1191b04673a8c7e2f4c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1401,12 +1314,12 @@ SVC(C=0.5, cache_size=200, class_weight=None, coef0=0.0,
 Accurary in the test set......0.980000
 </pre></div>
 </div>
-<img alt="_images/supervised_40_1.png" src="_images/supervised_40_1.png" />
+<img alt="_images/932a73ba5545d7196398d08f5450daa6b31661d3ebd1b29a3fdde9a100323f49.png" src="_images/932a73ba5545d7196398d08f5450daa6b31661d3ebd1b29a3fdde9a100323f49.png" />
 </div>
 </div>
 </section>
 <section id="non-linear-classes">
-<h2>Non-linear classes<a class="headerlink" href="#non-linear-classes" title="Permalink to this headline">¶</a></h2>
+<h2>Non-linear classes<a class="headerlink" href="#non-linear-classes" title="Permalink to this heading">#</a></h2>
 <ul>
 <li><p>If the data described by <span class="math notranslate nohighlight">\(p_i=[x_i, y_i]^T\)</span> is not linearly separable, it can be made linearly separable by adding a new term, for example <span class="math notranslate nohighlight">\(z_i=x_i^2 + y_i^2\)</span></p></li>
 <li><p>In this case, third dimension is introduced, and the linear classifier can work in the new three dimensional space <span class="math notranslate nohighlight">\( p_i'=[x_i, y_i, z_i]^T \)</span></p></li>
@@ -1424,7 +1337,7 @@ Accurary in the test set......0.980000
 </li>
 </ul>
 <section id="illustration-of-rbf">
-<h3>Illustration of RBF<a class="headerlink" href="#illustration-of-rbf" title="Permalink to this headline">¶</a></h3>
+<h3>Illustration of RBF<a class="headerlink" href="#illustration-of-rbf" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>The following code plots the RBF when <span class="math notranslate nohighlight">\(p_i\)</span> is in origo and <span class="math notranslate nohighlight">\(p_j\)</span> moves along x-axis.</p></li>
 <li><p>In real case the RBF is N-dimensional, centered around a sample <span class="math notranslate nohighlight">\(p_i\)</span></p></li>
@@ -1446,7 +1359,7 @@ Accurary in the test set......0.980000
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0,0.5,&#39;$k([0,0,0]^T, [x,0,0]^T)$&#39;)
 </pre></div>
 </div>
-<img alt="_images/supervised_42_1.png" src="_images/supervised_42_1.png" />
+<img alt="_images/20a390cfd8f18b7fc1214a4009a43ac21c06b50cfe42f9da3653a24177ff6684.png" src="_images/20a390cfd8f18b7fc1214a4009a43ac21c06b50cfe42f9da3653a24177ff6684.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1466,7 +1379,7 @@ Accurary in the test set......0.980000
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fbfee7eb358&gt;
 </pre></div>
 </div>
-<img alt="_images/supervised_43_1.png" src="_images/supervised_43_1.png" />
+<img alt="_images/eae275ca9f3dc4b56d7f42b649ed846df9d3b768a5854290e3db606d5627f774.png" src="_images/eae275ca9f3dc4b56d7f42b649ed846df9d3b768a5854290e3db606d5627f774.png" />
 </div>
 </div>
 <p><strong>Solution:</strong> Use the 8th value as a support vector, and use RBF kernel to increase one more dimesion</p>
@@ -1494,13 +1407,13 @@ Accurary in the test set......0.980000
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7fbfebb0c080&gt;
 </pre></div>
 </div>
-<img alt="_images/supervised_45_1.png" src="_images/supervised_45_1.png" />
+<img alt="_images/d88e7281d9c8c210fcabdec7571176b2534d0a37a27a20421a06f8d753832c42.png" src="_images/d88e7281d9c8c210fcabdec7571176b2534d0a37a27a20421a06f8d753832c42.png" />
 </div>
 </div>
 <p>Now the classes are separable, but what is the optimal Gamma value?</p>
 </section>
 <section id="testing-rbf-in-circular-data">
-<h3>Testing RBF in circular data<a class="headerlink" href="#testing-rbf-in-circular-data" title="Permalink to this headline">¶</a></h3>
+<h3>Testing RBF in circular data<a class="headerlink" href="#testing-rbf-in-circular-data" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Xc</span><span class="p">,</span><span class="n">yc</span><span class="o">=</span><span class="n">datasets</span><span class="o">.</span><span class="n">make_circles</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
@@ -1526,7 +1439,7 @@ SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
   tol=0.001, verbose=False)
 </pre></div>
 </div>
-<img alt="_images/supervised_48_1.png" src="_images/supervised_48_1.png" />
+<img alt="_images/556d6cc8e5985cab45565b6dbaf96ec0eab9dd36cadd71f77d58d1752dd2d367.png" src="_images/556d6cc8e5985cab45565b6dbaf96ec0eab9dd36cadd71f77d58d1752dd2d367.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1551,16 +1464,16 @@ SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
   tol=0.001, verbose=False)
 </pre></div>
 </div>
-<img alt="_images/supervised_49_1.png" src="_images/supervised_49_1.png" />
+<img alt="_images/5a2bdb365fb3ed62f5b9bbbc17072287c856313cf236396a1db40c17d00870da.png" src="_images/5a2bdb365fb3ed62f5b9bbbc17072287c856313cf236396a1db40c17d00870da.png" />
 </div>
 </div>
 <p>Read more from <a class="reference external" href="https://www.analyticsvidhya.com/blog/2017/09/understaing-support-vector-machine-example-code/">Understanding SVM</a></p>
 </section>
 </section>
 <section id="decision-trees-and-forests-a-class-anchor-id-dtaforests-a">
-<h2>Decision trees and forests <a class="anchor" id="dtaforests"></a><a class="headerlink" href="#decision-trees-and-forests-a-class-anchor-id-dtaforests-a" title="Permalink to this headline">¶</a></h2>
+<h2>Decision trees and forests <a class="anchor" id="dtaforests"></a><a class="headerlink" href="#decision-trees-and-forests-a-class-anchor-id-dtaforests-a" title="Permalink to this heading">#</a></h2>
 <section id="decision-tree-a-class-anchor-id-decisiontrees-a">
-<h3>Decision tree <a class="anchor" id="decisiontrees"></a><a class="headerlink" href="#decision-tree-a-class-anchor-id-decisiontrees-a" title="Permalink to this headline">¶</a></h3>
+<h3>Decision tree <a class="anchor" id="decisiontrees"></a><a class="headerlink" href="#decision-tree-a-class-anchor-id-decisiontrees-a" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">tree</span>
@@ -1599,12 +1512,12 @@ DecisionTreeClassifier(class_weight=None, criterion=&#39;gini&#39;, max_depth=2,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/supervised_53_0.png" src="_images/supervised_53_0.png" />
+<img alt="_images/33eefa803018f23b80b7d23dedc410b15cd227264aff39fa2b78ccbbdb5e1657.png" src="_images/33eefa803018f23b80b7d23dedc410b15cd227264aff39fa2b78ccbbdb5e1657.png" />
 </div>
 </div>
 </section>
 <section id="optimize-the-tree-depth">
-<h3>Optimize the tree depth<a class="headerlink" href="#optimize-the-tree-depth" title="Permalink to this headline">¶</a></h3>
+<h3>Optimize the tree depth<a class="headerlink" href="#optimize-the-tree-depth" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span><span class="o">=</span><span class="mi">6</span>
@@ -1633,7 +1546,7 @@ DecisionTreeClassifier(class_weight=None, criterion=&#39;gini&#39;, max_depth=2,
 Accurary in the test set......0.880462
 </pre></div>
 </div>
-<img alt="_images/supervised_55_1.png" src="_images/supervised_55_1.png" />
+<img alt="_images/c604eee58b019e9da39b8403e3835277273a79bc8958dbfd82ae5633f0540a12.png" src="_images/c604eee58b019e9da39b8403e3835277273a79bc8958dbfd82ae5633f0540a12.png" />
 </div>
 </div>
 <ul class="simple">
@@ -1646,7 +1559,7 @@ Accurary in the test set......0.880462
 </section>
 </section>
 <section id="ensemble-methods-a-class-anchor-id-ensemblemethods-a">
-<h2>Ensemble methods <a class="anchor" id="ensemblemethods"></a><a class="headerlink" href="#ensemble-methods-a-class-anchor-id-ensemblemethods-a" title="Permalink to this headline">¶</a></h2>
+<h2>Ensemble methods <a class="anchor" id="ensemblemethods"></a><a class="headerlink" href="#ensemble-methods-a-class-anchor-id-ensemblemethods-a" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Bagging in <a class="reference external" href="https://scikit-learn.org/stable/modules/ensemble.html">Skikit Learn</a></p>
 <ul>
@@ -1658,12 +1571,12 @@ Accurary in the test set......0.880462
 <li><p>Boosting is another method to combine multiple predictors</p></li>
 </ul>
 <section id="bagging-a-class-anchor-id-bagging-a">
-<h3>Bagging <a class="anchor" id="Bagging"></a><a class="headerlink" href="#bagging-a-class-anchor-id-bagging-a" title="Permalink to this headline">¶</a></h3>
+<h3>Bagging <a class="anchor" id="Bagging"></a><a class="headerlink" href="#bagging-a-class-anchor-id-bagging-a" title="Permalink to this heading">#</a></h3>
 <section id="randomized-trees-a-class-anchor-id-randomizedtrees-a">
-<h4>Randomized trees   <a class="anchor" id="RandomizedTrees"></a><a class="headerlink" href="#randomized-trees-a-class-anchor-id-randomizedtrees-a" title="Permalink to this headline">¶</a></h4>
+<h4>Randomized trees   <a class="anchor" id="RandomizedTrees"></a><a class="headerlink" href="#randomized-trees-a-class-anchor-id-randomizedtrees-a" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p>Forest of randomized trees is one famous bagging method. it works as follows</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>A random partition of data is drawn from the training data to bootstrap the tree structure</p></li>
 <li><p>The tree may use all features or only a random subset of available features</p></li>
 <li><p>The output is again aggregated from all predictors</p></li>
@@ -1674,7 +1587,7 @@ Accurary in the test set......0.880462
 </ul>
 </section>
 <section id="extratrees-classifier-extremely-randomized-trees">
-<h4>Extratrees classifier (Extremely randomized trees)<a class="headerlink" href="#extratrees-classifier-extremely-randomized-trees" title="Permalink to this headline">¶</a></h4>
+<h4>Extratrees classifier (Extremely randomized trees)<a class="headerlink" href="#extratrees-classifier-extremely-randomized-trees" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p>Even more random</p></li>
 <li><p>The threshold rules are selected at random for randomly selected features</p></li>
@@ -1683,7 +1596,7 @@ Accurary in the test set......0.880462
 </ul>
 </section>
 <section id="optimising-the-parameters-fo-the-extratrees-classifier">
-<h4>Optimising the parameters fo the Extratrees classifier<a class="headerlink" href="#optimising-the-parameters-fo-the-extratrees-classifier" title="Permalink to this headline">¶</a></h4>
+<h4>Optimising the parameters fo the Extratrees classifier<a class="headerlink" href="#optimising-the-parameters-fo-the-extratrees-classifier" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p>Extratrees classifier has already many more parameters than normal decision tree.</p></li>
 <li><p>It is not convenient to try them all to find out an optimal combination</p></li>
@@ -1744,14 +1657,14 @@ ExtraTreesClassifier(bootstrap=False, class_weight=None, criterion=&#39;gini&#39
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/supervised_62_0.png" src="_images/supervised_62_0.png" />
+<img alt="_images/3c7fd8b43c29660c180b711efe97932bc10a0e14886f949c47041acbe3dd0ec0.png" src="_images/3c7fd8b43c29660c180b711efe97932bc10a0e14886f949c47041acbe3dd0ec0.png" />
 </div>
 </div>
 </section>
 </section>
 </section>
 <section id="boosting-a-class-anchor-id-boosting-a">
-<h2>Boosting <a class="anchor" id="Boosting"></a><a class="headerlink" href="#boosting-a-class-anchor-id-boosting-a" title="Permalink to this headline">¶</a></h2>
+<h2>Boosting <a class="anchor" id="Boosting"></a><a class="headerlink" href="#boosting-a-class-anchor-id-boosting-a" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Construct weak random trees and chain them after each other on modified version of the data</p></li>
 <li><p>Examples <a class="reference external" href="https://scikit-learn.org/stable/modules/ensemble.html#adaboost">Adaboost</a>
@@ -1759,8 +1672,8 @@ ExtraTreesClassifier(bootstrap=False, class_weight=None, criterion=&#39;gini&#39
 <a class="reference external" href="https://xgboost.readthedocs.io/en/latest/">XGBoost</a></p></li>
 </ul>
 <section id="adaboost-a-class-anchor-id-adaboost-a">
-<h3>Adaboost <a class="anchor" id="AdaBoost"></a><a class="headerlink" href="#adaboost-a-class-anchor-id-adaboost-a" title="Permalink to this headline">¶</a></h3>
-<ol class="simple">
+<h3>Adaboost <a class="anchor" id="AdaBoost"></a><a class="headerlink" href="#adaboost-a-class-anchor-id-adaboost-a" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
 <li><p>First create one weak predictor, which is perhaps only slightly better than guessing</p></li>
 <li><p>Assign equal weight <span class="math notranslate nohighlight">\(w_i=1/N\)</span> to each of the N samples</p></li>
 <li><p>Repeat following boosting iteration M times:</p></li>
@@ -1769,17 +1682,17 @@ ExtraTreesClassifier(bootstrap=False, class_weight=None, criterion=&#39;gini&#39
 <li><p>Train the next predictor with the weighted data so that it concentrates especially to those samples which were difficult for the classifiers this far.</p></li>
 <li><p>The final classification result is voted by the predictors</p></li>
 </ol>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>First publications</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Freund, Y., &amp; Schapire, R. E. (1997). A Decision-Theoretic Generalization of On-Line Learning and an Application to Boosting. Journal of Computer and System Sciences, 55(1), 119–139. <a class="reference external" href="https://doi.org/10.1006/jcss.1997.1504">https://doi.org/10.1006/jcss.1997.1504</a> <a href="#id1"><span class="problematic" id="id2">:cite:`freund_decision-theoretic_1997`</span></a></p></td>
+<tr class="row-even"><td><p>Freund, Y., &amp; Schapire, R. E. (1997). A Decision-Theoretic Generalization of On-Line Learning and an Application to Boosting. Journal of Computer and System Sciences, 55(1), 119–139. <a class="reference external" href="https://doi.org/10.1006/jcss.1997.1504">https://doi.org/10.1006/jcss.1997.1504</a> <a href="#id1"><span class="problematic" id="id2">freund_decision-theoretic_1997</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>Drucker, H. (1997). Improving Regressors using Boosting Techniques. ICML. <a href="#id3"><span class="problematic" id="id4">:cite:`drucker_improving_1997`</span></a></p></td>
+<tr class="row-odd"><td><p>Drucker, H. (1997). Improving Regressors using Boosting Techniques. ICML. <a href="#id3"><span class="problematic" id="id4">drucker_improving_1997</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p>Hastie, T., Rosset, S., Zhu, J., &amp; Zou, H. (2009). Multi-class AdaBoost. Statistics and Its Interface, 2(3), 349–360. <a class="reference external" href="https://doi.org/10.4310/SII.2009.v2.n3.a8">https://doi.org/10.4310/SII.2009.v2.n3.a8</a> <a href="#id5"><span class="problematic" id="id6">:cite:`hastie_multi-class_2009`</span></a></p></td>
+<tr class="row-even"><td><p>Hastie, T., Rosset, S., Zhu, J., &amp; Zou, H. (2009). Multi-class AdaBoost. Statistics and Its Interface, 2(3), 349–360. <a class="reference external" href="https://doi.org/10.4310/SII.2009.v2.n3.a8">https://doi.org/10.4310/SII.2009.v2.n3.a8</a> <a href="#id5"><span class="problematic" id="id6">hastie_multi-class_2009</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p></p></td>
 </tr>
@@ -1787,7 +1700,7 @@ ExtraTreesClassifier(bootstrap=False, class_weight=None, criterion=&#39;gini&#39
 </table>
 </section>
 <section id="gradient-tree-boosting-a-class-anchor-id-gbrt-a">
-<h3>Gradient Tree Boosting <a class="anchor" id="GBRT"></a><a class="headerlink" href="#gradient-tree-boosting-a-class-anchor-id-gbrt-a" title="Permalink to this headline">¶</a></h3>
+<h3>Gradient Tree Boosting <a class="anchor" id="GBRT"></a><a class="headerlink" href="#gradient-tree-boosting-a-class-anchor-id-gbrt-a" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Also called as Gradient Boosted Regression Trees (GBRT)</p></li>
 <li><p>Improved version of Adaboost</p></li>
@@ -1812,7 +1725,7 @@ ExtraTreesClassifier(bootstrap=False, class_weight=None, criterion=&#39;gini&#39
 <li><p>Optimizing regularization encourages simples modes. They tend to predict better for future data, since simpler methods do not suffer from overfitting as easily as complex models</p></li>
 <li><p>Read more from Interesting <a class="reference external" href="https://homes.cs.washington.edu/~tqchen/pdf/BoostedTree.pdf">slides about gradient boosting</a></p></li>
 </ul>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>First publications</p></th>
 </tr>
@@ -1820,31 +1733,31 @@ ExtraTreesClassifier(bootstrap=False, class_weight=None, criterion=&#39;gini&#39
 <tbody>
 <tr class="row-even"><td><p>Breiman, L. (1997). Arcing the edge. Technical Report 486, Statistics Department, University of California at ….</p></td>
 </tr>
-<tr class="row-odd"><td><p><a href="#id7"><span class="problematic" id="id8">:cite:`breiman_arcing_1997`</span></a></p></td>
+<tr class="row-odd"><td><p><a href="#id7"><span class="problematic" id="id8">breiman_arcing_1997</span></a></p></td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="extreme-gradient-boosting-xgboost-a-class-anchor-id-xgboost-a">
-<h3>Extreme Gradient Boosting (XGBoost) <a class="anchor" id="XGBoost"></a><a class="headerlink" href="#extreme-gradient-boosting-xgboost-a-class-anchor-id-xgboost-a" title="Permalink to this headline">¶</a></h3>
+<h3>Extreme Gradient Boosting (XGBoost) <a class="anchor" id="XGBoost"></a><a class="headerlink" href="#extreme-gradient-boosting-xgboost-a-class-anchor-id-xgboost-a" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>A library implementing Gradient Tree Boosting</p></li>
 <li><p>Available for many programming languages</p></li>
 <li><p>Read more from <a class="reference external" href="https://xgboost.readthedocs.io/en/latest/tutorials/index.html">XGBoost Tutorials</a></p></li>
 </ul>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>First publications</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Friedman, J. H., Hastie, T., &amp; Tibshirani, R. (2000). Additive logistic regression: A statistical view of boosting. <a class="reference external" href="https://doi.org/10.1214/aos/1016218223">https://doi.org/10.1214/aos/1016218223</a> <a href="#id9"><span class="problematic" id="id10">:cite:`friedman_additive_2000-1`</span></a></p></td>
+<tr class="row-even"><td><p>Friedman, J. H., Hastie, T., &amp; Tibshirani, R. (2000). Additive logistic regression: A statistical view of boosting. <a class="reference external" href="https://doi.org/10.1214/aos/1016218223">https://doi.org/10.1214/aos/1016218223</a> <a href="#id9"><span class="problematic" id="id10">friedman_additive_2000-1</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>Friedman, J. H. (2001). Greedy function approximation: A gradient boosting machine. The Annals of Statistics, 29(5), 1189–1232. <a class="reference external" href="https://doi.org/10.1214/aos/1013203451">https://doi.org/10.1214/aos/1013203451</a> <a href="#id11"><span class="problematic" id="id12">:cite:`friedman_greedy_2001`</span></a></p></td>
+<tr class="row-odd"><td><p>Friedman, J. H. (2001). Greedy function approximation: A gradient boosting machine. The Annals of Statistics, 29(5), 1189–1232. <a class="reference external" href="https://doi.org/10.1214/aos/1013203451">https://doi.org/10.1214/aos/1013203451</a> <a href="#id11"><span class="problematic" id="id12">friedman_greedy_2001</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p>Friedman, J. H. (2002). Stochastic gradient boosting. Computational Statistics &amp; Data Analysis, 38(4), 367–378.  <a class="reference external" href="https://doi.org/10.1016/S0167-9473(01)00065-2">https://doi.org/10.1016/S0167-9473(01)00065-2</a> <a href="#id13"><span class="problematic" id="id14">:cite:`friedman_stochastic_2002`</span></a></p></td>
+<tr class="row-even"><td><p>Friedman, J. H. (2002). Stochastic gradient boosting. Computational Statistics &amp; Data Analysis, 38(4), 367–378.  <a class="reference external" href="https://doi.org/10.1016/S0167-9473(01)00065-2">https://doi.org/10.1016/S0167-9473(01)00065-2</a> <a href="#id13"><span class="problematic" id="id14">friedman_stochastic_2002</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>Chen, T., &amp; Guestrin, C. (2016). XGBoost: A Scalable Tree Boosting System. Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining - KDD ’16, 785–794. <a class="reference external" href="https://doi.org/10.1145/2939672.2939785">https://doi.org/10.1145/2939672.2939785</a> <a href="#id15"><span class="problematic" id="id16">:cite:`chen_xgboost:_2016`</span></a></p></td>
+<tr class="row-odd"><td><p>Chen, T., &amp; Guestrin, C. (2016). XGBoost: A Scalable Tree Boosting System. Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining - KDD ’16, 785–794. <a class="reference external" href="https://doi.org/10.1145/2939672.2939785">https://doi.org/10.1145/2939672.2939785</a> <a href="#id15"><span class="problematic" id="id16">chen_xgboost:_2016</span></a></p></td>
 </tr>
 </tbody>
 </table>
@@ -1883,13 +1796,13 @@ GradientBoostingClassifier(criterion=&#39;friedman_mse&#39;, init=None,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/supervised_69_0.png" src="_images/supervised_69_0.png" />
+<img alt="_images/ab98f3ee527cf1e026b9b30c3b8d88d94622736eeb3ec2fbadfebeadab5087d9.png" src="_images/ab98f3ee527cf1e026b9b30c3b8d88d94622736eeb3ec2fbadfebeadab5087d9.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>SVM is good for high dimensional cases</p></li>
 <li><p>LinearSVC can include a regularization term L2, or L1</p></li>
@@ -1907,7 +1820,7 @@ GradientBoostingClassifier(criterion=&#39;friedman_mse&#39;, init=None,
 </ul>
 </section>
 <section id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
 </section>
 </section>
 
@@ -1923,7 +1836,7 @@ GradientBoostingClassifier(criterion=&#39;friedman_mse&#39;, init=None,
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -1931,37 +1844,140 @@ GradientBoostingClassifier(criterion=&#39;friedman_mse&#39;, init=None,
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        
-            
 
-
-
-<div class='prev-next-bottom'>
-    
-
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
 </div>
-        
-        </div>
-    </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Petri Välisuo<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning-a-class-anchor-id-ml-a">Machine learning <a class="anchor" id="ML"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-target-of-supervised-machine-learning">The target of supervised machine learning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-validation-and-testing-a-class-anchor-id-traintestvalidate-a">Training, Validation and Testing <a class="anchor" id="TrainTestValidate"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-validation-a-class-anchor-id-crossvalidation-a">Cross Validation <a class="anchor" id="crossvalidation"></a></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distance-metrics-a-class-anchor-id-distance-a">Distance metrics <a class="anchor" id="distance"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scaling">Scaling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#then-scale-it-first">Then scale it first</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#categorial-features">Categorial features?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#one-hot-encoding-a-class-anchor-id-onehotencoding-a">One hot encoding  <a class="anchor" id="OneHotEncoding"></a></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nearest-neighbours-methods-a-class-anchor-id-nearestneighbours-a">Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#brute-force-implementation">Brute force implementation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pipelining">Pipelining</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-of-the-decision-boundaries">Visualization of the decision boundaries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variations">Variations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nearest-centroid-classifier">Nearest Centroid Classifier</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#support-vector-machine-svm-a-class-anchor-id-supportvectormachine-a">Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-boundary">Decision boundary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-svm-a-class-anchor-id-kernelsvm-a">Kernel SVM <a class="anchor" id="kernelsvm"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-classes">Non-linear classes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#illustration-of-rbf">Illustration of RBF</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-rbf-in-circular-data">Testing RBF in circular data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-trees-and-forests-a-class-anchor-id-dtaforests-a">Decision trees and forests <a class="anchor" id="dtaforests"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-tree-a-class-anchor-id-decisiontrees-a">Decision tree <a class="anchor" id="decisiontrees"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimize-the-tree-depth">Optimize the tree depth</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ensemble-methods-a-class-anchor-id-ensemblemethods-a">Ensemble methods <a class="anchor" id="ensemblemethods"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bagging-a-class-anchor-id-bagging-a">Bagging <a class="anchor" id="Bagging"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#randomized-trees-a-class-anchor-id-randomizedtrees-a">Randomized trees   <a class="anchor" id="RandomizedTrees"></a></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#extratrees-classifier-extremely-randomized-trees">Extratrees classifier (Extremely randomized trees)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#optimising-the-parameters-fo-the-extratrees-classifier">Optimising the parameters fo the Extratrees classifier</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boosting-a-class-anchor-id-boosting-a">Boosting <a class="anchor" id="Boosting"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adaboost-a-class-anchor-id-adaboost-a">Adaboost <a class="anchor" id="AdaBoost"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-tree-boosting-a-class-anchor-id-gbrt-a">Gradient Tree Boosting <a class="anchor" id="GBRT"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extreme-gradient-boosting-xgboost-a-class-anchor-id-xgboost-a">Extreme Gradient Boosting (XGBoost) <a class="anchor" id="XGBoost"></a></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
 
-      </div>
-    </div>
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <div class="footer-item">
+    
+<p class="component-author">
+By Petri Välisuo
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

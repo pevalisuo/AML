@@ -1,324 +1,392 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>8. Support Vector Machine (SVM) &#8212; Applied Machine Learning, 2021</title>
-    
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'SupportVectorMachine';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="9. Decision trees and forests" href="DecisionTrees.html" />
     <link rel="prev" title="7. Nearest Neighbours methods" href="NearestNeighbors.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="practicalities.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="_static/ApplesAndOranges.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Applied Machine Learning, 2021</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="practicalities.html">
-   About the course
-  </a>
- </li>
+    
+    
+    <img src="_static/ApplesAndOranges.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/ApplesAndOranges.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="practicalities.html">
+                    About the course
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ReadingAndPlotting.html">2. Reading and plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Preprocessing_and_feature_extraction.html">3. Preprocessing and feature extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Subspace_Projections.html">4. Dimensionality reduction by Subspace projections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Clustering.html">5. Unsupervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SupervisedMachineLearningTerminology.html">6. Supervised machine learning, Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NearestNeighbors.html">7. Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">8. Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="DecisionTrees.html">9. Decision trees and forests <a class="anchor" id="dtaforests"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Regression.html">10. Regression and regularisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NeuralNetworks.html">11. Artificial Neural Networks (ANN)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Learning_model_parameters.html">12. Model learning strategies</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="NLP.html">18. Natural Language Processing</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="NLP-UWB.html">20. Ultra Wide Band positioning literature analysis</a></li>
 </ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Introduction.html">
-   1. Introduction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ReadingAndPlotting.html">
-   2. Reading and plotting
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Preprocessing_and_feature_extraction.html">
-   3. Preprocessing and feature extraction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Subspace_Projections.html">
-   4. Dimensionality reduction by Subspace projections
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Clustering.html">
-   5. Unsupervised learning
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="SupervisedMachineLearningTerminology.html">
-   6. Supervised machine learning, Terminology
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="NearestNeighbors.html">
-   7. Nearest Neighbours methods
-   <a class="anchor" id="nearestneighbours">
-   </a>
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   8. Support Vector Machine (SVM)
-   <a class="anchor" id="supportvectormachine">
-   </a>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="DecisionTrees.html">
-   9. Decision trees and forests
-   <a class="anchor" id="dtaforests">
-   </a>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Regression.html">
-   10. Regression and regularisation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="NeuralNetworks.html">
-   11. Artificial Neural Networks (ANN)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Learning_model_parameters.html">
-   12. Model learning strategies
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="NLP.html">
-   18. Natural Language Processing
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="NLP-UWB.html">
-   20. Ultra Wide Band positioning literature analysis
-  </a>
- </li>
-</ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/SupportVectorMachine.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-            <!-- Source interaction buttons -->
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
+<div class="sbt-scroll-pixel-helper"></div>
 
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/pevalisuo/AML.git/master?urlpath=tree/book/SupportVectorMachine.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        <a class="jupyterhub-button" href="https://notebooks.csc.fi/#/blueprint/d1fe6e08032e4c17a0f9e0e222414598/hub/user-redirect/git-pull?repo=https://github.com/pevalisuo/AML.git&urlpath=tree/AML.git/book/SupportVectorMachine.ipynb&branch=master"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
-                data-placement="left"><img class="jupyterhub-button-logo"
-                    src="_static/images/logo_jupyterhub.svg"
-                    alt="Interact on JupyterHub">JupyterHub</button></a>
-        
-        
-        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
-</div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
 
-        </div>
+<div class="article-header-buttons">
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#decision-boundary">
-   8.1. Decision boundary
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#kernel-svm-a-class-anchor-id-kernelsvm-a">
-   8.2. Kernel SVM
-   <a class="anchor" id="kernelsvm">
-   </a>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#non-linear-svm">
-   8.3. Non-linear SVM
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#illustration-of-rbf">
-     8.3.1. Illustration of RBF
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#testing-rbf-in-circular-data">
-     8.3.2. Testing RBF in circular data
-    </a>
-   </li>
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://notebooks.csc.fi/#/blueprint/d1fe6e08032e4c17a0f9e0e222414598/hub/user-redirect/git-pull?repo=https%3A//github.com/pevalisuo/AML.git&urlpath=tree/AML.git/book/SupportVectorMachine.ipynb&branch=master" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onJupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#summary">
-   8.4. Summary
-  </a>
- </li>
-</ul>
+</div>
 
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/SupportVectorMachine.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-boundary">8.1. Decision boundary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-svm-a-class-anchor-id-kernelsvm-a">8.2. Kernel SVM <a class="anchor" id="kernelsvm"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-svm">8.3. Non-linear SVM</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#illustration-of-rbf">8.3.1. Illustration of RBF</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-rbf-in-circular-data">8.3.2. Testing RBF in circular data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">8.4. Summary</a></li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="support-vector-machine-svm-a-class-anchor-id-supportvectormachine-a">
-<h1><span class="section-number">8. </span>Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a><a class="headerlink" href="#support-vector-machine-svm-a-class-anchor-id-supportvectormachine-a" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">8. </span>Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a><a class="headerlink" href="#support-vector-machine-svm-a-class-anchor-id-supportvectormachine-a" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
 <li><p>SVM is kind of Jack of All Trades for classifiers, because it is quite versatile and powerfull</p></li>
 <li><p>It does not save all training samples like NearestNeigbour method, but only the samples near the border of class boundaries.</p></li>
@@ -328,7 +396,7 @@
 <li><p>Can be extended to nonlinear decision boundaries using kernels</p></li>
 </ul>
 <section id="decision-boundary">
-<h2><span class="section-number">8.1. </span>Decision boundary<a class="headerlink" href="#decision-boundary" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.1. </span>Decision boundary<a class="headerlink" href="#decision-boundary" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>SVM uses samples near the different clusters to define a decision boundary</p></li>
 <li><p>The boundary which maximises the marginal of the boundary will be selected</p></li>
@@ -372,10 +440,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f804a2396a0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f4ed8d6d410&gt;]
 </pre></div>
 </div>
-<img alt="_images/SupportVectorMachine_3_1.png" src="_images/SupportVectorMachine_3_1.png" />
+<img alt="_images/332208bd5d7f795c32218fceca5521476d462d153a5a630e4cb27149390b5ce5.png" src="_images/332208bd5d7f795c32218fceca5521476d462d153a5a630e4cb27149390b5ce5.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -399,7 +467,7 @@ Accurary in the test set......1.000000
 SVC(kernel=&#39;linear&#39;)
 </pre></div>
 </div>
-<img alt="_images/SupportVectorMachine_4_1.png" src="_images/SupportVectorMachine_4_1.png" />
+<img alt="_images/7dcd6f68dc60024be136eb2a60cd515aaac241825b1486c8edc432f6a6a6b19b.png" src="_images/7dcd6f68dc60024be136eb2a60cd515aaac241825b1486c8edc432f6a6a6b19b.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -432,12 +500,12 @@ SVC(kernel=&#39;linear&#39;)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accurary in the training set..0.933333
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accurary in the training set..0.940000
 Accurary in the test set......0.920000
 SVC(kernel=&#39;linear&#39;)
 </pre></div>
 </div>
-<img alt="_images/SupportVectorMachine_6_1.png" src="_images/SupportVectorMachine_6_1.png" />
+<img alt="_images/63ceee0752cb059d4b3705b3be7d46b9eee2fb722b4705035030c4d649899dd9.png" src="_images/63ceee0752cb059d4b3705b3be7d46b9eee2fb722b4705035030c4d649899dd9.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -455,17 +523,23 @@ SVC(kernel=&#39;linear&#39;)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accurary in the trainint set..0.926667
-Accurary in the test set......0.960000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accurary in the trainint set..0.933333
+Accurary in the test set......0.920000
 LinearSVC()
 </pre></div>
 </div>
-<img alt="_images/SupportVectorMachine_7_1.png" src="_images/SupportVectorMachine_7_1.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/mnt/debian/pvs/venv/JupyterAI/lib/python3.11/site-packages/sklearn/svm/_classes.py:32: FutureWarning: The default value of `dual` will change from `True` to `&#39;auto&#39;` in 1.5. Set the value of `dual` explicitly to suppress the warning.
+  warnings.warn(
+/mnt/debian/pvs/venv/JupyterAI/lib/python3.11/site-packages/sklearn/svm/_base.py:1242: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+</pre></div>
+</div>
+<img alt="_images/784e2e11c7bd9a09cd6dbafe7ff9c6a8e5fcc5aff7720e215eb442f254788ab5.png" src="_images/784e2e11c7bd9a09cd6dbafe7ff9c6a8e5fcc5aff7720e215eb442f254788ab5.png" />
 </div>
 </div>
 </section>
 <section id="kernel-svm-a-class-anchor-id-kernelsvm-a">
-<h2><span class="section-number">8.2. </span>Kernel SVM <a class="anchor" id="kernelsvm"></a><a class="headerlink" href="#kernel-svm-a-class-anchor-id-kernelsvm-a" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.2. </span>Kernel SVM <a class="anchor" id="kernelsvm"></a><a class="headerlink" href="#kernel-svm-a-class-anchor-id-kernelsvm-a" title="Permalink to this heading">#</a></h2>
 <p>Linear kernel</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -482,12 +556,12 @@ LinearSVC()
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accurary in the training set..0.920000
-Accurary in the test set......0.960000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accurary in the training set..0.933333
+Accurary in the test set......0.920000
 SVC(C=0.5, gamma=0.1)
 </pre></div>
 </div>
-<img alt="_images/SupportVectorMachine_9_1.png" src="_images/SupportVectorMachine_9_1.png" />
+<img alt="_images/855b51f5b555a9a4556b73bbb70c0ad24b285835cada256f12f5839d3ab811f3.png" src="_images/855b51f5b555a9a4556b73bbb70c0ad24b285835cada256f12f5839d3ab811f3.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -522,7 +596,7 @@ SVC(C=0.5, gamma=0.1)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean CV score is 0.89, all scores= [0.93333333 0.86666667 0.93333333 0.86666667 0.86666667]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean CV score is 0.92, all scores= [0.86666667 0.96666667 0.9        0.96666667 0.9       ]
 </pre></div>
 </div>
 </div>
@@ -543,16 +617,16 @@ SVC(C=0.5, gamma=0.1)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best gamma value is 0.010000
-Accurary in the test set......0.960000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best gamma value is 0.014592
+Accurary in the test set......0.920000
 </pre></div>
 </div>
-<img alt="_images/SupportVectorMachine_11_1.png" src="_images/SupportVectorMachine_11_1.png" />
+<img alt="_images/eb503d885ca70e22fc7aae115e498dc019aa895c5a208ad44b801f54dc20ae33.png" src="_images/eb503d885ca70e22fc7aae115e498dc019aa895c5a208ad44b801f54dc20ae33.png" />
 </div>
 </div>
 </section>
 <section id="non-linear-svm">
-<h2><span class="section-number">8.3. </span>Non-linear SVM<a class="headerlink" href="#non-linear-svm" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.3. </span>Non-linear SVM<a class="headerlink" href="#non-linear-svm" title="Permalink to this heading">#</a></h2>
 <ul>
 <li><p>If the data described by <span class="math notranslate nohighlight">\(p_i=[x_i, y_i]^T\)</span> is not linearly separable, it can be made linearly separable by adding a new term, for example <span class="math notranslate nohighlight">\(z_i=x_i^2 + y_i^2\)</span></p></li>
 <li><p>In this case, third dimension is introduced, and the linear classifier can work in the new three dimensional space <span class="math notranslate nohighlight">\( p_i'=[x_i, y_i, z_i]^T \)</span></p></li>
@@ -570,7 +644,7 @@ Accurary in the test set......0.960000
 </li>
 </ul>
 <section id="illustration-of-rbf">
-<h3><span class="section-number">8.3.1. </span>Illustration of RBF<a class="headerlink" href="#illustration-of-rbf" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">8.3.1. </span>Illustration of RBF<a class="headerlink" href="#illustration-of-rbf" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>The following code plots the RBF when <span class="math notranslate nohighlight">\(p_i\)</span> is in origo and <span class="math notranslate nohighlight">\(p_j\)</span> moves along x-axis.</p></li>
 <li><p>In real case the RBF is N-dimensional, centered around a sample <span class="math notranslate nohighlight">\(p_i\)</span></p></li>
@@ -592,7 +666,7 @@ Accurary in the test set......0.960000
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;$k([0,0,0]^T, [x,0,0]^T)$&#39;)
 </pre></div>
 </div>
-<img alt="_images/SupportVectorMachine_13_1.png" src="_images/SupportVectorMachine_13_1.png" />
+<img alt="_images/936dca3b9255c30cf5253351a45d49fbe6d93cb8b4bc7bbb3bf8c544bf13c650.png" src="_images/936dca3b9255c30cf5253351a45d49fbe6d93cb8b4bc7bbb3bf8c544bf13c650.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -609,10 +683,10 @@ Accurary in the test set......0.960000
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f807ca7b910&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f4ed4964550&gt;
 </pre></div>
 </div>
-<img alt="_images/SupportVectorMachine_14_1.png" src="_images/SupportVectorMachine_14_1.png" />
+<img alt="_images/a9c29f1e0a0aa3a55095f5732ffc29641b1ded2fe18c501e2ea181ccfc1ebef0.png" src="_images/a9c29f1e0a0aa3a55095f5732ffc29641b1ded2fe18c501e2ea181ccfc1ebef0.png" />
 </div>
 </div>
 <p><strong>Solution:</strong> Use the 8th value as a support vector, and use RBF kernel to increase one more dimesion</p>
@@ -637,16 +711,16 @@ Accurary in the test set......0.960000
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7f80430404c0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7f4ed491fcd0&gt;
 </pre></div>
 </div>
-<img alt="_images/SupportVectorMachine_16_1.png" src="_images/SupportVectorMachine_16_1.png" />
+<img alt="_images/401e77641769635646cec51a1a281c1fdf2a23b336588f089da4f6c57cff73ab.png" src="_images/401e77641769635646cec51a1a281c1fdf2a23b336588f089da4f6c57cff73ab.png" />
 </div>
 </div>
 <p>Now the classes are separable, but what is the optimal Gamma value?</p>
 </section>
 <section id="testing-rbf-in-circular-data">
-<h3><span class="section-number">8.3.2. </span>Testing RBF in circular data<a class="headerlink" href="#testing-rbf-in-circular-data" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">8.3.2. </span>Testing RBF in circular data<a class="headerlink" href="#testing-rbf-in-circular-data" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Xc</span><span class="p">,</span><span class="n">yc</span><span class="o">=</span><span class="n">datasets</span><span class="o">.</span><span class="n">make_circles</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
@@ -669,7 +743,7 @@ Accurary in the test set......1.000000
 SVC()
 </pre></div>
 </div>
-<img alt="_images/SupportVectorMachine_19_1.png" src="_images/SupportVectorMachine_19_1.png" />
+<img alt="_images/5d8f07dd2c523c72c4b81a80ea6a6f22ef7ed600d054ceb8806cb79024d7cd0e.png" src="_images/5d8f07dd2c523c72c4b81a80ea6a6f22ef7ed600d054ceb8806cb79024d7cd0e.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -691,14 +765,14 @@ Accurary in the test set......1.000000
 SVC(gamma=0.5)
 </pre></div>
 </div>
-<img alt="_images/SupportVectorMachine_20_1.png" src="_images/SupportVectorMachine_20_1.png" />
+<img alt="_images/0868b8c4c5b7c6c2ace18835d1b55bc5da2f8f02b8b43d55a3cac7d7be47355b.png" src="_images/0868b8c4c5b7c6c2ace18835d1b55bc5da2f8f02b8b43d55a3cac7d7be47355b.png" />
 </div>
 </div>
 <p>Read more from <a class="reference external" href="https://www.analyticsvidhya.com/blog/2017/09/understaing-support-vector-machine-example-code/">Understanding SVM</a></p>
 </section>
 </section>
 <section id="summary">
-<h2><span class="section-number">8.4. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.4. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>SVM is good for high dimensional cases</p></li>
 <li><p>LinearSVC can include a regularization term L2, or L1</p></li>
@@ -725,7 +799,7 @@ SVC(gamma=0.5)
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -733,55 +807,108 @@ SVC(gamma=0.5)
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        
-            
 
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="NearestNeighbors.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">7. </span>Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a></p>
-            </div>
-        </a>
-    </div>
-     <div id="next">
-        <a class="right-next" href="DecisionTrees.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">9. </span>Decision trees and forests <a class="anchor" id="dtaforests"></a></p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
-</div>
-        
-        </div>
-    </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Petri Välisuo<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="NearestNeighbors.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a></p>
       </div>
-    </div>
-  
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+    </a>
+    <a class="right-next"
+       href="DecisionTrees.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Decision trees and forests <a class="anchor" id="dtaforests"></a></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-boundary">8.1. Decision boundary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-svm-a-class-anchor-id-kernelsvm-a">8.2. Kernel SVM <a class="anchor" id="kernelsvm"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-svm">8.3. Non-linear SVM</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#illustration-of-rbf">8.3.1. Illustration of RBF</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-rbf-in-circular-data">8.3.2. Testing RBF in circular data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">8.4. Summary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Petri Välisuo
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

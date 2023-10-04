@@ -4,12 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Regression &#8212; Applied Machine Learning, 2021</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -23,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -32,35 +31,30 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
+    <meta name="docsearch:language" content="en" />
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -77,10 +71,6 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
-        
-      
-      
       <img src="_static/ApplesAndOranges.png" class="logo" alt="logo">
       
       
@@ -90,7 +80,7 @@
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
@@ -102,78 +92,78 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Introduction.html">
-   1. Introduction
+   1. About the course
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="ReadingAndPlotting.html">
-   2. Reading and plotting
+   8. Reading and plotting
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Preprocessing_and_feature_extraction.html">
-   3. Preprocessing and feature extraction
+   9. Preprocessing and feature extraction
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Subspace_Projections.html">
-   4. Dimensionality reduction by Subspace projections
+   10. Dimensionality reduction by Subspace projections
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Clustering.html">
-   5. Unsupervised learning
+   11. Unsupervised learning
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="SupervisedMachineLearningTerminology.html">
-   6. Supervised machine learning, Terminology
+   12. Supervised machine learning, Terminology
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="NearestNeighbors.html">
-   7. Nearest Neighbours methods
+   13. Nearest Neighbours methods
    <a class="anchor" id="nearestneighbours">
    </a>
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="SupportVectorMachine.html">
-   8. Support Vector Machine (SVM)
+   14. Support Vector Machine (SVM)
    <a class="anchor" id="supportvectormachine">
    </a>
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="DecisionTrees.html">
-   9. Decision trees and forests
+   15. Decision trees and forests
    <a class="anchor" id="dtaforests">
    </a>
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Regression.html">
-   10. Regression and regularisation
+   16. Regression and regularisation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="NeuralNetworks.html">
-   11. Artificial Neural Networks (ANN)
+   17. Artificial Neural Networks (ANN)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Learning_model_parameters.html">
-   12. Model learning strategies
+   18. Model learning strategies
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="NLP.html">
-   18. Natural Language Processing
+   24. Natural Language Processing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="NLP-UWB.html">
-   20. Ultra Wide Band positioning literature analysis
+   26. Ultra Wide Band positioning literature analysis
   </a>
  </li>
 </ul>
@@ -268,7 +258,7 @@
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#regularization">
@@ -328,7 +318,7 @@
         
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="regression">
+  <div class="section" id="regression">
 <h1>Regression<a class="headerlink" href="#regression" title="Permalink to this headline">¶</a></h1>
 <p>Simple models are better models
 <img alt="William_of_Ockham_-_Logica_1341.jpg" src="_images/William_of_Ockham_-_Logica_1341_s.jpg" /></p>
@@ -337,7 +327,7 @@
 <div><p>“Simpler solutions are more likely to be correct than complex ones”</p>
 <p>William of Ockham</p>
 </div></blockquote>
-<section id="regularization">
+<div class="section" id="regularization">
 <h2>Regularization<a class="headerlink" href="#regularization" title="Permalink to this headline">¶</a></h2>
 <p>Can you solve the following system of equations?
 $<span class="math notranslate nohighlight">\(
@@ -374,10 +364,10 @@ $<span class="math notranslate nohighlight">\(
 \[\begin{split}
 \begin{cases} x = 1\\ y=1 \\ z=1\end{cases}
 \end{split}\]</div>
-<div class="laatikko">Regularization is a method in adding information (requirement) to solve a system or to avoid overfitting by reducing degrees of freedom.</div></section>
-<section id="linear-regression">
+<div class="laatikko">Regularization is a method in adding information (requirement) to solve a system or to avoid overfitting by reducing degrees of freedom.</div></div>
+<div class="section" id="linear-regression">
 <h2>Linear regression<a class="headerlink" href="#linear-regression" title="Permalink to this headline">¶</a></h2>
-<section id="ordinary-least-mean-squares-using-p-features">
+<div class="section" id="ordinary-least-mean-squares-using-p-features">
 <h3>Ordinary Least Mean Squares using p-features<a class="headerlink" href="#ordinary-least-mean-squares-using-p-features" title="Permalink to this headline">¶</a></h3>
 <div class="math notranslate nohighlight">
 \[
@@ -391,8 +381,8 @@ $<span class="math notranslate nohighlight">\(
 <li><p>Classic regression, usually the first choice</p></li>
 <li><p>Does not work well when <strong>p is large</strong> and there is <strong>noise</strong> in the training data</p></li>
 </ul>
-</section>
-<section id="l2-regularization-ridge-regression">
+</div>
+<div class="section" id="l2-regularization-ridge-regression">
 <h3>L2 regularization, Ridge regression<a class="headerlink" href="#l2-regularization-ridge-regression" title="Permalink to this headline">¶</a></h3>
 <div class="math notranslate nohighlight">
 \[
@@ -412,8 +402,8 @@ $<span class="math notranslate nohighlight">\(
 <hr class="docutils" />
 <div class=citation>
 Hoerl, Arthur E., ja Robert W. Kennard. ”Ridge Regression: Biased Estimation for Nonorthogonal Problems”. Technometrics 12, nro 1 (1. Feb 1970): 55–67. https://doi.org/10.1080/00401706.1970.10488634.
-</div></section>
-<section id="l1-regularization-lasso">
+</div></div>
+<div class="section" id="l1-regularization-lasso">
 <h3>L1 regularization, LASSO<a class="headerlink" href="#l1-regularization-lasso" title="Permalink to this headline">¶</a></h3>
 <div class="math notranslate nohighlight">
 \[
@@ -432,8 +422,8 @@ $<span class="math notranslate nohighlight">\(
 \)</span>$</p>
 <hr class="docutils" />
 <div class="citation">Tibshirani, Robert. ”Regression Shrinkage and Selection Via the Lasso”. Journal of the Royal Statistical Society: Series B (Methodological) 58, nro 1 (1996): 267–88. https://doi.org/10.1111/j.2517-6161.1996.tb02080.x.
-</div></section>
-<section id="elastic-nets">
+</div></div>
+<div class="section" id="elastic-nets">
 <h3>Elastic nets<a class="headerlink" href="#elastic-nets" title="Permalink to this headline">¶</a></h3>
 <div class="math notranslate nohighlight">
 \[
@@ -452,8 +442,8 @@ $<span class="math notranslate nohighlight">\(
 \)</span>$</p>
 <hr class="docutils" />
 <div class="citation">Zou, Hui, ja Trevor Hastie. ”Regularization and variable selection via the elastic net”. Journal of the Royal Statistical Society: Series B (Statistical Methodology) 67, nro 2 (1. April 2005): 301–20. https://doi.org/10.1111/j.1467-9868.2005.00503.x.</div>
-</section>
-<section id="gradient-tree-boosting">
+</div>
+<div class="section" id="gradient-tree-boosting">
 <h3>Gradient Tree Boosting<a class="headerlink" href="#gradient-tree-boosting" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Also called as Gradient Boosted Regression Trees (GBRT)</p></li>
@@ -461,9 +451,9 @@ $<span class="math notranslate nohighlight">\(
 </ul>
 <div class="math notranslate nohighlight">
 \[Obj(\Theta) = \underbrace{L(\Theta)}_{Training Loss} + \underbrace{\Omega(\Theta)}_{Regularization}\]</div>
-</section>
-</section>
-<section id="boston-house-prizes-example">
+</div>
+</div>
+<div class="section" id="boston-house-prizes-example">
 <h2>Boston house prizes example<a class="headerlink" href="#boston-house-prizes-example" title="Permalink to this headline">¶</a></h2>
 <p>Can the house prizes be predicted? Which parameters affect most to the house prizes?</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    - CRIM     per capita crime rate by town
@@ -495,46 +485,6 @@ $<span class="math notranslate nohighlight">\(
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/petri/venv/python3/lib/python3.9/site-packages/sklearn/utils/deprecation.py:87: FutureWarning: Function load_boston is deprecated; `load_boston` is deprecated in 1.0 and will be removed in 1.2.
-
-    The Boston housing prices dataset has an ethical problem. You can refer to
-    the documentation of this function for further details.
-
-    The scikit-learn maintainers therefore strongly discourage the use of this
-    dataset unless the purpose of the code is to study and educate about
-    ethical issues in data science and machine learning.
-
-    In this special case, you can fetch the dataset from the original
-    source::
-
-        import pandas as pd
-        import numpy as np
-
-
-        data_url = &quot;http://lib.stat.cmu.edu/datasets/boston&quot;
-        raw_df = pd.read_csv(data_url, sep=&quot;\s+&quot;, skiprows=22, header=None)
-        data = np.hstack([raw_df.values[::2, :], raw_df.values[1::2, :2]])
-        target = raw_df.values[1::2, 2]
-
-    Alternative datasets include the California housing dataset (i.e.
-    :func:`~sklearn.datasets.fetch_california_housing`) and the Ames housing
-    dataset. You can load the datasets as follows::
-
-        from sklearn.datasets import fetch_california_housing
-        housing = fetch_california_housing()
-
-    for the California housing dataset and::
-
-        from sklearn.datasets import fetch_openml
-        housing = fetch_openml(name=&quot;house_prices&quot;, as_frame=True)
-
-    for the Ames housing dataset.
-    
-  warnings.warn(msg, category=FutureWarning)
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -559,7 +509,7 @@ $<span class="math notranslate nohighlight">\(
   warnings.warn(
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CV score.......... 0.35327592439588484
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CV score.......... 0.35327592439586986
 Training score.... 0.7406426641094095
 </pre></div>
 </div>
@@ -585,12 +535,12 @@ Training score.... 0.7406426641094095
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CV score.......... 0.38921758241024024
-Training score.... 0.7388703133867616
-</pre></div>
-</div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/petri/venv/python3/lib/python3.9/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
   warnings.warn(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CV score.......... 0.3892175824102397
+Training score.... 0.7388703133867616
 </pre></div>
 </div>
 <img alt="_images/regression_13_2.png" src="_images/regression_13_2.png" />
@@ -615,12 +565,12 @@ Training score.... 0.7388703133867616
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CV score.......... 0.431848787926522
-Training score.... 0.6825842212709925
-</pre></div>
-</div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/petri/venv/python3/lib/python3.9/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
   warnings.warn(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CV score.......... 0.431848787926522
+Training score.... 0.6825842212709925
 </pre></div>
 </div>
 <img alt="_images/regression_14_2.png" src="_images/regression_14_2.png" />
@@ -645,12 +595,12 @@ Training score.... 0.6825842212709925
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CV score.......... 0.47265251919410584
-Training score.... 0.6861018474345026
-</pre></div>
-</div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/petri/venv/python3/lib/python3.9/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
   warnings.warn(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CV score.......... 0.472652519194106
+Training score.... 0.6861018474345025
 </pre></div>
 </div>
 <img alt="_images/regression_15_2.png" src="_images/regression_15_2.png" />
@@ -697,19 +647,19 @@ Selected variables are [&#39;RM&#39; &#39;DIS&#39; &#39;PTRATIO&#39; &#39;LSTAT&
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CV score.......... 0.3820025441846835
-Training score.... 0.6820275797709414
-</pre></div>
-</div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/petri/venv/python3/lib/python3.9/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
   warnings.warn(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CV score.......... 0.3820025441846835
+Training score.... 0.6820275797709414
 </pre></div>
 </div>
 <img alt="_images/regression_17_2.png" src="_images/regression_17_2.png" />
 </div>
 </div>
-</section>
-<section id="gradient-tree-regression">
+</div>
+<div class="section" id="gradient-tree-regression">
 <h2>Gradient tree regression<a class="headerlink" href="#gradient-tree-regression" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -734,12 +684,12 @@ Training score.... 0.6820275797709414
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CV score.......... 0.6938527125553685
-Training score.... 0.9676785815878308
-</pre></div>
-</div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/petri/venv/python3/lib/python3.9/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
   warnings.warn(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CV score.......... 0.6847013586760607
+Training score.... 0.9679077156042202
 </pre></div>
 </div>
 <img alt="_images/regression_19_2.png" src="_images/regression_19_2.png" />
@@ -761,22 +711,24 @@ Training score.... 0.9676785815878308
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0     CRIM= 0.04
- 1       ZN= 0.02
- 2    INDUS= 0.10
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0     CRIM= 0.05
+ 1       ZN= 0.00
+ 2    INDUS= 0.08
  3     CHAS= 0.01
- 4      NOX= 0.04
- 5       RM= 0.26
- 6      AGE= 0.02
- 7      DIS= 0.05
- 8      RAD= 0.00
- 9      TAX= 0.02
-10  PTRATIO= 0.04
-11        B= 0.01
-12    LSTAT= 0.39
+ 4      NOX= 0.05
+ 5       RM= 0.28
+ 6      AGE= 0.03
 </pre></div>
 </div>
-<img alt="_images/regression_20_1.png" src="_images/regression_20_1.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 7      DIS= 0.07
+ 8      RAD= 0.00
+ 9      TAX= 0.03
+10  PTRATIO= 0.10
+11        B= 0.01
+12    LSTAT= 0.29
+</pre></div>
+</div>
+<img alt="_images/regression_20_2.png" src="_images/regression_20_2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -804,16 +756,16 @@ Training score.... 0.9676785815878308
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[12  5  2]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[12  5 10]
 (506, 3)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CV score.......... 0.5647206053150498
-Training score.... 0.9304873266368128
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/petri/venv/python3/lib/python3.9/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
   warnings.warn(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CV score.......... 0.5980959331736346
+Training score.... 0.9278484513308207
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GradientBoostingRegressor()
@@ -822,8 +774,8 @@ Training score.... 0.9304873266368128
 <img alt="_images/regression_21_4.png" src="_images/regression_21_4.png" />
 </div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -848,18 +800,14 @@ Training score.... 0.9304873266368128
               </div>
               
         
+        <div class='prev-next-bottom'>
             
 
-
-
-<div class='prev-next-bottom'>
-    
-
-</div>
+        </div>
         
         </div>
     </div>
-    <footer class="footer">
+    <footer class="footer mt-5 mt-md-0">
     <div class="container">
       <p>
         
@@ -875,7 +823,8 @@ Training score.... 0.9304873266368128
       </div>
     </div>
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
+  
   </body>
 </html>

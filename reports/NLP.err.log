@@ -1,0 +1,53 @@
+Traceback (most recent call last):
+  File "/mnt/debian/pvs/venv/JupyterAI/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/mnt/debian/pvs/venv/JupyterAI/lib/python3.11/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/debian/pvs/venv/JupyterAI/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 166, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/base_events.py", line 653, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/mnt/debian/pvs/venv/JupyterAI/lib/python3.11/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/mnt/debian/pvs/venv/JupyterAI/lib/python3.11/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/mnt/debian/pvs/venv/JupyterAI/lib/python3.11/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# Standard libraries to be used
+import matplotlib.pyplot as plt
+import numpy as np
+plt.style.use('fivethirtyeight')
+
+# Library for making web requests and parsing text from web page
+# These are needed now only, because we want to get text from the 
+# web page
+import requests 
+from bs4 import BeautifulSoup
+
+# A regular experssion library. This is very usefull for text processing
+import re
+
+# Import the NLTK library
+import nltk
+
+# Run this, if you want to download more modules from the net
+# nltk.download()
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+Cell [0;32mIn[2], line 16[0m
+[1;32m     13[0m [38;5;28;01mimport[39;00m [38;5;21;01mre[39;00m
+[1;32m     15[0m [38;5;66;03m# Import the NLTK library[39;00m
+[0;32m---> 16[0m [38;5;28;01mimport[39;00m [38;5;21;01mnltk[39;00m
+[1;32m     18[0m [38;5;66;03m# Run this, if you want to download more modules from the net[39;00m
+[1;32m     19[0m [38;5;66;03m# nltk.download()[39;00m
+
+[0;31mModuleNotFoundError[0m: No module named 'nltk'
+

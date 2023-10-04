@@ -1,337 +1,395 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Reading and plotting &#8212; Applied Machine Learning, 2021</title>
-    
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reading_and_plotting';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="practicalities.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="_static/ApplesAndOranges.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Applied Machine Learning, 2021</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="_static/ApplesAndOranges.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/ApplesAndOranges.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="practicalities.html">
+                    About the course
+                </a>
+            </li>
+        </ul>
         <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="practicalities.html">
-   About the course
-  </a>
- </li>
-</ul>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Introduction.html">
-   1. Introduction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ReadingAndPlotting.html">
-   2. Reading and plotting
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Preprocessing_and_feature_extraction.html">
-   3. Preprocessing and feature extraction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Subspace_Projections.html">
-   4. Dimensionality reduction by Subspace projections
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Clustering.html">
-   5. Unsupervised learning
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="SupervisedMachineLearningTerminology.html">
-   6. Supervised machine learning, Terminology
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="NearestNeighbors.html">
-   7. Nearest Neighbours methods
-   <a class="anchor" id="nearestneighbours">
-   </a>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="SupportVectorMachine.html">
-   8. Support Vector Machine (SVM)
-   <a class="anchor" id="supportvectormachine">
-   </a>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="DecisionTrees.html">
-   9. Decision trees and forests
-   <a class="anchor" id="dtaforests">
-   </a>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Regression.html">
-   10. Regression and regularisation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="NeuralNetworks.html">
-   11. Artificial Neural Networks (ANN)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Learning_model_parameters.html">
-   12. Model learning strategies
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="NLP.html">
-   18. Natural Language Processing
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="NLP-UWB.html">
-   20. Ultra Wide Band positioning literature analysis
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ReadingAndPlotting.html">2. Reading and plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Preprocessing_and_feature_extraction.html">3. Preprocessing and feature extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Subspace_Projections.html">4. Dimensionality reduction by Subspace projections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Clustering.html">5. Unsupervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SupervisedMachineLearningTerminology.html">6. Supervised machine learning, Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NearestNeighbors.html">7. Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="SupportVectorMachine.html">8. Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="DecisionTrees.html">9. Decision trees and forests <a class="anchor" id="dtaforests"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Regression.html">10. Regression and regularisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NeuralNetworks.html">11. Artificial Neural Networks (ANN)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Learning_model_parameters.html">12. Model learning strategies</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="NLP.html">18. Natural Language Processing</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="NLP-UWB.html">20. Ultra Wide Band positioning literature analysis</a></li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/reading_and_plotting.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-            <!-- Source interaction buttons -->
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
+<div class="sbt-scroll-pixel-helper"></div>
 
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/pevalisuo/AML.git/master?urlpath=tree/book/reading_and_plotting.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        <a class="jupyterhub-button" href="https://notebooks.csc.fi/#/blueprint/d1fe6e08032e4c17a0f9e0e222414598/hub/user-redirect/git-pull?repo=https://github.com/pevalisuo/AML.git&urlpath=tree/AML.git/book/reading_and_plotting.ipynb&branch=master"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
-                data-placement="left"><img class="jupyterhub-button-logo"
-                    src="_static/images/logo_jupyterhub.svg"
-                    alt="Interact on JupyterHub">JupyterHub</button></a>
-        
-        
-        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://notebooks.csc.fi/#/blueprint/d1fe6e08032e4c17a0f9e0e222414598/hub/user-redirect/git-pull?repo=https%3A//github.com/pevalisuo/AML.git&urlpath=tree/AML.git/book/reading_and_plotting.ipynb&branch=master" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onJupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+  </ul>
 </div>
 
-        </div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/reading_and_plotting.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Reading and plotting</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#reading-different-data-formats">
-   Reading different data formats
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#asphalt-heat-data">
-   Asphalt heat data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pandas">
-   Pandas
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#missing-data">
-   Missing data
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#other-methods-for-handling-missing-data">
-     Other methods for handling missing data
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#summary">
-   Summary
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#slicing-pandas-data-frame">
-   Slicing pandas data frame
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#plotting">
-     Plotting
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#more-challenging-dataset">
-   More challenging dataset
-  </a>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-different-data-formats">Reading different data formats</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#asphalt-heat-data">Asphalt heat data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-data">Missing data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-methods-for-handling-missing-data">Other methods for handling missing data</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing-pandas-data-frame">Slicing pandas data frame</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting">Plotting</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-challenging-dataset">More challenging dataset</a></li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="reading-and-plotting">
-<h1>Reading and plotting<a class="headerlink" href="#reading-and-plotting" title="Permalink to this headline">¶</a></h1>
+<h1>Reading and plotting<a class="headerlink" href="#reading-and-plotting" title="Permalink to this heading">#</a></h1>
 <section id="reading-different-data-formats">
-<h2>Reading different data formats<a class="headerlink" href="#reading-different-data-formats" title="Permalink to this headline">¶</a></h2>
+<h2>Reading different data formats<a class="headerlink" href="#reading-different-data-formats" title="Permalink to this heading">#</a></h2>
 <p>Data comes in many differents forms. Few common data formats are:</p>
 <ul class="simple">
 <li><p>Tabular data. Often fields separated by tabs or variable number of spaces</p></li>
@@ -344,12 +402,12 @@
 </ul>
 </section>
 <section id="asphalt-heat-data">
-<h2>Asphalt heat data<a class="headerlink" href="#asphalt-heat-data" title="Permalink to this headline">¶</a></h2>
+<h2>Asphalt heat data<a class="headerlink" href="#asphalt-heat-data" title="Permalink to this heading">#</a></h2>
 <p>The data is clearly in CSV-file with three columns, where field separator is semicolon. The first column is a timestamp in ISO format. Other columns are numerical and they use decimal points. The first row is a colun header.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Timestamp;</span> <span class="pre">Irradiance;</span> <span class="pre">Heatflux</span> <span class="pre">2014-10-01</span> <span class="pre">03:00:20;</span>&#160;&#160; <span class="pre">0.2;</span> <span class="pre">-83.1</span> <span class="pre">2014-10-01</span> <span class="pre">03:15:20;</span>&#160;&#160; <span class="pre">0.2;</span> <span class="pre">-82.8</span> <span class="pre">2014-10-01</span> <span class="pre">03:30:20;</span>&#160;&#160; <span class="pre">0.1;</span> <span class="pre">-82.5</span> <span class="pre">2014-10-01</span> <span class="pre">03:45:20;</span>&#160;&#160; <span class="pre">0.1;</span> <span class="pre">-82.3</span> <span class="pre">2014-10-01</span> <span class="pre">04:00:20;</span>&#160;&#160; <span class="pre">0.1;</span> <span class="pre">2014-10-01</span> <span class="pre">04:15:20;</span>&#160;&#160; <span class="pre">0.1;</span> <span class="pre">-82.2</span> <span class="pre">......</span></code></p>
 </section>
 <section id="pandas">
-<h2>Pandas<a class="headerlink" href="#pandas" title="Permalink to this headline">¶</a></h2>
+<h2>Pandas<a class="headerlink" href="#pandas" title="Permalink to this heading">#</a></h2>
 <p>Parsing simple CSV data files is easy with many methods, but it is easiest, if you use <a class="reference external" href="https://pandas.pydata.org/">Pandas</a> statistics package. And because Pandas provides so many other features as well, let’s take a closer look on that. Read <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/10min.html">10 minutes to Pandas</a> at this stage.</p>
 <p>It is really convenient to let Pandas parse the timestamps by defining the columns whics are being parsed with <code class="docutils literal notranslate"><span class="pre">parse_dates</span></code> argument. You can just list the columns which contain timestamp values.</p>
 <p>This data is clearly time series data, so it is best to be indexed with a timestamp. In this way you can very easily select data based on the timestamp and if you plot the data, you get time axis automatically in the x-axis. This can be achieved by defining the column which is used as an index with <code class="docutils literal notranslate"><span class="pre">index_col</span></code> parameter.</p>
@@ -435,7 +493,7 @@
 </div>
 </section>
 <section id="missing-data">
-<h2>Missing data<a class="headerlink" href="#missing-data" title="Permalink to this headline">¶</a></h2>
+<h2>Missing data<a class="headerlink" href="#missing-data" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>In the original CSV-file, Heatflux data corresponding timestamp <code class="docutils literal notranslate"><span class="pre">2014-10-01</span> <span class="pre">04:00:20</span></code> is missing</p></li>
 <li><p>It is represented by ‘NaN’ in ther parsed dataframe, which is which is a floating point representation of <code class="docutils literal notranslate"><span class="pre">Not</span> <span class="pre">a</span> <span class="pre">Number</span></code> value.</p></li>
@@ -742,9 +800,9 @@ dtype: float64
 </div></div></div>
 </div>
 <section id="other-methods-for-handling-missing-data">
-<h3>Other methods for handling missing data<a class="headerlink" href="#other-methods-for-handling-missing-data" title="Permalink to this headline">¶</a></h3>
+<h3>Other methods for handling missing data<a class="headerlink" href="#other-methods-for-handling-missing-data" title="Permalink to this heading">#</a></h3>
 <p>The default handling of missing data is to skip them. The dataframe can be also be preprocessed to handle the missing data in following ways:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Drop all rows which has missing data. Can cause bias and loss of valuable data in other columns.</p></li>
 <li><p>Drop all columns which has missing data. Causes loss of data.</p></li>
 <li><p>Fill missing data with other values, <a class="reference external" href="https://en.wikipedia.org/wiki/Imputation_%28statistics%29">imputation</a>, such as:</p></li>
@@ -860,7 +918,7 @@ dtype: float64
 </section>
 </section>
 <section id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
 <p>There is ofthe missing values in the data. They can be handled with many methods, but all of them have consequences.</p>
 <ul class="simple">
 <li><p>Always study hwo much missing values there is in the data</p></li>
@@ -870,7 +928,7 @@ dtype: float64
 </ul>
 </section>
 <section id="slicing-pandas-data-frame">
-<h2>Slicing pandas data frame<a class="headerlink" href="#slicing-pandas-data-frame" title="Permalink to this headline">¶</a></h2>
+<h2>Slicing pandas data frame<a class="headerlink" href="#slicing-pandas-data-frame" title="Permalink to this heading">#</a></h2>
 <p>Pandas dataframes support really versatile methods for indexing in columnvise and rowvise directions</p>
 <ul class="simple">
 <li><p>Dataframes can be indexed using column names either using dot-notation or column name in square brackets. Using column names is usefull if your data structure later changes. It makes also the code as easier to understand.</p></li>
@@ -908,61 +966,50 @@ Name: Irradiance, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_329963/650362887.py:1: FutureWarning: Indexing a DataFrame with a datetimelike index using a single string to slice the rows, like `frame[string]`, is deprecated and will be removed in a future version. Use `frame.loc[string]` instead.
-  D[&#39;2014-10-15 00&#39;]
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="nn">File /mnt/debian/pvs/venv/JupyterAI/lib/python3.11/site-packages/pandas/core/indexes/base.py:3653,</span> in <span class="ni">Index.get_loc</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3652</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3653</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3654</span> <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+
+<span class="nn">File /mnt/debian/pvs/venv/JupyterAI/lib/python3.11/site-packages/pandas/_libs/index.pyx:147,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+
+<span class="nn">File /mnt/debian/pvs/venv/JupyterAI/lib/python3.11/site-packages/pandas/_libs/index.pyx:176,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+
+<span class="nn">File pandas/_libs/hashtable_class_helper.pxi:7080,</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
+
+<span class="nn">File pandas/_libs/hashtable_class_helper.pxi:7088,</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
+
+<span class="ne">KeyError</span>: &#39;2014-10-15 00&#39;
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;2014-10-15 00&#39;</span><span class="p">]</span>
+
+<span class="nn">File /mnt/debian/pvs/venv/JupyterAI/lib/python3.11/site-packages/pandas/core/frame.py:3761,</span> in <span class="ni">DataFrame.__getitem__</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3759</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">nlevels</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3760</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_multilevel</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">3761</span> <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3762</span> <span class="k">if</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">indexer</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">3763</span>     <span class="n">indexer</span> <span class="o">=</span> <span class="p">[</span><span class="n">indexer</span><span class="p">]</span>
+
+<span class="nn">File /mnt/debian/pvs/venv/JupyterAI/lib/python3.11/site-packages/pandas/core/indexes/base.py:3655,</span> in <span class="ni">Index.get_loc</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3653</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3654</span> <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3655</span>     <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
+<span class="g g-Whitespace">   </span><span class="mi">3656</span> <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3657</span>     <span class="c1"># If we have a listlike key, _check_indexing_error will raise</span>
+<span class="g g-Whitespace">   </span><span class="mi">3658</span>     <span class="c1">#  InvalidIndexError. Otherwise we fall through and re-raise</span>
+<span class="g g-Whitespace">   </span><span class="mi">3659</span>     <span class="c1">#  the TypeError.</span>
+<span class="g g-Whitespace">   </span><span class="mi">3660</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_check_indexing_error</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+<span class="ne">KeyError</span>: &#39;2014-10-15 00&#39;
 </pre></div>
 </div>
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Irradiance</th>
-      <th>Heatflux</th>
-    </tr>
-    <tr>
-      <th>Timestamp</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2014-10-15 00:00:20</th>
-      <td>0.3</td>
-      <td>-0.1</td>
-    </tr>
-    <tr>
-      <th>2014-10-15 00:15:20</th>
-      <td>0.3</td>
-      <td>-0.1</td>
-    </tr>
-    <tr>
-      <th>2014-10-15 00:30:20</th>
-      <td>0.3</td>
-      <td>-0.1</td>
-    </tr>
-    <tr>
-      <th>2014-10-15 00:45:20</th>
-      <td>0.3</td>
-      <td>-0.1</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
+</div>
 </div>
 <p>Dataframes support also MATLAB or R like location based indexing:</p>
 <div class="cell docutils container">
@@ -983,7 +1030,7 @@ Name: Heatflux, dtype: float64
 </div>
 <p>Read more from the tutorialspoint article <a class="reference external" href="https://www.tutorialspoint.com/python_pandas/python_pandas_indexing_and_selecting_data.htm">Python Pandas - Indexing and Selecting Data</a>.</p>
 <section id="plotting">
-<h3>Plotting<a class="headerlink" href="#plotting" title="Permalink to this headline">¶</a></h3>
+<h3>Plotting<a class="headerlink" href="#plotting" title="Permalink to this heading">#</a></h3>
 <p>The data in the dataframe can be plotted almost automatically.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -994,14 +1041,10 @@ Name: Heatflux, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_329963/765122387.py:1: FutureWarning: Indexing a DataFrame with a datetimelike index using a single string to slice the rows, like `frame[string]`, is deprecated and will be removed in a future version. Use `frame.loc[string]` instead.
-  ax=(D[&#39;2014-10-01&#39;]).plot()
-</pre></div>
-</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Power [W/$m^2$]&#39;)
 </pre></div>
 </div>
-<img alt="_images/reading_and_plotting_26_2.png" src="_images/reading_and_plotting_26_2.png" />
+<img alt="_images/0f44f5f7d2a8b876f535acda439c644afca6ea761ca9137ae0e93ee6d60e3aba.png" src="_images/0f44f5f7d2a8b876f535acda439c644afca6ea761ca9137ae0e93ee6d60e3aba.png" />
 </div>
 </div>
 <p>Notice that the missing values are causing some breaks in the lines. They can be fixed with imputation.</p>
@@ -1014,20 +1057,16 @@ Name: Heatflux, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_329963/1046862904.py:1: FutureWarning: Indexing a DataFrame with a datetimelike index using a single string to slice the rows, like `frame[string]`, is deprecated and will be removed in a future version. Use `frame.loc[string]` instead.
-  ax=(D[&#39;2014-10-01&#39;]).interpolate().plot()
-</pre></div>
-</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Power [W/$m^2$]&#39;)
 </pre></div>
 </div>
-<img alt="_images/reading_and_plotting_28_2.png" src="_images/reading_and_plotting_28_2.png" />
+<img alt="_images/1a1a8e6c4b64d0583a587c3ce9464979f64ac2234966e884b1209e60a33af5e8.png" src="_images/1a1a8e6c4b64d0583a587c3ce9464979f64ac2234966e884b1209e60a33af5e8.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="more-challenging-dataset">
-<h2>More challenging dataset<a class="headerlink" href="#more-challenging-dataset" title="Permalink to this headline">¶</a></h2>
+<h2>More challenging dataset<a class="headerlink" href="#more-challenging-dataset" title="Permalink to this heading">#</a></h2>
 <p>Water quality data (CSV)</p>
 <p><code class="docutils literal notranslate"><span class="pre">name</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">station;ID-number</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">station;ETRS-coordinates</span> <span class="pre">east;ETRS-coordinates</span> <span class="pre">north;max</span> <span class="pre">depth</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">station;date;sampling</span> <span class="pre">depth;Faecal</span> <span class="pre">enterococci</span> <span class="pre">(kpl/100ml);Oxygen</span> <span class="pre">saturation</span> <span class="pre">(kyll.%);Dissolved</span> <span class="pre">oxygen</span> <span class="pre">(mg/l);Suspended</span> <span class="pre">solids,</span> <span class="pre">coarse</span> <span class="pre">(mg/l);Chlorophyll</span> <span class="pre">a</span> <span class="pre">(µg/l);Total</span> <span class="pre">phosphorous,</span> <span class="pre">unfiltered</span> <span class="pre">(µg/l);Total</span> <span class="pre">nitrogen,</span> <span class="pre">unfiltered</span> <span class="pre">(µg/l);Coliform</span> <span class="pre">bacteria</span> <span class="pre">thermotolerant</span> <span class="pre">(kpl/100ml);Temperature</span> <span class="pre">(°C);Nitrate</span> <span class="pre">as</span> <span class="pre">nitrogen,</span> <span class="pre">unfiltered</span> <span class="pre">(µg/l);Nitrate</span> <span class="pre">as</span> <span class="pre">nitrogen,</span> <span class="pre">unfiltered</span> <span class="pre">(µg/l);Nitrite</span> <span class="pre">nitrate</span> <span class="pre">as</span> <span class="pre">nitrogen,</span> <span class="pre">unfiltered</span> <span class="pre">(µg/l);Secchi</span> <span class="pre">depth</span> <span class="pre">(m);pH</span>&#160; <span class="pre">;Salinity</span> <span class="pre">(&lt;89&gt;);Turbidity</span> <span class="pre">(FNU);Conductivity</span> <span class="pre">(mS/m)</span> <span class="pre">Et</span> <span class="pre">kaup</span> <span class="pre">selkä</span> <span class="pre">1;5520;227911;7005357;2.4;19.3.1974</span> <span class="pre">0:00;;;;;;;;;;;;;;0.5;;;;</span> <span class="pre">Et</span> <span class="pre">kaup</span> <span class="pre">selkä</span> <span class="pre">1;5520;227911;7005357;2.4;19.3.1974</span> <span class="pre">0:00;1,0;0;56;7.9;;;14;4100;0;0.3;;;;;4.6;;8.1;231</span> <span class="pre">Et</span> <span class="pre">kaup</span> <span class="pre">selkä</span> <span class="pre">1;5520;227911;7005357;2.4;12.6.1974</span> <span class="pre">0:00;;;;;;;;;;;;;;1.1;;;;</span> <span class="pre">Et</span> <span class="pre">kaup</span> <span class="pre">selkä</span> <span class="pre">1;5520;227911;7005357;2.4;12.6.1974</span> <span class="pre">0:00;1,0;0;104;10.3;;;20;410;0;14.5;;;;;8.1;;;627</span> <span class="pre">Et</span> <span class="pre">kaup</span> <span class="pre">selkä</span> <span class="pre">1;5520;227911;7005357;2.4;21.10.1974</span> <span class="pre">0:00;;;;;;;;;;;;;;1;;;;</span> <span class="pre">Et</span> <span class="pre">kaup</span> <span class="pre">selkä</span> <span class="pre">1;5520;227911;7005357;2.4;21.10.1974</span> <span class="pre">0:00;1,0;3;93;12.2;;;20;1200;79;2.9;;;;;7.2;;;594</span> <span class="pre">Et</span> <span class="pre">kaup</span> <span class="pre">selkä</span> <span class="pre">1;5520;227911;7005357;2.4;4.6.1975</span> <span class="pre">0:00;;;;;;;;;;;;;;1;;;;</span> <span class="pre">Et</span> <span class="pre">kaup</span> <span class="pre">selkä</span> <span class="pre">1;5520;227911;7005357;2.4;4.6.1975</span> <span class="pre">0:00;1,0;2;102;11;;;40;560;17;10.5;;;;;6.7;;7.8;390</span></code></p>
 <p>The dataset is clearly in CSV-format, and it has semicolon separated values. Some columns are numerical and some others are strings. Column names are rather long strings. The fifth column (column number 4, if indexed from zero) is the timestamp. Lets read it:</p>
@@ -1043,10 +1082,6 @@ Name: Heatflux, dtype: float64
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(790, 23)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_329963/2272983003.py:5: FutureWarning: Indexing a DataFrame with a datetimelike index using a single string to slice the rows, like `frame[string]`, is deprecated and will be removed in a future version. Use `frame.loc[string]` instead.
-  WD[&#39;1987-07&#39;].iloc[:,4:]
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -1211,10 +1246,6 @@ Name: Heatflux, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_329963/2203944145.py:1: FutureWarning: Indexing a DataFrame with a datetimelike index using a single string to slice the rows, like `frame[string]`, is deprecated and will be removed in a future version. Use `frame.loc[string]` instead.
-  WD.groupby(&#39;date&#39;).first()[&#39;1987-07&#39;].iloc[:,4:]
-</pre></div>
-</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1343,7 +1374,7 @@ Name: Heatflux, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/reading_and_plotting_35_0.png" src="_images/reading_and_plotting_35_0.png" />
+<img alt="_images/b1c1acdd9c53677abb4517b2fe23ed72e090470153176b8e172beab6a26530af.png" src="_images/b1c1acdd9c53677abb4517b2fe23ed72e090470153176b8e172beab6a26530af.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1534,7 +1565,7 @@ Name: Heatflux, dtype: float64
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -1542,37 +1573,95 @@ Name: Heatflux, dtype: float64
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        
-            
 
-
-
-<div class='prev-next-bottom'>
-    
-
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
 </div>
-        
-        </div>
-    </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Petri Välisuo<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-different-data-formats">Reading different data formats</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#asphalt-heat-data">Asphalt heat data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-data">Missing data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-methods-for-handling-missing-data">Other methods for handling missing data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing-pandas-data-frame">Slicing pandas data frame</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting">Plotting</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-challenging-dataset">More challenging dataset</a></li>
+</ul>
+  </nav></div>
 
-      </div>
-    </div>
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <div class="footer-item">
+    
+<p class="component-author">
+By Petri Välisuo
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

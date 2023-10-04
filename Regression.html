@@ -1,367 +1,404 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>10. Regression and regularisation &#8212; Applied Machine Learning, 2021</title>
-    
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Regression';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="11. Artificial Neural Networks (ANN)" href="NeuralNetworks.html" />
     <link rel="prev" title="9. Decision trees and forests" href="DecisionTrees.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="practicalities.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="_static/ApplesAndOranges.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Applied Machine Learning, 2021</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="practicalities.html">
-   About the course
-  </a>
- </li>
+    
+    
+    <img src="_static/ApplesAndOranges.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/ApplesAndOranges.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="practicalities.html">
+                    About the course
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ReadingAndPlotting.html">2. Reading and plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Preprocessing_and_feature_extraction.html">3. Preprocessing and feature extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Subspace_Projections.html">4. Dimensionality reduction by Subspace projections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Clustering.html">5. Unsupervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SupervisedMachineLearningTerminology.html">6. Supervised machine learning, Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NearestNeighbors.html">7. Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="SupportVectorMachine.html">8. Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="DecisionTrees.html">9. Decision trees and forests <a class="anchor" id="dtaforests"></a></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">10. Regression and regularisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NeuralNetworks.html">11. Artificial Neural Networks (ANN)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Learning_model_parameters.html">12. Model learning strategies</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="NLP.html">18. Natural Language Processing</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="NLP-UWB.html">20. Ultra Wide Band positioning literature analysis</a></li>
 </ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Introduction.html">
-   1. Introduction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ReadingAndPlotting.html">
-   2. Reading and plotting
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Preprocessing_and_feature_extraction.html">
-   3. Preprocessing and feature extraction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Subspace_Projections.html">
-   4. Dimensionality reduction by Subspace projections
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Clustering.html">
-   5. Unsupervised learning
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="SupervisedMachineLearningTerminology.html">
-   6. Supervised machine learning, Terminology
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="NearestNeighbors.html">
-   7. Nearest Neighbours methods
-   <a class="anchor" id="nearestneighbours">
-   </a>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="SupportVectorMachine.html">
-   8. Support Vector Machine (SVM)
-   <a class="anchor" id="supportvectormachine">
-   </a>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="DecisionTrees.html">
-   9. Decision trees and forests
-   <a class="anchor" id="dtaforests">
-   </a>
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   10. Regression and regularisation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="NeuralNetworks.html">
-   11. Artificial Neural Networks (ANN)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Learning_model_parameters.html">
-   12. Model learning strategies
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="NLP.html">
-   18. Natural Language Processing
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="NLP-UWB.html">
-   20. Ultra Wide Band positioning literature analysis
-  </a>
- </li>
-</ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/Regression.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-            <!-- Source interaction buttons -->
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
+<div class="sbt-scroll-pixel-helper"></div>
 
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/pevalisuo/AML.git/master?urlpath=tree/book/Regression.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        <a class="jupyterhub-button" href="https://notebooks.csc.fi/#/blueprint/d1fe6e08032e4c17a0f9e0e222414598/hub/user-redirect/git-pull?repo=https://github.com/pevalisuo/AML.git&urlpath=tree/AML.git/book/Regression.ipynb&branch=master"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
-                data-placement="left"><img class="jupyterhub-button-logo"
-                    src="_static/images/logo_jupyterhub.svg"
-                    alt="Interact on JupyterHub">JupyterHub</button></a>
-        
-        
-        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://notebooks.csc.fi/#/blueprint/d1fe6e08032e4c17a0f9e0e222414598/hub/user-redirect/git-pull?repo=https%3A//github.com/pevalisuo/AML.git&urlpath=tree/AML.git/book/Regression.ipynb&branch=master" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onJupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+  </ul>
 </div>
 
-        </div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Regression.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Regression and regularisation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ordinary-least-mean-squares-ols-regression">
-   10.1. Ordinary Least mean Squares (OLS) regression
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-fitness-of-a-regression-model">
-   10.2. The fitness of a regression model
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#coefficient-of-determination-r-2">
-     10.2.1. Coefficient of determination,
-     <span class="math notranslate nohighlight">
-      \(R^2\)
-     </span>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#root-mean-square-error-rmse">
-     10.2.2. Root Mean Square Error, RMSE
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#regularization-and-model-simplicication">
-   10.3. Regularization and model simplicication
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#l2-regularization-ridge-regression">
-     10.3.1. L2 regularization, Ridge regression
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#l1-regularization-lasso">
-     10.3.2. L1 regularization, LASSO
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#elastic-nets">
-     10.3.3. Elastic nets
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#gradient-tree-boosting">
-     10.3.4. Gradient Tree Boosting
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#coding-examples">
-   10.4. Coding examples
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#boston-house-prizes-example">
-     10.4.1. Boston house prizes example
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#gradient-tree-regression">
-   10.5. Gradient tree regression
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#recursive-feature-elimination">
-   10.6. Recursive feature elimination
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#summary">
-   10.7. Summary
-  </a>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ordinary-least-mean-squares-ols-regression">10.1. Ordinary Least mean Squares (OLS) regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fitness-of-a-regression-model">10.2. The fitness of a regression model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coefficient-of-determination-r-2">10.2.1. Coefficient of determination, <span class="math notranslate nohighlight">\(R^2\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#root-mean-square-error-rmse">10.2.2. Root Mean Square Error, RMSE</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regularization-and-model-simplicication">10.3. Regularization and model simplicication</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#l2-regularization-ridge-regression">10.3.1. L2 regularization, Ridge regression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#l1-regularization-lasso">10.3.2. L1 regularization, LASSO</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elastic-nets">10.3.3. Elastic nets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-tree-boosting">10.3.4. Gradient Tree Boosting</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coding-examples">10.4. Coding examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boston-house-prizes-example">10.4.1. Boston house prizes example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-tree-regression">10.5. Gradient tree regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recursive-feature-elimination">10.6. Recursive feature elimination</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">10.7. Summary</a></li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="regression-and-regularisation">
-<h1><span class="section-number">10. </span>Regression and regularisation<a class="headerlink" href="#regression-and-regularisation" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">10. </span>Regression and regularisation<a class="headerlink" href="#regression-and-regularisation" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
 <li><p>Regression is used when prediction a continuous dependent variable using one ore more independent variables.</p></li>
 <li><p>Most well known classical regression model is Ordinary Least Mean Squares (OLS) regression</p></li>
@@ -373,7 +410,7 @@
 <li><p>Recursive feature elimination/addition are useful methods for model optimisation and feature selection</p></li>
 </ul>
 <section id="ordinary-least-mean-squares-ols-regression">
-<h2><span class="section-number">10.1. </span>Ordinary Least mean Squares (OLS) regression<a class="headerlink" href="#ordinary-least-mean-squares-ols-regression" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.1. </span>Ordinary Least mean Squares (OLS) regression<a class="headerlink" href="#ordinary-least-mean-squares-ols-regression" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>OLS using p-features <span class="math notranslate nohighlight">\(x_i\)</span> to predict variable <span class="math notranslate nohighlight">\(y\)</span>.</p></li>
 <li><p><span class="math notranslate nohighlight">\(x_i\)</span> are called as independent variables</p></li>
@@ -414,10 +451,10 @@
 <p>Where <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> is a design matrix containing data samples in rows, and variables in columns. It is also called as design matrix, at it was shown in the top of this section.</p>
 </section>
 <section id="the-fitness-of-a-regression-model">
-<h2><span class="section-number">10.2. </span>The fitness of a regression model<a class="headerlink" href="#the-fitness-of-a-regression-model" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.2. </span>The fitness of a regression model<a class="headerlink" href="#the-fitness-of-a-regression-model" title="Permalink to this heading">#</a></h2>
 <p>The fitness of a regression model is often estimated using coefficient of determination (<span class="math notranslate nohighlight">\(R^2\)</span>) or Root Mean Square Error of prediction (RMSE).</p>
 <section id="coefficient-of-determination-r-2">
-<h3><span class="section-number">10.2.1. </span>Coefficient of determination, <span class="math notranslate nohighlight">\(R^2\)</span><a class="headerlink" href="#coefficient-of-determination-r-2" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">10.2.1. </span>Coefficient of determination, <span class="math notranslate nohighlight">\(R^2\)</span><a class="headerlink" href="#coefficient-of-determination-r-2" title="Permalink to this heading">#</a></h3>
 <p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Coefficient_of_determination">coefficient of determination</a>, <span class="math notranslate nohighlight">\(R^2\)</span>, defines how large proportion of the variance in <span class="math notranslate nohighlight">\(y\)</span> is explained by the model. <span class="math notranslate nohighlight">\(R^2\)</span> is zero if the model cannot predict anything and it is 1 when the model fit is perfect.</p>
 <div class="math notranslate nohighlight">
 \[
@@ -430,7 +467,7 @@
 \]</div>
 </section>
 <section id="root-mean-square-error-rmse">
-<h3><span class="section-number">10.2.2. </span>Root Mean Square Error, RMSE<a class="headerlink" href="#root-mean-square-error-rmse" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">10.2.2. </span>Root Mean Square Error, RMSE<a class="headerlink" href="#root-mean-square-error-rmse" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="https://towardsdatascience.com/what-does-rmse-really-mean-806b65f2e48e">RMSE</a>, is another often used measure for model fitness. RMSE shows the average prediction error in the same units and scale than <span class="math notranslate nohighlight">\(y\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[
@@ -439,7 +476,7 @@
 </section>
 </section>
 <section id="regularization-and-model-simplicication">
-<h2><span class="section-number">10.3. </span>Regularization and model simplicication<a class="headerlink" href="#regularization-and-model-simplicication" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.3. </span>Regularization and model simplicication<a class="headerlink" href="#regularization-and-model-simplicication" title="Permalink to this heading">#</a></h2>
 <p><img alt="William_of_Ockham_-_Logica_1341.jpg" src="_images/William_of_Ockham_-_Logica_1341_s.jpg" /></p>
 <p><span id="kuvaviite">Ockham - from a manuscipt of Ockham’s Summa Logicae, MS Gonville and Caius College, Cambridge, 464/571, fol. 69r</span></p>
 <blockquote>
@@ -455,7 +492,7 @@
 </ul>
 <p>Therefore it is important to use means for simplifying data and making the models more stable.</p>
 <section id="l2-regularization-ridge-regression">
-<h3><span class="section-number">10.3.1. </span>L2 regularization, Ridge regression<a class="headerlink" href="#l2-regularization-ridge-regression" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">10.3.1. </span>L2 regularization, Ridge regression<a class="headerlink" href="#l2-regularization-ridge-regression" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
    Obj(\Theta) = \underbrace{\sum_{i=1}^{n} (y_i - \sum_{j=1}^p \beta_j x_{ij})^2}_{L(\Theta)} + \underbrace{\lambda \sum_{j=1}^p \beta_j^2}_{\Omega(\Theta)}
@@ -471,7 +508,7 @@
 Hoerl, Arthur E., ja Robert W. Kennard. ”Ridge Regression: Biased Estimation for Nonorthogonal Problems”. Technometrics 12, nro 1 (1. Feb 1970): 55–67. https://doi.org/10.1080/00401706.1970.10488634.
 </div></section>
 <section id="l1-regularization-lasso">
-<h3><span class="section-number">10.3.2. </span>L1 regularization, LASSO<a class="headerlink" href="#l1-regularization-lasso" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">10.3.2. </span>L1 regularization, LASSO<a class="headerlink" href="#l1-regularization-lasso" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
    Obj(\Theta) = \underbrace{\sum_{i=1}^{n} (y_i - \sum_{j=1}^p \beta_j x_{ij})^2}_{L(\Theta)} + \lambda \sum_{j=1}^p |\beta_j|
@@ -486,7 +523,7 @@ Hoerl, Arthur E., ja Robert W. Kennard. ”Ridge Regression: Biased Estimation f
 <div class="citation">Tibshirani, Robert. ”Regression Shrinkage and Selection Via the Lasso”. Journal of the Royal Statistical Society: Series B (Methodological) 58, nro 1 (1996): 267–88. https://doi.org/10.1111/j.2517-6161.1996.tb02080.x.
 </div></section>
 <section id="elastic-nets">
-<h3><span class="section-number">10.3.3. </span>Elastic nets<a class="headerlink" href="#elastic-nets" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">10.3.3. </span>Elastic nets<a class="headerlink" href="#elastic-nets" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
    Obj(\Theta) = \underbrace{\sum_{i=1}^{n} (y_i - \sum_{j=1}^p \beta_j x_{ij})^2}_{L(\Theta)} + \lambda \sum_{j=1}^p \left( (1-\alpha) \beta_i^2 + \alpha |\beta_j| \right)
@@ -500,7 +537,7 @@ Hoerl, Arthur E., ja Robert W. Kennard. ”Ridge Regression: Biased Estimation f
 <div class="citation">Zou, Hui, ja Trevor Hastie. ”Regularization and variable selection via the elastic net”. Journal of the Royal Statistical Society: Series B (Statistical Methodology) 67, nro 2 (1. April 2005): 301–20. https://doi.org/10.1111/j.1467-9868.2005.00503.x.</div>
 </section>
 <section id="gradient-tree-boosting">
-<h3><span class="section-number">10.3.4. </span>Gradient Tree Boosting<a class="headerlink" href="#gradient-tree-boosting" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">10.3.4. </span>Gradient Tree Boosting<a class="headerlink" href="#gradient-tree-boosting" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Also called as Gradient Boosted Regression Trees (GBRT)</p></li>
 <li><p>The GBRT has similar formal loss function and measure for complexity as linear regrssion</p></li>
@@ -510,7 +547,7 @@ Hoerl, Arthur E., ja Robert W. Kennard. ”Ridge Regression: Biased Estimation f
 </section>
 </section>
 <section id="coding-examples">
-<h2><span class="section-number">10.4. </span>Coding examples<a class="headerlink" href="#coding-examples" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.4. </span>Coding examples<a class="headerlink" href="#coding-examples" title="Permalink to this heading">#</a></h2>
 <p>Pay attention especially for these rows</p>
 <ul class="simple">
 <li><p>Build the model:</p></li>
@@ -529,7 +566,7 @@ Hoerl, Arthur E., ja Robert W. Kennard. ”Ridge Regression: Biased Estimation f
 </ul>
 <p><code class="docutils literal notranslate">&#160;&#160;&#160; <span class="pre">rfe</span> <span class="pre">=</span> <span class="pre">RFE(estimator=model,</span> <span class="pre">n_features_to_select=1,</span> <span class="pre">step=1)</span></code></p>
 <section id="boston-house-prizes-example">
-<h3><span class="section-number">10.4.1. </span>Boston house prizes example<a class="headerlink" href="#boston-house-prizes-example" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">10.4.1. </span>Boston house prizes example<a class="headerlink" href="#boston-house-prizes-example" title="Permalink to this heading">#</a></h3>
 <p>Can the house prizes be predicted? Which parameters affect most to the house prizes?</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    - CRIM     per capita crime rate by town
     - ZN       proportion of residential land zoned for lots over 25,000 sq.ft.
@@ -762,7 +799,7 @@ Hoerl, Arthur E., ja Robert W. Kennard. ”Ridge Regression: Biased Estimation f
 Training score.... 0.7406426641094095
 </pre></div>
 </div>
-<img alt="_images/Regression_13_1.png" src="_images/Regression_13_1.png" />
+<img alt="_images/90ce857afced4d906d2426575a4852c990c6d48f901bb5c33269982e7053527e.png" src="_images/90ce857afced4d906d2426575a4852c990c6d48f901bb5c33269982e7053527e.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -787,7 +824,7 @@ Training score.... 0.7406426641094095
 Training score.... 0.7394797644213642
 </pre></div>
 </div>
-<img alt="_images/Regression_14_1.png" src="_images/Regression_14_1.png" />
+<img alt="_images/24325f51de44e87a57aac5cb64082d160df047ba5d3a65c9799defb6b5553c8e.png" src="_images/24325f51de44e87a57aac5cb64082d160df047ba5d3a65c9799defb6b5553c8e.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -812,7 +849,7 @@ Training score.... 0.7394797644213642
 Training score.... 0.7353093744353656
 </pre></div>
 </div>
-<img alt="_images/Regression_15_1.png" src="_images/Regression_15_1.png" />
+<img alt="_images/5820d6f45971a61e226e03c1e800d82d9868fcfc0e1bfa1dbe68286ca4b6d649.png" src="_images/5820d6f45971a61e226e03c1e800d82d9868fcfc0e1bfa1dbe68286ca4b6d649.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -837,7 +874,7 @@ Training score.... 0.7353093744353656
 Training score.... 0.6877704284092927
 </pre></div>
 </div>
-<img alt="_images/Regression_16_1.png" src="_images/Regression_16_1.png" />
+<img alt="_images/3c239d8fc2279b7961fd1f4230e35ce93dbeb10fa21637c1d958f83459809e56.png" src="_images/3c239d8fc2279b7961fd1f4230e35ce93dbeb10fa21637c1d958f83459809e56.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -866,7 +903,7 @@ Training score.... 0.6877704284092927
 alpha=0.192143, L1-ratio=0.500000
 </pre></div>
 </div>
-<img alt="_images/Regression_17_1.png" src="_images/Regression_17_1.png" />
+<img alt="_images/5ac4e8f6c195e1c91947cc921c7e91aa1ef2e7bf187eb8646963aeec48f674bf.png" src="_images/5ac4e8f6c195e1c91947cc921c7e91aa1ef2e7bf187eb8646963aeec48f674bf.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -914,13 +951,13 @@ Selected variables are [&#39;RM&#39; &#39;DIS&#39; &#39;PTRATIO&#39; &#39;LSTAT&
 Training score.... 0.6879971162429187
 </pre></div>
 </div>
-<img alt="_images/Regression_19_1.png" src="_images/Regression_19_1.png" />
+<img alt="_images/3f73d7a1223952d2bb729ac18437c29d9253a4ec79e95953c1938bf72401f44f.png" src="_images/3f73d7a1223952d2bb729ac18437c29d9253a4ec79e95953c1938bf72401f44f.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="gradient-tree-regression">
-<h2><span class="section-number">10.5. </span>Gradient tree regression<a class="headerlink" href="#gradient-tree-regression" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.5. </span>Gradient tree regression<a class="headerlink" href="#gradient-tree-regression" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">GradientBoostingRegressor</span>
@@ -948,7 +985,7 @@ Training score.... 0.6879971162429187
 Training score.... 0.9681703971776361
 </pre></div>
 </div>
-<img alt="_images/Regression_21_1.png" src="_images/Regression_21_1.png" />
+<img alt="_images/706cc2fab13b41a284256c8ce89c7f79c779c96823cf2b5ed4498b308231580c.png" src="_images/706cc2fab13b41a284256c8ce89c7f79c779c96823cf2b5ed4498b308231580c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -982,7 +1019,7 @@ Training score.... 0.9681703971776361
 12    LSTAT= 0.29
 </pre></div>
 </div>
-<img alt="_images/Regression_22_1.png" src="_images/Regression_22_1.png" />
+<img alt="_images/21778d75ee3b8b5fcb766a50ead6acf57fc086c8b1846a9da4c6a6d2c0792732.png" src="_images/21778d75ee3b8b5fcb766a50ead6acf57fc086c8b1846a9da4c6a6d2c0792732.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1268,7 +1305,7 @@ Training score.... 0.9681703971776361
     </tr>
   </tbody>
 </table>
-</div></div><img alt="_images/Regression_23_1.png" src="_images/Regression_23_1.png" />
+</div></div><img alt="_images/eb15baa540626a1b532d3230f9cc247a2f58d56d79b3bd75e9c31c95212f5e78.png" src="_images/eb15baa540626a1b532d3230f9cc247a2f58d56d79b3bd75e9c31c95212f5e78.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1305,12 +1342,12 @@ Training score.... 0.9304873266368128
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GradientBoostingRegressor()
 </pre></div>
 </div>
-<img alt="_images/Regression_24_2.png" src="_images/Regression_24_2.png" />
+<img alt="_images/6611c799abc00253da7caee0706f582c67296fa40b8c9a78b549717189702ffd.png" src="_images/6611c799abc00253da7caee0706f582c67296fa40b8c9a78b549717189702ffd.png" />
 </div>
 </div>
 </section>
 <section id="recursive-feature-elimination">
-<h2><span class="section-number">10.6. </span>Recursive feature elimination<a class="headerlink" href="#recursive-feature-elimination" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.6. </span>Recursive feature elimination<a class="headerlink" href="#recursive-feature-elimination" title="Permalink to this heading">#</a></h2>
 <p>An example of familiar digits classification</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1350,7 +1387,7 @@ Training score.... 0.9304873266368128
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Regression_27_0.png" src="_images/Regression_27_0.png" />
+<img alt="_images/03526690e1a6e0c25845a0bb237ecdaa3093dd52d44e2c17e2939138d87c6369.png" src="_images/03526690e1a6e0c25845a0bb237ecdaa3093dd52d44e2c17e2939138d87c6369.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1374,7 +1411,7 @@ Training score.... 0.9304873266368128
 </div>
 </section>
 <section id="summary">
-<h2><span class="section-number">10.7. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.7. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Classical regression</strong> is simple and well understood, and is a good model, when its conditions are met</p>
 <ul>
@@ -1415,7 +1452,7 @@ Training score.... 0.9304873266368128
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -1423,55 +1460,120 @@ Training score.... 0.9304873266368128
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        
-            
 
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="DecisionTrees.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">9. </span>Decision trees and forests <a class="anchor" id="dtaforests"></a></p>
-            </div>
-        </a>
-    </div>
-     <div id="next">
-        <a class="right-next" href="NeuralNetworks.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">11. </span>Artificial Neural Networks (ANN)</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
-</div>
-        
-        </div>
-    </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Petri Välisuo<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="DecisionTrees.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Decision trees and forests <a class="anchor" id="dtaforests"></a></p>
       </div>
-    </div>
-  
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+    </a>
+    <a class="right-next"
+       href="NeuralNetworks.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">11. </span>Artificial Neural Networks (ANN)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ordinary-least-mean-squares-ols-regression">10.1. Ordinary Least mean Squares (OLS) regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fitness-of-a-regression-model">10.2. The fitness of a regression model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coefficient-of-determination-r-2">10.2.1. Coefficient of determination, <span class="math notranslate nohighlight">\(R^2\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#root-mean-square-error-rmse">10.2.2. Root Mean Square Error, RMSE</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regularization-and-model-simplicication">10.3. Regularization and model simplicication</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#l2-regularization-ridge-regression">10.3.1. L2 regularization, Ridge regression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#l1-regularization-lasso">10.3.2. L1 regularization, LASSO</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elastic-nets">10.3.3. Elastic nets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-tree-boosting">10.3.4. Gradient Tree Boosting</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coding-examples">10.4. Coding examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boston-house-prizes-example">10.4.1. Boston house prizes example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-tree-regression">10.5. Gradient tree regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recursive-feature-elimination">10.6. Recursive feature elimination</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">10.7. Summary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Petri Välisuo
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

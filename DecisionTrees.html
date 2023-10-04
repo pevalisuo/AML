@@ -1,371 +1,405 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>9. Decision trees and forests &#8212; Applied Machine Learning, 2021</title>
-    
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'DecisionTrees';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="10. Regression and regularisation" href="Regression.html" />
     <link rel="prev" title="8. Support Vector Machine (SVM)" href="SupportVectorMachine.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="practicalities.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="_static/ApplesAndOranges.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Applied Machine Learning, 2021</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="practicalities.html">
-   About the course
-  </a>
- </li>
+    
+    
+    <img src="_static/ApplesAndOranges.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/ApplesAndOranges.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="practicalities.html">
+                    About the course
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ReadingAndPlotting.html">2. Reading and plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Preprocessing_and_feature_extraction.html">3. Preprocessing and feature extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Subspace_Projections.html">4. Dimensionality reduction by Subspace projections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Clustering.html">5. Unsupervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SupervisedMachineLearningTerminology.html">6. Supervised machine learning, Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NearestNeighbors.html">7. Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="SupportVectorMachine.html">8. Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Decision trees and forests <a class="anchor" id="dtaforests"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Regression.html">10. Regression and regularisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NeuralNetworks.html">11. Artificial Neural Networks (ANN)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Learning_model_parameters.html">12. Model learning strategies</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="NLP.html">18. Natural Language Processing</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="NLP-UWB.html">20. Ultra Wide Band positioning literature analysis</a></li>
 </ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Introduction.html">
-   1. Introduction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ReadingAndPlotting.html">
-   2. Reading and plotting
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Preprocessing_and_feature_extraction.html">
-   3. Preprocessing and feature extraction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Subspace_Projections.html">
-   4. Dimensionality reduction by Subspace projections
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Clustering.html">
-   5. Unsupervised learning
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="SupervisedMachineLearningTerminology.html">
-   6. Supervised machine learning, Terminology
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="NearestNeighbors.html">
-   7. Nearest Neighbours methods
-   <a class="anchor" id="nearestneighbours">
-   </a>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="SupportVectorMachine.html">
-   8. Support Vector Machine (SVM)
-   <a class="anchor" id="supportvectormachine">
-   </a>
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   9. Decision trees and forests
-   <a class="anchor" id="dtaforests">
-   </a>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Regression.html">
-   10. Regression and regularisation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="NeuralNetworks.html">
-   11. Artificial Neural Networks (ANN)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Learning_model_parameters.html">
-   12. Model learning strategies
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="NLP.html">
-   18. Natural Language Processing
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="NLP-UWB.html">
-   20. Ultra Wide Band positioning literature analysis
-  </a>
- </li>
-</ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/DecisionTrees.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-            <!-- Source interaction buttons -->
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
+<div class="sbt-scroll-pixel-helper"></div>
 
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/pevalisuo/AML.git/master?urlpath=tree/book/DecisionTrees.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        <a class="jupyterhub-button" href="https://notebooks.csc.fi/#/blueprint/d1fe6e08032e4c17a0f9e0e222414598/hub/user-redirect/git-pull?repo=https://github.com/pevalisuo/AML.git&urlpath=tree/AML.git/book/DecisionTrees.ipynb&branch=master"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
-                data-placement="left"><img class="jupyterhub-button-logo"
-                    src="_static/images/logo_jupyterhub.svg"
-                    alt="Interact on JupyterHub">JupyterHub</button></a>
-        
-        
-        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://notebooks.csc.fi/#/blueprint/d1fe6e08032e4c17a0f9e0e222414598/hub/user-redirect/git-pull?repo=https%3A//github.com/pevalisuo/AML.git&urlpath=tree/AML.git/book/DecisionTrees.ipynb&branch=master" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onJupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+  </ul>
 </div>
 
-        </div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/DecisionTrees.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Decision trees and forests <a class="anchor" id="dtaforests"></a></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#decision-tree-a-class-anchor-id-decisiontrees-a">
-   9.1. Decision tree
-   <a class="anchor" id="decisiontrees">
-   </a>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#optimize-the-tree-depth">
-     9.1.1. Optimize the tree depth
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ensemble-methods-a-class-anchor-id-ensemblemethods-a">
-   9.2. Ensemble methods
-   <a class="anchor" id="ensemblemethods">
-   </a>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#bagging-a-class-anchor-id-bagging-a">
-     9.2.1. Bagging
-     <a class="anchor" id="Bagging">
-     </a>
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#randomized-trees-a-class-anchor-id-randomizedtrees-a">
-       9.2.1.1. Randomized trees
-       <a class="anchor" id="RandomizedTrees">
-       </a>
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#extratrees-classifier-extremely-randomized-trees">
-       9.2.1.2. Extratrees classifier (Extremely randomized trees)
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#optimising-the-parameters-fo-the-extratrees-classifier">
-     9.2.2. Optimising the parameters fo the Extratrees classifier
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#boosting-a-class-anchor-id-boosting-a">
-   9.3. Boosting
-   <a class="anchor" id="Boosting">
-   </a>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#adaboost-a-class-anchor-id-adaboost-a">
-     9.3.1. Adaboost
-     <a class="anchor" id="AdaBoost">
-     </a>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#gradient-tree-boosting-a-class-anchor-id-gbrt-a">
-     9.3.2. Gradient Tree Boosting
-     <a class="anchor" id="GBRT">
-     </a>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#extreme-gradient-boosting-xgboost-a-class-anchor-id-xgboost-a">
-     9.3.3. Extreme Gradient Boosting (XGBoost)
-     <a class="anchor" id="XGBoost">
-     </a>
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-tree-a-class-anchor-id-decisiontrees-a">9.1. Decision tree <a class="anchor" id="decisiontrees"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimize-the-tree-depth">9.1.1. Optimize the tree depth</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ensemble-methods-a-class-anchor-id-ensemblemethods-a">9.2. Ensemble methods <a class="anchor" id="ensemblemethods"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bagging-a-class-anchor-id-bagging-a">9.2.1. Bagging <a class="anchor" id="Bagging"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#randomized-trees-a-class-anchor-id-randomizedtrees-a">9.2.1.1. Randomized trees   <a class="anchor" id="RandomizedTrees"></a></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#extratrees-classifier-extremely-randomized-trees">9.2.1.2. Extratrees classifier (Extremely randomized trees)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimising-the-parameters-fo-the-extratrees-classifier">9.2.2. Optimising the parameters fo the Extratrees classifier</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boosting-a-class-anchor-id-boosting-a">9.3. Boosting <a class="anchor" id="Boosting"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adaboost-a-class-anchor-id-adaboost-a">9.3.1. Adaboost <a class="anchor" id="AdaBoost"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-tree-boosting-a-class-anchor-id-gbrt-a">9.3.2. Gradient Tree Boosting <a class="anchor" id="GBRT"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extreme-gradient-boosting-xgboost-a-class-anchor-id-xgboost-a">9.3.3. Extreme Gradient Boosting (XGBoost) <a class="anchor" id="XGBoost"></a></a></li>
+</ul>
+</li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="decision-trees-and-forests-a-class-anchor-id-dtaforests-a">
-<h1><span class="section-number">9. </span>Decision trees and forests <a class="anchor" id="dtaforests"></a><a class="headerlink" href="#decision-trees-and-forests-a-class-anchor-id-dtaforests-a" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">9. </span>Decision trees and forests <a class="anchor" id="dtaforests"></a><a class="headerlink" href="#decision-trees-and-forests-a-class-anchor-id-dtaforests-a" title="Permalink to this heading">#</a></h1>
 <section id="decision-tree-a-class-anchor-id-decisiontrees-a">
-<h2><span class="section-number">9.1. </span>Decision tree <a class="anchor" id="decisiontrees"></a><a class="headerlink" href="#decision-tree-a-class-anchor-id-decisiontrees-a" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.1. </span>Decision tree <a class="anchor" id="decisiontrees"></a><a class="headerlink" href="#decision-tree-a-class-anchor-id-decisiontrees-a" title="Permalink to this heading">#</a></h2>
 <p>Decision trees are non-parametrized methdos for supervised learning, which can be used both regression and classification. The decision tree below is trained to classify the pixels in the satellite image. From all 13 features (channels of the image), it uses only 4 features, which are {5, 11, 12, 7}. First the feature number 5 is used for thresholding. If it’s value is less than 0.0751, then the sample is classified as water. From the description of the channels, we can check that the channel 5 describes the reflectance of wavelength of red (740 nm). The reason for this threshold can be interpreted with relative ease, in this case it is because water absorbs red light, and there is no other area where this absorbtion would be stronger. Therefore this measurement alone separates water areas from every other.</p>
 <p>If the sample is not water, the channel 11 (1375 nm) will be compared next, and if it’s reflectance is very small, the area is classified as forest, and so on.</p>
 <p><img alt="Decision tree" src="_images/decisionTree.svg" /></p>
@@ -419,17 +453,17 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accurary in the training set..0.933333
-Accurary in the test set......0.960000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accurary in the training set..0.953333
+Accurary in the test set......0.860000
 DecisionTreeClassifier(max_depth=2)
 </pre></div>
 </div>
-<img alt="_images/DecisionTrees_2_1.png" src="_images/DecisionTrees_2_1.png" />
+<img alt="_images/cc5c37ddf5c457dc2c4bc547bc18759190c2df0986746e45cecbb48159e0193e.png" src="_images/cc5c37ddf5c457dc2c4bc547bc18759190c2df0986746e45cecbb48159e0193e.png" />
 </div>
 </div>
 <p>Each branch in the decision tree creates new linear separation in the remaining are of the feature space. Try to increase the depth of the tree in the previous code cell to see how the decision boundary changes when the complexity is changed.</p>
 <section id="optimize-the-tree-depth">
-<h3><span class="section-number">9.1.1. </span>Optimize the tree depth<a class="headerlink" href="#optimize-the-tree-depth" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">9.1.1. </span>Optimize the tree depth<a class="headerlink" href="#optimize-the-tree-depth" title="Permalink to this heading">#</a></h3>
 <p>Obviously too deep tree leads to too complex decision boundary and overfitting. Bu what is the optimal tree depth? It can be optimisez using cross validation, as shown below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -459,12 +493,10 @@ DecisionTreeClassifier(max_depth=2)
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best depth value is 3.000000
+Accurary in the test set......0.906667
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accurary in the test set......0.906667
-</pre></div>
-</div>
-<img alt="_images/DecisionTrees_5_2.png" src="_images/DecisionTrees_5_2.png" />
+<img alt="_images/2121bfdeabc85d1e500f1458f96b68c0424a6539b6cb7600c661d8d80b53ed77.png" src="_images/2121bfdeabc85d1e500f1458f96b68c0424a6539b6cb7600c661d8d80b53ed77.png" />
 </div>
 </div>
 <ul class="simple">
@@ -477,7 +509,7 @@ DecisionTreeClassifier(max_depth=2)
 </section>
 </section>
 <section id="ensemble-methods-a-class-anchor-id-ensemblemethods-a">
-<h2><span class="section-number">9.2. </span>Ensemble methods <a class="anchor" id="ensemblemethods"></a><a class="headerlink" href="#ensemble-methods-a-class-anchor-id-ensemblemethods-a" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.2. </span>Ensemble methods <a class="anchor" id="ensemblemethods"></a><a class="headerlink" href="#ensemble-methods-a-class-anchor-id-ensemblemethods-a" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Bagging in <a class="reference external" href="https://scikit-learn.org/stable/modules/ensemble.html">Skikit Learn</a></p>
 <ul>
@@ -489,12 +521,12 @@ DecisionTreeClassifier(max_depth=2)
 <li><p>Boosting is another method to combine multiple predictors</p></li>
 </ul>
 <section id="bagging-a-class-anchor-id-bagging-a">
-<h3><span class="section-number">9.2.1. </span>Bagging <a class="anchor" id="Bagging"></a><a class="headerlink" href="#bagging-a-class-anchor-id-bagging-a" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">9.2.1. </span>Bagging <a class="anchor" id="Bagging"></a><a class="headerlink" href="#bagging-a-class-anchor-id-bagging-a" title="Permalink to this heading">#</a></h3>
 <section id="randomized-trees-a-class-anchor-id-randomizedtrees-a">
-<h4><span class="section-number">9.2.1.1. </span>Randomized trees   <a class="anchor" id="RandomizedTrees"></a><a class="headerlink" href="#randomized-trees-a-class-anchor-id-randomizedtrees-a" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">9.2.1.1. </span>Randomized trees   <a class="anchor" id="RandomizedTrees"></a><a class="headerlink" href="#randomized-trees-a-class-anchor-id-randomizedtrees-a" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p>Forest of randomized trees is one famous bagging method. it works as follows</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>A random partition of data is drawn from the training data to bootstrap the tree structure</p></li>
 <li><p>The tree may use all features or only a random subset of available features</p></li>
 <li><p>The output is again aggregated from all predictors</p></li>
@@ -505,7 +537,7 @@ DecisionTreeClassifier(max_depth=2)
 </ul>
 </section>
 <section id="extratrees-classifier-extremely-randomized-trees">
-<h4><span class="section-number">9.2.1.2. </span>Extratrees classifier (Extremely randomized trees)<a class="headerlink" href="#extratrees-classifier-extremely-randomized-trees" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">9.2.1.2. </span>Extratrees classifier (Extremely randomized trees)<a class="headerlink" href="#extratrees-classifier-extremely-randomized-trees" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p>Even more random</p></li>
 <li><p>The threshold rules are selected at random for randomly selected features</p></li>
@@ -515,7 +547,7 @@ DecisionTreeClassifier(max_depth=2)
 </section>
 </section>
 <section id="optimising-the-parameters-fo-the-extratrees-classifier">
-<h3><span class="section-number">9.2.2. </span>Optimising the parameters fo the Extratrees classifier<a class="headerlink" href="#optimising-the-parameters-fo-the-extratrees-classifier" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">9.2.2. </span>Optimising the parameters fo the Extratrees classifier<a class="headerlink" href="#optimising-the-parameters-fo-the-extratrees-classifier" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Extratrees classifier has already many more parameters than normal decision tree.</p></li>
 <li><p>It is not convenient to try them all to find out an optimal combination</p></li>
@@ -553,9 +585,9 @@ DecisionTreeClassifier(max_depth=2)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accurary in the training set..0.906667
-Accurary in the test set......0.980000
-ExtraTreesClassifier(max_depth=4, min_samples_split=3, n_estimators=18)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accurary in the training set..0.940000
+Accurary in the test set......0.900000
+ExtraTreesClassifier(max_depth=4, n_estimators=12)
 </pre></div>
 </div>
 </div>
@@ -567,13 +599,13 @@ ExtraTreesClassifier(max_depth=4, min_samples_split=3, n_estimators=18)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/DecisionTrees_12_0.png" src="_images/DecisionTrees_12_0.png" />
+<img alt="_images/b7818cd26327385a7cff5843f84fdbdec93ac4971ecd06e3769cdb62bb7b20cd.png" src="_images/b7818cd26327385a7cff5843f84fdbdec93ac4971ecd06e3769cdb62bb7b20cd.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="boosting-a-class-anchor-id-boosting-a">
-<h2><span class="section-number">9.3. </span>Boosting <a class="anchor" id="Boosting"></a><a class="headerlink" href="#boosting-a-class-anchor-id-boosting-a" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.3. </span>Boosting <a class="anchor" id="Boosting"></a><a class="headerlink" href="#boosting-a-class-anchor-id-boosting-a" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Construct weak random trees and chain them after each other on modified version of the data</p></li>
 <li><p>Examples <a class="reference external" href="https://scikit-learn.org/stable/modules/ensemble.html#adaboost">Adaboost</a>
@@ -581,8 +613,8 @@ ExtraTreesClassifier(max_depth=4, min_samples_split=3, n_estimators=18)
 <a class="reference external" href="https://xgboost.readthedocs.io/en/latest/">XGBoost</a></p></li>
 </ul>
 <section id="adaboost-a-class-anchor-id-adaboost-a">
-<h3><span class="section-number">9.3.1. </span>Adaboost <a class="anchor" id="AdaBoost"></a><a class="headerlink" href="#adaboost-a-class-anchor-id-adaboost-a" title="Permalink to this headline">¶</a></h3>
-<ol class="simple">
+<h3><span class="section-number">9.3.1. </span>Adaboost <a class="anchor" id="AdaBoost"></a><a class="headerlink" href="#adaboost-a-class-anchor-id-adaboost-a" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
 <li><p>First create one weak predictor, which is perhaps only slightly better than guessing</p></li>
 <li><p>Assign equal weight <span class="math notranslate nohighlight">\(w_i=1/N\)</span> to each of the N samples</p></li>
 <li><p>Repeat following boosting iteration M times:</p></li>
@@ -591,7 +623,7 @@ ExtraTreesClassifier(max_depth=4, min_samples_split=3, n_estimators=18)
 <li><p>Train the next predictor with the weighted data so that it concentrates especially to those samples which were difficult for the classifiers this far.</p></li>
 <li><p>The final classification result is voted by the predictors</p></li>
 </ol>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>First publications</p></th>
 </tr>
@@ -609,7 +641,7 @@ ExtraTreesClassifier(max_depth=4, min_samples_split=3, n_estimators=18)
 </table>
 </section>
 <section id="gradient-tree-boosting-a-class-anchor-id-gbrt-a">
-<h3><span class="section-number">9.3.2. </span>Gradient Tree Boosting <a class="anchor" id="GBRT"></a><a class="headerlink" href="#gradient-tree-boosting-a-class-anchor-id-gbrt-a" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">9.3.2. </span>Gradient Tree Boosting <a class="anchor" id="GBRT"></a><a class="headerlink" href="#gradient-tree-boosting-a-class-anchor-id-gbrt-a" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Also called as Gradient Boosted Regression Trees (GBRT)</p></li>
 <li><p>Improved version of Adaboost</p></li>
@@ -634,7 +666,7 @@ ExtraTreesClassifier(max_depth=4, min_samples_split=3, n_estimators=18)
 <li><p>Optimizing regularization encourages simples modes. They tend to predict better for future data, since simpler methods do not suffer from overfitting as easily as complex models</p></li>
 <li><p>Read more from Interesting <a class="reference external" href="https://towardsdatascience.com/xgboost-mathematics-explained-58262530904a">slides about gradient boosting</a></p></li>
 </ul>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>First publications</p></th>
 </tr>
@@ -648,13 +680,13 @@ ExtraTreesClassifier(max_depth=4, min_samples_split=3, n_estimators=18)
 </table>
 </section>
 <section id="extreme-gradient-boosting-xgboost-a-class-anchor-id-xgboost-a">
-<h3><span class="section-number">9.3.3. </span>Extreme Gradient Boosting (XGBoost) <a class="anchor" id="XGBoost"></a><a class="headerlink" href="#extreme-gradient-boosting-xgboost-a-class-anchor-id-xgboost-a" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">9.3.3. </span>Extreme Gradient Boosting (XGBoost) <a class="anchor" id="XGBoost"></a><a class="headerlink" href="#extreme-gradient-boosting-xgboost-a-class-anchor-id-xgboost-a" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>A library implementing Gradient Tree Boosting</p></li>
 <li><p>Available for many programming languages</p></li>
 <li><p>Read more from <a class="reference external" href="https://xgboost.readthedocs.io/en/latest/tutorials/index.html">XGBoost Tutorials</a></p></li>
 </ul>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>First publications</p></th>
 </tr>
@@ -684,13 +716,13 @@ ExtraTreesClassifier(max_depth=4, min_samples_split=3, n_estimators=18)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accurary in the training set..0.946667
-Accurary in the test set......1.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accurary in the training set..0.973333
+Accurary in the test set......0.860000
 GradientBoostingClassifier(learning_rate=1, max_depth=1, n_estimators=9,
                            random_state=0)
 </pre></div>
 </div>
-<img alt="_images/DecisionTrees_18_1.png" src="_images/DecisionTrees_18_1.png" />
+<img alt="_images/b71cfbbccd21393d531e097ddbea7d0215e4a73cf53aa778d1ba76dd2f7e1149.png" src="_images/b71cfbbccd21393d531e097ddbea7d0215e4a73cf53aa778d1ba76dd2f7e1149.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -700,7 +732,7 @@ GradientBoostingClassifier(learning_rate=1, max_depth=1, n_estimators=9,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/DecisionTrees_19_0.png" src="_images/DecisionTrees_19_0.png" />
+<img alt="_images/b71cfbbccd21393d531e097ddbea7d0215e4a73cf53aa778d1ba76dd2f7e1149.png" src="_images/b71cfbbccd21393d531e097ddbea7d0215e4a73cf53aa778d1ba76dd2f7e1149.png" />
 </div>
 </div>
 </section>
@@ -719,7 +751,7 @@ GradientBoostingClassifier(learning_rate=1, max_depth=1, n_estimators=9,
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -727,55 +759,119 @@ GradientBoostingClassifier(learning_rate=1, max_depth=1, n_estimators=9,
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        
-            
 
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="SupportVectorMachine.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">8. </span>Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></p>
-            </div>
-        </a>
-    </div>
-     <div id="next">
-        <a class="right-next" href="Regression.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">10. </span>Regression and regularisation</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
-</div>
-        
-        </div>
-    </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Petri Välisuo<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="SupportVectorMachine.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></p>
       </div>
-    </div>
-  
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+    </a>
+    <a class="right-next"
+       href="Regression.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Regression and regularisation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-tree-a-class-anchor-id-decisiontrees-a">9.1. Decision tree <a class="anchor" id="decisiontrees"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimize-the-tree-depth">9.1.1. Optimize the tree depth</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ensemble-methods-a-class-anchor-id-ensemblemethods-a">9.2. Ensemble methods <a class="anchor" id="ensemblemethods"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bagging-a-class-anchor-id-bagging-a">9.2.1. Bagging <a class="anchor" id="Bagging"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#randomized-trees-a-class-anchor-id-randomizedtrees-a">9.2.1.1. Randomized trees   <a class="anchor" id="RandomizedTrees"></a></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#extratrees-classifier-extremely-randomized-trees">9.2.1.2. Extratrees classifier (Extremely randomized trees)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimising-the-parameters-fo-the-extratrees-classifier">9.2.2. Optimising the parameters fo the Extratrees classifier</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boosting-a-class-anchor-id-boosting-a">9.3. Boosting <a class="anchor" id="Boosting"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adaboost-a-class-anchor-id-adaboost-a">9.3.1. Adaboost <a class="anchor" id="AdaBoost"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-tree-boosting-a-class-anchor-id-gbrt-a">9.3.2. Gradient Tree Boosting <a class="anchor" id="GBRT"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extreme-gradient-boosting-xgboost-a-class-anchor-id-xgboost-a">9.3.3. Extreme Gradient Boosting (XGBoost) <a class="anchor" id="XGBoost"></a></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Petri Välisuo
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

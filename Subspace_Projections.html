@@ -1,399 +1,419 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>4. Dimensionality reduction by Subspace projections &#8212; Applied Machine Learning, 2021</title>
-    
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Subspace_Projections';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="5. Unsupervised learning" href="Clustering.html" />
     <link rel="prev" title="3. Preprocessing and feature extraction" href="Preprocessing_and_feature_extraction.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="practicalities.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="_static/ApplesAndOranges.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Applied Machine Learning, 2021</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="practicalities.html">
-   About the course
-  </a>
- </li>
+    
+    
+    <img src="_static/ApplesAndOranges.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/ApplesAndOranges.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="practicalities.html">
+                    About the course
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ReadingAndPlotting.html">2. Reading and plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Preprocessing_and_feature_extraction.html">3. Preprocessing and feature extraction</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Dimensionality reduction by Subspace projections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Clustering.html">5. Unsupervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SupervisedMachineLearningTerminology.html">6. Supervised machine learning, Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NearestNeighbors.html">7. Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="SupportVectorMachine.html">8. Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="DecisionTrees.html">9. Decision trees and forests <a class="anchor" id="dtaforests"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Regression.html">10. Regression and regularisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NeuralNetworks.html">11. Artificial Neural Networks (ANN)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Learning_model_parameters.html">12. Model learning strategies</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="NLP.html">18. Natural Language Processing</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="NLP-UWB.html">20. Ultra Wide Band positioning literature analysis</a></li>
 </ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Introduction.html">
-   1. Introduction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ReadingAndPlotting.html">
-   2. Reading and plotting
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Preprocessing_and_feature_extraction.html">
-   3. Preprocessing and feature extraction
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   4. Dimensionality reduction by Subspace projections
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Clustering.html">
-   5. Unsupervised learning
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="SupervisedMachineLearningTerminology.html">
-   6. Supervised machine learning, Terminology
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="NearestNeighbors.html">
-   7. Nearest Neighbours methods
-   <a class="anchor" id="nearestneighbours">
-   </a>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="SupportVectorMachine.html">
-   8. Support Vector Machine (SVM)
-   <a class="anchor" id="supportvectormachine">
-   </a>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="DecisionTrees.html">
-   9. Decision trees and forests
-   <a class="anchor" id="dtaforests">
-   </a>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Regression.html">
-   10. Regression and regularisation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="NeuralNetworks.html">
-   11. Artificial Neural Networks (ANN)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Learning_model_parameters.html">
-   12. Model learning strategies
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="NLP.html">
-   18. Natural Language Processing
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="NLP-UWB.html">
-   20. Ultra Wide Band positioning literature analysis
-  </a>
- </li>
-</ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/Subspace_Projections.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-            <!-- Source interaction buttons -->
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
+<div class="sbt-scroll-pixel-helper"></div>
 
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/pevalisuo/AML.git/master?urlpath=tree/book/Subspace_Projections.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        <a class="jupyterhub-button" href="https://notebooks.csc.fi/#/blueprint/d1fe6e08032e4c17a0f9e0e222414598/hub/user-redirect/git-pull?repo=https://github.com/pevalisuo/AML.git&urlpath=tree/AML.git/book/Subspace_Projections.ipynb&branch=master"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
-                data-placement="left"><img class="jupyterhub-button-logo"
-                    src="_static/images/logo_jupyterhub.svg"
-                    alt="Interact on JupyterHub">JupyterHub</button></a>
-        
-        
-        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://notebooks.csc.fi/#/blueprint/d1fe6e08032e4c17a0f9e0e222414598/hub/user-redirect/git-pull?repo=https%3A//github.com/pevalisuo/AML.git&urlpath=tree/AML.git/book/Subspace_Projections.ipynb&branch=master" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onJupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+  </ul>
 </div>
 
-        </div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Subspace_Projections.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Dimensionality reduction by Subspace projections</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#principal-component-analysis-pca">
-   4.1. Principal Component Analysis (PCA)
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#projecting-linear-data">
-   4.2. Projecting linear data
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#calculate-new-coordinates-with-maximum-variance">
-     4.2.1. Calculate new coordinates with maximum variance
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#scale-the-data-and-plot-it-again">
-     4.2.2. Scale the data and plot it again
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#plot-the-data-along-these-new-axis-by-rotating-the-data-with-affine-transformation">
-     4.2.3. Plot the data along these new axis by rotating the data with Affine transformation
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pca-how-to-do-all-previously-shown-steps-for-you">
-   4.3. PCA: How to do all previously shown steps for you
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pca-is-based-on-singular-value-decomposition">
-     4.3.1. PCA is based on singular value decomposition
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#reconstruct-data">
-     4.3.2. Reconstruct data
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#non-linear-data">
-   4.4. Non-Linear data
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#try-pca">
-     4.4.1. Try PCA
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#manifold-learning">
-   4.5. Manifold learning
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#more-non-linear-data">
-   4.6. More non-linear data
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pca-can-not-reduce-dimensionality">
-     4.6.1. PCA can not reduce dimensionality
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#aply-t-sne">
-     4.6.2. Aply t-SNE
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#application-to-handwritten-digit-recognition">
-   4.7. Application to handwritten digit recognition
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#print-some-of-the-numbers-in-the-database">
-     4.7.1. Print some of the numbers in the database
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#dimensionality-reduction-using-pca">
-     4.7.2. Dimensionality reduction using PCA
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#handwritten-digits-case">
-     4.7.3. Handwritten digits case
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#conclusion">
-   4.8. Conclusion
-  </a>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principal-component-analysis-pca">4.1. Principal Component Analysis (PCA)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projecting-linear-data">4.2. Projecting linear data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-new-coordinates-with-maximum-variance">4.2.1. Calculate new coordinates with maximum variance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scale-the-data-and-plot-it-again">4.2.2. Scale the data and plot it again</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-data-along-these-new-axis-by-rotating-the-data-with-affine-transformation">4.2.3. Plot the data along these new axis by rotating the data with Affine transformation</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-how-to-do-all-previously-shown-steps-for-you">4.3. PCA: How to do all previously shown steps for you</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-is-based-on-singular-value-decomposition">4.3.1. PCA is based on singular value decomposition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reconstruct-data">4.3.2. Reconstruct data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-data">4.4. Non-Linear data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#try-pca">4.4.1. Try PCA</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manifold-learning">4.5. Manifold learning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-non-linear-data">4.6. More non-linear data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-can-not-reduce-dimensionality">4.6.1. PCA can not reduce dimensionality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aply-t-sne">4.6.2. Aply t-SNE</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-to-handwritten-digit-recognition">4.7. Application to handwritten digit recognition</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#print-some-of-the-numbers-in-the-database">4.7.1. Print some of the numbers in the database</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dimensionality-reduction-using-pca">4.7.2. Dimensionality reduction using PCA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#handwritten-digits-case">4.7.3. Handwritten digits case</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">4.8. Conclusion</a></li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="dimensionality-reduction-by-subspace-projections">
-<h1><span class="section-number">4. </span>Dimensionality reduction by Subspace projections<a class="headerlink" href="#dimensionality-reduction-by-subspace-projections" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">4. </span>Dimensionality reduction by Subspace projections<a class="headerlink" href="#dimensionality-reduction-by-subspace-projections" title="Permalink to this heading">#</a></h1>
 <p>Lets assume that there is a random design matrix, <span class="math notranslate nohighlight">\(X\)</span>, whose dimensions are <span class="math notranslate nohighlight">\(n\times p\)</span>, where <span class="math notranslate nohighlight">\(n\)</span> is the number of samples and <span class="math notranslate nohighlight">\(p\)</span> is the number of features.</p>
 <p>The dimensionality of every sample is the number of features, <span class="math notranslate nohighlight">\(p\)</span>.</p>
 <p>Dimensionality reductions means transforming the data from a high dimensional (<span class="math notranslate nohighlight">\(p\)</span>) representation to the lower dimensional representation (<span class="math notranslate nohighlight">\('\)</span>), still retaining usefull properties of the original data. When dimensionality reduction is applied to matrix <span class="math notranslate nohighlight">\(X_{n\times p}\)</span> the resulting reduced matrix,  <span class="math notranslate nohighlight">\(X_{n\times p'}\)</span>  will have as many samples as the original matrix, but the number of features is reduced.</p>
 <p>These goals can be met, if the projection method is first fitted to the data, so that the axis of new <span class="math notranslate nohighlight">\(p'\)</span> dimensional space are aligned optimally to the data.</p>
 <section id="principal-component-analysis-pca">
-<h2><span class="section-number">4.1. </span>Principal Component Analysis (PCA)<a class="headerlink" href="#principal-component-analysis-pca" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1. </span>Principal Component Analysis (PCA)<a class="headerlink" href="#principal-component-analysis-pca" title="Permalink to this heading">#</a></h2>
 <p>PCA is one of the most well known dimensionality reduction methods. It transforms the set of observations with possibly correlated variables (=features) into a set of values of linearly uncorrelated variables, called principal components.</p>
 <p>PCA transformation is defined in such a way that the first principal component has the largest possible variance and the rest of the components are ordered according to their variances in descending order.</p>
 <p>PCA can be used as a dimensionality reduction method by removing some of the least important variables, and keeping the first most important.</p>
@@ -423,7 +443,7 @@ value decomposition (SVD), and eigenvalue decomposition
    X = USV^T,
 \]</div>
 <p>where S is the diagonal matrix of singular values (eigenvalues) <span class="math notranslate nohighlight">\(s_i\)</span> and columns of V are principal directions/axis (or eigenvectors).</p>
-<p>See references <a class="reference external" href="#references">1-4</a></p>
+<p>See references <span class="xref myst">1-4</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -484,7 +504,7 @@ value decomposition (SVD), and eigenvalue decomposition
 </div>
 </section>
 <section id="projecting-linear-data">
-<h2><span class="section-number">4.2. </span>Projecting linear data<a class="headerlink" href="#projecting-linear-data" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.2. </span>Projecting linear data<a class="headerlink" href="#projecting-linear-data" title="Permalink to this heading">#</a></h2>
 <p>Visualize the data first. Plot the points in the 2D dataset as scatter plot, using the magnitude of values (<span class="math notranslate nohighlight">\(\sqrt{x_1^2 + x_2^2}\)</span>) as color index. Big values will be plotted as red, and small values as blue.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -496,11 +516,11 @@ value decomposition (SVD), and eigenvalue decomposition
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Subspace_Projections_5_0.png" src="_images/Subspace_Projections_5_0.png" />
+<img alt="_images/f924ca8e55a18c16ace2d24bc54c5b7da0bec8bd237ada9dce71943fbfdb61e3.png" src="_images/f924ca8e55a18c16ace2d24bc54c5b7da0bec8bd237ada9dce71943fbfdb61e3.png" />
 </div>
 </div>
 <section id="calculate-new-coordinates-with-maximum-variance">
-<h3><span class="section-number">4.2.1. </span>Calculate new coordinates with maximum variance<a class="headerlink" href="#calculate-new-coordinates-with-maximum-variance" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.2.1. </span>Calculate new coordinates with maximum variance<a class="headerlink" href="#calculate-new-coordinates-with-maximum-variance" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the angle of maximum variance using the variances</span>
@@ -517,12 +537,12 @@ value decomposition (SVD), and eigenvalue decomposition
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Subspace_Projections_7_0.png" src="_images/Subspace_Projections_7_0.png" />
+<img alt="_images/892d99cc55b312106d92d2218cea1d9183426b36fce60313b3219ae5a5d2a33c.png" src="_images/892d99cc55b312106d92d2218cea1d9183426b36fce60313b3219ae5a5d2a33c.png" />
 </div>
 </div>
 </section>
 <section id="scale-the-data-and-plot-it-again">
-<h3><span class="section-number">4.2.2. </span>Scale the data and plot it again<a class="headerlink" href="#scale-the-data-and-plot-it-again" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.2.2. </span>Scale the data and plot it again<a class="headerlink" href="#scale-the-data-and-plot-it-again" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">scale</span>
@@ -534,12 +554,12 @@ value decomposition (SVD), and eigenvalue decomposition
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Subspace_Projections_9_0.png" src="_images/Subspace_Projections_9_0.png" />
+<img alt="_images/6e74363f974db8fcd4cf7723d46412cef82da1d93efa903afd26ac1174e92d98.png" src="_images/6e74363f974db8fcd4cf7723d46412cef82da1d93efa903afd26ac1174e92d98.png" />
 </div>
 </div>
 </section>
 <section id="plot-the-data-along-these-new-axis-by-rotating-the-data-with-affine-transformation">
-<h3><span class="section-number">4.2.3. </span>Plot the data along these new axis by rotating the data with Affine transformation<a class="headerlink" href="#plot-the-data-along-these-new-axis-by-rotating-the-data-with-affine-transformation" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.2.3. </span>Plot the data along these new axis by rotating the data with Affine transformation<a class="headerlink" href="#plot-the-data-along-these-new-axis-by-rotating-the-data-with-affine-transformation" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 Xr = R \times X =
@@ -578,13 +598,13 @@ Xr = R \times X =
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Subspace_Projections_12_0.png" src="_images/Subspace_Projections_12_0.png" />
+<img alt="_images/f31d45d8666027dd3090a56073d9f884f18573da1c3b1a4606f495962f85748b.png" src="_images/f31d45d8666027dd3090a56073d9f884f18573da1c3b1a4606f495962f85748b.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="pca-how-to-do-all-previously-shown-steps-for-you">
-<h2><span class="section-number">4.3. </span>PCA: How to do all previously shown steps for you<a class="headerlink" href="#pca-how-to-do-all-previously-shown-steps-for-you" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.3. </span>PCA: How to do all previously shown steps for you<a class="headerlink" href="#pca-how-to-do-all-previously-shown-steps-for-you" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
@@ -602,14 +622,14 @@ Xr = R \times X =
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.99268408, 0.00731592])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.98590119, 0.01409881])
 </pre></div>
 </div>
-<img alt="_images/Subspace_Projections_14_1.png" src="_images/Subspace_Projections_14_1.png" />
+<img alt="_images/6c25f3bf0aa361451a124e89136e101692095a151d36b44c5af5457004b46d8f.png" src="_images/6c25f3bf0aa361451a124e89136e101692095a151d36b44c5af5457004b46d8f.png" />
 </div>
 </div>
 <section id="pca-is-based-on-singular-value-decomposition">
-<h3><span class="section-number">4.3.1. </span>PCA is based on singular value decomposition<a class="headerlink" href="#pca-is-based-on-singular-value-decomposition" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.3.1. </span>PCA is based on singular value decomposition<a class="headerlink" href="#pca-is-based-on-singular-value-decomposition" title="Permalink to this heading">#</a></h3>
 <p>Singular alue decomposition, decomposes matrix X into three components</p>
 <p><code class="docutils literal notranslate"><span class="pre">U,S,E</span> <span class="pre">=</span> <span class="pre">svd(X)</span></code></p>
 <p>S is the eigenvalues of X and E contains the eigenvectors of X. The rotation of the data along coordinates with maximum variance is taken care by simply matrix multiplication:</p>
@@ -629,7 +649,7 @@ Xr = R \times X =
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.70710678  0.70710678]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-0.70710678 -0.70710678]
  [ 0.70710678 -0.70710678]]
 Equals
 [[-0.70710678 -0.70710678]
@@ -647,12 +667,12 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Subspace_Projections_17_0.png" src="_images/Subspace_Projections_17_0.png" />
+<img alt="_images/37dcddb7bc1df3f69d57c7bba89068536f879412f03bf55828590504eaef2143.png" src="_images/37dcddb7bc1df3f69d57c7bba89068536f879412f03bf55828590504eaef2143.png" />
 </div>
 </div>
 </section>
 <section id="reconstruct-data">
-<h3><span class="section-number">4.3.2. </span>Reconstruct data<a class="headerlink" href="#reconstruct-data" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.3.2. </span>Reconstruct data<a class="headerlink" href="#reconstruct-data" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pca</span><span class="o">=</span><span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -666,13 +686,13 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Subspace_Projections_19_0.png" src="_images/Subspace_Projections_19_0.png" />
+<img alt="_images/7eeb5a41039c6406204ee36bdf3ba6b1cc41344d54538906bd20376f7c51b78f.png" src="_images/7eeb5a41039c6406204ee36bdf3ba6b1cc41344d54538906bd20376f7c51b78f.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="non-linear-data">
-<h2><span class="section-number">4.4. </span>Non-Linear data<a class="headerlink" href="#non-linear-data" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.4. </span>Non-Linear data<a class="headerlink" href="#non-linear-data" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span><span class="o">=</span><span class="mf">0.1</span>
@@ -698,14 +718,14 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 360x360 with 0 Axes&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 500x500 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/Subspace_Projections_22_1.png" src="_images/Subspace_Projections_22_1.png" />
+<img alt="_images/3856cbea0fe0645612b89f406c391b513b1b4519a0794f1fd1744321483994cc.png" src="_images/3856cbea0fe0645612b89f406c391b513b1b4519a0794f1fd1744321483994cc.png" />
 </div>
 </div>
 <section id="try-pca">
-<h3><span class="section-number">4.4.1. </span>Try PCA<a class="headerlink" href="#try-pca" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.4.1. </span>Try PCA<a class="headerlink" href="#try-pca" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Perform PCA decomposition</span>
@@ -721,16 +741,16 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.97156215, 0.02843785])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.97265867, 0.02734133])
 </pre></div>
 </div>
-<img alt="_images/Subspace_Projections_24_1.png" src="_images/Subspace_Projections_24_1.png" />
+<img alt="_images/f31f9b7a8df82296b7927462bd1245bfb8b06bc049c863c705c88d0553391e5d.png" src="_images/f31f9b7a8df82296b7927462bd1245bfb8b06bc049c863c705c88d0553391e5d.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="manifold-learning">
-<h2><span class="section-number">4.5. </span>Manifold learning<a class="headerlink" href="#manifold-learning" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.5. </span>Manifold learning<a class="headerlink" href="#manifold-learning" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.manifold</span> <span class="kn">import</span> <span class="n">TSNE</span>
@@ -746,18 +766,12 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/petri/venv/python3/lib/python3.9/site-packages/sklearn/manifold/_t_sne.py:780: FutureWarning: The default initialization in TSNE will change from &#39;random&#39; to &#39;pca&#39; in 1.2.
-  warnings.warn(
-/home/petri/venv/python3/lib/python3.9/site-packages/sklearn/manifold/_t_sne.py:790: FutureWarning: The default learning rate in TSNE will change from 200.0 to &#39;auto&#39; in 1.2.
-  warnings.warn(
-</pre></div>
-</div>
-<img alt="_images/Subspace_Projections_26_1.png" src="_images/Subspace_Projections_26_1.png" />
+<img alt="_images/2caa383b7484b0eb3d222f3dc0fcc469c1394258e1be248c13b75f99f9b3ca26.png" src="_images/2caa383b7484b0eb3d222f3dc0fcc469c1394258e1be248c13b75f99f9b3ca26.png" />
 </div>
 </div>
 </section>
 <section id="more-non-linear-data">
-<h2><span class="section-number">4.6. </span>More non-linear data<a class="headerlink" href="#more-non-linear-data" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.6. </span>More non-linear data<a class="headerlink" href="#more-non-linear-data" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span><span class="o">=</span><span class="mf">0.1</span>
@@ -783,14 +797,14 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 360x360 with 0 Axes&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 500x500 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/Subspace_Projections_29_1.png" src="_images/Subspace_Projections_29_1.png" />
+<img alt="_images/9e6b4e936e862158f720c324b4ebae61934afb7b7f8f6f33007f1d2caa833893.png" src="_images/9e6b4e936e862158f720c324b4ebae61934afb7b7f8f6f33007f1d2caa833893.png" />
 </div>
 </div>
 <section id="pca-can-not-reduce-dimensionality">
-<h3><span class="section-number">4.6.1. </span>PCA can not reduce dimensionality<a class="headerlink" href="#pca-can-not-reduce-dimensionality" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.6.1. </span>PCA can not reduce dimensionality<a class="headerlink" href="#pca-can-not-reduce-dimensionality" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Perform PCA decomposition</span>
@@ -806,15 +820,15 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.55300163, 0.44699837])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.57561301, 0.42438699])
 </pre></div>
 </div>
-<img alt="_images/Subspace_Projections_31_1.png" src="_images/Subspace_Projections_31_1.png" />
+<img alt="_images/24015c8d2aeadb2f0ccc1bea7ed32f26b79c230b3d6c75545b3bff6a3523d4b4.png" src="_images/24015c8d2aeadb2f0ccc1bea7ed32f26b79c230b3d6c75545b3bff6a3523d4b4.png" />
 </div>
 </div>
 </section>
 <section id="aply-t-sne">
-<h3><span class="section-number">4.6.2. </span>Aply t-SNE<a class="headerlink" href="#aply-t-sne" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.6.2. </span>Aply t-SNE<a class="headerlink" href="#aply-t-sne" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.manifold</span> <span class="kn">import</span> <span class="n">TSNE</span>
@@ -830,19 +844,13 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/petri/venv/python3/lib/python3.9/site-packages/sklearn/manifold/_t_sne.py:780: FutureWarning: The default initialization in TSNE will change from &#39;random&#39; to &#39;pca&#39; in 1.2.
-  warnings.warn(
-/home/petri/venv/python3/lib/python3.9/site-packages/sklearn/manifold/_t_sne.py:790: FutureWarning: The default learning rate in TSNE will change from 200.0 to &#39;auto&#39; in 1.2.
-  warnings.warn(
-</pre></div>
-</div>
-<img alt="_images/Subspace_Projections_33_1.png" src="_images/Subspace_Projections_33_1.png" />
+<img alt="_images/3c93c63c04f2ba00ec2780a2f5684adf3f0851208d2aff74b8572ecb5000ec94.png" src="_images/3c93c63c04f2ba00ec2780a2f5684adf3f0851208d2aff74b8572ecb5000ec94.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="application-to-handwritten-digit-recognition">
-<h2><span class="section-number">4.7. </span>Application to handwritten digit recognition<a class="headerlink" href="#application-to-handwritten-digit-recognition" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.7. </span>Application to handwritten digit recognition<a class="headerlink" href="#application-to-handwritten-digit-recognition" title="Permalink to this heading">#</a></h2>
 <p>The handwriting recognition dataset contains 1797 digitized hand written written characters. The characters are digitized using 8x8 grid, so each sample is represented by 64 parameters. Each parameter can have a value from 0 to 15.</p>
 <ul class="simple">
 <li><p>The original data is 64 dimensional, so it is difficult to visualize.</p></li>
@@ -862,7 +870,7 @@ Equals
 </div>
 </div>
 <section id="print-some-of-the-numbers-in-the-database">
-<h3><span class="section-number">4.7.1. </span>Print some of the numbers in the database<a class="headerlink" href="#print-some-of-the-numbers-in-the-database" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.7.1. </span>Print some of the numbers in the database<a class="headerlink" href="#print-some-of-the-numbers-in-the-database" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the first samples of each number</span>
@@ -886,12 +894,12 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Subspace_Projections_37_0.png" src="_images/Subspace_Projections_37_0.png" />
+<img alt="_images/285fc42ec09a6f5d94fe38958e55657c9b4deb6d2c5826c69ea448196c1365a1.png" src="_images/285fc42ec09a6f5d94fe38958e55657c9b4deb6d2c5826c69ea448196c1365a1.png" />
 </div>
 </div>
 </section>
 <section id="dimensionality-reduction-using-pca">
-<h3><span class="section-number">4.7.2. </span>Dimensionality reduction using PCA<a class="headerlink" href="#dimensionality-reduction-using-pca" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.7.2. </span>Dimensionality reduction using PCA<a class="headerlink" href="#dimensionality-reduction-using-pca" title="Permalink to this heading">#</a></h3>
 <p>Apply PCA to the data, keeping at first up to 32 dimensions to study how much variance is explained by each principal component.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -914,7 +922,7 @@ Equals
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;The variance explained / %&#39;)
 </pre></div>
 </div>
-<img alt="_images/Subspace_Projections_39_2.png" src="_images/Subspace_Projections_39_2.png" />
+<img alt="_images/f029e1eafbdc99a83a8f87fb87df2cbf315321f8db15b59e4f875e8c12721bdf.png" src="_images/f029e1eafbdc99a83a8f87fb87df2cbf315321f8db15b59e4f875e8c12721bdf.png" />
 </div>
 </div>
 <p>It looks like quite many dimesions are needed, to keep the information in the dataset, but let’s try to plot it in 2D anyhow.</p>
@@ -933,7 +941,7 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Subspace_Projections_41_0.png" src="_images/Subspace_Projections_41_0.png" />
+<img alt="_images/c1e719f10bff0dc0f91b05e70070704e2bb7dece1ab649248f33a226e7e14146.png" src="_images/c1e719f10bff0dc0f91b05e70070704e2bb7dece1ab649248f33a226e7e14146.png" />
 </div>
 </div>
 <p>The result is not retaining enough information to be able to recognize characters any longer. Let’s try if nonlinear methods would work. How about Isomap.</p>
@@ -955,7 +963,7 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Subspace_Projections_43_0.png" src="_images/Subspace_Projections_43_0.png" />
+<img alt="_images/7f67f92b02bbe1da96589a322db52f8a218dd856a117a9d78a5a5e06fa07f861.png" src="_images/7f67f92b02bbe1da96589a322db52f8a218dd856a117a9d78a5a5e06fa07f861.png" />
 </div>
 </div>
 <p>Better, but not enough yet. How about t-SNE?</p>
@@ -977,18 +985,12 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/petri/venv/python3/lib/python3.9/site-packages/sklearn/manifold/_t_sne.py:780: FutureWarning: The default initialization in TSNE will change from &#39;random&#39; to &#39;pca&#39; in 1.2.
-  warnings.warn(
-/home/petri/venv/python3/lib/python3.9/site-packages/sklearn/manifold/_t_sne.py:790: FutureWarning: The default learning rate in TSNE will change from 200.0 to &#39;auto&#39; in 1.2.
-  warnings.warn(
-</pre></div>
-</div>
-<img alt="_images/Subspace_Projections_45_1.png" src="_images/Subspace_Projections_45_1.png" />
+<img alt="_images/d068d4c31b10793141488193c37d9ae673c7b3a53350d091c35d2ea06ac012ae.png" src="_images/d068d4c31b10793141488193c37d9ae673c7b3a53350d091c35d2ea06ac012ae.png" />
 </div>
 </div>
 </section>
 <section id="handwritten-digits-case">
-<h3><span class="section-number">4.7.3. </span>Handwritten digits case<a class="headerlink" href="#handwritten-digits-case" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.7.3. </span>Handwritten digits case<a class="headerlink" href="#handwritten-digits-case" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Linear methods were not succesfull retaining enough information for handwritten digits recognition when the dimensionality of data was reduced from 64 to 2. The explained variance ratio inferes that quite many principal components, like more than 10 would be needed for this problem.</p></li>
 <li><p>Isomap was able to capture better the structure of the originally multidimensional data only in 2D, but it was still already loosing plenty of important information. At least couple of more components would be needed. Probably it would be rather simple to implement a character recognition method in 4D space for example.</p></li>
@@ -999,7 +1001,7 @@ Equals
 </section>
 </section>
 <section id="conclusion">
-<h2><span class="section-number">4.8. </span>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.8. </span>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>PCA is a powerfull method for transforming data into low dimensional subspace</p></li>
 <li><p>PCA learns linear dependences between variables (correlation) and removes it, so that projected variables are uncorrelated</p></li>
@@ -1030,7 +1032,7 @@ C. M. Bishop, “Pattern recognition and machine learning,” CERN Document Serv
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -1038,55 +1040,129 @@ C. M. Bishop, “Pattern recognition and machine learning,” CERN Document Serv
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        
-            
 
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="Preprocessing_and_feature_extraction.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">3. </span>Preprocessing and feature extraction</p>
-            </div>
-        </a>
-    </div>
-     <div id="next">
-        <a class="right-next" href="Clustering.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">5. </span>Unsupervised learning</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
-</div>
-        
-        </div>
-    </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Petri Välisuo<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Preprocessing_and_feature_extraction.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Preprocessing and feature extraction</p>
       </div>
-    </div>
-  
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+    </a>
+    <a class="right-next"
+       href="Clustering.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Unsupervised learning</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principal-component-analysis-pca">4.1. Principal Component Analysis (PCA)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projecting-linear-data">4.2. Projecting linear data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-new-coordinates-with-maximum-variance">4.2.1. Calculate new coordinates with maximum variance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scale-the-data-and-plot-it-again">4.2.2. Scale the data and plot it again</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-data-along-these-new-axis-by-rotating-the-data-with-affine-transformation">4.2.3. Plot the data along these new axis by rotating the data with Affine transformation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-how-to-do-all-previously-shown-steps-for-you">4.3. PCA: How to do all previously shown steps for you</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-is-based-on-singular-value-decomposition">4.3.1. PCA is based on singular value decomposition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reconstruct-data">4.3.2. Reconstruct data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-data">4.4. Non-Linear data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#try-pca">4.4.1. Try PCA</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manifold-learning">4.5. Manifold learning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-non-linear-data">4.6. More non-linear data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-can-not-reduce-dimensionality">4.6.1. PCA can not reduce dimensionality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aply-t-sne">4.6.2. Aply t-SNE</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-to-handwritten-digit-recognition">4.7. Application to handwritten digit recognition</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#print-some-of-the-numbers-in-the-database">4.7.1. Print some of the numbers in the database</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dimensionality-reduction-using-pca">4.7.2. Dimensionality reduction using PCA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#handwritten-digits-case">4.7.3. Handwritten digits case</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">4.8. Conclusion</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Petri Välisuo
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

@@ -1,0 +1,40 @@
+Traceback (most recent call last):
+  File "/home/petri/venv/python3/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/home/petri/venv/python3/lib/python3.9/site-packages/nbclient/client.py", line 1117, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/home/petri/venv/python3/lib/python3.9/site-packages/nbclient/util.py", line 78, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/home/petri/venv/python3/lib/python3.9/site-packages/nbclient/util.py", line 57, in just_run
+    return loop.run_until_complete(coro)
+  File "/usr/lib/python3.9/asyncio/base_events.py", line 642, in run_until_complete
+    return future.result()
+  File "/home/petri/venv/python3/lib/python3.9/site-packages/nbclient/client.py", line 558, in async_execute
+    await self.async_execute_cell(
+  File "/home/petri/venv/python3/lib/python3.9/site-packages/nbclient/client.py", line 862, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/home/petri/venv/python3/lib/python3.9/site-packages/nbclient/client.py", line 765, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+dot = graphviz.Digraph(comment='A process')#, rankdir="LR")
+dot.graph_attr['rankdir']="LR"
+dot.node('H', 'H(θ)', shape="box", fillcolor="lightgrey", style="filled")
+dot.node('I', 'I', shape="plain")
+dot.node('O', 'O', shape="plain")
+dot.edge('I', 'H')
+dot.edge('H', 'O')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m/tmp/ipykernel_1113622/4078037298.py[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mdot[0m [0;34m=[0m [0mgraphviz[0m[0;34m.[0m[0mDigraph[0m[0;34m([0m[0mcomment[0m[0;34m=[0m[0;34m'A process'[0m[0;34m)[0m[0;31m#, rankdir="LR")[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mdot[0m[0;34m.[0m[0mgraph_attr[0m[0;34m[[0m[0;34m'rankdir'[0m[0;34m][0m[0;34m=[0m[0;34m"LR"[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0mdot[0m[0;34m.[0m[0mnode[0m[0;34m([0m[0;34m'H'[0m[0;34m,[0m [0;34m'H(θ)'[0m[0;34m,[0m [0mshape[0m[0;34m=[0m[0;34m"box"[0m[0;34m,[0m [0mfillcolor[0m[0;34m=[0m[0;34m"lightgrey"[0m[0;34m,[0m [0mstyle[0m[0;34m=[0m[0;34m"filled"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0mdot[0m[0;34m.[0m[0mnode[0m[0;34m([0m[0;34m'I'[0m[0;34m,[0m [0;34m'I'[0m[0;34m,[0m [0mshape[0m[0;34m=[0m[0;34m"plain"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0mdot[0m[0;34m.[0m[0mnode[0m[0;34m([0m[0;34m'O'[0m[0;34m,[0m [0;34m'O'[0m[0;34m,[0m [0mshape[0m[0;34m=[0m[0;34m"plain"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'graphviz' is not defined
+NameError: name 'graphviz' is not defined
+

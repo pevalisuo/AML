@@ -1,419 +1,422 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>3. Preprocessing and feature extraction &#8212; Applied Machine Learning, 2021</title>
-    
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Preprocessing_and_feature_extraction';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="4. Dimensionality reduction by Subspace projections" href="Subspace_Projections.html" />
     <link rel="prev" title="2. Reading and plotting" href="ReadingAndPlotting.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="practicalities.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="_static/ApplesAndOranges.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Applied Machine Learning, 2021</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="practicalities.html">
-   About the course
-  </a>
- </li>
+    
+    
+    <img src="_static/ApplesAndOranges.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/ApplesAndOranges.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="practicalities.html">
+                    About the course
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ReadingAndPlotting.html">2. Reading and plotting</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Preprocessing and feature extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Subspace_Projections.html">4. Dimensionality reduction by Subspace projections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Clustering.html">5. Unsupervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SupervisedMachineLearningTerminology.html">6. Supervised machine learning, Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NearestNeighbors.html">7. Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="SupportVectorMachine.html">8. Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="DecisionTrees.html">9. Decision trees and forests <a class="anchor" id="dtaforests"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Regression.html">10. Regression and regularisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NeuralNetworks.html">11. Artificial Neural Networks (ANN)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Learning_model_parameters.html">12. Model learning strategies</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="NLP.html">18. Natural Language Processing</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="NLP-UWB.html">20. Ultra Wide Band positioning literature analysis</a></li>
 </ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Introduction.html">
-   1. Introduction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ReadingAndPlotting.html">
-   2. Reading and plotting
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   3. Preprocessing and feature extraction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Subspace_Projections.html">
-   4. Dimensionality reduction by Subspace projections
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Clustering.html">
-   5. Unsupervised learning
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="SupervisedMachineLearningTerminology.html">
-   6. Supervised machine learning, Terminology
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="NearestNeighbors.html">
-   7. Nearest Neighbours methods
-   <a class="anchor" id="nearestneighbours">
-   </a>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="SupportVectorMachine.html">
-   8. Support Vector Machine (SVM)
-   <a class="anchor" id="supportvectormachine">
-   </a>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="DecisionTrees.html">
-   9. Decision trees and forests
-   <a class="anchor" id="dtaforests">
-   </a>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Regression.html">
-   10. Regression and regularisation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="NeuralNetworks.html">
-   11. Artificial Neural Networks (ANN)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Learning_model_parameters.html">
-   12. Model learning strategies
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="NLP.html">
-   18. Natural Language Processing
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="NLP-UWB.html">
-   20. Ultra Wide Band positioning literature analysis
-  </a>
- </li>
-</ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/Preprocessing_and_feature_extraction.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-            <!-- Source interaction buttons -->
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
+<div class="sbt-scroll-pixel-helper"></div>
 
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/pevalisuo/AML.git/master?urlpath=tree/book/Preprocessing_and_feature_extraction.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        <a class="jupyterhub-button" href="https://notebooks.csc.fi/#/blueprint/d1fe6e08032e4c17a0f9e0e222414598/hub/user-redirect/git-pull?repo=https://github.com/pevalisuo/AML.git&urlpath=tree/AML.git/book/Preprocessing_and_feature_extraction.ipynb&branch=master"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
-                data-placement="left"><img class="jupyterhub-button-logo"
-                    src="_static/images/logo_jupyterhub.svg"
-                    alt="Interact on JupyterHub">JupyterHub</button></a>
-        
-        
-        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://notebooks.csc.fi/#/blueprint/d1fe6e08032e4c17a0f9e0e222414598/hub/user-redirect/git-pull?repo=https%3A//github.com/pevalisuo/AML.git&urlpath=tree/AML.git/book/Preprocessing_and_feature_extraction.ipynb&branch=master" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onJupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+  </ul>
 </div>
 
-        </div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Preprocessing_and_feature_extraction.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Preprocessing and feature extraction</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#machine-learning">
-   3.1. Machine Learning
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#feature-extraction">
-   3.2. Feature extraction
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-purpose-of-machine-learning">
-   3.3. The purpose of machine learning
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#case-one-sound-recognition">
-   3.4. Case one, sound recognition
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#perhaps-there-are-differences-in-the-sound-pressure-level-volume">
-     3.4.1. Perhaps there are differences in the sound pressure level (volume)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#perhaps-studying-different-spectral-components-help">
-     3.4.2. Perhaps studying different spectral components help
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#other-audio-features">
-     3.4.3. Other audio features
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#case-2-what-features-could-be-used-to-classify-iris-species">
-   3.5. Case 2, What features could be used to classify Iris species?
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#features-measured-by-fisher">
-     3.5.1. Features measured by Fisher
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#nicer-plots-with-seaborn">
-     3.5.2. Nicer plots with Seaborn
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#quantitative-analysis">
-     3.5.3. Quantitative analysis
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#visual-analysis-of-mean-and-distribution-using-boxplot">
-     3.5.4. Visual analysis of mean and distribution using boxplot
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#applying-an-external-function-to-data">
-     3.5.5. Applying an external function to data
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#hypothesis-testing">
-     3.5.6. Hypothesis testing
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#testing-if-distribution-of-the-variables-is-normal">
-       3.5.6.1. Testing if distribution of the variables is normal
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#test-the-similarity-of-petal-length-distributions">
-     3.5.7. Test the similarity of petal_length distributions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#non-parametric-testing">
-     3.5.8. Non-parametric testing
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-was-learned">
-   3.6. What was learned?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#using-features-for-recognizing-species">
-   3.7. Using features for recognizing species
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#how-to-handle-categorial-features-a-class-anchor-id-categoricalf-a">
-   3.8. How to handle categorial features?
-   <a class="anchor" id="categoricalF">
-   </a>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example">
-     3.8.1. Example:
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#one-hot-encoding-a-class-anchor-id-onehotencoding-a">
-     3.8.2. One hot encoding
-     <a class="anchor" id="OneHotEncoding">
-     </a>
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning">3.1. Machine Learning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-extraction">3.2. Feature extraction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-purpose-of-machine-learning">3.3. The purpose of machine learning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-one-sound-recognition">3.4. Case one, sound recognition</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perhaps-there-are-differences-in-the-sound-pressure-level-volume">3.4.1. Perhaps there are differences in the sound pressure level (volume)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perhaps-studying-different-spectral-components-help">3.4.2. Perhaps studying different spectral components help</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-audio-features">3.4.3. Other audio features</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-2-what-features-could-be-used-to-classify-iris-species">3.5. Case 2, What features could be used to classify Iris species?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#features-measured-by-fisher">3.5.1. Features measured by Fisher</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nicer-plots-with-seaborn">3.5.2. Nicer plots with Seaborn</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantitative-analysis">3.5.3. Quantitative analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-analysis-of-mean-and-distribution-using-boxplot">3.5.4. Visual analysis of mean and distribution using boxplot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-an-external-function-to-data">3.5.5. Applying an external function to data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypothesis-testing">3.5.6. Hypothesis testing</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-if-distribution-of-the-variables-is-normal">3.5.6.1. Testing if distribution of the variables is normal</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-the-similarity-of-petal-length-distributions">3.5.7. Test the similarity of petal_length distributions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-parametric-testing">3.5.8. Non-parametric testing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-features-for-recognizing-species">3.6. Using features for recognizing species</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-handle-categorial-features-a-class-anchor-id-categoricalf-a">3.7. How to handle categorial features? <a class="anchor" id="categoricalF"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">3.7.1. Example:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#one-hot-encoding-a-class-anchor-id-onehotencoding-a">3.7.2. One hot encoding  <a class="anchor" id="OneHotEncoding"></a></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-was-learned">3.8. What was learned?</a></li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="preprocessing-and-feature-extraction">
-<h1><span class="section-number">3. </span>Preprocessing and feature extraction<a class="headerlink" href="#preprocessing-and-feature-extraction" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">3. </span>Preprocessing and feature extraction<a class="headerlink" href="#preprocessing-and-feature-extraction" title="Permalink to this heading">#</a></h1>
 <p>This module starts actual machine learning part, by introducing some important concepts and walking through and example using classical statistics. Machine learning is more than statistics, but the covered statistical concepts are very important throughout the course.</p>
 <section id="machine-learning">
-<h2><span class="section-number">3.1. </span>Machine Learning<a class="headerlink" href="#machine-learning" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1. </span>Machine Learning<a class="headerlink" href="#machine-learning" title="Permalink to this heading">#</a></h2>
 <p><img alt="machine_learning.svg" src="_images/machine_learning.svg" /></p>
+<p>Here are just some notes</p>
 </section>
 <section id="feature-extraction">
-<h2><span class="section-number">3.2. </span>Feature extraction<a class="headerlink" href="#feature-extraction" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.2. </span>Feature extraction<a class="headerlink" href="#feature-extraction" title="Permalink to this heading">#</a></h2>
 <p><img alt="featureextraction_p.svg" src="_images/featureextraction_p.svg" /></p>
 <ul class="simple">
 <li><p>The purpose of feature extraction is to capture relevant properties of the samples into variables.</p></li>
@@ -421,7 +424,7 @@
 </ul>
 </section>
 <section id="the-purpose-of-machine-learning">
-<h2><span class="section-number">3.3. </span>The purpose of machine learning<a class="headerlink" href="#the-purpose-of-machine-learning" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.3. </span>The purpose of machine learning<a class="headerlink" href="#the-purpose-of-machine-learning" title="Permalink to this heading">#</a></h2>
 <p>Task is to find a function <span class="math notranslate nohighlight">\(f\)</span>, which predicts variable <span class="math notranslate nohighlight">\(y_i\)</span> based on <span class="math notranslate nohighlight">\(p\)</span> features <span class="math notranslate nohighlight">\(x_{i,j}\)</span>, where <span class="math notranslate nohighlight">\(i \in [0,N]\)</span> and <span class="math notranslate nohighlight">\(j \in [0,P]\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -441,12 +444,12 @@
 \end{split}\]</div>
 </section>
 <section id="case-one-sound-recognition">
-<h2><span class="section-number">3.4. </span>Case one, sound recognition<a class="headerlink" href="#case-one-sound-recognition" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.4. </span>Case one, sound recognition<a class="headerlink" href="#case-one-sound-recognition" title="Permalink to this heading">#</a></h2>
 <p><img alt="featureextraction_p.svg" src="_images/timedomainaudio.png" /></p>
 <p>This sound sample contains noise from wind turbine, by-passing cars and some birds perhaps.</p>
 <p>Can you find good features to find out what is the dominating noise source in which time?</p>
 <section id="perhaps-there-are-differences-in-the-sound-pressure-level-volume">
-<h3><span class="section-number">3.4.1. </span>Perhaps there are differences in the sound pressure level (volume)<a class="headerlink" href="#perhaps-there-are-differences-in-the-sound-pressure-level-volume" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.4.1. </span>Perhaps there are differences in the sound pressure level (volume)<a class="headerlink" href="#perhaps-there-are-differences-in-the-sound-pressure-level-volume" title="Permalink to this heading">#</a></h3>
 <p><img alt="SPL of the audio" src="_images/splaudio.png" /></p>
 <p>This picture shows the <a class="reference external" href="https://en.wikipedia.org/wiki/A-weighting">A-weighted</a> sound pressure level (SPL) of the sound signal. It shows what is the subjective volume perceived by a human observer. SPL is a RMS average of the signal over certain time period</p>
 <div class="math notranslate nohighlight">
@@ -454,18 +457,18 @@
 <p>where <span class="math notranslate nohighlight">\(p_{rms}\)</span> is the RMS average of the sound pressure, <span class="math notranslate nohighlight">\(p_0=20~\mu\)</span>P, is the reference sound pressure and ,<span class="math notranslate nohighlight">\(T=1\)</span> s, is a time constant.Notice that <span class="math notranslate nohighlight">\(L_p\)</span> is shown in logarithmic scale. Log transformation may sometimes be helpful.</p>
 </section>
 <section id="perhaps-studying-different-spectral-components-help">
-<h3><span class="section-number">3.4.2. </span>Perhaps studying different spectral components help<a class="headerlink" href="#perhaps-studying-different-spectral-components-help" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.4.2. </span>Perhaps studying different spectral components help<a class="headerlink" href="#perhaps-studying-different-spectral-components-help" title="Permalink to this heading">#</a></h3>
 <p><img alt="Sectrogram of the audio" src="_images/sgramaudio.png" /></p>
 <p>This figure is obtained by splitting the signal in 1 second pieces and applying a Fourier transformation to them, and then by plotting the spectrum of each slice vertically. This method is called as Short Time Fourier Transformation (STFT) and is often usefull method for extracting features from the data.</p>
 </section>
 <section id="other-audio-features">
-<h3><span class="section-number">3.4.3. </span>Other audio features<a class="headerlink" href="#other-audio-features" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.4.3. </span>Other audio features<a class="headerlink" href="#other-audio-features" title="Permalink to this heading">#</a></h3>
 <p>Take a look at the feature extraction documentation of the <a class="reference external" href="https://librosa.org/doc/latest/feature.html">LibRosa library</a>.</p>
 </section>
 </section>
 <section id="case-2-what-features-could-be-used-to-classify-iris-species">
-<h2><span class="section-number">3.5. </span>Case 2, What features could be used to classify Iris species?<a class="headerlink" href="#case-2-what-features-could-be-used-to-classify-iris-species" title="Permalink to this headline">¶</a></h2>
-<table class="colwidths-auto table">
+<h2><span class="section-number">3.5. </span>Case 2, What features could be used to classify Iris species?<a class="headerlink" href="#case-2-what-features-could-be-used-to-classify-iris-species" title="Permalink to this heading">#</a></h2>
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setosa</p></th>
 <th class="head"><p>Versicolor</p></th>
@@ -484,7 +487,7 @@
 </tbody>
 </table>
 <section id="features-measured-by-fisher">
-<h3><span class="section-number">3.5.1. </span>Features measured by Fisher<a class="headerlink" href="#features-measured-by-fisher" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.5.1. </span>Features measured by Fisher<a class="headerlink" href="#features-measured-by-fisher" title="Permalink to this heading">#</a></h3>
 <p>One of the most famos data sets of statistics is the Iris-dataset by Fisher. Let’s take a look what features he measured and how do they perform.</p>
 <p>Lets read the data set and plot the head of it.</p>
 <div class="cell docutils container">
@@ -633,10 +636,10 @@ max        7.900000     4.400000      6.900000     2.500000
 </div>
 </section>
 <section id="nicer-plots-with-seaborn">
-<h3><span class="section-number">3.5.2. </span>Nicer plots with Seaborn<a class="headerlink" href="#nicer-plots-with-seaborn" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.5.2. </span>Nicer plots with Seaborn<a class="headerlink" href="#nicer-plots-with-seaborn" title="Permalink to this heading">#</a></h3>
 <p>The Seaborn library is another library for plotting data, in addition to Matplotlib which we used earlier. Seaborn is especially good for statistical plots, mut it has unfortunately totally different API than matplotlib. It may be good to use Matplotlib usually, but it you find some plots inconvenient to be plotted with matplotlib, then it is time to check what seaborn can offer. Easiest way is to check the <a class="reference external" href="https://python-graph-gallery.com/all-charts/">example gallery</a> to see if someone has made a similar plot what you need, and copy and modify the source code, which is given in the gallery.</p>
 <p>Study the pairplots below, and consider following questions:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Can you separate the three species with only one feature? Can you separate one species with one feature?</p></li>
 <li><p>Can you separate all three species by combining two features?</p></li>
 <li><p>Which of the features has the biggest discriminative power (which can separate the different species most efficienty)?</p></li>
@@ -648,7 +651,11 @@ max        7.900000     4.400000      6.900000     2.500000
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Preprocessing_and_feature_extraction_11_0.png" src="_images/Preprocessing_and_feature_extraction_11_0.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/mnt/debian/pvs/venv/JupyterAI/lib/python3.11/site-packages/seaborn/axisgrid.py:118: UserWarning: The figure layout has changed to tight
+  self._figure.tight_layout(*args, **kwargs)
+</pre></div>
+</div>
+<img alt="_images/80115734e9a2210691b03f1f4d01cb703fd950963abfc945ef0e8fbbdfb12759.png" src="_images/80115734e9a2210691b03f1f4d01cb703fd950963abfc945ef0e8fbbdfb12759.png" />
 </div>
 </div>
 <p>We could have used also a scatter matrix from Pandas, but is not as nice.</p>
@@ -660,12 +667,12 @@ max        7.900000     4.400000      6.900000     2.500000
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Preprocessing_and_feature_extraction_13_0.png" src="_images/Preprocessing_and_feature_extraction_13_0.png" />
+<img alt="_images/04442b66dbe6196865cf97db85b3711a9919c3875689efd094cf1cf9e102f4a7.png" src="_images/04442b66dbe6196865cf97db85b3711a9919c3875689efd094cf1cf9e102f4a7.png" />
 </div>
 </div>
 </section>
 <section id="quantitative-analysis">
-<h3><span class="section-number">3.5.3. </span>Quantitative analysis<a class="headerlink" href="#quantitative-analysis" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.5.3. </span>Quantitative analysis<a class="headerlink" href="#quantitative-analysis" title="Permalink to this heading">#</a></h3>
 <p>It looks like petal_length can nicely separate Setosa’s from other species, but not necessary Versicolor from Virginica. Lets try to get some numerical proof if this observation is correct.</p>
 <p>Lets first study the average feature values and their deviations separately in each group. The groupby() function in pandas dataframe provides very handy methods for implementing this. Groupby kind of splits the original dataframe into three different dataframes according to the species class.</p>
 <p>Mean()-function calculates the columnwise mean so in this case it calculates the mean of each feature. Because the dataframe is splitted by species, the result is a matrix, in which each species are in rows, and features in columns. The feature ‘species’, which was used for grouping is removed from the result matrix.</p>
@@ -801,7 +808,7 @@ max        7.900000     4.400000      6.900000     2.500000
 <p>It looks like the differences of for example petal_lengths seem to be bigger than the standard deviation. It could be feasible to use it for species recognition.</p>
 </section>
 <section id="visual-analysis-of-mean-and-distribution-using-boxplot">
-<h3><span class="section-number">3.5.4. </span>Visual analysis of mean and distribution using boxplot<a class="headerlink" href="#visual-analysis-of-mean-and-distribution-using-boxplot" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.5.4. </span>Visual analysis of mean and distribution using boxplot<a class="headerlink" href="#visual-analysis-of-mean-and-distribution-using-boxplot" title="Permalink to this heading">#</a></h3>
 <p>The boxplot displays the median value (the red lines inside the boxes) and distribution as quartiles (the height of the boxes, and lengths of the whiskers) graphically. The box extends from <em>quartile</em> Q1 below to quartile Q3 above the median. The length of the whiskers is 1.5 times the <em>inter quartile range</em> (IQR) from the box edge, where IQR=Q3-Q1. The values outside of whiskers are interpreted as <em>outliers</em>, and they are plotted as circles.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -810,13 +817,13 @@ max        7.900000     4.400000      6.900000     2.500000
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Preprocessing_and_feature_extraction_20_0.png" src="_images/Preprocessing_and_feature_extraction_20_0.png" />
+<img alt="_images/97e393525a4b8e13fd366d38972231b22b6e923af5702e5199287d458eb68ec7.png" src="_images/97e393525a4b8e13fd366d38972231b22b6e923af5702e5199287d458eb68ec7.png" />
 </div>
 </div>
 <p>The boxplot shows that Setosa can be separated from Versicolor and Virginica with no confusion, but there is some overlap between Versicolor and Virginica.</p>
 </section>
 <section id="applying-an-external-function-to-data">
-<h3><span class="section-number">3.5.5. </span>Applying an external function to data<a class="headerlink" href="#applying-an-external-function-to-data" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.5.5. </span>Applying an external function to data<a class="headerlink" href="#applying-an-external-function-to-data" title="Permalink to this heading">#</a></h3>
 <p>Sometimes it is necessary to apply also such functions to the data, which are not part of the dataframe. It can be accomplished by using the apply-method as follows. Here the median-function from the NumPy-libary is used. You can also apply your own function to the data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -851,7 +858,7 @@ Name: petal_length, dtype: float64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fullRange</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;A function for studying the full range of the vector&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A function for studying the full range of the vector&quot;&quot;&quot;</span>
     <span class="n">sortedx</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">sortedx</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">sortedx</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
@@ -871,18 +878,25 @@ Name: petal_length, dtype: float64
 </div>
 </section>
 <section id="hypothesis-testing">
-<h3><span class="section-number">3.5.6. </span>Hypothesis testing<a class="headerlink" href="#hypothesis-testing" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.5.6. </span>Hypothesis testing<a class="headerlink" href="#hypothesis-testing" title="Permalink to this heading">#</a></h3>
+<p>Hypothesis testing is important part of evaluating the data and the models.</p>
+<p>In the case of normality testing, the hypothesis is that the data is not normally distributed, and so called zero hypothesis is that it is normally distributed. The purpose of the test is to find out if the data provides enough evidence to safely assume thet the data is not normally distributed. The testing is made so that the deviation of the observed data from the normal distribution is measured and analysed statistically. The result is the probability that the data would deviate from the normal distribution by chance in case where the underlying process is truly normally distributed. This probability is called as p-value. We need to deviate from the normality assumption only when the p-value, is below the threshold a.</p>
+<p>The more data we have, the smaller p-value can be obtained. The threshold value to accept the hypothesis is often called <span class="math notranslate nohighlight">\(\alpha\)</span>, or <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">alpha</span></code> in this code.</p>
+<p>Hypothesis testing is used for many other purposes too, such as testing if the means of two different random variables are truly different or not.</p>
+<p><img alt="p-value" src="_images/p-value.svg" /></p>
+<p>Typical value for threshold, <span class="math notranslate nohighlight">\(\alpha=0.05\)</span>, meaning that we allow only 5% probability to accept the hypothesis by chance.</p>
 <p>Let’s formally study if the petal lengts are significantly different or not by forming two hypothesis:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>The distribution of petal lengths of Setosa species is different than the distribution of petal lengts of other species</p></li>
 <li><p>Let’s also assume that the distribution of petal lengts of Versicolor is siginificantly different than that of Virginica</p></li>
 </ol>
 <p>The standard test for these hypothesis is the <a class="reference external" href="https://www.statisticshowto.datasciencecentral.com/probability-and-statistics/t-test/">Student’s T-test</a>.</p>
 <p>But the T-test can only be used if the variables are normally distributed. Let’s test that first.</p>
 <section id="testing-if-distribution-of-the-variables-is-normal">
-<h4><span class="section-number">3.5.6.1. </span>Testing if distribution of the variables is normal<a class="headerlink" href="#testing-if-distribution-of-the-variables-is-normal" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">3.5.6.1. </span>Testing if distribution of the variables is normal<a class="headerlink" href="#testing-if-distribution-of-the-variables-is-normal" title="Permalink to this heading">#</a></h4>
 <p>Read more about normality testing methods from <a class="reference external" href="https://www.statisticshowto.datasciencecentral.com/assumption-of-normality-test/">Statistics howto</a></p>
 <p>Most often used normality test is the D’Agostino-Pearson Test. It can be taken into use by importing the <code class="docutils literal notranslate"><span class="pre">normaltest</span></code> function from the stats module of the Scientific Python package.</p>
+<p>The zero hypothesis for the normality test is that the data is normally distributed. It can be rejected if we have enough evidence to claim othewise. The normality test uses T-Test to check if the evidence is sufficient for rejecting the null hypothesis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">normaltest</span>
@@ -897,19 +911,37 @@ Name: petal_length, dtype: float64
 <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span>
 <span class="n">statistis</span><span class="p">,</span> <span class="n">pvalue</span><span class="o">=</span><span class="n">normaltest</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">petal_length</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">pvalue</span><span class="o">&lt;</span><span class="n">alpha</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data is normal distributed&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P-value is very small, we have enough evidence to reject the null hypothesis&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data is not normal distributed&quot;</span><span class="p">)</span> 
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data is not normal distributed&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P-value is large, we do not have enough evidence to reject the null hypothesis&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data is normal distributed&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NormaltestResult(statistic=221.68729405585384, pvalue=7.264667501338673e-49)
-Data is normal distributed
+P-value is very small, we have enough evidence to reject the null hypothesis
+Data is not normal distributed
 </pre></div>
 </div>
 </div>
 </div>
+<p>Check it by plotting it</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">petal_length</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;petal_length&#39;, ylabel=&#39;Density&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/48fbfeb6d1206545b82d2063d272706a70a27403e78bf633de27a3db53f606f5.png" src="_images/48fbfeb6d1206545b82d2063d272706a70a27403e78bf633de27a3db53f606f5.png" />
+</div>
+</div>
+<p>Definitely not normal distribution.</p>
 <p>But we were supposed to test this for all species separately</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -918,9 +950,9 @@ Data is normal distributed
 <span class="c1"># and applying the normal test to all species separately</span>
 <span class="n">results</span><span class="o">=</span><span class="n">iris</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;species&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">petal_length</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">normaltest</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">alpha</span><span class="p">):</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Petal length of Setosa is normally distributed&quot;</span><span class="p">)</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">alpha</span><span class="p">):</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Petal length of Versicolor is normally distributed&quot;</span><span class="p">)</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">alpha</span><span class="p">):</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Petal length of Virginica is normally distributed&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">alpha</span><span class="p">):</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Petal length of Setosa is normally distributed&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">alpha</span><span class="p">):</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Petal length of Versicolor is normally distributed&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">alpha</span><span class="p">):</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Petal length of Virginica is normally distributed&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -930,27 +962,45 @@ setosa        (2.236973547672174, 0.32677390349997293)
 versicolor     (3.3182862415011867, 0.190301976072032)
 virginica     (2.6991800572037943, 0.2593465635270746)
 Name: petal_length, dtype: object
+Petal length of Setosa is normally distributed
+Petal length of Versicolor is normally distributed
+Petal length of Virginica is normally distributed
 </pre></div>
 </div>
 </div>
 </div>
-<p>The data does not justify us to safely conclude that the data would be normally distributed! The visual inspection of the distribution shown in the Seaborn pairplot support this result.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">iris</span><span class="p">[</span><span class="n">iris</span><span class="o">.</span><span class="n">species</span><span class="o">==</span><span class="s1">&#39;setosa&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">petal_length</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">iris</span><span class="p">[</span><span class="n">iris</span><span class="o">.</span><span class="n">species</span><span class="o">==</span><span class="s1">&#39;virginica&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">petal_length</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">iris</span><span class="p">[</span><span class="n">iris</span><span class="o">.</span><span class="n">species</span><span class="o">==</span><span class="s1">&#39;versicolor&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">petal_length</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;petal_length&#39;, ylabel=&#39;Density&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/57049e44741c12437e1cf47f990fbab754005fa90a6fe0408da300ebf35d13f7.png" src="_images/57049e44741c12437e1cf47f990fbab754005fa90a6fe0408da300ebf35d13f7.png" />
+</div>
+</div>
+<p>The individual petal lengths seem to be sufficiently normal distributed so that we can use t-test.</p>
 </section>
 </section>
 <section id="test-the-similarity-of-petal-length-distributions">
-<h3><span class="section-number">3.5.7. </span>Test the similarity of petal_length distributions<a class="headerlink" href="#test-the-similarity-of-petal-length-distributions" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.5.7. </span>Test the similarity of petal_length distributions<a class="headerlink" href="#test-the-similarity-of-petal-length-distributions" title="Permalink to this heading">#</a></h3>
 <p>The most often used method for hypothesis testing, is the Student’s T-test, which is also in the stats module of Scientific Python package.</p>
-<p>(<em>We try to use T-test even though we do not have the autorization, because the variable is not normally distributed! The consequence is that whatever the result is, it may not be reliable</em>)</p>
 <p>T-Test supports four different confiurations. Read the documentation and select the correct configuration. The selection is quite straightforward.</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Two-sided test for the null hypothesis that two independent samples have identical average (expected) values. Example: <code class="docutils literal notranslate"><span class="pre">p=ttest_ind(a,b)</span></code></p></li>
 <li><p>Two-sided test for the null hypothesis that the expected value of a sample of independent observations <code class="docutils literal notranslate"><span class="pre">a</span></code> is equal to the given population mean, <code class="docutils literal notranslate"><span class="pre">popmean</span></code>. Example: <code class="docutils literal notranslate"><span class="pre">p=ttest_1samp(a,</span> <span class="pre">popmean)</span></code></p></li>
 <li><p>Two-sided test for the null hypothesis that two related or repeated or paired samples have identical average (expected) values. Example: <code class="docutils literal notranslate"><span class="pre">p=ttest_rel(a,b)</span></code></p></li>
 <li><p>Two-sided test for the null hypothesis that 2 independent samples have identical average (expected) values. Example: <code class="docutils literal notranslate"><span class="pre">ttest_ind_from_stats(mean1,</span> <span class="pre">std1,</span> <span class="pre">n1,</span> <span class="pre">mean2,</span> <span class="pre">std2,</span> <span class="pre">n2)</span></code></p></li>
 </ol>
 <p>Here all tests are two sided, meaning that we do not have any a-priori knowlwdge that one would be bigger than another.</p>
-<p>The hypotheses that the two distributions are different are accepted if the probability of getting into that conclusion by chance, <span class="math notranslate nohighlight">\(\alpha\)</span> is smaller than 5%:</p>
+<p>The hypotheses that the two distributions are different is accepted if the probability of getting into that conclusion by chance, <span class="math notranslate nohighlight">\(p\)</span> is smaller than <span class="math notranslate nohighlight">\(\alpha\)</span> =5%:</p>
 <p>(p-value<span class="math notranslate nohighlight">\(~&lt;\alpha\)</span>, when <span class="math notranslate nohighlight">\(\alpha=0.05\)</span>).</p>
+<p>Otherwise we have not evidence for rejecting the null hypothesis that the means are the same.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># T-test of two independent data sets</span>
@@ -975,12 +1025,12 @@ Name: petal_length, dtype: object
           <span class="o">+</span><span class="s2">&quot;: p=</span><span class="si">%4.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">test</span><span class="o">.</span><span class="n">pvalue</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The petal_lengths of Versicolor and Virginica are not statistically different &quot;</span>
-          <span class="o">+</span><span class="s2">&quot;: p=</span><span class="si">%4.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">test</span><span class="o">.</span><span class="n">pvalue</span><span class="p">)</span>
+          <span class="o">+</span><span class="s2">&quot;: p=</span><span class="si">%4.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">test</span><span class="o">.</span><span class="n">pvalue</span><span class="p">)</span> 
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ttest_indResult(statistic=-29.130840211367364, pvalue=3.6233785751774946e-63)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TtestResult(statistic=-29.130840211367364, pvalue=3.6233785751774946e-63, df=148.0)
 The petal_length of setosa are statistically different than the petal_length of other flowers. p=0.000
 The petal_lengths of Versicolor and Virginica are statistically different : p=0.00
 </pre></div>
@@ -989,8 +1039,8 @@ The petal_lengths of Versicolor and Virginica are statistically different : p=0.
 </div>
 </section>
 <section id="non-parametric-testing">
-<h3><span class="section-number">3.5.8. </span>Non-parametric testing<a class="headerlink" href="#non-parametric-testing" title="Permalink to this headline">¶</a></h3>
-<p>Because the data is not normally distributed, we are not allowed to use the T-test, but we need to use non-parametric tests instead. One often used is the <a class="reference external" href="https://en.wikipedia.org/wiki/Mann%E2%80%93Whitney_U_test">Mann-Whitney rank-test</a>. Because this test does not assume anything about the shape of the distributions, it usually needs larger sample size to get reliable estimate of p-values. Sample size bigger than 20 for both classes is recommended.</p>
+<h3><span class="section-number">3.5.8. </span>Non-parametric testing<a class="headerlink" href="#non-parametric-testing" title="Permalink to this heading">#</a></h3>
+<p>If the data is not normally distributed, then we need to use non-parametric tests instead. One often used is the <a class="reference external" href="https://en.wikipedia.org/wiki/Mann%E2%80%93Whitney_U_test">Mann-Whitney rank-test</a>. Because this test does not assume anything about the shape of the distributions, it usually needs larger sample size to get reliable estimate of p-values. Sample size bigger than 20 for both classes is recommended.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">mannwhitneyu</span>
@@ -1007,18 +1057,8 @@ The petal_lengths of Versicolor and Virginica are statistically different : p=0.
 <p>The p-value of <span class="math notranslate nohighlight">\(4.56 \cdot 10^{-17} &lt; \alpha\)</span> we can conclude that the difference of the petal lenghts of versicolor and virginica is statistically significant. This is reliable result, since it was not necessary to assume any specifig distribution of feature variables.</p>
 </section>
 </section>
-<section id="what-was-learned">
-<h2><span class="section-number">3.6. </span>What was learned?<a class="headerlink" href="#what-was-learned" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Some mesured values (petal and sepal widhts and heights in this case) can be used as features, describing the similarities and differences of the samples</p></li>
-<li><p>T-test can be used for testing if the values of the features are the same or different for different classes of samples. If the features are not significantly different, they are not usefull for classification.</p></li>
-<li><p>T-test can only be used if the variables are normally distributed.</p></li>
-<li><p>Non-parametric tests can be used if the data is not normally distributed, but it may need larger sample size</p></li>
-</ul>
-<p>Now we can be certain, that the petal lengts are different in all species, and the difference is statistically significant, meaning that they are not different only by chance.</p>
-</section>
 <section id="using-features-for-recognizing-species">
-<h2><span class="section-number">3.7. </span>Using features for recognizing species<a class="headerlink" href="#using-features-for-recognizing-species" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.6. </span>Using features for recognizing species<a class="headerlink" href="#using-features-for-recognizing-species" title="Permalink to this heading">#</a></h2>
 <p>Now that we know that petal_lengths are different for each species, can this feature be used in recognizing flowers or classifying flower species?</p>
 <p>The following picture shows the position of decision boundary leading to highest precision in classifying Versicolor from Virginica species based on petal length.</p>
 <ul class="simple">
@@ -1041,7 +1081,7 @@ The petal_lengths of Versicolor and Virginica are statistically different : p=0.
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="k">def</span> <span class="nf">plotROC</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Plots a ROC curve of the one dimensional data whose values  </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Plots a ROC curve of the one dimensional data whose values  </span>
 <span class="sd">        in one case are listed in a, and in another case in b.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1">## Create a new x-axis, which has for example 100 poinsts</span>
@@ -1086,12 +1126,12 @@ The petal_lengths of Versicolor and Virginica are statistically different : p=0.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Preprocessing_and_feature_extraction_40_0.png" src="_images/Preprocessing_and_feature_extraction_40_0.png" />
+<img alt="_images/cfd9ee3ec84ad4a865de06bad84145ab3d75e16d3cdc7cf892135a4b2b4ec0d4.png" src="_images/cfd9ee3ec84ad4a865de06bad84145ab3d75e16d3cdc7cf892135a4b2b4ec0d4.png" />
 </div>
 </div>
 </section>
 <section id="how-to-handle-categorial-features-a-class-anchor-id-categoricalf-a">
-<h2><span class="section-number">3.8. </span>How to handle categorial features? <a class="anchor" id="categoricalF"></a><a class="headerlink" href="#how-to-handle-categorial-features-a-class-anchor-id-categoricalf-a" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.7. </span>How to handle categorial features? <a class="anchor" id="categoricalF"></a><a class="headerlink" href="#how-to-handle-categorial-features-a-class-anchor-id-categoricalf-a" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Features can be</p>
 <ul>
@@ -1105,7 +1145,7 @@ The petal_lengths of Versicolor and Virginica are statistically different : p=0.
 </li>
 </ul>
 <section id="example">
-<h3><span class="section-number">3.8.1. </span>Example:<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.7.1. </span>Example:<a class="headerlink" href="#example" title="Permalink to this heading">#</a></h3>
 <p>Assume that the species of the Iris is in fact a categorical feature for some ML algorithm. If you would code them just simply like ‘setosa’ -&gt; 1, ‘versicolor’ -&gt;2 and ‘virginica’ -&gt; 3, the ML algorithm could think it as a numerical feature, and use it to calculate distances between species :(</p>
 <p>The fix is to use so called One Hot Encoding.
 Here is the original data:</p>
@@ -1196,14 +1236,116 @@ Here is the original data:</p>
 </div>
 </section>
 <section id="one-hot-encoding-a-class-anchor-id-onehotencoding-a">
-<h3><span class="section-number">3.8.2. </span>One hot encoding  <a class="anchor" id="OneHotEncoding"></a><a class="headerlink" href="#one-hot-encoding-a-class-anchor-id-onehotencoding-a" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.7.2. </span>One hot encoding  <a class="anchor" id="OneHotEncoding"></a><a class="headerlink" href="#one-hot-encoding-a-class-anchor-id-onehotencoding-a" title="Permalink to this heading">#</a></h3>
 <p>Now we can encode the species to number in a safe way:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Make an encoder and transform the target variable to OneHot format</p></li>
 <li><p>The categorial variable can be currently encoded as integers, strings or any objects OneHotEncoder reads it in the for nxp matrix, where n is number of samples and p is the number of features to be encoded.</p></li>
 <li><p>Originally target was such kind of numpy array, which do not have the second index at all. It has to be (unfortunately) converted to column vector, which is otherwise the same, but it has also the second axis, which has only one value, a nx1 array.</p></li>
 <li><p>This can be done by just simply adding a new dimension into the array, using np.newaxis constant or by using reshape function.</p></li>
 </ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">iris_dataset</span><span class="o">.</span><span class="n">target_names</span><span class="p">)</span>
+<span class="n">iris_dataset</span><span class="o">.</span><span class="n">target</span>
+
+<span class="c1"># Convert row vector to column vector, by adding the second axis</span>
+<span class="c1">#iris_dataset.target[:,np.newaxis]  </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;setosa&#39; &#39;versicolor&#39; &#39;virginica&#39;]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iris</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal length (cm)</th>
+      <th>sepal width (cm)</th>
+      <th>petal length (cm)</th>
+      <th>petal width (cm)</th>
+      <th>species</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5.1</td>
+      <td>3.5</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4.9</td>
+      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.7</td>
+      <td>3.2</td>
+      <td>1.3</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.6</td>
+      <td>3.1</td>
+      <td>1.5</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5.0</td>
+      <td>3.6</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OneHotEncoder</span>
@@ -1255,15 +1397,26 @@ Here is the original data:</p>
   </thead>
   <tbody>
     <tr>
-      <th>66</th>
-      <td>5.6</td>
-      <td>3.0</td>
-      <td>4.5</td>
-      <td>1.5</td>
-      <td>versicolor</td>
-      <td>0.0</td>
+      <th>81</th>
+      <td>5.5</td>
+      <td>2.4</td>
+      <td>3.7</td>
       <td>1.0</td>
-      <td>0.0</td>
+      <td>versicolor</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>5.0</td>
+      <td>3.5</td>
+      <td>1.3</td>
+      <td>0.3</td>
+      <td>setosa</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>148</th>
@@ -1272,20 +1425,31 @@ Here is the original data:</p>
       <td>5.4</td>
       <td>2.3</td>
       <td>virginica</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
     </tr>
     <tr>
-      <th>90</th>
-      <td>5.5</td>
-      <td>2.6</td>
-      <td>4.4</td>
-      <td>1.2</td>
-      <td>versicolor</td>
-      <td>0.0</td>
+      <th>109</th>
+      <td>7.2</td>
+      <td>3.6</td>
+      <td>6.1</td>
+      <td>2.5</td>
+      <td>virginica</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>60</th>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>3.5</td>
       <td>1.0</td>
-      <td>0.0</td>
+      <td>versicolor</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>44</th>
@@ -1294,81 +1458,79 @@ Here is the original data:</p>
       <td>1.9</td>
       <td>0.4</td>
       <td>setosa</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>4.7</td>
-      <td>3.2</td>
-      <td>1.3</td>
-      <td>0.2</td>
-      <td>setosa</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>63</th>
-      <td>6.1</td>
-      <td>2.9</td>
-      <td>4.7</td>
-      <td>1.4</td>
-      <td>versicolor</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>5.1</td>
-      <td>3.5</td>
-      <td>1.4</td>
-      <td>0.3</td>
-      <td>setosa</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>32</th>
-      <td>5.2</td>
-      <td>4.1</td>
-      <td>1.5</td>
-      <td>0.1</td>
-      <td>setosa</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>4.8</td>
-      <td>3.4</td>
-      <td>1.6</td>
-      <td>0.2</td>
-      <td>setosa</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
+      <th>77</th>
+      <td>6.7</td>
+      <td>3.0</td>
       <td>5.0</td>
-      <td>3.6</td>
-      <td>1.4</td>
-      <td>0.2</td>
-      <td>setosa</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>1.7</td>
+      <td>versicolor</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>89</th>
+      <td>5.5</td>
+      <td>2.5</td>
+      <td>4.0</td>
+      <td>1.3</td>
+      <td>versicolor</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>120</th>
+      <td>6.9</td>
+      <td>3.2</td>
+      <td>5.7</td>
+      <td>2.3</td>
+      <td>virginica</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>124</th>
+      <td>6.7</td>
+      <td>3.3</td>
+      <td>5.7</td>
+      <td>2.1</td>
+      <td>virginica</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This way you can check the results of the one hot encoding</span>
+<span class="c1">#enc.fit_transform(iris_dataset.target[:,np.newaxis]).toarray()</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
+</section>
+<section id="what-was-learned">
+<h2><span class="section-number">3.8. </span>What was learned?<a class="headerlink" href="#what-was-learned" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Some mesured values (petal and sepal widhts and heights in this case) can be used as features, describing the similarities and differences of the samples</p></li>
+<li><p>T-test can be used for testing if the values of the features are the same or different for different classes of samples. If the features are not significantly different, they are not usefull for classification.</p></li>
+<li><p>T-test can only be used if the variables are normally distributed.</p></li>
+<li><p>Non-parametric tests can be used if the data is not normally distributed, but it may need larger sample size</p></li>
+<li><p>ROC curves form a systematic framework to study the power of the feature in general</p></li>
+<li><p>Categorical features often need special care, like one hot endoding</p></li>
+</ul>
+<p>Now we can be certain, that the petal lengts are different in all species, and the difference is statistically significant, meaning that they are not different only by chance.</p>
 </section>
 </section>
 
@@ -1384,7 +1546,7 @@ Here is the original data:</p>
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -1392,55 +1554,130 @@ Here is the original data:</p>
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        
-            
 
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="ReadingAndPlotting.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">2. </span>Reading and plotting</p>
-            </div>
-        </a>
-    </div>
-     <div id="next">
-        <a class="right-next" href="Subspace_Projections.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">4. </span>Dimensionality reduction by Subspace projections</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
-</div>
-        
-        </div>
-    </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Petri Välisuo<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ReadingAndPlotting.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Reading and plotting</p>
       </div>
-    </div>
-  
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+    </a>
+    <a class="right-next"
+       href="Subspace_Projections.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Dimensionality reduction by Subspace projections</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning">3.1. Machine Learning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-extraction">3.2. Feature extraction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-purpose-of-machine-learning">3.3. The purpose of machine learning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-one-sound-recognition">3.4. Case one, sound recognition</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perhaps-there-are-differences-in-the-sound-pressure-level-volume">3.4.1. Perhaps there are differences in the sound pressure level (volume)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perhaps-studying-different-spectral-components-help">3.4.2. Perhaps studying different spectral components help</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-audio-features">3.4.3. Other audio features</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-2-what-features-could-be-used-to-classify-iris-species">3.5. Case 2, What features could be used to classify Iris species?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#features-measured-by-fisher">3.5.1. Features measured by Fisher</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nicer-plots-with-seaborn">3.5.2. Nicer plots with Seaborn</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantitative-analysis">3.5.3. Quantitative analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-analysis-of-mean-and-distribution-using-boxplot">3.5.4. Visual analysis of mean and distribution using boxplot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-an-external-function-to-data">3.5.5. Applying an external function to data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypothesis-testing">3.5.6. Hypothesis testing</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-if-distribution-of-the-variables-is-normal">3.5.6.1. Testing if distribution of the variables is normal</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-the-similarity-of-petal-length-distributions">3.5.7. Test the similarity of petal_length distributions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-parametric-testing">3.5.8. Non-parametric testing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-features-for-recognizing-species">3.6. Using features for recognizing species</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-handle-categorial-features-a-class-anchor-id-categoricalf-a">3.7. How to handle categorial features? <a class="anchor" id="categoricalF"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">3.7.1. Example:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#one-hot-encoding-a-class-anchor-id-onehotencoding-a">3.7.2. One hot encoding  <a class="anchor" id="OneHotEncoding"></a></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-was-learned">3.8. What was learned?</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Petri Välisuo
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
