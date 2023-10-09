@@ -383,18 +383,23 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manifold-learning">4.5. Manifold learning</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-non-linear-data">4.6. More non-linear data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-can-not-reduce-dimensionality">4.6.1. PCA can not reduce dimensionality</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aply-t-sne">4.6.2. Aply t-SNE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uniform-manifold-approximation-umap">4.6. Uniform Manifold Approximation (UMAP)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-non-linear-data">4.7. More non-linear data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-can-not-reduce-dimensionality">4.7.1. PCA can not reduce dimensionality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aply-t-sne">4.7.2. Aply t-SNE</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-to-handwritten-digit-recognition">4.7. Application to handwritten digit recognition</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#print-some-of-the-numbers-in-the-database">4.7.1. Print some of the numbers in the database</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dimensionality-reduction-using-pca">4.7.2. Dimensionality reduction using PCA</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#handwritten-digits-case">4.7.3. Handwritten digits case</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-umap">4.8. Apply UMAP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-to-handwritten-digit-recognition">4.9. Application to handwritten digit recognition</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#print-some-of-the-numbers-in-the-database">4.9.1. Print some of the numbers in the database</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dimensionality-reduction-using-pca">4.9.2. Dimensionality reduction using PCA</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">4.8. Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#umap-plotting">4.10. Umap plotting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#handwritten-digits-case">4.10.1. Handwritten digits case</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">4.11. Conclusion</a></li>
 </ul>
             </nav>
         </div>
@@ -425,24 +430,21 @@ the 1930s.Depending on the field of application, it is also named thediscrete Ka
 the Hotelling transform in multivariate quality control, singular
 value decomposition (SVD), and eigenvalue decomposition
 (EVD).</p>
-<p>Mathematically PCA projection works like this:</p>
-<div class="math notranslate nohighlight">
-\[
+<p>Mathematically PCA projection works like this:
+$<span class="math notranslate nohighlight">\(
     Y_{n\times p'} = X_{n\times p} ~ E_{p\times p'},
-\]</div>
+\)</span>$</p>
 <p>where <span class="math notranslate nohighlight">\(n\)</span> is number of samples, <span class="math notranslate nohighlight">\(p\)</span> is number of variables (or features), <span class="math notranslate nohighlight">\(p'\)</span> is possibly reduced number of features, <span class="math notranslate nohighlight">\(X\)</span> is the design matrix, input to PCA, <span class="math notranslate nohighlight">\(E\)</span> is matrix of eigenvectors, <span class="math notranslate nohighlight">\(Y\)</span> is a matrix of principal components, projections.</p>
 <p>The most important component of <span class="math notranslate nohighlight">\(Y\)</span> is the first column, and the rest of them carry less information in decreasing order. Dimensionality reduction is achieved by simply discarding the rightmost columns of <span class="math notranslate nohighlight">\(Y\)</span>.</p>
-<p>Original data can be reconstructed as follows:</p>
-<div class="math notranslate nohighlight">
-\[
+<p>Original data can be reconstructed as follows:
+$<span class="math notranslate nohighlight">\(
     X_{n\times p} = Y_{n\times p'} ~ E_{p'\times p},
-\]</div>
-<p>Eigenvalues and eigenvectors can be calculated for example using Singular Value Decomposition (SVD)</p>
-<div class="math notranslate nohighlight">
-\[
+\)</span>$</p>
+<p>Eigenvalues and eigenvectors can be calculated for example using Singular Value Decomposition (SVD)
+$<span class="math notranslate nohighlight">\(
    X = USV^T,
-\]</div>
-<p>where S is the diagonal matrix of singular values (eigenvalues) <span class="math notranslate nohighlight">\(s_i\)</span> and columns of V are principal directions/axis (or eigenvectors).</p>
+\)</span><span class="math notranslate nohighlight">\(
+where S is the diagonal matrix of singular values (eigenvalues) \)</span>s_i$ and columns of V are principal directions/axis (or eigenvectors).</p>
 <p>See references <span class="xref myst">1-4</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -516,7 +518,7 @@ value decomposition (SVD), and eigenvalue decomposition
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f924ca8e55a18c16ace2d24bc54c5b7da0bec8bd237ada9dce71943fbfdb61e3.png" src="_images/f924ca8e55a18c16ace2d24bc54c5b7da0bec8bd237ada9dce71943fbfdb61e3.png" />
+<img alt="_images/070ec05a35ff398228dad19f7ef02c1dc6c1acdc7a7f78b53cc1bc100bc2d13b.png" src="_images/070ec05a35ff398228dad19f7ef02c1dc6c1acdc7a7f78b53cc1bc100bc2d13b.png" />
 </div>
 </div>
 <section id="calculate-new-coordinates-with-maximum-variance">
@@ -537,7 +539,7 @@ value decomposition (SVD), and eigenvalue decomposition
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/892d99cc55b312106d92d2218cea1d9183426b36fce60313b3219ae5a5d2a33c.png" src="_images/892d99cc55b312106d92d2218cea1d9183426b36fce60313b3219ae5a5d2a33c.png" />
+<img alt="_images/6ecacb0c833a3354052b38b0aa432ca642e72e59c290c7ca8dc7810ec3ded62b.png" src="_images/6ecacb0c833a3354052b38b0aa432ca642e72e59c290c7ca8dc7810ec3ded62b.png" />
 </div>
 </div>
 </section>
@@ -554,7 +556,7 @@ value decomposition (SVD), and eigenvalue decomposition
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6e74363f974db8fcd4cf7723d46412cef82da1d93efa903afd26ac1174e92d98.png" src="_images/6e74363f974db8fcd4cf7723d46412cef82da1d93efa903afd26ac1174e92d98.png" />
+<img alt="_images/089b26a1f78517d5b0270d5bfe4c59134905ea22ad6067333f0a4a5e562beb2d.png" src="_images/089b26a1f78517d5b0270d5bfe4c59134905ea22ad6067333f0a4a5e562beb2d.png" />
 </div>
 </div>
 </section>
@@ -598,7 +600,7 @@ Xr = R \times X =
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f31d45d8666027dd3090a56073d9f884f18573da1c3b1a4606f495962f85748b.png" src="_images/f31d45d8666027dd3090a56073d9f884f18573da1c3b1a4606f495962f85748b.png" />
+<img alt="_images/4e67a2185714b9366160e3c6bbe5ff949c64c3eacab34541175bba386ddcc3ea.png" src="_images/4e67a2185714b9366160e3c6bbe5ff949c64c3eacab34541175bba386ddcc3ea.png" />
 </div>
 </div>
 </section>
@@ -622,10 +624,10 @@ Xr = R \times X =
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.98590119, 0.01409881])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.99158806, 0.00841194])
 </pre></div>
 </div>
-<img alt="_images/6c25f3bf0aa361451a124e89136e101692095a151d36b44c5af5457004b46d8f.png" src="_images/6c25f3bf0aa361451a124e89136e101692095a151d36b44c5af5457004b46d8f.png" />
+<img alt="_images/e6f99060690933dcbf891873397dc55991db167a54769371e18cfe34efaae267.png" src="_images/e6f99060690933dcbf891873397dc55991db167a54769371e18cfe34efaae267.png" />
 </div>
 </div>
 <section id="pca-is-based-on-singular-value-decomposition">
@@ -649,8 +651,8 @@ Xr = R \times X =
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-0.70710678 -0.70710678]
- [ 0.70710678 -0.70710678]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.70710678  0.70710678]
+ [-0.70710678  0.70710678]]
 Equals
 [[-0.70710678 -0.70710678]
  [ 0.70710678 -0.70710678]]
@@ -667,7 +669,7 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/37dcddb7bc1df3f69d57c7bba89068536f879412f03bf55828590504eaef2143.png" src="_images/37dcddb7bc1df3f69d57c7bba89068536f879412f03bf55828590504eaef2143.png" />
+<img alt="_images/ba0c9f670a72bd520a3ff5c0e17ab7a085d8d6c679e834af8458dada544c77f1.png" src="_images/ba0c9f670a72bd520a3ff5c0e17ab7a085d8d6c679e834af8458dada544c77f1.png" />
 </div>
 </div>
 </section>
@@ -686,7 +688,7 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7eeb5a41039c6406204ee36bdf3ba6b1cc41344d54538906bd20376f7c51b78f.png" src="_images/7eeb5a41039c6406204ee36bdf3ba6b1cc41344d54538906bd20376f7c51b78f.png" />
+<img alt="_images/c25cb370152082743f5e9cf4515c9cbd68ccdf611531ed1e4c555535f50321c7.png" src="_images/c25cb370152082743f5e9cf4515c9cbd68ccdf611531ed1e4c555535f50321c7.png" />
 </div>
 </div>
 </section>
@@ -721,7 +723,7 @@ Equals
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 500x500 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/3856cbea0fe0645612b89f406c391b513b1b4519a0794f1fd1744321483994cc.png" src="_images/3856cbea0fe0645612b89f406c391b513b1b4519a0794f1fd1744321483994cc.png" />
+<img alt="_images/2457ec4e79b0ba8e1783063b9c3585ce6d6c4b22447a52567a68a2f06aa21d1c.png" src="_images/2457ec4e79b0ba8e1783063b9c3585ce6d6c4b22447a52567a68a2f06aa21d1c.png" />
 </div>
 </div>
 <section id="try-pca">
@@ -741,16 +743,20 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.97265867, 0.02734133])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.97794592, 0.02205408])
 </pre></div>
 </div>
-<img alt="_images/f31f9b7a8df82296b7927462bd1245bfb8b06bc049c863c705c88d0553391e5d.png" src="_images/f31f9b7a8df82296b7927462bd1245bfb8b06bc049c863c705c88d0553391e5d.png" />
+<img alt="_images/69ee214f333bca959fe26d942ed89995eeec3271bf8b2a20c5cce1225d01c623.png" src="_images/69ee214f333bca959fe26d942ed89995eeec3271bf8b2a20c5cce1225d01c623.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="manifold-learning">
 <h2><span class="section-number">4.5. </span>Manifold learning<a class="headerlink" href="#manifold-learning" title="Permalink to this heading">#</a></h2>
+<p>Manifold learning methods are non-linear algorithms for mapping the multidimensional data into the lower dimension by unfolding the manifold. While doing so, they try to keep the local neighborhood similar than it was before the transformation. It means that those samples which were neighbours in the original multidimensional space, should be neighbors also in reduced subspace.</p>
+<p>Two often used methods are T-distributed Stochastic Neighbor Embedding <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html">t-SNE</a> and Uniform Manifold Approximation <a class="reference external" href="https://umap-learn.readthedocs.io/en/latest/index.html">UMAP</a>.</p>
+<p>t-SNE is part of sklearn, but umap needs to be separately installed, like <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">umap-learn</span></code>.</p>
+<p>If you want to isntall also special UMAP plotting tools, then run <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">umap-learn[plot]</span></code> as well. But it is not mandatory, since matplotplit can plot everything necessary.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.manifold</span> <span class="kn">import</span> <span class="n">TSNE</span>
@@ -766,12 +772,32 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2caa383b7484b0eb3d222f3dc0fcc469c1394258e1be248c13b75f99f9b3ca26.png" src="_images/2caa383b7484b0eb3d222f3dc0fcc469c1394258e1be248c13b75f99f9b3ca26.png" />
+<img alt="_images/c5d91b73b5f1a14b07def6b4984fc5c2dc9207cb3fe2a3fd52e62ede2c1f31f7.png" src="_images/c5d91b73b5f1a14b07def6b4984fc5c2dc9207cb3fe2a3fd52e62ede2c1f31f7.png" />
+</div>
+</div>
+</section>
+<section id="uniform-manifold-approximation-umap">
+<h2><span class="section-number">4.6. </span>Uniform Manifold Approximation (UMAP)<a class="headerlink" href="#uniform-manifold-approximation-umap" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">umap</span>
+<span class="n">reducer</span> <span class="o">=</span> <span class="n">umap</span><span class="o">.</span><span class="n">UMAP</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">Xp</span><span class="o">=</span><span class="n">reducer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">Xs</span><span class="p">)</span>
+
+<span class="c1"># Plot the original data and transformed data side by side</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plotData</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span> <span class="n">ax1</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s1">&#39;X1&#39;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s1">&#39;X2&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Original data&#39;</span><span class="p">)</span>
+<span class="n">plotData</span><span class="p">(</span><span class="n">Xp</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s1">&#39;UMAP component 1&#39;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s1">&#39;UMAP component 2&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;UMAP&#39;</span><span class="p">,</span> <span class="n">noline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/332805aa8ba4f737bed4f76c69a339e6f664501766e303d8e931d0ff9e871d59.png" src="_images/332805aa8ba4f737bed4f76c69a339e6f664501766e303d8e931d0ff9e871d59.png" />
 </div>
 </div>
 </section>
 <section id="more-non-linear-data">
-<h2><span class="section-number">4.6. </span>More non-linear data<a class="headerlink" href="#more-non-linear-data" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.7. </span>More non-linear data<a class="headerlink" href="#more-non-linear-data" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span><span class="o">=</span><span class="mf">0.1</span>
@@ -800,11 +826,11 @@ Equals
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 500x500 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/9e6b4e936e862158f720c324b4ebae61934afb7b7f8f6f33007f1d2caa833893.png" src="_images/9e6b4e936e862158f720c324b4ebae61934afb7b7f8f6f33007f1d2caa833893.png" />
+<img alt="_images/d83a082f63634045ba155e484bf20dfe17ce9d2c6b65802d825be3737a971664.png" src="_images/d83a082f63634045ba155e484bf20dfe17ce9d2c6b65802d825be3737a971664.png" />
 </div>
 </div>
 <section id="pca-can-not-reduce-dimensionality">
-<h3><span class="section-number">4.6.1. </span>PCA can not reduce dimensionality<a class="headerlink" href="#pca-can-not-reduce-dimensionality" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.7.1. </span>PCA can not reduce dimensionality<a class="headerlink" href="#pca-can-not-reduce-dimensionality" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Perform PCA decomposition</span>
@@ -814,21 +840,21 @@ Equals
 <span class="c1"># Plot the original data and transformed data side by side</span>
 <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 <span class="n">plotData</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span> <span class="n">ax1</span><span class="p">,</span><span class="n">xlab</span><span class="o">=</span><span class="s1">&#39;X1&#39;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s1">&#39;X2&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Original data&#39;</span><span class="p">)</span>
-<span class="n">plotData</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span><span class="n">xlab</span><span class="o">=</span><span class="s1">&#39; PC 1&#39;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s1">&#39;PC 2&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;PCA&#39;</span><span class="p">,</span> <span class="n">noline</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plotData</span><span class="p">(</span><span class="n">Xp</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span><span class="n">xlab</span><span class="o">=</span><span class="s1">&#39; PC 1&#39;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s1">&#39;PC 2&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;PCA&#39;</span><span class="p">,</span> <span class="n">noline</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.57561301, 0.42438699])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.68813304, 0.31186696])
 </pre></div>
 </div>
-<img alt="_images/24015c8d2aeadb2f0ccc1bea7ed32f26b79c230b3d6c75545b3bff6a3523d4b4.png" src="_images/24015c8d2aeadb2f0ccc1bea7ed32f26b79c230b3d6c75545b3bff6a3523d4b4.png" />
+<img alt="_images/f9458f907f6b97a47d5ced89579ef5758488e1c6e034034d0fda61bd2228e984.png" src="_images/f9458f907f6b97a47d5ced89579ef5758488e1c6e034034d0fda61bd2228e984.png" />
 </div>
 </div>
 </section>
 <section id="aply-t-sne">
-<h3><span class="section-number">4.6.2. </span>Aply t-SNE<a class="headerlink" href="#aply-t-sne" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.7.2. </span>Aply t-SNE<a class="headerlink" href="#aply-t-sne" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.manifold</span> <span class="kn">import</span> <span class="n">TSNE</span>
@@ -844,13 +870,32 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3c93c63c04f2ba00ec2780a2f5684adf3f0851208d2aff74b8572ecb5000ec94.png" src="_images/3c93c63c04f2ba00ec2780a2f5684adf3f0851208d2aff74b8572ecb5000ec94.png" />
+<img alt="_images/6309b83899e9f16002aa5d88aca763d5c18129663faeac2bc975cb56d84df45a.png" src="_images/6309b83899e9f16002aa5d88aca763d5c18129663faeac2bc975cb56d84df45a.png" />
 </div>
 </div>
 </section>
+</section>
+<section id="apply-umap">
+<h2><span class="section-number">4.8. </span>Apply UMAP<a class="headerlink" href="#apply-umap" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reducer</span> <span class="o">=</span> <span class="n">umap</span><span class="o">.</span><span class="n">UMAP</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">Xp</span><span class="o">=</span><span class="n">reducer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">Xs</span><span class="p">)</span> 
+
+<span class="c1"># Plot the original data and transformed data side by side</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plotData</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span> <span class="n">ax1</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s1">&#39;X1&#39;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s1">&#39;X2&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Original data&#39;</span><span class="p">)</span>
+<span class="n">plotData</span><span class="p">(</span><span class="n">Xp</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s1">&#39;UMAP component 1&#39;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s1">&#39;UMAP component 2&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;UMAP&#39;</span><span class="p">,</span> <span class="n">noline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/3988e2b0d14cef4f9c148809aa48731805820efc2ca847917639b0f4bc8431b7.png" src="_images/3988e2b0d14cef4f9c148809aa48731805820efc2ca847917639b0f4bc8431b7.png" />
+</div>
+</div>
 </section>
 <section id="application-to-handwritten-digit-recognition">
-<h2><span class="section-number">4.7. </span>Application to handwritten digit recognition<a class="headerlink" href="#application-to-handwritten-digit-recognition" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.9. </span>Application to handwritten digit recognition<a class="headerlink" href="#application-to-handwritten-digit-recognition" title="Permalink to this heading">#</a></h2>
 <p>The handwriting recognition dataset contains 1797 digitized hand written written characters. The characters are digitized using 8x8 grid, so each sample is represented by 64 parameters. Each parameter can have a value from 0 to 15.</p>
 <ul class="simple">
 <li><p>The original data is 64 dimensional, so it is difficult to visualize.</p></li>
@@ -870,7 +915,7 @@ Equals
 </div>
 </div>
 <section id="print-some-of-the-numbers-in-the-database">
-<h3><span class="section-number">4.7.1. </span>Print some of the numbers in the database<a class="headerlink" href="#print-some-of-the-numbers-in-the-database" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.9.1. </span>Print some of the numbers in the database<a class="headerlink" href="#print-some-of-the-numbers-in-the-database" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the first samples of each number</span>
@@ -899,7 +944,7 @@ Equals
 </div>
 </section>
 <section id="dimensionality-reduction-using-pca">
-<h3><span class="section-number">4.7.2. </span>Dimensionality reduction using PCA<a class="headerlink" href="#dimensionality-reduction-using-pca" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.9.2. </span>Dimensionality reduction using PCA<a class="headerlink" href="#dimensionality-reduction-using-pca" title="Permalink to this heading">#</a></h3>
 <p>Apply PCA to the data, keeping at first up to 32 dimensions to study how much variance is explained by each principal component.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -908,7 +953,8 @@ Equals
 <span class="nb">print</span><span class="p">(</span><span class="n">digits</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">projected</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;The variance expalained by each PC&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;The variance explained by each PC&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Number of PCs included&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;The variance explained / %&#39;</span><span class="p">)</span>
 </pre></div>
@@ -922,7 +968,7 @@ Equals
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;The variance explained / %&#39;)
 </pre></div>
 </div>
-<img alt="_images/f029e1eafbdc99a83a8f87fb87df2cbf315321f8db15b59e4f875e8c12721bdf.png" src="_images/f029e1eafbdc99a83a8f87fb87df2cbf315321f8db15b59e4f875e8c12721bdf.png" />
+<img alt="_images/6b7c0759fce8fd3b5a339effb80e001a47305410bcd88865870ada8c120269b9.png" src="_images/6b7c0759fce8fd3b5a339effb80e001a47305410bcd88865870ada8c120269b9.png" />
 </div>
 </div>
 <p>It looks like quite many dimesions are needed, to keep the information in the dataset, but let’s try to plot it in 2D anyhow.</p>
@@ -944,29 +990,7 @@ Equals
 <img alt="_images/c1e719f10bff0dc0f91b05e70070704e2bb7dece1ab649248f33a226e7e14146.png" src="_images/c1e719f10bff0dc0f91b05e70070704e2bb7dece1ab649248f33a226e7e14146.png" />
 </div>
 </div>
-<p>The result is not retaining enough information to be able to recognize characters any longer. Let’s try if nonlinear methods would work. How about Isomap.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.manifold</span> <span class="kn">import</span> <span class="n">Isomap</span>
-<span class="n">isomap</span><span class="o">=</span><span class="n">Isomap</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
-<span class="n">Y</span><span class="o">=</span><span class="n">isomap</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">digits</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Y</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">Y</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">digits</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;rainbow&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;The first component&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;The second component&#39;</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-    <span class="n">j</span><span class="o">=</span><span class="p">(</span><span class="n">digits</span><span class="o">.</span><span class="n">target</span><span class="o">==</span><span class="n">i</span><span class="p">)</span>
-    <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">Y</span><span class="p">[</span><span class="n">j</span><span class="p">,:],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/7f67f92b02bbe1da96589a322db52f8a218dd856a117a9d78a5a5e06fa07f861.png" src="_images/7f67f92b02bbe1da96589a322db52f8a218dd856a117a9d78a5a5e06fa07f861.png" />
-</div>
-</div>
-<p>Better, but not enough yet. How about t-SNE?</p>
+<p>The result is not retaining enough information to be able to recognize characters any longer. Let’s try if nonlinear methods would work. How about t-SNE?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.manifold</span> <span class="kn">import</span> <span class="n">TSNE</span>
@@ -985,38 +1009,154 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d068d4c31b10793141488193c37d9ae673c7b3a53350d091c35d2ea06ac012ae.png" src="_images/d068d4c31b10793141488193c37d9ae673c7b3a53350d091c35d2ea06ac012ae.png" />
+<img alt="_images/536f9ba40da322144d53bb2eb4454649747c1c703bb6a68c38a4986802c1df69.png" src="_images/536f9ba40da322144d53bb2eb4454649747c1c703bb6a68c38a4986802c1df69.png" />
+</div>
+</div>
+<p>And how would UMAP work</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reducer</span><span class="o">=</span><span class="n">umap</span><span class="o">.</span><span class="n">UMAP</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">Y</span><span class="o">=</span><span class="n">reducer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">digits</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Y</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">Y</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">digits</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;rainbow&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;The first component&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;The second component&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">j</span><span class="o">=</span><span class="p">(</span><span class="n">digits</span><span class="o">.</span><span class="n">target</span><span class="o">==</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">Y</span><span class="p">[</span><span class="n">j</span><span class="p">,:],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 16.409748 10.167141
+1 -7.0869217 8.799612
+2 7.356894 9.682634
+3 -1.1985388 6.9707646
+4 3.562959 19.31513
+5 -0.6021369 -1.1134992
+6 6.907294 -3.3319101
+7 -8.309049 15.830215
+8 -5.4900827 7.6741333
+9 1.0210212 3.8377304
+</pre></div>
+</div>
+<img alt="_images/aec360ef014b1c442bf4c3794fde6ac7e5bf27717b6307750ad30b69a5f15615.png" src="_images/aec360ef014b1c442bf4c3794fde6ac7e5bf27717b6307750ad30b69a5f15615.png" />
+</div>
+</div>
+<p>UMAP seems to create the densiest clouds around each number, but it has also an additional benefit as compared to t-SNE. I has also a inverse transformation. Lets select some points from the transform space and convert them back to feature space. They should resemple some digits.</p>
+<p>Remember though, that the UMAP transformation is partially stochastic, and it is therefore slightly different every time is is recalculated, unless the random seed is set before fitting the transformer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_pts</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">9</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">17</span><span class="p">,</span><span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="mf">9.4</span><span class="p">,</span> <span class="mf">5.1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">]])</span>
+<span class="n">more_digits</span> <span class="o">=</span> <span class="n">reducer</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">test_pts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">axn</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="c1"># Select one example of each character and plot them in separate subplot</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">axn</span><span class="o">.</span><span class="n">flatten</span><span class="p">()[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">more_digits</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">)),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Greys&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/a7aaf6c4aeb6448a9ea4cf976577e3f70af10d91829d58d885ec55d7983326a8.png" src="_images/a7aaf6c4aeb6448a9ea4cf976577e3f70af10d91829d58d885ec55d7983326a8.png" />
 </div>
 </div>
 </section>
+</section>
+<section id="umap-plotting">
+<h2><span class="section-number">4.10. </span>Umap plotting<a class="headerlink" href="#umap-plotting" title="Permalink to this heading">#</a></h2>
+<p>As shown, the data projected by UMAP can be plotted with matplotlib as normal, but UMAP library comes also with some special plotting methods, if you want install <code class="docutils literal notranslate"><span class="pre">umap-learn[plot]</span></code>. Let’s try some</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">umap.plot</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/mnt/debian/pvs/venv/JupyterAI/lib/python3.11/site-packages/umap/plot.py:203: NumbaDeprecationWarning: The keyword argument &#39;nopython=False&#39; was supplied. From Numba 0.59.0 the default is being changed to True and use of &#39;nopython=False&#39; will raise a warning as the argument will have no effect. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.
+  @numba.jit(nopython=False)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">umap</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">points</span><span class="p">(</span><span class="n">reducer</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">digits</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">theme</span><span class="o">=</span><span class="s1">&#39;fire&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
+</pre></div>
+</div>
+<img alt="_images/078f3e6a63842687c2ae68196e9d8594c732444c56b91b3d803b5756444e197a.png" src="_images/078f3e6a63842687c2ae68196e9d8594c732444c56b91b3d803b5756444e197a.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">umap</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">diagnostic</span><span class="p">(</span><span class="n">reducer</span><span class="p">,</span> <span class="n">diagnostic_type</span><span class="o">=</span><span class="s1">&#39;pca&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: title={&#39;center&#39;: &#39;Colored by RGB coords of PCA embedding&#39;}&gt;
+</pre></div>
+</div>
+<img alt="_images/dafa39e3d2ffa395d589e8864dc65bb6944e9891c2843b948d71c2b6d95a91e3.png" src="_images/dafa39e3d2ffa395d589e8864dc65bb6944e9891c2843b948d71c2b6d95a91e3.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#umap.plot.connectivity(reducer, show_points=True, labels=digits.target, theme=&#39;fire&#39;)</span>
+<span class="c1">#umap.plot.connectivity(reducer, edge_bundling=&#39;hammer&#39;, labels=digits.target, theme=&#39;fire&#39;)</span>
+<span class="c1">#plt.savefig(&#39;UMAP_connectivity.png&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The estimation of connectivity plot with edge blunding is very time consuming but looks nice. Therefore I just add the result here</p>
+<p><img alt="connectivity" src="UMAP_connectivity.png" /></p>
 <section id="handwritten-digits-case">
-<h3><span class="section-number">4.7.3. </span>Handwritten digits case<a class="headerlink" href="#handwritten-digits-case" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.10.1. </span>Handwritten digits case<a class="headerlink" href="#handwritten-digits-case" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Linear methods were not succesfull retaining enough information for handwritten digits recognition when the dimensionality of data was reduced from 64 to 2. The explained variance ratio inferes that quite many principal components, like more than 10 would be needed for this problem.</p></li>
-<li><p>Isomap was able to capture better the structure of the originally multidimensional data only in 2D, but it was still already loosing plenty of important information. At least couple of more components would be needed. Probably it would be rather simple to implement a character recognition method in 4D space for example.</p></li>
-<li><p>t-SNE was the best at this time. It looks like it would be quite straightformad to implement a method for handwriting recognition using only two dimensions.</p></li>
-<li><p>The non-linear methods were clearly slower than PCA</p></li>
-<li><p>PCA is more simple to understand</p></li>
+<li><p>t-SNE was able to capture better the structure of the originally multidimensional data only in 2D. It does not have an inverse transformation, and it is not therefore as generally usefull than PCA, but it is very usefull for example in visualizint multi-dimensional data.</p></li>
+<li><p>UMAP was the best at this time. It looks like it would be quite straightformad to implement a method for handwriting recognition using only two dimensions. It has also an inverse transformation, and it was possible to convert the points from the transformation space back to feature space. It is often usefull, when analyzing the nature of some samples in transformed space.</p></li>
+<li><p>The non-linear methods were clearly slower than PCA, especially UMAP takes a lot of time to compute.</p></li>
+<li><p>PCA is the simplest to understand, and fastest to use.</p></li>
 </ul>
 </section>
 </section>
 <section id="conclusion">
-<h2><span class="section-number">4.8. </span>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.11. </span>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>PCA is a powerfull method for transforming data into low dimensional subspace</p></li>
 <li><p>PCA learns linear dependences between variables (correlation) and removes it, so that projected variables are uncorrelated</p></li>
 <li><p>PCA transformation can be reversed, and the transformed data converted back to the original domain</p></li>
 <li><p>If dependencies between variables is non-linear, then PCA cannot model it efficiently, and more components are needed</p></li>
-<li><p>Manifold learning methods, such as Multi-Dimensinal Scaling (MDS), Isomap, Locally Linear Embedding (LLE) and t-distributed Stochastic Neighborhood Embedding (t-SNE) can learn also non-linear dependencies producing lower dimensional subspace for presenting data</p></li>
-<li><p>All of these methods try to keep the neighborhood information. Those samples which were close to each other are also close after projection. In these samples blue dots stays together and the order between samples is also kept.</p></li>
+<li><p>Manifold learning methods, such as Multi-Dimensinal Scaling (MDS), Isomap, Locally Linear Embedding (LLE), t-distributed Stochastic Neighborhood Embedding (t-SNE) and Uniform Manifold Approximation (UMAP) can learn also non-linear dependencies producing lower dimensional subspace for presenting data</p></li>
+<li><p>All of these methods, except UMAP, try to keep the neighborhood information. Those samples which were close to each other are also close after projection. In these samples blue dots stays together and the order between samples is also kept.</p></li>
 </ul>
 <p>References</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>I. T. Jolliffe, “Discarding Variables in a Principal Component Analysis. Ii: Real Data,” Journal of the Royal Statistical Society: Series C (Applied Statistics), vol. 22, no. 1, pp. 21–31, 1973, doi: 10.2307/2346300.
-Q. Guo, W. Wu, D. L. Massart, C. Boucon, and S. de Jong, “Feature selection in principal component analysis of analytical data,” Chemometrics and Intelligent Laboratory Systems, vol. 61, no. 1, pp. 123–132, Feb. 2002, doi: 10.1016/S0169-7439(01)00203-9.
-I. T. Jolliffe, “Discarding Variables in a Principal Component Analysis. I: Artificial Data,” Journal of the Royal Statistical Society: Series C (Applied Statistics), vol. 21, no. 2, pp. 160–173, 1972, doi: 10.2307/2346488.
-C. M. Bishop, “Pattern recognition and machine learning,” CERN Document Server, 2006. https://cds.cern.ch/record/998831 (accessed Oct. 02, 2020).
-</pre></div>
-</div>
+<ul class="simple">
+<li><p>I. T. Jolliffe, “Discarding Variables in a Principal Component Analysis. Ii: Real Data,” Journal of the Royal Statistical Society: Series C (Applied Statistics), vol. 22, no. 1, pp. 21–31, 1973, doi: 10.2307/2346300.</p></li>
+<li><p>Q. Guo, W. Wu, D. L. Massart, C. Boucon, and S. de Jong, “Feature selection in principal component analysis of analytical data,” Chemometrics and Intelligent Laboratory Systems, vol. 61, no. 1, pp. 123–132, Feb. 2002, doi: 10.1016/S0169-7439(01)00203-9.</p></li>
+<li><p>I. T. Jolliffe, “Discarding Variables in a Principal Component Analysis. I: Artificial Data,” Journal of the Royal Statistical Society: Series C (Applied Statistics), vol. 21, no. 2, pp. 160–173, 1972, doi: 10.2307/2346488.</p></li>
+<li><p>C. M. Bishop, “Pattern recognition and machine learning,” CERN Document Server, 2006. <a class="reference external" href="https://cds.cern.ch/record/998831">https://cds.cern.ch/record/998831</a> (accessed Oct. 02, 2020).</p></li>
+<li><p>Leland McInnes, John Healy, James Melville, “UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction” in <a class="reference external" href="https://arxiv.org/pdf/1802.03426.pdf">PDF in Arxiv</a>, 2020</p></li>
+</ul>
 </section>
 </section>
 
@@ -1100,18 +1240,23 @@ C. M. Bishop, “Pattern recognition and machine learning,” CERN Document Serv
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manifold-learning">4.5. Manifold learning</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-non-linear-data">4.6. More non-linear data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-can-not-reduce-dimensionality">4.6.1. PCA can not reduce dimensionality</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aply-t-sne">4.6.2. Aply t-SNE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uniform-manifold-approximation-umap">4.6. Uniform Manifold Approximation (UMAP)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-non-linear-data">4.7. More non-linear data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-can-not-reduce-dimensionality">4.7.1. PCA can not reduce dimensionality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aply-t-sne">4.7.2. Aply t-SNE</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-to-handwritten-digit-recognition">4.7. Application to handwritten digit recognition</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#print-some-of-the-numbers-in-the-database">4.7.1. Print some of the numbers in the database</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dimensionality-reduction-using-pca">4.7.2. Dimensionality reduction using PCA</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#handwritten-digits-case">4.7.3. Handwritten digits case</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-umap">4.8. Apply UMAP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-to-handwritten-digit-recognition">4.9. Application to handwritten digit recognition</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#print-some-of-the-numbers-in-the-database">4.9.1. Print some of the numbers in the database</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dimensionality-reduction-using-pca">4.9.2. Dimensionality reduction using PCA</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">4.8. Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#umap-plotting">4.10. Umap plotting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#handwritten-digits-case">4.10.1. Handwritten digits case</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">4.11. Conclusion</a></li>
 </ul>
   </nav></div>
 
