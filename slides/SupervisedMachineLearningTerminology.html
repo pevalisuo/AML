@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Subspace projections</title>
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="./dist/reset.css" />
+    <link rel="stylesheet" href="./dist/reveal.css" />
+    <link rel="stylesheet" href="./dist/theme/moon.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/base16/zenburn.css" />
+
+
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template">
+
+# Supervised Machine Learning
+
+## Terminlogy and methods
+</script></section><section ><section data-markdown><script type="text/template">
+## Training process
+
+![featureextraction_p.svg](kuvat/featureextraction_n.svg)
+</script></section><section data-markdown><script type="text/template">
+### Mathematical notation
+Task is to find a function $f$, which predicts variable $y_i$ based on $p$ features $x_{i,j}$, where $i \in [0,N]$ and $j \in [0,P]$.
+
+`$$
+   \begin{bmatrix}
+   y_1 \\
+   y_2 \\
+   \vdots \\
+   y_n
+   \end{bmatrix}
+   = f 
+   \left( \begin{bmatrix}
+     x_{11} & x_{12} & x_{13} & \dots  & x_{1p} \\
+     x_{21} & x_{22} & x_{23} & \dots  & x_{2p} \\
+     \vdots & \vdots & \vdots & \ddots & \vdots \\
+     x_{n1} & x_{n2} & x_{n3} & \dots  & x_{np}
+   \end{bmatrix} \right)
+$$`
+</script></section><section data-markdown><script type="text/template">
+
+ * Purpose is to repeat the prediction of reference method 
+ * Because the reference method is more expensive, slower or it has other problems
+ * Reference is often a human observer
+ * If $y_i$ is categorical, the method is called classification
+ * If $y_i$ is continuous, the method is called as regression. 
+ * There are many methods for implementing both classification and regression
+ * Variable $y$ is called as dependent variable and $x$ as independent variable, since the values of $y$ depend on $x$.
+
+</script></section><section data-markdown><script type="text/template">
+### Measures for regression model fit
+
+Terms used below
+ * $x_i$: The i:th feature vector
+ * $y_i$: The i:th true value of predicted variable
+ * $\hat{y}_i = f(x_i)$: The predicted $y$-value
+ * $\overline{y}$: The mean value of $y_i$
+ * $n$: The number of samples in the training data set
+ 
+ In the code `yh` = $\hat{y}$
+</script></section><section data-markdown><script type="text/template">
+### Root mean square value of error: (RMSE)
+
+- RMSE is the RMS average of the prediction error. 
+- RMSE is an absolute mesure
+- The unit of the error is the same as the unit of $y$.
+
+$$\rm{RMSE}=\sqrt{\frac{\sum_{i=0}^{n}(y_i - f(x_{i}))^2}{n}}$$
+
+- RMSE emphasise large deviations from the true value. 
+
+```python
+from sklearn.metrics import mean_squared_error
+RMSE=mean_squared_error(y,yh)
+```
+ </script></section><section data-markdown><script type="text/template">
+### Mean absolute error (MAE)
+
+- MAE is the average of the absoluve value of the prediction error 
+- MAE is an absolute measure
+- The unit of the error is the same as the unit of $y$.
+
+$$\rm{MAE}=\frac{\sum_{i=0}^{n} |y_i - f(x_{i})| }{n}$$
+
+- MAE is less sensitive to single large deviations than RMSE
+
+```python
+from sklearn.metrics import mean_absolute_error
+MAE=mean_absolute_error(y,yh)
+```
+ </script></section><section data-markdown><script type="text/template">
+### Coefficient of determination ($R^2$)
+
+- Coefficient of determination (R-squared), measures the ratio of variance of the 
+   residual and the variance of the original data. $R^2 \in [0,1]$. 
+- $R^2$ shows how large fraction of the variance in dependent variable is accounted for by the model. 
+- In the perfect case, the prediction is exactly same as $y$, the variance of the residual is zero, and $R^2=1$.
+
+$$ R^2 = 1- \frac{\sum_{i=0}^{n}(y_i - f(x_{i}))^2}{\sum_{i=0}^{n}(y_i - \overline{y}))^2}$$
+</script></section><section data-markdown><script type="text/template">
+- $R^1$ does not depend on the absolute values of $y$. 
+
+```python
+from sklearn.metrics import r2_score
+R2=r2_score(y,yh)
+```
+ 
+</script></section></section><section ><section data-markdown><script type="text/template"> 
+ ## Measures for classification model fitting
+ </script></section><section data-markdown><script type="text/template"> 
+### Precision of classification (P)
+
+The `accuracy_score()`-function returns the fraction of correctly classified samples 
+
+$$ P = \frac{n_\rm{correct}}{n}$$
+
+
+```python
+from sklearn.metrics import accuracy_score
+s=accuracy_score(y, yh)
+```
+
+ </script></section><section data-markdown><script type="text/template"> 
+ ### Cohen's Kappa ($\kappa$)
+ 
+- $\kappa$ expresses the level of agreement between two annotators in a classification problem.  
+- More robust measure than precision
+- Calculated using precision, $p_o$, and probability of chance agreement, $p_e$. 
+- Read more from [Cohen's Kappa in Wikipedia](https://en.wikipedia.org/wiki/Cohen%27s_kappa).
+ 
+ $$ \kappa = \frac{p_o - p_e}{1 - p_e} $$
+ 
+```python
+from sklearn.metrics import cohen_kappa_score(x,y)
+s=cohen_kappa_score(y, yh)
+```
+ </script></section></section><section ><section data-markdown><script type="text/template">
+### Overfitting
+
+<div id="medium">
+
+- Two essential properties of a good model are that 
+  1. It *fits to the training data*, leading to high precision or $R^2$ for example. 
+  1. It *can generalize*, i.e. the model can predict dependent variables also for new data, which is not seen yet
+
+- Model can be fitted to the data better, by increasing it's complexity or degrees of freedom (DoF).
+- But too much DoF prevents generalization
+- Coosing optimal DoF is important.
+
+</div>
+</script></section><section data-markdown><script type="text/template">
+### Example
+
+- Lets create a data set of simple second order polynomial and 
+add some noise
+
+$$ y = 2x^2 + \mathcal{N}(0,6)$$
+
+- Then a second order spline is fitted to the data
+- Regularization parameter (smoothness) controls fit. 
+- Consequently the first model is split to 16 pieces (with 17 knots)
+- The second model is split only in one piece (with 2 knots). 
+- Which one is better?
+</script></section><section data-markdown><script type="text/template">
+### Data generation
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from scipy.interpolate import UnivariateSpline
+from scipy.stats import norm
+sns.set()
+
+N=20
+x=np.linspace(0,6,N)
+y=2*x**2 + norm.rvs(0,5,N,random_state=0)
+```
+</script></section><section data-markdown><script type="text/template">
+### Spline fitting
+
+```
+fig,ax=plt.subplots(nrows=1, ncols=2, figsize=(13,5), sharey=True)
+
+spl1=UnivariateSpline(x, y, k=2, s=0.5*N)
+np1=len(spl1.get_knots())
+ax[0].scatter(x,y, c='b')
+ax[0].plot(x,spl1(x), 'r')
+ax[0].set_xlabel('X')
+ax[0].set_ylabel('Y')
+ax[0].set_title('A) Number of knots = %d' % (np1))
+
+spl2=UnivariateSpline(x, y, k=2, s=20*N)
+np2=len(spl2.get_knots())
+ax[1].scatter(x,y, c='b')
+ax[1].plot(x,spl2(x), 'r')
+ax[1].set_xlabel('X')
+ax[1].set_title('B) Number of knots = %d' % (np2))
+```
+
+</script></section><section data-markdown><script type="text/template">
+### Resukt, Which one is better?
+    
+![png](kuvat/output_6_1.svg)
+    
+- The first model fits better to the current data <!-- .element class="fragment" -->
+- But the second model is better since it can generalize <!-- .element class="fragment" -->
+</script></section><section data-markdown><script type="text/template">
+#### Try generalization
+
+
+```python [|4-5|7-9|11-13]
+# Use R2 score to measure the fitness
+from sklearn.metrics import r2_score
+
+# Create new data from the same model
+y2=2*x**2 + norm.rvs(0,5,N,random_state=1)
+
+# Score the original (training set)
+r2_m1_train=r2_score(y,spl1(x))
+r2_m2_train=r2_score(y,spl2(x))
+
+# Score the second (testing set)
+r2_m1_test=r2_score(y2,spl1(x))
+r2_m2_test=r2_score(y2,spl2(x))
+```
+
+```
+   Training set, model 1 and model 2.......1.00, 0.97
+    Testing set, model 1 and model 2.......0.90, 0.92 
+``` 
+<!-- .element class="fragment" -->
+
+<div id="medium"
+
+- The first model is overfitted to data. <!-- .element class="fragment" -->
+
+</div>
+</script></section></section><section  data-markdown><script type="text/template">
+### Training, Validation and Testing
+
+- Building predictive models requires following stages
+  1. Model building (training)
+  1. Model validation (often within optimisation loop)
+  1. Model testing (in the end)
+
+- Important rules related to model building and testing
+  1. The model cannot be tested using training set, because that would lead to overfitting
+  1. Test set may not be used many times, because then you would overfit to the test data
+</script></section><section  data-markdown><script type="text/template">
+- Each stage requires data. The original data can be split in three different sets, one for each stage, but high quality labeled data is usually scarce resource, and in that cases slightly smarter method of using the data is needed.
+</script></section><section ><section data-markdown><script type="text/template">
+- Cross validation is an important technique to utilize the data more efficiently for all supervised training purposes
+ - With cross validation, the training set is divided in N-folds.
+ - At first (N-1) folds are used for training and 1 fold for validation
+ - The process is repeated N times, until every sample has participated in training and validation sets
+ - The final score is the average of all N scores
+
+</script></section><section data-markdown><script type="text/template">
+### Cross Validation <a class="anchor" id="crossvalidation"></a>
+
+![crossvalidation.svg](kuvat/crossvalidation_n.svg "Crossvalidation")
+
+ 
+
+
+<style>
+#bright {
+  color: deeppink;
+}
+#left {
+    margin: 10px 0 15px 20px;
+    text-align: center;
+    float: left;
+    z-index:-10;
+    width:48%;
+    font-size: 0.85em;
+    line-height: 1.5;
+}
+#right {
+    margin: 10px 0 15px 0;
+    float: right;
+    text-align: center;
+    z-index:-10;
+    width:48%;
+    font-size: 0.85em;
+    line-height: 1.5;
+}
+
+#dark_back {
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #000;
+  padding: 20px;
+}
+
+#white_back {
+  background-color: rgba(1, 1, 1, 0.9);
+  color: black;
+  padding: 20px;
+}
+
+#small_left {
+  font-size: 0.6em;
+  text-align: left;
+}
+
+#medium {
+  font-size: 0.8em;
+  text-align: left;
+}
+
+#hl {
+  color: orange;
+}
+
+#alert {
+  color: red;
+}
+
+</style>
+<link rel="stylesheet" href="plugin/highlight/monokai.css">
+<link rel="stylesheet" href="plugin/chalkboard/style.css">
+<!-- .slide: data-background="figures/uwrocks.png" -->
+
+</script></section></section></div>
+    </div>
+
+    <script src="./dist/reveal.js"></script>
+
+    <script src="./plugin/markdown/markdown.js"></script>
+    <script src="./plugin/highlight/highlight.js"></script>
+    <script src="./plugin/zoom/zoom.js"></script>
+    <script src="./plugin/notes/notes.js"></script>
+    <script src="./plugin/math/math.js"></script>
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        slideNumber: true,
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath
+        ]
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"chalkboard":{"boardmarkerWidth":5,"chalkWidth":8,"readOnly":false,"src":"drawings_61/chalkboard.json","eraser":{"radius":20,"src":"plugin/chalkboard/img/sponge.png"}},"audio":{"prefix":"audio_61/","suffix":".webm","autoplay":"true","defaultText":"true","defaultNotes":"false","advance":2000,"defaultDuration":5},"autoslide":3000}, queryOptions);
+    </script>
+
+    <script src="./_assets/plugin/chalkboard/plugin.js"></script>
+    <script src="./_assets/plugin/reveal.js-menu/menu.js"></script>
+    <script src="./_assets/plugin/audio-slideshow/plugin.js"></script>
+    <script src="./_assets/plugin/audio-slideshow/recorder.js"></script>
+    <script src="./_assets/plugin/audio-slideshow/RecordRTC.js"></script>
+    <script src="./_assets/plugin.js"></script>
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>
