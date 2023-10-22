@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>20. Ultra Wide Band positioning literature analysis &#8212; Applied Machine Learning, 2021</title>
+    <title>24. Ultra Wide Band positioning literature analysis &#8212; Applied Machine Learning, 2021</title>
   
   
   
@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'NLP-UWB';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="18. Natural Language Processing" href="NLP.html" />
+    <link rel="prev" title="22. Natural Language Processing" href="NLP.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -171,21 +171,25 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="Preprocessing_and_feature_extraction.html">3. Preprocessing and feature extraction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Subspace_Projections.html">4. Dimensionality reduction by Subspace projections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Clustering.html">5. Unsupervised learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SupervisedMachineLearningTerminology.html">6. Supervised machine learning, Terminology</a></li>
-<li class="toctree-l1"><a class="reference internal" href="NearestNeighbors.html">7. Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a></a></li>
-<li class="toctree-l1"><a class="reference internal" href="SupportVectorMachine.html">8. Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></a></li>
-<li class="toctree-l1"><a class="reference internal" href="DecisionTrees.html">9. Decision trees and forests <a class="anchor" id="dtaforests"></a></a></li>
-<li class="toctree-l1"><a class="reference internal" href="Regression.html">10. Regression and regularisation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="NeuralNetworks.html">11. Artificial Neural Networks (ANN)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Learning_model_parameters.html">12. Model learning strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SupervisedMachineLearningTerminology.html">6. Training process</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="NearestNeighbors.html">11. Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="SupportVectorMachine.html">12. Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="DecisionTrees.html">13. Decision trees and forests <a class="anchor" id="dtaforests"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Regression.html">14. Regression and regularisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NeuralNetworks.html">15. Artificial Neural Networks (ANN)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Learning_model_parameters.html">16. Model learning strategies</a></li>
 
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="NLP.html">18. Natural Language Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NLP.html">22. Natural Language Processing</a></li>
 
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">20. Ultra Wide Band positioning literature analysis</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">24. Ultra Wide Band positioning literature analysis</a></li>
 </ul>
 
     </div>
@@ -363,12 +367,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-corpus">20.1. Import corpus</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#features-and-clustering">20.2. Features and clustering</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kmeans-clustering">20.2.1. Kmeans clustering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-corpus">24.1. Import corpus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#features-and-clustering">24.2. Features and clustering</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kmeans-clustering">24.2.1. Kmeans clustering</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#latent-semantic-indexing">20.3. Latent Semantic Indexing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#latent-semantic-indexing">24.3. Latent Semantic Indexing</a></li>
 </ul>
             </nav>
         </div>
@@ -381,7 +385,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="ultra-wide-band-positioning-literature-analysis">
-<h1><span class="section-number">20. </span>Ultra Wide Band positioning literature analysis<a class="headerlink" href="#ultra-wide-band-positioning-literature-analysis" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">24. </span>Ultra Wide Band positioning literature analysis<a class="headerlink" href="#ultra-wide-band-positioning-literature-analysis" title="Permalink to this heading">#</a></h1>
 <p>The real case for analyzing UWB indoor positioning system literature</p>
 <ul class="simple">
 <li><p>115 journal articles from years 2019-2021 matching search terms “UWB positioning” were downloaded from IEEE explorer as PDF and converted to plain text using pdftotext in linux.</p></li>
@@ -428,7 +432,7 @@ document.write(`
 </div>
 </div>
 <section id="import-corpus">
-<h2><span class="section-number">20.1. </span>Import corpus<a class="headerlink" href="#import-corpus" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">24.1. </span>Import corpus<a class="headerlink" href="#import-corpus" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lemmatizer</span> <span class="o">=</span> <span class="n">WordNetLemmatizer</span><span class="p">()</span>
@@ -645,7 +649,7 @@ if(typeof(LDAvis) !== "undefined"){
 </div>
 </section>
 <section id="features-and-clustering">
-<h2><span class="section-number">20.2. </span>Features and clustering<a class="headerlink" href="#features-and-clustering" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">24.2. </span>Features and clustering<a class="headerlink" href="#features-and-clustering" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>The document is first transformed to the feature space using TFIDF transformation</p></li>
 <li><p>Then a Kmeans clustering is used for finding topic clusters from corpus</p></li>
@@ -727,7 +731,7 @@ if(typeof(LDAvis) !== "undefined"){
 </div>
 </div>
 <section id="kmeans-clustering">
-<h3><span class="section-number">20.2.1. </span>Kmeans clustering<a class="headerlink" href="#kmeans-clustering" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">24.2.1. </span>Kmeans clustering<a class="headerlink" href="#kmeans-clustering" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
@@ -785,7 +789,7 @@ Cluster 10 words: shearer, gmm, coal, robot, imm, anchor, ian, mine, wca, vio,
 </section>
 </section>
 <section id="latent-semantic-indexing">
-<h2><span class="section-number">20.3. </span>Latent Semantic Indexing<a class="headerlink" href="#latent-semantic-indexing" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">24.3. </span>Latent Semantic Indexing<a class="headerlink" href="#latent-semantic-indexing" title="Permalink to this heading">#</a></h2>
 <p>Another method of getting topics is the Latent Semantic Indexing</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -975,7 +979,7 @@ Cluster 10 words: shearer, gmm, coal, robot, imm, anchor, ian, mine, wca, vio,
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">18. </span>Natural Language Processing</p>
+        <p class="prev-next-title"><span class="section-number">22. </span>Natural Language Processing</p>
       </div>
     </a>
 </div>
@@ -993,12 +997,12 @@ Cluster 10 words: shearer, gmm, coal, robot, imm, anchor, ian, mine, wca, vio,
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-corpus">20.1. Import corpus</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#features-and-clustering">20.2. Features and clustering</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kmeans-clustering">20.2.1. Kmeans clustering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-corpus">24.1. Import corpus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#features-and-clustering">24.2. Features and clustering</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kmeans-clustering">24.2.1. Kmeans clustering</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#latent-semantic-indexing">20.3. Latent Semantic Indexing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#latent-semantic-indexing">24.3. Latent Semantic Indexing</a></li>
 </ul>
   </nav></div>
 

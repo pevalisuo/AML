@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>11. Artificial Neural Networks (ANN) &#8212; Applied Machine Learning, 2021</title>
+    <title>15. Artificial Neural Networks (ANN) &#8212; Applied Machine Learning, 2021</title>
   
   
   
@@ -67,8 +67,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'NeuralNetworks';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="12. Model learning strategies" href="Learning_model_parameters.html" />
-    <link rel="prev" title="10. Regression and regularisation" href="Regression.html" />
+    <link rel="next" title="16. Model learning strategies" href="Learning_model_parameters.html" />
+    <link rel="prev" title="14. Regression and regularisation" href="Regression.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -174,21 +174,25 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="Preprocessing_and_feature_extraction.html">3. Preprocessing and feature extraction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Subspace_Projections.html">4. Dimensionality reduction by Subspace projections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Clustering.html">5. Unsupervised learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SupervisedMachineLearningTerminology.html">6. Supervised machine learning, Terminology</a></li>
-<li class="toctree-l1"><a class="reference internal" href="NearestNeighbors.html">7. Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a></a></li>
-<li class="toctree-l1"><a class="reference internal" href="SupportVectorMachine.html">8. Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></a></li>
-<li class="toctree-l1"><a class="reference internal" href="DecisionTrees.html">9. Decision trees and forests <a class="anchor" id="dtaforests"></a></a></li>
-<li class="toctree-l1"><a class="reference internal" href="Regression.html">10. Regression and regularisation</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">11. Artificial Neural Networks (ANN)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Learning_model_parameters.html">12. Model learning strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SupervisedMachineLearningTerminology.html">6. Training process</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="NearestNeighbors.html">11. Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="SupportVectorMachine.html">12. Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="DecisionTrees.html">13. Decision trees and forests <a class="anchor" id="dtaforests"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Regression.html">14. Regression and regularisation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">15. Artificial Neural Networks (ANN)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Learning_model_parameters.html">16. Model learning strategies</a></li>
 
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="NLP.html">18. Natural Language Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NLP.html">22. Natural Language Processing</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="NLP-UWB.html">20. Ultra Wide Band positioning literature analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NLP-UWB.html">24. Ultra Wide Band positioning literature analysis</a></li>
 </ul>
 
     </div>
@@ -366,32 +370,32 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-networks">11.1. Neural networks</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perceptron">11.1.1. Perceptron</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activation-functions">11.1.2. Activation functions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-of-activation-functions">11.1.3. Implementation of activation functions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-of-perceptron">11.1.4. Implementation of perceptron</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-of-a-perceptron">11.1.5. Testing of a perceptron</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-algorithms">11.1.6. Learning algorithms</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-layer-perceptron">11.1.7. Multi layer perceptron</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-networks">15.1. Neural networks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perceptron">15.1.1. Perceptron</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activation-functions">15.1.2. Activation functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-of-activation-functions">15.1.3. Implementation of activation functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-of-perceptron">15.1.4. Implementation of perceptron</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-of-a-perceptron">15.1.5. Testing of a perceptron</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-algorithms">15.1.6. Learning algorithms</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-layer-perceptron">15.1.7. Multi layer perceptron</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-a-neural-network">11.2. Training a neural network</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-stop-training">11.2.1. When to stop training</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-a-neural-network">15.2. Training a neural network</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-stop-training">15.2.1. When to stop training</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">11.3. Example</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digits-dataset">11.4. Digits dataset</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-analysis">11.5. Time series analysis</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convolutional-neural-network">11.6. Convolutional neural network</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keras-and-pytorch">11.7. Keras and Pytorch</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-code-for-simple-keras-processing">11.7.1. Example code for simple Keras processing</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convolutional-neural-network-with-keral">11.7.2. Convolutional neural network with Keral</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">15.3. Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digits-dataset">15.4. Digits dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-analysis">15.5. Time series analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convolutional-neural-network">15.6. Convolutional neural network</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keras-and-pytorch">15.7. Keras and Pytorch</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-code-for-simple-keras-processing">15.7.1. Example code for simple Keras processing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convolutional-neural-network-with-keral">15.7.2. Convolutional neural network with Keral</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-trained-models">11.8. Pre trained models</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-information">11.9. More information</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">11.10. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-trained-models">15.8. Pre trained models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-information">15.9. More information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">15.10. Summary</a></li>
 </ul>
             </nav>
         </div>
@@ -404,11 +408,11 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="artificial-neural-networks-ann">
-<h1><span class="section-number">11. </span>Artificial Neural Networks (ANN)<a class="headerlink" href="#artificial-neural-networks-ann" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">15. </span>Artificial Neural Networks (ANN)<a class="headerlink" href="#artificial-neural-networks-ann" title="Permalink to this heading">#</a></h1>
 <section id="neural-networks">
-<h2><span class="section-number">11.1. </span>Neural networks<a class="headerlink" href="#neural-networks" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">15.1. </span>Neural networks<a class="headerlink" href="#neural-networks" title="Permalink to this heading">#</a></h2>
 <section id="perceptron">
-<h3><span class="section-number">11.1.1. </span>Perceptron<a class="headerlink" href="#perceptron" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">15.1.1. </span>Perceptron<a class="headerlink" href="#perceptron" title="Permalink to this heading">#</a></h3>
 <p>Neural network consists of few layers of perceptrons. Each perceptron simulates the operation of neuron. It collects input variables <span class="math notranslate nohighlight">\(x_i\)</span>, weights them with coefficients <span class="math notranslate nohighlight">\(w_i\)</span>, and sums the result to one value. The output value is obtained by scaling the sum between values 0…1 by using an activation function. For classification, the activation function is binary step function, and for regression, it is continuous, like sigmoid function. The neuron can be teached by updating the weights <span class="math notranslate nohighlight">\(w_i\)</span>.</p>
 <p><img alt="Perceptron" src="_images/perceptron.svg" /></p>
 <p>The output of the perceptron is</p>
@@ -419,7 +423,7 @@ document.write(`
 \]</div>
 </section>
 <section id="activation-functions">
-<h3><span class="section-number">11.1.2. </span>Activation functions<a class="headerlink" href="#activation-functions" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">15.1.2. </span>Activation functions<a class="headerlink" href="#activation-functions" title="Permalink to this heading">#</a></h3>
 <p>Common activation functions, <span class="math notranslate nohighlight">\(f()\)</span>, are</p>
 <ol class="arabic simple">
 <li><p>Linear</p></li>
@@ -436,7 +440,7 @@ document.write(`
 <p>Relu: $<span class="math notranslate nohighlight">\(f(x) = \begin{cases} 0 &amp;  \text{if} ~ x&lt;0 \\ x &amp; \text{otherwise} \end{cases}\)</span>$</p>
 </section>
 <section id="implementation-of-activation-functions">
-<h3><span class="section-number">11.1.3. </span>Implementation of activation functions<a class="headerlink" href="#implementation-of-activation-functions" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">15.1.3. </span>Implementation of activation functions<a class="headerlink" href="#implementation-of-activation-functions" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -473,7 +477,7 @@ document.write(`
 </div>
 </section>
 <section id="implementation-of-perceptron">
-<h3><span class="section-number">11.1.4. </span>Implementation of perceptron<a class="headerlink" href="#implementation-of-perceptron" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">15.1.4. </span>Implementation of perceptron<a class="headerlink" href="#implementation-of-perceptron" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">perceptron</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">W</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">):</span>
@@ -492,7 +496,7 @@ document.write(`
 </div>
 </section>
 <section id="testing-of-a-perceptron">
-<h3><span class="section-number">11.1.5. </span>Testing of a perceptron<a class="headerlink" href="#testing-of-a-perceptron" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">15.1.5. </span>Testing of a perceptron<a class="headerlink" href="#testing-of-a-perceptron" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">])</span>
@@ -521,7 +525,7 @@ document.write(`
 </div>
 </section>
 <section id="learning-algorithms">
-<h3><span class="section-number">11.1.6. </span>Learning algorithms<a class="headerlink" href="#learning-algorithms" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">15.1.6. </span>Learning algorithms<a class="headerlink" href="#learning-algorithms" title="Permalink to this heading">#</a></h3>
 <p>When using Stochastic Gradient Descent (<strong>SGD</strong>) training,  the weights, <span class="math notranslate nohighlight">\(w_i\)</span>, are updated towards the gradient (multidimensional derivative) or the loss function.
 $<span class="math notranslate nohighlight">\(
     w \leftarrow w - \eta \left(\alpha \frac{\partial R(w)}{\partial w} + \frac{\partial L(w)}{\partial w}\right),
@@ -531,13 +535,13 @@ $<span class="math notranslate nohighlight">\(
 <p><img alt="Training of MLP" src="_images/mlp_training.svg" /></p>
 </section>
 <section id="multi-layer-perceptron">
-<h3><span class="section-number">11.1.7. </span>Multi layer perceptron<a class="headerlink" href="#multi-layer-perceptron" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">15.1.7. </span>Multi layer perceptron<a class="headerlink" href="#multi-layer-perceptron" title="Permalink to this heading">#</a></h3>
 <p>A single perceptron can only handle simple problems. For more complex problems, a network of several layers of perceptrons are needed. These networks are called as Multi Layer Perceptron networks (MLP) or artificial neural networks (ANN). When the number of hidden layer is large, the network is called as Deep Neural Network (DNN) and it is one example of Deep Learning.</p>
 <p><img alt="Perceptron" src="_images/mlp.svg" /></p>
 </section>
 </section>
 <section id="training-a-neural-network">
-<h2><span class="section-number">11.2. </span>Training a neural network<a class="headerlink" href="#training-a-neural-network" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">15.2. </span>Training a neural network<a class="headerlink" href="#training-a-neural-network" title="Permalink to this heading">#</a></h2>
 <p>Training of a neural network is carried out through following steps</p>
 <ol class="arabic simple">
 <li><p>The training data, including input data <span class="math notranslate nohighlight">\(X\)</span> and the correct answers <span class="math notranslate nohighlight">\(y\)</span> is selected</p></li>
@@ -547,7 +551,7 @@ $<span class="math notranslate nohighlight">\(
 <li><p>At this time one <strong>EPOCH</strong> passed. The training often continues by using the same data again, and the whole training process can last from one EPOCH up to hundreds of EPOCHs.</p></li>
 </ol>
 <section id="when-to-stop-training">
-<h3><span class="section-number">11.2.1. </span>When to stop training<a class="headerlink" href="#when-to-stop-training" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">15.2.1. </span>When to stop training<a class="headerlink" href="#when-to-stop-training" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>The performance of the network usually improves when the traning continues.</p></li>
 <li><p>The learning is fast in the beginning, but slows down after the network is well trained already</p></li>
@@ -560,7 +564,7 @@ $<span class="math notranslate nohighlight">\(
 </section>
 </section>
 <section id="example">
-<h2><span class="section-number">11.3. </span>Example<a class="headerlink" href="#example" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">15.3. </span>Example<a class="headerlink" href="#example" title="Permalink to this heading">#</a></h2>
 <p>The above Iris example can be classified using Multi Layer Perceptron Classifier (MLPC) but SVM already handled that problem well and because the number of samples in the dataset is only 150, it is only sufficient for training very thin MLPC. Therefore, lets create an artificial classification problem with 1000 samples and tree partly overlapping classes to make the problem more challengin and train an MLPC for solving it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -607,7 +611,7 @@ Prediction accuracy is 0.944
 </div>
 </section>
 <section id="digits-dataset">
-<h2><span class="section-number">11.4. </span>Digits dataset<a class="headerlink" href="#digits-dataset" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">15.4. </span>Digits dataset<a class="headerlink" href="#digits-dataset" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">digits</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_digits</span><span class="p">()</span>
@@ -672,7 +676,7 @@ Prediction accuracy in CV 0.8770473537604456
 </div>
 </section>
 <section id="time-series-analysis">
-<h2><span class="section-number">11.5. </span>Time series analysis<a class="headerlink" href="#time-series-analysis" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">15.5. </span>Time series analysis<a class="headerlink" href="#time-series-analysis" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>In it’s standard form, the neural network has no understanding of time, and it is therefore not very suitable for time series analysis, for example in predicting future values</p></li>
 <li><p>Several variations of Neural Networks are however suitable for time series analysis</p></li>
@@ -682,7 +686,7 @@ Prediction accuracy in CV 0.8770473537604456
 <p><img alt="RNNimage" src="_images/RNN.svg" /></p>
 </section>
 <section id="convolutional-neural-network">
-<h2><span class="section-number">11.6. </span>Convolutional neural network<a class="headerlink" href="#convolutional-neural-network" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">15.6. </span>Convolutional neural network<a class="headerlink" href="#convolutional-neural-network" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>In deep image analysis networks, it is efficient to combine neural network with efficient image processing functions, such as convolution and subsampling (pooling).</p></li>
 <li><p>The following CNN network consists of</p>
@@ -700,7 +704,7 @@ Prediction accuracy in CV 0.8770473537604456
 <p>A nice description of convolutional neural network (CNN) is <a class="reference external" href="https://wiki.pathmind.com/convolutional-network">here</a>.</p>
 </section>
 <section id="keras-and-pytorch">
-<h2><span class="section-number">11.7. </span>Keras and Pytorch<a class="headerlink" href="#keras-and-pytorch" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">15.7. </span>Keras and Pytorch<a class="headerlink" href="#keras-and-pytorch" title="Permalink to this heading">#</a></h2>
 <p>MLP classifier and regressors use only CPU resources, but to utilize real power of ANN, they are often ran in massive parallel hardware, such as GPU:s. This is not necessary for simple neural network models shown above, but they become more important when the number of hidden layers in the network model increases and the model becomes deeper.</p>
 <p>Frameworks often used for Deep Neural Networks are for example Keras, Tensorflow and PyTorch.</p>
 <ul class="simple">
@@ -712,7 +716,7 @@ Prediction accuracy in CV 0.8770473537604456
 <p><a class="reference external" href="https://towardsdatascience.com/keras-vs-pytorch-for-deep-learning-a013cb63870d">PyTorch vs Keras</a></p>
 <p><a class="reference external" href="https://keras.io/why_keras/">Why to choose Keras</a></p>
 <section id="example-code-for-simple-keras-processing">
-<h3><span class="section-number">11.7.1. </span>Example code for simple Keras processing<a class="headerlink" href="#example-code-for-simple-keras-processing" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">15.7.1. </span>Example code for simple Keras processing<a class="headerlink" href="#example-code-for-simple-keras-processing" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -747,7 +751,7 @@ max: 1.0
 </div>
 </section>
 <section id="convolutional-neural-network-with-keral">
-<h3><span class="section-number">11.7.2. </span>Convolutional neural network with Keral<a class="headerlink" href="#convolutional-neural-network-with-keral" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">15.7.2. </span>Convolutional neural network with Keral<a class="headerlink" href="#convolutional-neural-network-with-keral" title="Permalink to this heading">#</a></h3>
 <p>The CNN model consists of layers, and the Keras API allows building the layered CNN model in very straightforward manner. Keras contains also many functions for preprocessing images and generating variations from existing image database, because the model contains plenty of parameters and needs therefore a large set of training images.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -842,13 +846,13 @@ _________________________________________________________________
 </section>
 </section>
 <section id="pre-trained-models">
-<h2><span class="section-number">11.8. </span>Pre trained models<a class="headerlink" href="#pre-trained-models" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">15.8. </span>Pre trained models<a class="headerlink" href="#pre-trained-models" title="Permalink to this heading">#</a></h2>
 <p>Since the training of the neural network models is so time consuming, an important topics in deep learning are pre trained models and transfer learning (the model trained to one application is used in another related application without retraining, or partial re-training.</p>
 <p>Some huge deep networks can be also used as general purpose neural networks. One of the biggest network this far is the Generative Pre-trained Transformer 3 (<a class="reference external" href="https://en.wikipedia.org/wiki/GPT-3">GPT-3</a>), which is suitable for many Natural Language Processing (NLP) tasks. GPT-3 sisältää 175 billion (<span class="math notranslate nohighlight">\(175 \cdot 10^9\)</span>) parameters. GPT-3 can generate text wich is difficult to distinguish from a human writer.</p>
 <p><a class="reference external" href="https://www.theguardian.com/commentisfree/2020/sep/08/robot-wrote-this-article-gpt-3">A robot wrote this entire article. Are you scared yet, human</a></p>
 </section>
 <section id="more-information">
-<h2><span class="section-number">11.9. </span>More information<a class="headerlink" href="#more-information" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">15.9. </span>More information<a class="headerlink" href="#more-information" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.geeksforgeeks.org/opencv-and-keras-traffic-sign-classification-for-self-driving-car/?ref=rp">OpenCV and Keras | Traffic Sign Classification for Self-Driving Car</a></p></li>
 <li><p>Read more from <a class="reference external" href="https://keras.io/getting_started/intro_to_keras_for_engineers/">Keras for engineers</a></p></li>
@@ -857,7 +861,7 @@ _________________________________________________________________
 </ul>
 </section>
 <section id="summary">
-<h2><span class="section-number">11.10. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">15.10. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Artificial Neural Networks (ANN) based on perceptrons, are versatile machine learning methods for both regression and classification. Deep and dense networks can learn to handle complex tasks, but the deeper the network, the more training data is needed.</p></li>
 <li><p>Deep learning can be implemented using many hidden layers in ANN. Deep learning requires large amount of training data.</p></li>
@@ -903,7 +907,7 @@ _________________________________________________________________
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">10. </span>Regression and regularisation</p>
+        <p class="prev-next-title"><span class="section-number">14. </span>Regression and regularisation</p>
       </div>
     </a>
     <a class="right-next"
@@ -911,7 +915,7 @@ _________________________________________________________________
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">12. </span>Model learning strategies</p>
+        <p class="prev-next-title"><span class="section-number">16. </span>Model learning strategies</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -930,32 +934,32 @@ _________________________________________________________________
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-networks">11.1. Neural networks</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perceptron">11.1.1. Perceptron</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activation-functions">11.1.2. Activation functions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-of-activation-functions">11.1.3. Implementation of activation functions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-of-perceptron">11.1.4. Implementation of perceptron</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-of-a-perceptron">11.1.5. Testing of a perceptron</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-algorithms">11.1.6. Learning algorithms</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-layer-perceptron">11.1.7. Multi layer perceptron</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-networks">15.1. Neural networks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perceptron">15.1.1. Perceptron</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activation-functions">15.1.2. Activation functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-of-activation-functions">15.1.3. Implementation of activation functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-of-perceptron">15.1.4. Implementation of perceptron</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-of-a-perceptron">15.1.5. Testing of a perceptron</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-algorithms">15.1.6. Learning algorithms</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-layer-perceptron">15.1.7. Multi layer perceptron</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-a-neural-network">11.2. Training a neural network</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-stop-training">11.2.1. When to stop training</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-a-neural-network">15.2. Training a neural network</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-stop-training">15.2.1. When to stop training</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">11.3. Example</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digits-dataset">11.4. Digits dataset</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-analysis">11.5. Time series analysis</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convolutional-neural-network">11.6. Convolutional neural network</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keras-and-pytorch">11.7. Keras and Pytorch</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-code-for-simple-keras-processing">11.7.1. Example code for simple Keras processing</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convolutional-neural-network-with-keral">11.7.2. Convolutional neural network with Keral</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">15.3. Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digits-dataset">15.4. Digits dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-analysis">15.5. Time series analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convolutional-neural-network">15.6. Convolutional neural network</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keras-and-pytorch">15.7. Keras and Pytorch</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-code-for-simple-keras-processing">15.7.1. Example code for simple Keras processing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convolutional-neural-network-with-keral">15.7.2. Convolutional neural network with Keral</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-trained-models">11.8. Pre trained models</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-information">11.9. More information</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">11.10. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-trained-models">15.8. Pre trained models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-information">15.9. More information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">15.10. Summary</a></li>
 </ul>
   </nav></div>
 

@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>10. Regression and regularisation &#8212; Applied Machine Learning, 2021</title>
+    <title>14. Regression and regularisation &#8212; Applied Machine Learning, 2021</title>
   
   
   
@@ -67,8 +67,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'Regression';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="11. Artificial Neural Networks (ANN)" href="NeuralNetworks.html" />
-    <link rel="prev" title="9. Decision trees and forests" href="DecisionTrees.html" />
+    <link rel="next" title="15. Artificial Neural Networks (ANN)" href="NeuralNetworks.html" />
+    <link rel="prev" title="13. Decision trees and forests" href="DecisionTrees.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -174,21 +174,25 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="Preprocessing_and_feature_extraction.html">3. Preprocessing and feature extraction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Subspace_Projections.html">4. Dimensionality reduction by Subspace projections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Clustering.html">5. Unsupervised learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SupervisedMachineLearningTerminology.html">6. Supervised machine learning, Terminology</a></li>
-<li class="toctree-l1"><a class="reference internal" href="NearestNeighbors.html">7. Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a></a></li>
-<li class="toctree-l1"><a class="reference internal" href="SupportVectorMachine.html">8. Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></a></li>
-<li class="toctree-l1"><a class="reference internal" href="DecisionTrees.html">9. Decision trees and forests <a class="anchor" id="dtaforests"></a></a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">10. Regression and regularisation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="NeuralNetworks.html">11. Artificial Neural Networks (ANN)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Learning_model_parameters.html">12. Model learning strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SupervisedMachineLearningTerminology.html">6. Training process</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="NearestNeighbors.html">11. Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="SupportVectorMachine.html">12. Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="DecisionTrees.html">13. Decision trees and forests <a class="anchor" id="dtaforests"></a></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">14. Regression and regularisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NeuralNetworks.html">15. Artificial Neural Networks (ANN)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Learning_model_parameters.html">16. Model learning strategies</a></li>
 
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="NLP.html">18. Natural Language Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NLP.html">22. Natural Language Processing</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="NLP-UWB.html">20. Ultra Wide Band positioning literature analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NLP-UWB.html">24. Ultra Wide Band positioning literature analysis</a></li>
 </ul>
 
     </div>
@@ -366,26 +370,26 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ordinary-least-mean-squares-ols-regression">10.1. Ordinary Least mean Squares (OLS) regression</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fitness-of-a-regression-model">10.2. The fitness of a regression model</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coefficient-of-determination-r-2">10.2.1. Coefficient of determination, <span class="math notranslate nohighlight">\(R^2\)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#root-mean-square-error-rmse">10.2.2. Root Mean Square Error, RMSE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ordinary-least-mean-squares-ols-regression">14.1. Ordinary Least mean Squares (OLS) regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fitness-of-a-regression-model">14.2. The fitness of a regression model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coefficient-of-determination-r-2">14.2.1. Coefficient of determination, <span class="math notranslate nohighlight">\(R^2\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#root-mean-square-error-rmse">14.2.2. Root Mean Square Error, RMSE</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regularization-and-model-simplicication">10.3. Regularization and model simplicication</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#l2-regularization-ridge-regression">10.3.1. L2 regularization, Ridge regression</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#l1-regularization-lasso">10.3.2. L1 regularization, LASSO</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elastic-nets">10.3.3. Elastic nets</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-tree-boosting">10.3.4. Gradient Tree Boosting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regularization-and-model-simplicication">14.3. Regularization and model simplicication</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#l2-regularization-ridge-regression">14.3.1. L2 regularization, Ridge regression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#l1-regularization-lasso">14.3.2. L1 regularization, LASSO</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elastic-nets">14.3.3. Elastic nets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-tree-boosting">14.3.4. Gradient Tree Boosting</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coding-examples">10.4. Coding examples</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boston-house-prizes-example">10.4.1. Boston house prizes example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coding-examples">14.4. Coding examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boston-house-prizes-example">14.4.1. Boston house prizes example</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-tree-regression">10.5. Gradient tree regression</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recursive-feature-elimination">10.6. Recursive feature elimination</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">10.7. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-tree-regression">14.5. Gradient tree regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recursive-feature-elimination">14.6. Recursive feature elimination</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">14.7. Summary</a></li>
 </ul>
             </nav>
         </div>
@@ -398,7 +402,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="regression-and-regularisation">
-<h1><span class="section-number">10. </span>Regression and regularisation<a class="headerlink" href="#regression-and-regularisation" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">14. </span>Regression and regularisation<a class="headerlink" href="#regression-and-regularisation" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
 <li><p>Regression is used when prediction a continuous dependent variable using one ore more independent variables.</p></li>
 <li><p>Most well known classical regression model is Ordinary Least Mean Squares (OLS) regression</p></li>
@@ -410,7 +414,7 @@ document.write(`
 <li><p>Recursive feature elimination/addition are useful methods for model optimisation and feature selection</p></li>
 </ul>
 <section id="ordinary-least-mean-squares-ols-regression">
-<h2><span class="section-number">10.1. </span>Ordinary Least mean Squares (OLS) regression<a class="headerlink" href="#ordinary-least-mean-squares-ols-regression" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">14.1. </span>Ordinary Least mean Squares (OLS) regression<a class="headerlink" href="#ordinary-least-mean-squares-ols-regression" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>OLS using p-features <span class="math notranslate nohighlight">\(x_i\)</span> to predict variable <span class="math notranslate nohighlight">\(y\)</span>.</p></li>
 <li><p><span class="math notranslate nohighlight">\(x_i\)</span> are called as independent variables</p></li>
@@ -451,10 +455,10 @@ document.write(`
 <p>Where <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> is a design matrix containing data samples in rows, and variables in columns. It is also called as design matrix, at it was shown in the top of this section.</p>
 </section>
 <section id="the-fitness-of-a-regression-model">
-<h2><span class="section-number">10.2. </span>The fitness of a regression model<a class="headerlink" href="#the-fitness-of-a-regression-model" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">14.2. </span>The fitness of a regression model<a class="headerlink" href="#the-fitness-of-a-regression-model" title="Permalink to this heading">#</a></h2>
 <p>The fitness of a regression model is often estimated using coefficient of determination (<span class="math notranslate nohighlight">\(R^2\)</span>) or Root Mean Square Error of prediction (RMSE).</p>
 <section id="coefficient-of-determination-r-2">
-<h3><span class="section-number">10.2.1. </span>Coefficient of determination, <span class="math notranslate nohighlight">\(R^2\)</span><a class="headerlink" href="#coefficient-of-determination-r-2" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">14.2.1. </span>Coefficient of determination, <span class="math notranslate nohighlight">\(R^2\)</span><a class="headerlink" href="#coefficient-of-determination-r-2" title="Permalink to this heading">#</a></h3>
 <p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Coefficient_of_determination">coefficient of determination</a>, <span class="math notranslate nohighlight">\(R^2\)</span>, defines how large proportion of the variance in <span class="math notranslate nohighlight">\(y\)</span> is explained by the model. <span class="math notranslate nohighlight">\(R^2\)</span> is zero if the model cannot predict anything and it is 1 when the model fit is perfect.</p>
 <div class="math notranslate nohighlight">
 \[
@@ -467,7 +471,7 @@ document.write(`
 \]</div>
 </section>
 <section id="root-mean-square-error-rmse">
-<h3><span class="section-number">10.2.2. </span>Root Mean Square Error, RMSE<a class="headerlink" href="#root-mean-square-error-rmse" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">14.2.2. </span>Root Mean Square Error, RMSE<a class="headerlink" href="#root-mean-square-error-rmse" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="https://towardsdatascience.com/what-does-rmse-really-mean-806b65f2e48e">RMSE</a>, is another often used measure for model fitness. RMSE shows the average prediction error in the same units and scale than <span class="math notranslate nohighlight">\(y\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[
@@ -476,7 +480,7 @@ document.write(`
 </section>
 </section>
 <section id="regularization-and-model-simplicication">
-<h2><span class="section-number">10.3. </span>Regularization and model simplicication<a class="headerlink" href="#regularization-and-model-simplicication" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">14.3. </span>Regularization and model simplicication<a class="headerlink" href="#regularization-and-model-simplicication" title="Permalink to this heading">#</a></h2>
 <p><img alt="William_of_Ockham_-_Logica_1341.jpg" src="_images/William_of_Ockham_-_Logica_1341_s.jpg" /></p>
 <p><span id="kuvaviite">Ockham - from a manuscipt of Ockham’s Summa Logicae, MS Gonville and Caius College, Cambridge, 464/571, fol. 69r</span></p>
 <blockquote>
@@ -492,7 +496,7 @@ document.write(`
 </ul>
 <p>Therefore it is important to use means for simplifying data and making the models more stable.</p>
 <section id="l2-regularization-ridge-regression">
-<h3><span class="section-number">10.3.1. </span>L2 regularization, Ridge regression<a class="headerlink" href="#l2-regularization-ridge-regression" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">14.3.1. </span>L2 regularization, Ridge regression<a class="headerlink" href="#l2-regularization-ridge-regression" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
    Obj(\Theta) = \underbrace{\sum_{i=1}^{n} (y_i - \sum_{j=1}^p \beta_j x_{ij})^2}_{L(\Theta)} + \underbrace{\lambda \sum_{j=1}^p \beta_j^2}_{\Omega(\Theta)}
@@ -508,7 +512,7 @@ document.write(`
 Hoerl, Arthur E., ja Robert W. Kennard. ”Ridge Regression: Biased Estimation for Nonorthogonal Problems”. Technometrics 12, nro 1 (1. Feb 1970): 55–67. https://doi.org/10.1080/00401706.1970.10488634.
 </div></section>
 <section id="l1-regularization-lasso">
-<h3><span class="section-number">10.3.2. </span>L1 regularization, LASSO<a class="headerlink" href="#l1-regularization-lasso" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">14.3.2. </span>L1 regularization, LASSO<a class="headerlink" href="#l1-regularization-lasso" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
    Obj(\Theta) = \underbrace{\sum_{i=1}^{n} (y_i - \sum_{j=1}^p \beta_j x_{ij})^2}_{L(\Theta)} + \lambda \sum_{j=1}^p |\beta_j|
@@ -523,7 +527,7 @@ Hoerl, Arthur E., ja Robert W. Kennard. ”Ridge Regression: Biased Estimation f
 <div class="citation">Tibshirani, Robert. ”Regression Shrinkage and Selection Via the Lasso”. Journal of the Royal Statistical Society: Series B (Methodological) 58, nro 1 (1996): 267–88. https://doi.org/10.1111/j.2517-6161.1996.tb02080.x.
 </div></section>
 <section id="elastic-nets">
-<h3><span class="section-number">10.3.3. </span>Elastic nets<a class="headerlink" href="#elastic-nets" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">14.3.3. </span>Elastic nets<a class="headerlink" href="#elastic-nets" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
    Obj(\Theta) = \underbrace{\sum_{i=1}^{n} (y_i - \sum_{j=1}^p \beta_j x_{ij})^2}_{L(\Theta)} + \lambda \sum_{j=1}^p \left( (1-\alpha) \beta_i^2 + \alpha |\beta_j| \right)
@@ -537,7 +541,7 @@ Hoerl, Arthur E., ja Robert W. Kennard. ”Ridge Regression: Biased Estimation f
 <div class="citation">Zou, Hui, ja Trevor Hastie. ”Regularization and variable selection via the elastic net”. Journal of the Royal Statistical Society: Series B (Statistical Methodology) 67, nro 2 (1. April 2005): 301–20. https://doi.org/10.1111/j.1467-9868.2005.00503.x.</div>
 </section>
 <section id="gradient-tree-boosting">
-<h3><span class="section-number">10.3.4. </span>Gradient Tree Boosting<a class="headerlink" href="#gradient-tree-boosting" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">14.3.4. </span>Gradient Tree Boosting<a class="headerlink" href="#gradient-tree-boosting" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Also called as Gradient Boosted Regression Trees (GBRT)</p></li>
 <li><p>The GBRT has similar formal loss function and measure for complexity as linear regrssion</p></li>
@@ -547,7 +551,7 @@ Hoerl, Arthur E., ja Robert W. Kennard. ”Ridge Regression: Biased Estimation f
 </section>
 </section>
 <section id="coding-examples">
-<h2><span class="section-number">10.4. </span>Coding examples<a class="headerlink" href="#coding-examples" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">14.4. </span>Coding examples<a class="headerlink" href="#coding-examples" title="Permalink to this heading">#</a></h2>
 <p>Pay attention especially for these rows</p>
 <ul class="simple">
 <li><p>Build the model:</p></li>
@@ -566,7 +570,7 @@ Hoerl, Arthur E., ja Robert W. Kennard. ”Ridge Regression: Biased Estimation f
 </ul>
 <p><code class="docutils literal notranslate">&#160;&#160;&#160; <span class="pre">rfe</span> <span class="pre">=</span> <span class="pre">RFE(estimator=model,</span> <span class="pre">n_features_to_select=1,</span> <span class="pre">step=1)</span></code></p>
 <section id="boston-house-prizes-example">
-<h3><span class="section-number">10.4.1. </span>Boston house prizes example<a class="headerlink" href="#boston-house-prizes-example" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">14.4.1. </span>Boston house prizes example<a class="headerlink" href="#boston-house-prizes-example" title="Permalink to this heading">#</a></h3>
 <p>Can the house prizes be predicted? Which parameters affect most to the house prizes?</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    - CRIM     per capita crime rate by town
     - ZN       proportion of residential land zoned for lots over 25,000 sq.ft.
@@ -957,7 +961,7 @@ Training score.... 0.6879971162429187
 </section>
 </section>
 <section id="gradient-tree-regression">
-<h2><span class="section-number">10.5. </span>Gradient tree regression<a class="headerlink" href="#gradient-tree-regression" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">14.5. </span>Gradient tree regression<a class="headerlink" href="#gradient-tree-regression" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">GradientBoostingRegressor</span>
@@ -1347,7 +1351,7 @@ Training score.... 0.9304873266368128
 </div>
 </section>
 <section id="recursive-feature-elimination">
-<h2><span class="section-number">10.6. </span>Recursive feature elimination<a class="headerlink" href="#recursive-feature-elimination" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">14.6. </span>Recursive feature elimination<a class="headerlink" href="#recursive-feature-elimination" title="Permalink to this heading">#</a></h2>
 <p>An example of familiar digits classification</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1411,7 +1415,7 @@ Training score.... 0.9304873266368128
 </div>
 </section>
 <section id="summary">
-<h2><span class="section-number">10.7. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">14.7. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Classical regression</strong> is simple and well understood, and is a good model, when its conditions are met</p>
 <ul>
@@ -1476,7 +1480,7 @@ Training score.... 0.9304873266368128
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">9. </span>Decision trees and forests <a class="anchor" id="dtaforests"></a></p>
+        <p class="prev-next-title"><span class="section-number">13. </span>Decision trees and forests <a class="anchor" id="dtaforests"></a></p>
       </div>
     </a>
     <a class="right-next"
@@ -1484,7 +1488,7 @@ Training score.... 0.9304873266368128
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">11. </span>Artificial Neural Networks (ANN)</p>
+        <p class="prev-next-title"><span class="section-number">15. </span>Artificial Neural Networks (ANN)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1503,26 +1507,26 @@ Training score.... 0.9304873266368128
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ordinary-least-mean-squares-ols-regression">10.1. Ordinary Least mean Squares (OLS) regression</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fitness-of-a-regression-model">10.2. The fitness of a regression model</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coefficient-of-determination-r-2">10.2.1. Coefficient of determination, <span class="math notranslate nohighlight">\(R^2\)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#root-mean-square-error-rmse">10.2.2. Root Mean Square Error, RMSE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ordinary-least-mean-squares-ols-regression">14.1. Ordinary Least mean Squares (OLS) regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fitness-of-a-regression-model">14.2. The fitness of a regression model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coefficient-of-determination-r-2">14.2.1. Coefficient of determination, <span class="math notranslate nohighlight">\(R^2\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#root-mean-square-error-rmse">14.2.2. Root Mean Square Error, RMSE</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regularization-and-model-simplicication">10.3. Regularization and model simplicication</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#l2-regularization-ridge-regression">10.3.1. L2 regularization, Ridge regression</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#l1-regularization-lasso">10.3.2. L1 regularization, LASSO</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elastic-nets">10.3.3. Elastic nets</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-tree-boosting">10.3.4. Gradient Tree Boosting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regularization-and-model-simplicication">14.3. Regularization and model simplicication</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#l2-regularization-ridge-regression">14.3.1. L2 regularization, Ridge regression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#l1-regularization-lasso">14.3.2. L1 regularization, LASSO</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elastic-nets">14.3.3. Elastic nets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-tree-boosting">14.3.4. Gradient Tree Boosting</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coding-examples">10.4. Coding examples</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boston-house-prizes-example">10.4.1. Boston house prizes example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coding-examples">14.4. Coding examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boston-house-prizes-example">14.4.1. Boston house prizes example</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-tree-regression">10.5. Gradient tree regression</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recursive-feature-elimination">10.6. Recursive feature elimination</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">10.7. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-tree-regression">14.5. Gradient tree regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recursive-feature-elimination">14.6. Recursive feature elimination</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">14.7. Summary</a></li>
 </ul>
   </nav></div>
 
