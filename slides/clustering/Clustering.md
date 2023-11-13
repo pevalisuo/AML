@@ -15,7 +15,7 @@ revealOptions:
    - What is clustering
    - kMeans
    - Expectation maximization
-   - Gaussian Mixture model
+   - Gaussian Mixture model  
 
 ----
 

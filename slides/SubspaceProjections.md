@@ -1,7 +1,9 @@
 ---
 title: Subspace projections
-theme: moon
-revealOptions:
+format: 
+	revealjs:
+		chalkboard: true
+		theme: moon
   
 ---
 
@@ -343,44 +345,3 @@ Y=tsne.fit_transform(digits.data)
 
 ### The end
 
-
-
-
-<style>
-#bright {
-  color: deeppink;
-}
-#left {
-    margin: 10px 0 15px 20px;
-    text-align: center;
-    float: left;
-    z-index:-10;
-    width:48%;
-    font-size: 0.85em;
-    line-height: 1.5;
-}
-#right {
-    margin: 10px 0 15px 0;
-    float: right;
-    text-align: center;
-    z-index:-10;
-    width:48%;
-    font-size: 0.85em;
-    line-height: 1.5;
-}
-
-#dark_back {
-  background-color: rgba(0, 0, 0, 0.9);
-  color: #000;
-  padding: 20px;
-}
-
-#white_back {
-  background-color: rgba(1, 1, 1, 0.9);
-  color: black;
-  padding: 20px;
-}
-</style>
-<link rel="stylesheet" href="plugin/highlight/monokai.css">
-<link rel="stylesheet" href="plugin/chalkboard/style.css">
-<!-- .slide: data-background="figures/uwrocks.png" -->
