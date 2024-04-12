@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="14cm" height="8cm" viewBox="297 178 277 157" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs/>
+  <g id="Background"/>
+  <g id="Background">
+    <g>
+      <rect style="fill: #e6c81a; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #7e7e7e" x="380" y="200" width="100" height="100" rx="0" ry="0"/>
+      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="430" y="253.9">
+        <tspan x="430" y="253.9"></tspan>
+      </text>
+    </g>
+    <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="400" y1="200" x2="400" y2="300"/>
+    <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="420" y1="200" x2="420" y2="300"/>
+    <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="440" y1="200" x2="440" y2="300"/>
+    <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="460" y1="200" x2="460" y2="300"/>
+    <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="380" y1="220" x2="480" y2="220"/>
+    <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="380" y1="240" x2="480" y2="240"/>
+    <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="380" y1="260" x2="480" y2="260"/>
+    <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="380" y1="280" x2="480" y2="280"/>
+    <text font-size="15.8044" style="fill: #7e7e7e; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="383.272" y="317.614">
+      <tspan x="383.272" y="317.614">1  2  3  4  5</tspan>
+    </text>
+    <text font-size="15.8044" style="fill: #7e7e7e; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="362.75" y="216">
+      <tspan x="362.75" y="216">1</tspan>
+      <tspan x="362.75" y="235.756">2</tspan>
+      <tspan x="362.75" y="255.511">3</tspan>
+      <tspan x="362.75" y="275.267">4</tspan>
+      <tspan x="362.75" y="295.022">5</tspan>
+    </text>
+    <rect style="fill: #00ff00; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #7e7e7e" x="460" y="259.75" width="20" height="20" rx="0" ry="0"/>
+    <rect style="fill: #00ff00; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #7e7e7e" x="468" y="247.75" width="20" height="20" rx="0" ry="0"/>
+    <rect style="fill: #00ff00; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #7e7e7e" x="476" y="235.75" width="20" height="20" rx="0" ry="0"/>
+    <rect style="fill: #00ff00; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #7e7e7e" x="484" y="223.75" width="20" height="20" rx="0" ry="0"/>
+    <rect style="fill: #00ff00; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #7e7e7e" x="508" y="179.75" width="20" height="20" rx="0" ry="0"/>
+    <line style="fill: none; stroke-opacity: 1; stroke-width: 1; stroke-dasharray: 4; stroke: #7e7e7e" x1="460" y1="259.75" x2="508" y2="179.75"/>
+    <line style="fill: none; stroke-opacity: 1; stroke-width: 1; stroke-dasharray: 4; stroke: #7e7e7e" x1="480" y1="279.75" x2="528" y2="199.75"/>
+    <text font-size="12.8" style="fill: #7e7e7e; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="480" y="274.175">
+      <tspan xml:space="preserve" x="480" y="274.175">           1</tspan>
+    </text>
+    <text font-size="12.8" style="fill: #7e7e7e; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="488" y="262.175">
+      <tspan xml:space="preserve" x="488" y="262.175">          2</tspan>
+    </text>
+    <text font-size="12.8" style="fill: #7e7e7e; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="496" y="250.175">
+      <tspan xml:space="preserve" x="496" y="250.175">          3</tspan>
+    </text>
+    <text font-size="12.8" style="fill: #7e7e7e; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="504" y="238.175">
+      <tspan xml:space="preserve" x="504" y="238.175">          4</tspan>
+    </text>
+    <text font-size="12.8" style="fill: #7e7e7e; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="528" y="194.175">
+      <tspan xml:space="preserve" x="528" y="194.175">          n</tspan>
+    </text>
+    <text font-size="12.8" style="fill: #7e7e7e; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="384" y="332">
+      <tspan x="384" y="332">x-axis, latitude</tspan>
+    </text>
+    <text font-size="12.8" style="fill: #7e7e7e; fill-opacity: 1; stroke: none;text-anchor:end;font-family:sans-serif;font-style:normal;font-weight:normal" x="358" y="234">
+      <tspan x="358" y="234">y-axis,</tspan>
+      <tspan x="358" y="250">longitude</tspan>
+      <tspan x="358" y="266"></tspan>
+    </text>
+    <text font-size="12.8" style="fill: #7e7e7e; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="524" y="258">
+      <tspan x="524" y="258">z-axis, </tspan>
+      <tspan x="524" y="274">color</tspan>
+      <tspan x="524" y="290">channel</tspan>
+    </text>
+  </g>
+</svg>
