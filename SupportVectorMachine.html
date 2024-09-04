@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>12. Support Vector Machine (SVM) &#8212; Applied Machine Learning, 2021</title>
   
@@ -15,53 +14,49 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'SupportVectorMachine';</script>
@@ -78,28 +73,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -121,12 +111,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -141,9 +139,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="practicalities.html">
+  
   
   
   
@@ -153,12 +155,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="_static/ApplesAndOranges.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/ApplesAndOranges.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/ApplesAndOranges.png" class="logo__image only-light" alt="Applied Machine Learning, 2021 - Home"/>
+    <script>document.write(`<img src="_static/ApplesAndOranges.png" class="logo__image only-dark" alt="Applied Machine Learning, 2021 - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -208,7 +221,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -217,14 +230,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -249,14 +262,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://notebooks.csc.fi/#/blueprint/d1fe6e08032e4c17a0f9e0e222414598/hub/user-redirect/git-pull?repo=https%3A//github.com/pevalisuo/AML.git&urlpath=tree/AML.git/book/SupportVectorMachine.ipynb&branch=master" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onJupyterHub"
+   title="Launch on JupyterHub"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="_static/images/logo_jupyterhub.svg">
+    <img alt="JupyterHub logo" src="_static/images/logo_jupyterhub.svg">
   </span>
 <span class="btn__text-container">JupyterHub</span>
 </a>
@@ -330,26 +343,28 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -371,7 +386,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-boundary">12.1. Decision boundary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-svm-a-class-anchor-id-kernelsvm-a">12.2. Kernel SVM <a class="anchor" id="kernelsvm"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-svm">12.2. Kernel SVM <a class="anchor" id="kernelsvm"></a></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-svm">12.3. Non-linear SVM</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#illustration-of-rbf">12.3.1. Illustration of RBF</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-rbf-in-circular-data">12.3.2. Testing RBF in circular data</a></li>
@@ -387,10 +402,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="support-vector-machine-svm-a-class-anchor-id-supportvectormachine-a">
-<h1><span class="section-number">12. </span>Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a><a class="headerlink" href="#support-vector-machine-svm-a-class-anchor-id-supportvectormachine-a" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="support-vector-machine-svm">
+<h1><span class="section-number">12. </span>Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a><a class="headerlink" href="#support-vector-machine-svm" title="Link to this heading">#</a></h1>
 <ul class="simple">
 <li><p>SVM is kind of Jack of All Trades for classifiers, because it is quite versatile and powerfull</p></li>
 <li><p>It does not save all training samples like NearestNeigbour method, but only the samples near the border of class boundaries.</p></li>
@@ -400,7 +415,7 @@ document.write(`
 <li><p>Can be extended to nonlinear decision boundaries using kernels</p></li>
 </ul>
 <section id="decision-boundary">
-<h2><span class="section-number">12.1. </span>Decision boundary<a class="headerlink" href="#decision-boundary" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">12.1. </span>Decision boundary<a class="headerlink" href="#decision-boundary" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>SVM uses samples near the different clusters to define a decision boundary</p></li>
 <li><p>The boundary which maximises the marginal of the boundary will be selected</p></li>
@@ -444,10 +459,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f4ed8d6d410&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x706bbb4e2610&gt;]
 </pre></div>
 </div>
-<img alt="_images/332208bd5d7f795c32218fceca5521476d462d153a5a630e4cb27149390b5ce5.png" src="_images/332208bd5d7f795c32218fceca5521476d462d153a5a630e4cb27149390b5ce5.png" />
+<img alt="_images/4c9344b00329c2ac8cc8afaf01adf8a3ff4555a99ef4052fe2a528cdcf8e9758.png" src="_images/4c9344b00329c2ac8cc8afaf01adf8a3ff4555a99ef4052fe2a528cdcf8e9758.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -471,7 +486,7 @@ Accurary in the test set......1.000000
 SVC(kernel=&#39;linear&#39;)
 </pre></div>
 </div>
-<img alt="_images/7dcd6f68dc60024be136eb2a60cd515aaac241825b1486c8edc432f6a6a6b19b.png" src="_images/7dcd6f68dc60024be136eb2a60cd515aaac241825b1486c8edc432f6a6a6b19b.png" />
+<img alt="_images/0700d94f32e8f4028bbf36c5b88f7d7913a575adff47e0456ad4ae6d7f19e68b.png" src="_images/0700d94f32e8f4028bbf36c5b88f7d7913a575adff47e0456ad4ae6d7f19e68b.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -504,12 +519,12 @@ SVC(kernel=&#39;linear&#39;)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accurary in the training set..0.940000
-Accurary in the test set......0.920000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accurary in the training set..0.920000
+Accurary in the test set......0.940000
 SVC(kernel=&#39;linear&#39;)
 </pre></div>
 </div>
-<img alt="_images/63ceee0752cb059d4b3705b3be7d46b9eee2fb722b4705035030c4d649899dd9.png" src="_images/63ceee0752cb059d4b3705b3be7d46b9eee2fb722b4705035030c4d649899dd9.png" />
+<img alt="_images/9db21f7b71cba0463c9bdeca210675e12eaf598b61970e641458a2604e057cbf.png" src="_images/9db21f7b71cba0463c9bdeca210675e12eaf598b61970e641458a2604e057cbf.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -527,23 +542,21 @@ SVC(kernel=&#39;linear&#39;)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accurary in the trainint set..0.933333
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accurary in the trainint set..0.926667
 Accurary in the test set......0.920000
 LinearSVC()
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/mnt/debian/pvs/venv/JupyterAI/lib/python3.11/site-packages/sklearn/svm/_classes.py:32: FutureWarning: The default value of `dual` will change from `True` to `&#39;auto&#39;` in 1.5. Set the value of `dual` explicitly to suppress the warning.
-  warnings.warn(
-/mnt/debian/pvs/venv/JupyterAI/lib/python3.11/site-packages/sklearn/svm/_base.py:1242: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/petri/miniforge3/envs/octave/lib/python3.11/site-packages/sklearn/svm/_classes.py:31: FutureWarning: The default value of `dual` will change from `True` to `&#39;auto&#39;` in 1.5. Set the value of `dual` explicitly to suppress the warning.
   warnings.warn(
 </pre></div>
 </div>
-<img alt="_images/784e2e11c7bd9a09cd6dbafe7ff9c6a8e5fcc5aff7720e215eb442f254788ab5.png" src="_images/784e2e11c7bd9a09cd6dbafe7ff9c6a8e5fcc5aff7720e215eb442f254788ab5.png" />
+<img alt="_images/ca877ecd3950d4e5c981d5169e91321de4de68b4fc320c7c5782009bd6e0ce81.png" src="_images/ca877ecd3950d4e5c981d5169e91321de4de68b4fc320c7c5782009bd6e0ce81.png" />
 </div>
 </div>
 </section>
-<section id="kernel-svm-a-class-anchor-id-kernelsvm-a">
-<h2><span class="section-number">12.2. </span>Kernel SVM <a class="anchor" id="kernelsvm"></a><a class="headerlink" href="#kernel-svm-a-class-anchor-id-kernelsvm-a" title="Permalink to this heading">#</a></h2>
+<section id="kernel-svm">
+<h2><span class="section-number">12.2. </span>Kernel SVM <a class="anchor" id="kernelsvm"></a><a class="headerlink" href="#kernel-svm" title="Link to this heading">#</a></h2>
 <p>Linear kernel</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -560,12 +573,12 @@ LinearSVC()
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accurary in the training set..0.933333
-Accurary in the test set......0.920000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accurary in the training set..0.920000
+Accurary in the test set......0.940000
 SVC(C=0.5, gamma=0.1)
 </pre></div>
 </div>
-<img alt="_images/855b51f5b555a9a4556b73bbb70c0ad24b285835cada256f12f5839d3ab811f3.png" src="_images/855b51f5b555a9a4556b73bbb70c0ad24b285835cada256f12f5839d3ab811f3.png" />
+<img alt="_images/b57d5056c62f5ce83c3ed95bb080c5cacd145a02e061a57856bb38fea5de9e38.png" src="_images/b57d5056c62f5ce83c3ed95bb080c5cacd145a02e061a57856bb38fea5de9e38.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -600,7 +613,7 @@ SVC(C=0.5, gamma=0.1)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean CV score is 0.92, all scores= [0.86666667 0.96666667 0.9        0.96666667 0.9       ]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean CV score is 0.93, all scores= [0.93333333 0.96666667 0.86666667 0.9        0.96666667]
 </pre></div>
 </div>
 </div>
@@ -621,16 +634,16 @@ SVC(C=0.5, gamma=0.1)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best gamma value is 0.014592
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best gamma value is 0.037528
 Accurary in the test set......0.920000
 </pre></div>
 </div>
-<img alt="_images/eb503d885ca70e22fc7aae115e498dc019aa895c5a208ad44b801f54dc20ae33.png" src="_images/eb503d885ca70e22fc7aae115e498dc019aa895c5a208ad44b801f54dc20ae33.png" />
+<img alt="_images/b6d65486409d28bbd7b2b89775069df748cd11429d6a697808272bd131c9f4ef.png" src="_images/b6d65486409d28bbd7b2b89775069df748cd11429d6a697808272bd131c9f4ef.png" />
 </div>
 </div>
 </section>
 <section id="non-linear-svm">
-<h2><span class="section-number">12.3. </span>Non-linear SVM<a class="headerlink" href="#non-linear-svm" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">12.3. </span>Non-linear SVM<a class="headerlink" href="#non-linear-svm" title="Link to this heading">#</a></h2>
 <ul>
 <li><p>If the data described by <span class="math notranslate nohighlight">\(p_i=[x_i, y_i]^T\)</span> is not linearly separable, it can be made linearly separable by adding a new term, for example <span class="math notranslate nohighlight">\(z_i=x_i^2 + y_i^2\)</span></p></li>
 <li><p>In this case, third dimension is introduced, and the linear classifier can work in the new three dimensional space <span class="math notranslate nohighlight">\( p_i'=[x_i, y_i, z_i]^T \)</span></p></li>
@@ -648,7 +661,7 @@ Accurary in the test set......0.920000
 </li>
 </ul>
 <section id="illustration-of-rbf">
-<h3><span class="section-number">12.3.1. </span>Illustration of RBF<a class="headerlink" href="#illustration-of-rbf" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.3.1. </span>Illustration of RBF<a class="headerlink" href="#illustration-of-rbf" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>The following code plots the RBF when <span class="math notranslate nohighlight">\(p_i\)</span> is in origo and <span class="math notranslate nohighlight">\(p_j\)</span> moves along x-axis.</p></li>
 <li><p>In real case the RBF is N-dimensional, centered around a sample <span class="math notranslate nohighlight">\(p_i\)</span></p></li>
@@ -670,7 +683,7 @@ Accurary in the test set......0.920000
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;$k([0,0,0]^T, [x,0,0]^T)$&#39;)
 </pre></div>
 </div>
-<img alt="_images/936dca3b9255c30cf5253351a45d49fbe6d93cb8b4bc7bbb3bf8c544bf13c650.png" src="_images/936dca3b9255c30cf5253351a45d49fbe6d93cb8b4bc7bbb3bf8c544bf13c650.png" />
+<img alt="_images/2c9369f22ffed5c73a83f514ba7bb1af780657383b6a2ce220c0dd0d5409d6d4.png" src="_images/2c9369f22ffed5c73a83f514ba7bb1af780657383b6a2ce220c0dd0d5409d6d4.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -687,10 +700,10 @@ Accurary in the test set......0.920000
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f4ed4964550&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x706bb112f510&gt;
 </pre></div>
 </div>
-<img alt="_images/a9c29f1e0a0aa3a55095f5732ffc29641b1ded2fe18c501e2ea181ccfc1ebef0.png" src="_images/a9c29f1e0a0aa3a55095f5732ffc29641b1ded2fe18c501e2ea181ccfc1ebef0.png" />
+<img alt="_images/6abb13fcf5878fd43ef8fcaf9822b3b537358637942e677b4eb9a25124b4fe0c.png" src="_images/6abb13fcf5878fd43ef8fcaf9822b3b537358637942e677b4eb9a25124b4fe0c.png" />
 </div>
 </div>
 <p><strong>Solution:</strong> Use the 8th value as a support vector, and use RBF kernel to increase one more dimesion</p>
@@ -715,16 +728,16 @@ Accurary in the test set......0.920000
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7f4ed491fcd0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x706bb126ca10&gt;
 </pre></div>
 </div>
-<img alt="_images/401e77641769635646cec51a1a281c1fdf2a23b336588f089da4f6c57cff73ab.png" src="_images/401e77641769635646cec51a1a281c1fdf2a23b336588f089da4f6c57cff73ab.png" />
+<img alt="_images/27eb8161c9bbe0c797a94158b530528ed7bab5b85068482d9811e68bcb116cc4.png" src="_images/27eb8161c9bbe0c797a94158b530528ed7bab5b85068482d9811e68bcb116cc4.png" />
 </div>
 </div>
 <p>Now the classes are separable, but what is the optimal Gamma value?</p>
 </section>
 <section id="testing-rbf-in-circular-data">
-<h3><span class="section-number">12.3.2. </span>Testing RBF in circular data<a class="headerlink" href="#testing-rbf-in-circular-data" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.3.2. </span>Testing RBF in circular data<a class="headerlink" href="#testing-rbf-in-circular-data" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Xc</span><span class="p">,</span><span class="n">yc</span><span class="o">=</span><span class="n">datasets</span><span class="o">.</span><span class="n">make_circles</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
@@ -747,7 +760,7 @@ Accurary in the test set......1.000000
 SVC()
 </pre></div>
 </div>
-<img alt="_images/5d8f07dd2c523c72c4b81a80ea6a6f22ef7ed600d054ceb8806cb79024d7cd0e.png" src="_images/5d8f07dd2c523c72c4b81a80ea6a6f22ef7ed600d054ceb8806cb79024d7cd0e.png" />
+<img alt="_images/d1fdd0d98a5c762fe2ba88ac8df8b111c1ef734f9470add11f1210630285a4ce.png" src="_images/d1fdd0d98a5c762fe2ba88ac8df8b111c1ef734f9470add11f1210630285a4ce.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -769,14 +782,14 @@ Accurary in the test set......1.000000
 SVC(gamma=0.5)
 </pre></div>
 </div>
-<img alt="_images/0868b8c4c5b7c6c2ace18835d1b55bc5da2f8f02b8b43d55a3cac7d7be47355b.png" src="_images/0868b8c4c5b7c6c2ace18835d1b55bc5da2f8f02b8b43d55a3cac7d7be47355b.png" />
+<img alt="_images/a593a1d197be4f19ef993661bfcac66afd0919b0eac9b7d1a962298a96507d8a.png" src="_images/a593a1d197be4f19ef993661bfcac66afd0919b0eac9b7d1a962298a96507d8a.png" />
 </div>
 </div>
 <p>Read more from <a class="reference external" href="https://www.analyticsvidhya.com/blog/2017/09/understaing-support-vector-machine-example-code/">Understanding SVM</a></p>
 </section>
 </section>
 <section id="summary">
-<h2><span class="section-number">12.4. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">12.4. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>SVM is good for high dimensional cases</p></li>
 <li><p>LinearSVC can include a regularization term L2, or L1</p></li>
@@ -818,8 +831,8 @@ SVC(gamma=0.5)
               
               
               
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                <footer class="prev-next-footer d-print-none">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="NearestNeighbors.html"
@@ -848,6 +861,7 @@ SVC(gamma=0.5)
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
@@ -855,7 +869,7 @@ SVC(gamma=0.5)
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-boundary">12.1. Decision boundary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-svm-a-class-anchor-id-kernelsvm-a">12.2. Kernel SVM <a class="anchor" id="kernelsvm"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-svm">12.2. Kernel SVM <a class="anchor" id="kernelsvm"></a></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-svm">12.3. Non-linear SVM</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#illustration-of-rbf">12.3.1. Illustration of RBF</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-rbf-in-circular-data">12.3.2. Testing RBF in circular data</a></li>
@@ -883,9 +897,10 @@ By Petri Välisuo
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -909,8 +924,8 @@ By Petri Välisuo
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

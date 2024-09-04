@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>2. Reading and plotting &#8212; Applied Machine Learning, 2021</title>
   
@@ -15,53 +14,49 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ReadingAndPlotting';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -76,28 +71,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -119,12 +109,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -139,9 +137,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="practicalities.html">
+  
   
   
   
@@ -151,12 +153,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="_static/ApplesAndOranges.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/ApplesAndOranges.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/ApplesAndOranges.png" class="logo__image only-light" alt="Applied Machine Learning, 2021 - Home"/>
+    <script>document.write(`<img src="_static/ApplesAndOranges.png" class="logo__image only-dark" alt="Applied Machine Learning, 2021 - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -172,21 +185,25 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="Preprocessing_and_feature_extraction.html">3. Preprocessing and feature extraction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Subspace_Projections.html">4. Dimensionality reduction by Subspace projections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Clustering.html">5. Unsupervised learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SupervisedMachineLearningTerminology.html">6. Supervised machine learning, Terminology</a></li>
-<li class="toctree-l1"><a class="reference internal" href="NearestNeighbors.html">7. Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a></a></li>
-<li class="toctree-l1"><a class="reference internal" href="SupportVectorMachine.html">8. Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></a></li>
-<li class="toctree-l1"><a class="reference internal" href="DecisionTrees.html">9. Decision trees and forests <a class="anchor" id="dtaforests"></a></a></li>
-<li class="toctree-l1"><a class="reference internal" href="Regression.html">10. Regression and regularisation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="NeuralNetworks.html">11. Artificial Neural Networks (ANN)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Learning_model_parameters.html">12. Model learning strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SupervisedMachineLearningTerminology.html">6. Training process</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="NearestNeighbors.html">11. Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="SupportVectorMachine.html">12. Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="DecisionTrees.html">13. Decision trees and forests <a class="anchor" id="dtaforests"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Regression.html">14. Regression and regularisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NeuralNetworks.html">15. Artificial Neural Networks (ANN)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Learning_model_parameters.html">16. Model learning strategies</a></li>
 
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="NLP.html">18. Natural Language Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NLP.html">22. Natural Language Processing</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="NLP-UWB.html">20. Ultra Wide Band positioning literature analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NLP-UWB.html">24. Ultra Wide Band positioning literature analysis</a></li>
 </ul>
 
     </div>
@@ -202,7 +219,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -211,14 +228,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -243,14 +260,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://notebooks.csc.fi/#/blueprint/d1fe6e08032e4c17a0f9e0e222414598/hub/user-redirect/git-pull?repo=https%3A//github.com/pevalisuo/AML.git&urlpath=tree/AML.git/book/ReadingAndPlotting.ipynb&branch=master" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onJupyterHub"
+   title="Launch on JupyterHub"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="_static/images/logo_jupyterhub.svg">
+    <img alt="JupyterHub logo" src="_static/images/logo_jupyterhub.svg">
   </span>
 <span class="btn__text-container">JupyterHub</span>
 </a>
@@ -324,26 +341,28 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -386,12 +405,12 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="reading-and-plotting">
-<h1><span class="section-number">2. </span>Reading and plotting<a class="headerlink" href="#reading-and-plotting" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">2. </span>Reading and plotting<a class="headerlink" href="#reading-and-plotting" title="Link to this heading">#</a></h1>
 <section id="reading-different-data-formats">
-<h2><span class="section-number">2.1. </span>Reading different data formats<a class="headerlink" href="#reading-different-data-formats" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1. </span>Reading different data formats<a class="headerlink" href="#reading-different-data-formats" title="Link to this heading">#</a></h2>
 <p>Data comes in many differents forms. Few common data formats are:</p>
 <ul class="simple">
 <li><p>Tabular data. Often fields separated by tabs or variable number of spaces</p></li>
@@ -406,12 +425,12 @@ document.write(`
 </ul>
 </section>
 <section id="asphalt-heat-data">
-<h2><span class="section-number">2.2. </span>Asphalt heat data<a class="headerlink" href="#asphalt-heat-data" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.2. </span>Asphalt heat data<a class="headerlink" href="#asphalt-heat-data" title="Link to this heading">#</a></h2>
 <p>The data is clearly in CSV-file with three columns, where field separator is semicolon. The first column is a timestamp in ISO format. Other columns are numerical and they use decimal points. The first row is a colun header.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Timestamp;</span> <span class="pre">Irradiance;</span> <span class="pre">Heatflux</span> <span class="pre">2014-10-01</span> <span class="pre">03:00:20;</span>&#160;&#160; <span class="pre">0.2;</span> <span class="pre">-83.1</span> <span class="pre">2014-10-01</span> <span class="pre">03:15:20;</span>&#160;&#160; <span class="pre">0.2;</span> <span class="pre">-82.8</span> <span class="pre">2014-10-01</span> <span class="pre">03:30:20;</span>&#160;&#160; <span class="pre">0.1;</span> <span class="pre">-82.5</span> <span class="pre">2014-10-01</span> <span class="pre">03:45:20;</span>&#160;&#160; <span class="pre">0.1;</span> <span class="pre">-82.3</span> <span class="pre">2014-10-01</span> <span class="pre">04:00:20;</span>&#160;&#160; <span class="pre">0.1;</span> <span class="pre">2014-10-01</span> <span class="pre">04:15:20;</span>&#160;&#160; <span class="pre">0.1;</span> <span class="pre">-82.2</span> <span class="pre">......</span></code></p>
 </section>
 <section id="pandas">
-<h2><span class="section-number">2.3. </span>Pandas<a class="headerlink" href="#pandas" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.3. </span>Pandas<a class="headerlink" href="#pandas" title="Link to this heading">#</a></h2>
 <p>Parsing simple CSV data files is easy with many methods, but it is easiest, if you use <a class="reference external" href="https://pandas.pydata.org/">Pandas</a> statistics package. And because Pandas provides so many other features as well, let’s take a closer look on that. Read <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html">10 minutes to Pandas</a> at this stage.</p>
 <p>It is really convenient to let Pandas parse the timestamps by defining the columns whics are being parsed with <code class="docutils literal notranslate"><span class="pre">parse_dates</span></code> argument. You can just list the columns which contain timestamp values.</p>
 <p>This data is clearly time series data, so it is best to be indexed with a timestamp. In this way you can very easily select data based on the timestamp and if you plot the data, you get time axis automatically in the x-axis. This can be achieved by defining the column which is used as an index with <code class="docutils literal notranslate"><span class="pre">index_col</span></code> parameter.</p>
@@ -499,7 +518,7 @@ document.write(`
 </div>
 </section>
 <section id="missing-data">
-<h2><span class="section-number">2.4. </span>Missing data<a class="headerlink" href="#missing-data" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.4. </span>Missing data<a class="headerlink" href="#missing-data" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>In the original CSV-file, Heatflux data corresponding timestamp <code class="docutils literal notranslate"><span class="pre">2014-10-01</span> <span class="pre">04:00:20</span></code> is missing</p></li>
 <li><p>It is represented by ‘NaN’ in ther parsed dataframe, which is which is a floating point representation of <code class="docutils literal notranslate"><span class="pre">Not</span> <span class="pre">a</span> <span class="pre">Number</span></code> value.</p></li>
@@ -1061,7 +1080,7 @@ Name: Heatflux, Length: 2968, dtype: bool
 </div></div></div>
 </div>
 <section id="other-methods-for-handling-missing-data">
-<h3><span class="section-number">2.4.1. </span>Other methods for handling missing data<a class="headerlink" href="#other-methods-for-handling-missing-data" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.4.1. </span>Other methods for handling missing data<a class="headerlink" href="#other-methods-for-handling-missing-data" title="Link to this heading">#</a></h3>
 <p>The default handling of missing data is to skip them. The dataframe can be also be preprocessed to handle the missing data in following ways:</p>
 <ol class="arabic simple">
 <li><p>Drop all rows which has missing data. Can cause bias and loss of valuable data in other columns.</p></li>
@@ -1148,6 +1167,10 @@ Name: Irradiance, Length: 2968, dtype: float64
 -2.272254043126685
 </pre></div>
 </div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_202128/2382674574.py:7: FutureWarning: DataFrame.fillna with &#39;method&#39; is deprecated and will raise in a future version. Use obj.ffill() or obj.bfill() instead.
+  print(D.fillna(method=&#39;pad&#39;).Heatflux.mean()) # Copy previous value in place of missing value
+</pre></div>
+</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -1229,13 +1252,13 @@ Name: Irradiance, Length: 2968, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="_images/8e84076e3941294fa7526cf79cbffa87dbb333b0805f0c414004b0a1060df82c.png" src="_images/8e84076e3941294fa7526cf79cbffa87dbb333b0805f0c414004b0a1060df82c.png" />
+<img alt="_images/92b8af87a2811796fafb43d516aa372db200cdce1ff2058955775047492ee4bb.png" src="_images/92b8af87a2811796fafb43d516aa372db200cdce1ff2058955775047492ee4bb.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="summary">
-<h2><span class="section-number">2.5. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.5. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
 <p>There is often missing values in the data. They can be handled with many methods, but all of them have consequences.</p>
 <ul class="simple">
 <li><p>Always study hwo much missing values there is in the data</p></li>
@@ -1245,7 +1268,7 @@ Name: Irradiance, Length: 2968, dtype: float64
 </ul>
 </section>
 <section id="slicing-pandas-data-frame">
-<h2><span class="section-number">2.6. </span>Slicing pandas data frame<a class="headerlink" href="#slicing-pandas-data-frame" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.6. </span>Slicing pandas data frame<a class="headerlink" href="#slicing-pandas-data-frame" title="Link to this heading">#</a></h2>
 <p>Pandas dataframes support really versatile methods for indexing in columnvise and rowvise directions</p>
 <ul class="simple">
 <li><p>Dataframes can be indexed using column names either using dot-notation or column name in square brackets. Using column names is usefull if your data structure later changes. It makes also the code as easier to understand.</p></li>
@@ -1367,7 +1390,7 @@ Name: Irradiance, Length: 96, dtype: float64
 </div>
 <p>Read more from the tutorialspoint article <a class="reference external" href="https://www.tutorialspoint.com/python_pandas/python_pandas_indexing_and_selecting_data.htm">Python Pandas - Indexing and Selecting Data</a>.</p>
 <section id="plotting">
-<h3><span class="section-number">2.6.1. </span>Plotting<a class="headerlink" href="#plotting" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.6.1. </span>Plotting<a class="headerlink" href="#plotting" title="Link to this heading">#</a></h3>
 <p>The data in the dataframe can be plotted almost automatically.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1380,7 +1403,7 @@ Name: Irradiance, Length: 96, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;Timestamp&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/b8fa41150efe71227655447dc07c1f2a734e5bee381978aa0d24ad565489d319.png" src="_images/b8fa41150efe71227655447dc07c1f2a734e5bee381978aa0d24ad565489d319.png" />
+<img alt="_images/4fb3f4e4a1da01d8142d54c5da131e4840f03df6486b9d0c33dc231dcf1c8734.png" src="_images/4fb3f4e4a1da01d8142d54c5da131e4840f03df6486b9d0c33dc231dcf1c8734.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1396,7 +1419,7 @@ Name: Irradiance, Length: 96, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Time&#39;)
 </pre></div>
 </div>
-<img alt="_images/abd716b675ec4c1b0b79f53d1e14bcff0f5b3ac67ea21bf41ccf3b3d75957734.png" src="_images/abd716b675ec4c1b0b79f53d1e14bcff0f5b3ac67ea21bf41ccf3b3d75957734.png" />
+<img alt="_images/f4ccb9f3ec953c17bf25c7231bee0d8c04e89eecdc591029fe2a20a5b7238433.png" src="_images/f4ccb9f3ec953c17bf25c7231bee0d8c04e89eecdc591029fe2a20a5b7238433.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1424,13 +1447,13 @@ Name: Irradiance, Length: 96, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d2c0dc20e250abb986718263e5d0345c87fdb4ff8d994f93ca0102443d3bfd4e.png" src="_images/d2c0dc20e250abb986718263e5d0345c87fdb4ff8d994f93ca0102443d3bfd4e.png" />
+<img alt="_images/6a85eba540909c8efd0d67201b3778413411cb8b5039cf112521196ca6d17fb0.png" src="_images/6a85eba540909c8efd0d67201b3778413411cb8b5039cf112521196ca6d17fb0.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="more-challenging-dataset">
-<h2><span class="section-number">2.7. </span>More challenging dataset<a class="headerlink" href="#more-challenging-dataset" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.7. </span>More challenging dataset<a class="headerlink" href="#more-challenging-dataset" title="Link to this heading">#</a></h2>
 <p>Water quality data (CSV)</p>
 <p><code class="docutils literal notranslate"><span class="pre">name</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">station;ID-number</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">station;ETRS-coordinates</span> <span class="pre">east;ETRS-coordinates</span> <span class="pre">north;max</span> <span class="pre">depth</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">station;date;sampling</span> <span class="pre">depth;Faecal</span> <span class="pre">enterococci</span> <span class="pre">(kpl/100ml);Oxygen</span> <span class="pre">saturation</span> <span class="pre">(kyll.%);Dissolved</span> <span class="pre">oxygen</span> <span class="pre">(mg/l);Suspended</span> <span class="pre">solids,</span> <span class="pre">coarse</span> <span class="pre">(mg/l);Chlorophyll</span> <span class="pre">a</span> <span class="pre">(µg/l);Total</span> <span class="pre">phosphorous,</span> <span class="pre">unfiltered</span> <span class="pre">(µg/l);Total</span> <span class="pre">nitrogen,</span> <span class="pre">unfiltered</span> <span class="pre">(µg/l);Coliform</span> <span class="pre">bacteria</span> <span class="pre">thermotolerant</span> <span class="pre">(kpl/100ml);Temperature</span> <span class="pre">(°C);Nitrate</span> <span class="pre">as</span> <span class="pre">nitrogen,</span> <span class="pre">unfiltered</span> <span class="pre">(µg/l);Nitrate</span> <span class="pre">as</span> <span class="pre">nitrogen,</span> <span class="pre">unfiltered</span> <span class="pre">(µg/l);Nitrite</span> <span class="pre">nitrate</span> <span class="pre">as</span> <span class="pre">nitrogen,</span> <span class="pre">unfiltered</span> <span class="pre">(µg/l);Secchi</span> <span class="pre">depth</span> <span class="pre">(m);pH</span>&#160; <span class="pre">;Salinity</span> <span class="pre">(&lt;89&gt;);Turbidity</span> <span class="pre">(FNU);Conductivity</span> <span class="pre">(mS/m)</span> <span class="pre">Et</span> <span class="pre">kaup</span> <span class="pre">selkä</span> <span class="pre">1;5520;227911;7005357;2.4;19.3.1974</span> <span class="pre">0:00;;;;;;;;;;;;;;0.5;;;;</span> <span class="pre">Et</span> <span class="pre">kaup</span> <span class="pre">selkä</span> <span class="pre">1;5520;227911;7005357;2.4;19.3.1974</span> <span class="pre">0:00;1,0;0;56;7.9;;;14;4100;0;0.3;;;;;4.6;;8.1;231</span> <span class="pre">Et</span> <span class="pre">kaup</span> <span class="pre">selkä</span> <span class="pre">1;5520;227911;7005357;2.4;12.6.1974</span> <span class="pre">0:00;;;;;;;;;;;;;;1.1;;;;</span> <span class="pre">Et</span> <span class="pre">kaup</span> <span class="pre">selkä</span> <span class="pre">1;5520;227911;7005357;2.4;12.6.1974</span> <span class="pre">0:00;1,0;0;104;10.3;;;20;410;0;14.5;;;;;8.1;;;627</span> <span class="pre">Et</span> <span class="pre">kaup</span> <span class="pre">selkä</span> <span class="pre">1;5520;227911;7005357;2.4;21.10.1974</span> <span class="pre">0:00;;;;;;;;;;;;;;1;;;;</span> <span class="pre">Et</span> <span class="pre">kaup</span> <span class="pre">selkä</span> <span class="pre">1;5520;227911;7005357;2.4;21.10.1974</span> <span class="pre">0:00;1,0;3;93;12.2;;;20;1200;79;2.9;;;;;7.2;;;594</span> <span class="pre">Et</span> <span class="pre">kaup</span> <span class="pre">selkä</span> <span class="pre">1;5520;227911;7005357;2.4;4.6.1975</span> <span class="pre">0:00;;;;;;;;;;;;;;1;;;;</span> <span class="pre">Et</span> <span class="pre">kaup</span> <span class="pre">selkä</span> <span class="pre">1;5520;227911;7005357;2.4;4.6.1975</span> <span class="pre">0:00;1,0;2;102;11;;;40;560;17;10.5;;;;;6.7;;7.8;390</span></code></p>
 <p>The dataset is clearly in CSV-format, and it has semicolon separated values. Some columns are numerical and some others are strings. Column names are rather long strings. The fifth column (column number 4, if indexed from zero) is the timestamp. Lets read it:</p>
@@ -1633,7 +1656,7 @@ Name: Irradiance, Length: 96, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function pandas.io.parsers.readers.read_csv(filepath_or_buffer: &#39;FilePath | ReadCsvBuffer[bytes] | ReadCsvBuffer[str]&#39;, *, sep: &#39;str | None | lib.NoDefault&#39; = &lt;no_default&gt;, delimiter: &#39;str | None | lib.NoDefault&#39; = None, header: &quot;int | Sequence[int] | None | Literal[&#39;infer&#39;]&quot; = &#39;infer&#39;, names: &#39;Sequence[Hashable] | None | lib.NoDefault&#39; = &lt;no_default&gt;, index_col: &#39;IndexLabel | Literal[False] | None&#39; = None, usecols=None, dtype: &#39;DtypeArg | None&#39; = None, engine: &#39;CSVEngine | None&#39; = None, converters=None, true_values=None, false_values=None, skipinitialspace: &#39;bool&#39; = False, skiprows=None, skipfooter: &#39;int&#39; = 0, nrows: &#39;int | None&#39; = None, na_values=None, keep_default_na: &#39;bool&#39; = True, na_filter: &#39;bool&#39; = True, verbose: &#39;bool&#39; = False, skip_blank_lines: &#39;bool&#39; = True, parse_dates: &#39;bool | Sequence[Hashable] | None&#39; = None, infer_datetime_format: &#39;bool | lib.NoDefault&#39; = &lt;no_default&gt;, keep_date_col: &#39;bool&#39; = False, date_parser=&lt;no_default&gt;, date_format: &#39;str | None&#39; = None, dayfirst: &#39;bool&#39; = False, cache_dates: &#39;bool&#39; = True, iterator: &#39;bool&#39; = False, chunksize: &#39;int | None&#39; = None, compression: &#39;CompressionOptions&#39; = &#39;infer&#39;, thousands: &#39;str | None&#39; = None, decimal: &#39;str&#39; = &#39;.&#39;, lineterminator: &#39;str | None&#39; = None, quotechar: &#39;str&#39; = &#39;&quot;&#39;, quoting: &#39;int&#39; = 0, doublequote: &#39;bool&#39; = True, escapechar: &#39;str | None&#39; = None, comment: &#39;str | None&#39; = None, encoding: &#39;str | None&#39; = None, encoding_errors: &#39;str | None&#39; = &#39;strict&#39;, dialect: &#39;str | csv.Dialect | None&#39; = None, on_bad_lines: &#39;str&#39; = &#39;error&#39;, delim_whitespace: &#39;bool&#39; = False, low_memory=True, memory_map: &#39;bool&#39; = False, float_precision: &quot;Literal[&#39;high&#39;, &#39;legacy&#39;] | None&quot; = None, storage_options: &#39;StorageOptions&#39; = None, dtype_backend: &#39;DtypeBackend | lib.NoDefault&#39; = &lt;no_default&gt;) -&gt; &#39;DataFrame | TextFileReader&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function pandas.io.parsers.readers.read_csv(filepath_or_buffer: &#39;FilePath | ReadCsvBuffer[bytes] | ReadCsvBuffer[str]&#39;, *, sep: &#39;str | None | lib.NoDefault&#39; = &lt;no_default&gt;, delimiter: &#39;str | None | lib.NoDefault&#39; = None, header: &quot;int | Sequence[int] | None | Literal[&#39;infer&#39;]&quot; = &#39;infer&#39;, names: &#39;Sequence[Hashable] | None | lib.NoDefault&#39; = &lt;no_default&gt;, index_col: &#39;IndexLabel | Literal[False] | None&#39; = None, usecols: &#39;UsecolsArgType&#39; = None, dtype: &#39;DtypeArg | None&#39; = None, engine: &#39;CSVEngine | None&#39; = None, converters: &#39;Mapping[Hashable, Callable] | None&#39; = None, true_values: &#39;list | None&#39; = None, false_values: &#39;list | None&#39; = None, skipinitialspace: &#39;bool&#39; = False, skiprows: &#39;list[int] | int | Callable[[Hashable], bool] | None&#39; = None, skipfooter: &#39;int&#39; = 0, nrows: &#39;int | None&#39; = None, na_values: &#39;Hashable | Iterable[Hashable] | Mapping[Hashable, Iterable[Hashable]] | None&#39; = None, keep_default_na: &#39;bool&#39; = True, na_filter: &#39;bool&#39; = True, verbose: &#39;bool | lib.NoDefault&#39; = &lt;no_default&gt;, skip_blank_lines: &#39;bool&#39; = True, parse_dates: &#39;bool | Sequence[Hashable] | None&#39; = None, infer_datetime_format: &#39;bool | lib.NoDefault&#39; = &lt;no_default&gt;, keep_date_col: &#39;bool | lib.NoDefault&#39; = &lt;no_default&gt;, date_parser: &#39;Callable | lib.NoDefault&#39; = &lt;no_default&gt;, date_format: &#39;str | dict[Hashable, str] | None&#39; = None, dayfirst: &#39;bool&#39; = False, cache_dates: &#39;bool&#39; = True, iterator: &#39;bool&#39; = False, chunksize: &#39;int | None&#39; = None, compression: &#39;CompressionOptions&#39; = &#39;infer&#39;, thousands: &#39;str | None&#39; = None, decimal: &#39;str&#39; = &#39;.&#39;, lineterminator: &#39;str | None&#39; = None, quotechar: &#39;str&#39; = &#39;&quot;&#39;, quoting: &#39;int&#39; = 0, doublequote: &#39;bool&#39; = True, escapechar: &#39;str | None&#39; = None, comment: &#39;str | None&#39; = None, encoding: &#39;str | None&#39; = None, encoding_errors: &#39;str | None&#39; = &#39;strict&#39;, dialect: &#39;str | csv.Dialect | None&#39; = None, on_bad_lines: &#39;str&#39; = &#39;error&#39;, delim_whitespace: &#39;bool | lib.NoDefault&#39; = &lt;no_default&gt;, low_memory: &#39;bool&#39; = True, memory_map: &#39;bool&#39; = False, float_precision: &quot;Literal[&#39;high&#39;, &#39;legacy&#39;] | None&quot; = None, storage_options: &#39;StorageOptions | None&#39; = None, dtype_backend: &#39;DtypeBackend | lib.NoDefault&#39; = &lt;no_default&gt;) -&gt; &#39;DataFrame | TextFileReader&#39;&gt;
 </pre></div>
 </div>
 </div>
@@ -1654,18 +1677,18 @@ Name: Irradiance, Length: 96, dtype: float64
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="nn">File /mnt/debian/pvs/venv/JupyterAI/lib/python3.11/site-packages/pandas/core/indexes/base.py:3653,</span> in <span class="ni">Index.get_loc</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3652</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">3653</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3654</span> <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="nn">File ~/miniforge3/envs/octave/lib/python3.11/site-packages/pandas/core/indexes/base.py:3802,</span> in <span class="ni">Index.get_loc</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3801</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3802</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3803</span> <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
 
-<span class="nn">File /mnt/debian/pvs/venv/JupyterAI/lib/python3.11/site-packages/pandas/_libs/index.pyx:147,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+<span class="nn">File index.pyx:153,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
 
-<span class="nn">File /mnt/debian/pvs/venv/JupyterAI/lib/python3.11/site-packages/pandas/_libs/index.pyx:176,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+<span class="nn">File index.pyx:182,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
 
-<span class="nn">File pandas/_libs/hashtable_class_helper.pxi:7080,</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
+<span class="nn">File pandas/_libs/hashtable_class_helper.pxi:7081,</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
 
-<span class="nn">File pandas/_libs/hashtable_class_helper.pxi:7088,</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
+<span class="nn">File pandas/_libs/hashtable_class_helper.pxi:7089,</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
 
 <span class="ne">KeyError</span>: &#39;1987-07&#39;
 
@@ -1681,22 +1704,25 @@ Name: Irradiance, Length: 96, dtype: float64
 <span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># 4) Select all colums, except the first four from the resulting dataframe</span>
 <span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">WD</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()[</span><span class="s1">&#39;1987-07&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">4</span><span class="p">:]</span>
 
-<span class="nn">File /mnt/debian/pvs/venv/JupyterAI/lib/python3.11/site-packages/pandas/core/frame.py:3761,</span> in <span class="ni">DataFrame.__getitem__</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3759</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">nlevels</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">3760</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_multilevel</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">3761</span> <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3762</span> <span class="k">if</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">indexer</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">3763</span>     <span class="n">indexer</span> <span class="o">=</span> <span class="p">[</span><span class="n">indexer</span><span class="p">]</span>
+<span class="nn">File ~/miniforge3/envs/octave/lib/python3.11/site-packages/pandas/core/frame.py:4090,</span> in <span class="ni">DataFrame.__getitem__</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4088</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">nlevels</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">4089</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_multilevel</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">4090</span> <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4091</span> <span class="k">if</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">indexer</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">4092</span>     <span class="n">indexer</span> <span class="o">=</span> <span class="p">[</span><span class="n">indexer</span><span class="p">]</span>
 
-<span class="nn">File /mnt/debian/pvs/venv/JupyterAI/lib/python3.11/site-packages/pandas/core/indexes/base.py:3655,</span> in <span class="ni">Index.get_loc</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3653</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3654</span> <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">3655</span>     <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
-<span class="g g-Whitespace">   </span><span class="mi">3656</span> <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">3657</span>     <span class="c1"># If we have a listlike key, _check_indexing_error will raise</span>
-<span class="g g-Whitespace">   </span><span class="mi">3658</span>     <span class="c1">#  InvalidIndexError. Otherwise we fall through and re-raise</span>
-<span class="g g-Whitespace">   </span><span class="mi">3659</span>     <span class="c1">#  the TypeError.</span>
-<span class="g g-Whitespace">   </span><span class="mi">3660</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_check_indexing_error</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="nn">File ~/miniforge3/envs/octave/lib/python3.11/site-packages/pandas/core/indexes/base.py:3809,</span> in <span class="ni">Index.get_loc</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3804</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">casted_key</span><span class="p">,</span> <span class="nb">slice</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">3805</span>         <span class="nb">isinstance</span><span class="p">(</span><span class="n">casted_key</span><span class="p">,</span> <span class="n">abc</span><span class="o">.</span><span class="n">Iterable</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3806</span>         <span class="ow">and</span> <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">slice</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">casted_key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3807</span>     <span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">3808</span>         <span class="k">raise</span> <span class="n">InvalidIndexError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">3809</span>     <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
+<span class="g g-Whitespace">   </span><span class="mi">3810</span> <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3811</span>     <span class="c1"># If we have a listlike key, _check_indexing_error will raise</span>
+<span class="g g-Whitespace">   </span><span class="mi">3812</span>     <span class="c1">#  InvalidIndexError. Otherwise we fall through and re-raise</span>
+<span class="g g-Whitespace">   </span><span class="mi">3813</span>     <span class="c1">#  the TypeError.</span>
+<span class="g g-Whitespace">   </span><span class="mi">3814</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_check_indexing_error</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 
 <span class="ne">KeyError</span>: &#39;1987-07&#39;
 </pre></div>
@@ -1940,8 +1966,8 @@ Name: Irradiance, Length: 96, dtype: float64
               
               
               
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                <footer class="prev-next-footer d-print-none">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="Introduction.html"
@@ -1969,6 +1995,7 @@ Name: Irradiance, Length: 96, dtype: float64
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -2010,9 +2037,10 @@ By Petri Välisuo
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -2036,8 +2064,8 @@ By Petri Välisuo
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>16. Model learning strategies &#8212; Applied Machine Learning, 2021</title>
   
@@ -15,53 +14,49 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Learning_model_parameters';</script>
@@ -78,28 +73,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -121,12 +111,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -141,9 +139,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="practicalities.html">
+  
   
   
   
@@ -153,12 +155,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="_static/ApplesAndOranges.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/ApplesAndOranges.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/ApplesAndOranges.png" class="logo__image only-light" alt="Applied Machine Learning, 2021 - Home"/>
+    <script>document.write(`<img src="_static/ApplesAndOranges.png" class="logo__image only-dark" alt="Applied Machine Learning, 2021 - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -208,7 +221,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -217,14 +230,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -249,14 +262,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://notebooks.csc.fi/#/blueprint/d1fe6e08032e4c17a0f9e0e222414598/hub/user-redirect/git-pull?repo=https%3A//github.com/pevalisuo/AML.git&urlpath=tree/AML.git/book/Learning_model_parameters.ipynb&branch=master" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onJupyterHub"
+   title="Launch on JupyterHub"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="_static/images/logo_jupyterhub.svg">
+    <img alt="JupyterHub logo" src="_static/images/logo_jupyterhub.svg">
   </span>
 <span class="btn__text-container">JupyterHub</span>
 </a>
@@ -330,26 +343,28 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -399,10 +414,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="model-learning-strategies">
-<h1><span class="section-number">16. </span>Model learning strategies<a class="headerlink" href="#model-learning-strategies" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">16. </span>Model learning strategies<a class="headerlink" href="#model-learning-strategies" title="Link to this heading">#</a></h1>
 <p>The model optimisation requires</p>
 <ol class="arabic simple">
 <li><p>Method to evaluate the quality of a current model</p></li>
@@ -411,7 +426,7 @@ document.write(`
 <p>Usually the model quality is evaluated by means of a Loss function and optional regularization term. The loss function shows how large error the model makes in prediction and the regularization term shows how complex the model is. The purpose of the optimization is to minimize both the prediction error and complexity of the model. Too complex model may cause overfitting, and therefore regularization is important.</p>
 <p>Let <span class="math notranslate nohighlight">\(f()\)</span> be the scoring function which estimates the prediction <span class="math notranslate nohighlight">\(\hat y = f(x_i)\)</span>.</p>
 <section id="minimization-of-the-error-function">
-<h2><span class="section-number">16.1. </span>Minimization of the Error function<a class="headerlink" href="#minimization-of-the-error-function" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">16.1. </span>Minimization of the Error function<a class="headerlink" href="#minimization-of-the-error-function" title="Link to this heading">#</a></h2>
 <p>The general strategy of the model optimisation is then to minimize the regularized training error,  <span class="math notranslate nohighlight">\(E\)</span>, which includes both prediction losses and reqularization term:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -420,7 +435,7 @@ document.write(`
 <p>The regularization coefficient, <span class="math notranslate nohighlight">\(\alpha\)</span>, determines the tradeoff between model complexity and prediction accuracy.</p>
 </section>
 <section id="loss-functions">
-<h2><span class="section-number">16.2. </span>Loss functions<a class="headerlink" href="#loss-functions" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">16.2. </span>Loss functions<a class="headerlink" href="#loss-functions" title="Link to this heading">#</a></h2>
 <p>The model leads to different models depending on the loss functions selected and the regularization used. For example the minimization of the error function using <span class="math notranslate nohighlight">\(L_2\)</span> norm without regularization leads to OLS regression model, and with <span class="math notranslate nohighlight">\(L_2\)</span> regularization to ridge regression model.</p>
 <p>For example, consider the following two dimensional regression problem:</p>
 <div class="math notranslate nohighlight">
@@ -431,7 +446,7 @@ $<span class="math notranslate nohighlight">\(L=(y-\hat y)^2 = (y - f(x))^2\)</s
 Linear regression model. By adding <span class="math notranslate nohighlight">\(L_2\)</span> regularization, it leads to ridge regression model, which can both be solved with closed form solutions, but the model can also be found by iterative optimization.</p>
 <p>The optimization methods, such as gradient descent method, can be applied indentically to many other loss functions than <span class="math notranslate nohighlight">\(L_2\)</span>-norm, providing and interesting general framework for developing many kinds of machine learning models. The model type will be different when it is optimised with different loss functions and different regularization terms are used.</p>
 <p>The most often used loss functions and their relation to the model types are shown in the following table:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-left"><p>Name</p></th>
 <th class="head text-left"><p>Loss function</p></th>
@@ -469,6 +484,7 @@ Linear regression model. By adding <span class="math notranslate nohighlight">\(
 </tr>
 </tbody>
 </table>
+</div>
 <p>This means that one common optimisation framework can implement many common machine learning solutions which are often trained with specialized program code.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -522,7 +538,7 @@ Linear regression model. By adding <span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "d23dbccd36934079ad8b5e9d91c71749"}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.test(y=0, loss=&#39;L2&#39;)&gt;
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "b6eb3678b0cd4e5e848a977e7e181e10"}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.test(y=0, loss=&#39;L2&#39;)&gt;
 </pre></div>
 </div>
 </div>
@@ -552,21 +568,21 @@ Linear regression model. By adding <span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fcaf6cb0e10&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x789bd01d8e10&gt;]
 </pre></div>
 </div>
-<img alt="_images/731c6ddb9fdb497b9a6470357f9c8d465b781c23d619df4700b1a549889b9841.png" src="_images/731c6ddb9fdb497b9a6470357f9c8d465b781c23d619df4700b1a549889b9841.png" />
+<img alt="_images/88b02db01855f87768799f8e380aab704b9d74456bf6fde99557a231cc750094.png" src="_images/88b02db01855f87768799f8e380aab704b9d74456bf6fde99557a231cc750094.png" />
 </div>
 </div>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="gradient-descent">
-<h1><span class="section-number">17. </span>Gradient descent<a class="headerlink" href="#gradient-descent" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">17. </span>Gradient descent<a class="headerlink" href="#gradient-descent" title="Link to this heading">#</a></h1>
 <p>The Gradient descent is a common optimisation strategy, where the minimal value of the scoring function <span class="math notranslate nohighlight">\(f(x)\)</span> is found by calculating the partial derivatives of <span class="math notranslate nohighlight">\(f()\)</span> by all of its parameters, and updating the model parameters towards the negative gradient.</p>
 <p>Gradient descent calculates the gradient using all samples in the training set, which may be rather resource intensive.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="stochastic-gradient-descent-sgd">
-<h1><span class="section-number">18. </span>Stochastic gradient descent (SGD)<a class="headerlink" href="#stochastic-gradient-descent-sgd" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">18. </span>Stochastic gradient descent (SGD)<a class="headerlink" href="#stochastic-gradient-descent-sgd" title="Link to this heading">#</a></h1>
 <p>The utilize computational resources more efficiently, the gradient descent method can be modified so that it calculates the gradient and updates the model for every individual sample in the training set. This method provides only noisy estimate of the gradient, and the models is not advancing towards the minimum as directly as the gradient decent, but it usually converges faster than Gradient Descent. Due to this partly stochastic behaviour, this method is called as Stochastic Gradient Descent (SGD).</p>
 <p>In SGD the learning of the model is made in the following steps:</p>
 <ol class="arabic simple">
@@ -579,7 +595,7 @@ Linear regression model. By adding <span class="math notranslate nohighlight">\(
 <li><p>When all samples are went through, reshuffle the data and run the next iteration. If the loss is below a threshold, stop the process and return the trained model</p></li>
 </ol>
 <section id="the-partial-derivatives-needed-in-the-update-step">
-<h2><span class="section-number">18.1. </span>The partial derivatives needed in the update step<a class="headerlink" href="#the-partial-derivatives-needed-in-the-update-step" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">18.1. </span>The partial derivatives needed in the update step<a class="headerlink" href="#the-partial-derivatives-needed-in-the-update-step" title="Link to this heading">#</a></h2>
 <p>The model parameters are updated using the partial derivatives. If the loss function is the L2 norm, and the learning rate <span class="math notranslate nohighlight">\(\eta \in ]0,1[\)</span>, the new values for <span class="math notranslate nohighlight">\(w_1, w_2\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are calculated as follows:</p>
 <div class="math notranslate nohighlight">
 \[ w'_1 = w_1 - \eta \frac{\partial L}{\partial w_1} 
@@ -598,9 +614,9 @@ Linear regression model. By adding <span class="math notranslate nohighlight">\(
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="learning-in-neural-networks">
-<h1><span class="section-number">19. </span>Learning in Neural Networks<a class="headerlink" href="#learning-in-neural-networks" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">19. </span>Learning in Neural Networks<a class="headerlink" href="#learning-in-neural-networks" title="Link to this heading">#</a></h1>
 <section id="the-backpropagation-algorithm">
-<h2><span class="section-number">19.1. </span>The backpropagation algorithm<a class="headerlink" href="#the-backpropagation-algorithm" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">19.1. </span>The backpropagation algorithm<a class="headerlink" href="#the-backpropagation-algorithm" title="Link to this heading">#</a></h2>
 <p>When using Stochastic Gradient Descent (<strong>SGD</strong>) training,  the weights, <span class="math notranslate nohighlight">\(w_i\)</span>, are updated towards the gradient (multidimensional derivative) or the loss function.
 $<span class="math notranslate nohighlight">\(
     w \leftarrow w - \eta \left(\alpha \frac{\partial R(w)}{\partial w} + \frac{\partial L(w)}{\partial w}\right),
@@ -636,11 +652,11 @@ $<span class="math notranslate nohighlight">\(
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="mini-batch">
-<h1><span class="section-number">20. </span>Mini-batch<a class="headerlink" href="#mini-batch" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">20. </span>Mini-batch<a class="headerlink" href="#mini-batch" title="Link to this heading">#</a></h1>
 <p>A mini-batch approach is similar than SGD, but instead of calculating the gradient from only one sample at the time, the mini-batch approach is to calculate the gradient from a small batch of samples at the time.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="example">
-<h1><span class="section-number">21. </span>Example<a class="headerlink" href="#example" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">21. </span>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -661,74 +677,74 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>---------------------------------------------------------------------------
-ImportError                               Traceback (most recent call last)
-Cell In[5], line 11
-      8 from snippets import plotDB, DisplaySupportVectors
-     10 from sklearn.linear_model import SGDRegressor
----&gt; 11 from sklearn.datasets import load_boston
-     12 from sklearn.model_selection import cross_val_score
-     14 boston=load_boston();
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">11</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">snippets</span> <span class="kn">import</span> <span class="n">plotDB</span><span class="p">,</span> <span class="n">DisplaySupportVectors</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">SGDRegressor</span>
+<span class="ne">---&gt; </span><span class="mi">11</span> <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_boston</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">boston</span><span class="o">=</span><span class="n">load_boston</span><span class="p">();</span>
 
-File /mnt/debian/pvs/venv/JupyterAI/lib/python3.11/site-packages/sklearn/datasets/__init__.py:157, in __getattr__(name)
-    108 if name == &quot;load_boston&quot;:
-    109     msg = textwrap.dedent(&quot;&quot;&quot;
-    110         `load_boston` has been removed from scikit-learn since version 1.2.
-    111 
-   (...)
-    155         &lt;https://www.researchgate.net/publication/4974606_Hedonic_housing_prices_and_the_demand_for_clean_air&gt;
-    156         &quot;&quot;&quot;)
---&gt; 157     raise ImportError(msg)
-    158 try:
-    159     return globals()[name]
+<span class="nn">File ~/miniforge3/envs/octave/lib/python3.11/site-packages/sklearn/datasets/__init__.py:157,</span> in <span class="ni">__getattr__</span><span class="nt">(name)</span>
+<span class="g g-Whitespace">    </span><span class="mi">108</span> <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;load_boston&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">109</span>     <span class="n">msg</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">110</span><span class="s2">         `load_boston` has been removed from scikit-learn since version 1.2.</span>
+<span class="g g-Whitespace">    </span><span class="mi">111</span><span class="s2"> </span>
+<span class="s2">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">155</span><span class="s2">         &lt;https://www.researchgate.net/publication/4974606_Hedonic_housing_prices_and_the_demand_for_clean_air&gt;</span>
+<span class="g g-Whitespace">    </span><span class="mi">156</span><span class="s2">         &quot;&quot;&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">157</span>     <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">158</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">159</span>     <span class="k">return</span> <span class="nb">globals</span><span class="p">()[</span><span class="n">name</span><span class="p">]</span>
 
-ImportError: 
-`load_boston` has been removed from scikit-learn since version 1.2.
+<span class="ne">ImportError</span>: 
+<span class="err">`</span><span class="n">load_boston</span><span class="err">`</span> <span class="n">has</span> <span class="n">been</span> <span class="n">removed</span> <span class="kn">from</span> <span class="nn">scikit</span><span class="o">-</span><span class="n">learn</span> <span class="n">since</span> <span class="n">version</span> <span class="mf">1.2</span><span class="o">.</span>
 
-The Boston housing prices dataset has an ethical problem: as
-investigated in [1], the authors of this dataset engineered a
-non-invertible variable &quot;B&quot; assuming that racial self-segregation had a
-positive impact on house prices [2]. Furthermore the goal of the
-research that led to the creation of this dataset was to study the
-impact of air quality but it did not give adequate demonstration of the
-validity of this assumption.
+<span class="n">The</span> <span class="n">Boston</span> <span class="n">housing</span> <span class="n">prices</span> <span class="n">dataset</span> <span class="n">has</span> <span class="n">an</span> <span class="n">ethical</span> <span class="n">problem</span><span class="p">:</span> <span class="k">as</span>
+<span class="n">investigated</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">the</span> <span class="n">authors</span> <span class="n">of</span> <span class="n">this</span> <span class="n">dataset</span> <span class="n">engineered</span> <span class="n">a</span>
+<span class="n">non</span><span class="o">-</span><span class="n">invertible</span> <span class="n">variable</span> <span class="s2">&quot;B&quot;</span> <span class="n">assuming</span> <span class="n">that</span> <span class="n">racial</span> <span class="bp">self</span><span class="o">-</span><span class="n">segregation</span> <span class="n">had</span> <span class="n">a</span>
+<span class="n">positive</span> <span class="n">impact</span> <span class="n">on</span> <span class="n">house</span> <span class="n">prices</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span> <span class="n">Furthermore</span> <span class="n">the</span> <span class="n">goal</span> <span class="n">of</span> <span class="n">the</span>
+<span class="n">research</span> <span class="n">that</span> <span class="n">led</span> <span class="n">to</span> <span class="n">the</span> <span class="n">creation</span> <span class="n">of</span> <span class="n">this</span> <span class="n">dataset</span> <span class="n">was</span> <span class="n">to</span> <span class="n">study</span> <span class="n">the</span>
+<span class="n">impact</span> <span class="n">of</span> <span class="n">air</span> <span class="n">quality</span> <span class="n">but</span> <span class="n">it</span> <span class="n">did</span> <span class="ow">not</span> <span class="n">give</span> <span class="n">adequate</span> <span class="n">demonstration</span> <span class="n">of</span> <span class="n">the</span>
+<span class="n">validity</span> <span class="n">of</span> <span class="n">this</span> <span class="n">assumption</span><span class="o">.</span>
 
-The scikit-learn maintainers therefore strongly discourage the use of
-this dataset unless the purpose of the code is to study and educate
-about ethical issues in data science and machine learning.
+<span class="n">The</span> <span class="n">scikit</span><span class="o">-</span><span class="n">learn</span> <span class="n">maintainers</span> <span class="n">therefore</span> <span class="n">strongly</span> <span class="n">discourage</span> <span class="n">the</span> <span class="n">use</span> <span class="n">of</span>
+<span class="n">this</span> <span class="n">dataset</span> <span class="n">unless</span> <span class="n">the</span> <span class="n">purpose</span> <span class="n">of</span> <span class="n">the</span> <span class="n">code</span> <span class="ow">is</span> <span class="n">to</span> <span class="n">study</span> <span class="ow">and</span> <span class="n">educate</span>
+<span class="n">about</span> <span class="n">ethical</span> <span class="n">issues</span> <span class="ow">in</span> <span class="n">data</span> <span class="n">science</span> <span class="ow">and</span> <span class="n">machine</span> <span class="n">learning</span><span class="o">.</span>
 
-In this special case, you can fetch the dataset from the original
-source::
+<span class="n">In</span> <span class="n">this</span> <span class="n">special</span> <span class="n">case</span><span class="p">,</span> <span class="n">you</span> <span class="n">can</span> <span class="n">fetch</span> <span class="n">the</span> <span class="n">dataset</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">original</span>
+<span class="ne">source</span>::
 
-    import pandas as pd
-    import numpy as np
+    <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-    data_url = &quot;http://lib.stat.cmu.edu/datasets/boston&quot;
-    raw_df = pd.read_csv(data_url, sep=&quot;\s+&quot;, skiprows=22, header=None)
-    data = np.hstack([raw_df.values[::2, :], raw_df.values[1::2, :2]])
-    target = raw_df.values[1::2, 2]
+    <span class="n">data_url</span> <span class="o">=</span> <span class="s2">&quot;http://lib.stat.cmu.edu/datasets/boston&quot;</span>
+    <span class="n">raw_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_url</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;\s+&quot;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">22</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">raw_df</span><span class="o">.</span><span class="n">values</span><span class="p">[::</span><span class="mi">2</span><span class="p">,</span> <span class="p">:],</span> <span class="n">raw_df</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]])</span>
+    <span class="n">target</span> <span class="o">=</span> <span class="n">raw_df</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 
-Alternative datasets include the California housing dataset and the
-Ames housing dataset. You can load the datasets as follows::
+<span class="n">Alternative</span> <span class="n">datasets</span> <span class="n">include</span> <span class="n">the</span> <span class="n">California</span> <span class="n">housing</span> <span class="n">dataset</span> <span class="ow">and</span> <span class="n">the</span>
+<span class="n">Ames</span> <span class="n">housing</span> <span class="n">dataset</span><span class="o">.</span> <span class="n">You</span> <span class="n">can</span> <span class="n">load</span> <span class="n">the</span> <span class="n">datasets</span> <span class="k">as</span> <span class="n">follows</span><span class="p">::</span>
 
-    from sklearn.datasets import fetch_california_housing
-    housing = fetch_california_housing()
+    <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_california_housing</span>
+    <span class="n">housing</span> <span class="o">=</span> <span class="n">fetch_california_housing</span><span class="p">()</span>
 
-for the California housing dataset and::
+<span class="k">for</span> <span class="n">the</span> <span class="n">California</span> <span class="n">housing</span> <span class="n">dataset</span> <span class="ow">and</span><span class="p">::</span>
 
-    from sklearn.datasets import fetch_openml
-    housing = fetch_openml(name=&quot;house_prices&quot;, as_frame=True)
+    <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_openml</span>
+    <span class="n">housing</span> <span class="o">=</span> <span class="n">fetch_openml</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;house_prices&quot;</span><span class="p">,</span> <span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-for the Ames housing dataset.
+<span class="k">for</span> <span class="n">the</span> <span class="n">Ames</span> <span class="n">housing</span> <span class="n">dataset</span><span class="o">.</span>
 
-[1] M Carlisle.
-&quot;Racist data destruction?&quot;
-&lt;https://medium.com/@docintangible/racist-data-destruction-113e3eff54a8&gt;
+<span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">M</span> <span class="n">Carlisle</span><span class="o">.</span>
+<span class="s2">&quot;Racist data destruction?&quot;</span>
+<span class="o">&lt;</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">medium</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="nd">@docintangible</span><span class="o">/</span><span class="n">racist</span><span class="o">-</span><span class="n">data</span><span class="o">-</span><span class="n">destruction</span><span class="o">-</span><span class="mf">113e3</span><span class="n">eff54a8</span><span class="o">&gt;</span>
 
-[2] Harrison Jr, David, and Daniel L. Rubinfeld.
-&quot;Hedonic housing prices and the demand for clean air.&quot;
-Journal of environmental economics and management 5.1 (1978): 81-102.
-&lt;https://www.researchgate.net/publication/4974606_Hedonic_housing_prices_and_the_demand_for_clean_air&gt;
+<span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="n">Harrison</span> <span class="n">Jr</span><span class="p">,</span> <span class="n">David</span><span class="p">,</span> <span class="ow">and</span> <span class="n">Daniel</span> <span class="n">L</span><span class="o">.</span> <span class="n">Rubinfeld</span><span class="o">.</span>
+<span class="s2">&quot;Hedonic housing prices and the demand for clean air.&quot;</span>
+<span class="n">Journal</span> <span class="n">of</span> <span class="n">environmental</span> <span class="n">economics</span> <span class="ow">and</span> <span class="n">management</span> <span class="mf">5.1</span> <span class="p">(</span><span class="mi">1978</span><span class="p">):</span> <span class="mi">81</span><span class="o">-</span><span class="mf">102.</span>
+<span class="o">&lt;</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">researchgate</span><span class="o">.</span><span class="n">net</span><span class="o">/</span><span class="n">publication</span><span class="o">/</span><span class="mi">4974606</span><span class="n">_Hedonic_housing_prices_and_the_demand_for_clean_air</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 </div>
@@ -809,7 +825,7 @@ All samples score.. 0.7189004574726183
 </div>
 </div>
 <section id="partial-learning">
-<h2><span class="section-number">21.1. </span>Partial learning<a class="headerlink" href="#partial-learning" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">21.1. </span>Partial learning<a class="headerlink" href="#partial-learning" title="Link to this heading">#</a></h2>
 <p>The SGD modules can be also trained step by step</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -902,8 +918,8 @@ All samples score.. 0.7189004574726183
               
               
               
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                <footer class="prev-next-footer d-print-none">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="NeuralNetworks.html"
@@ -931,6 +947,7 @@ All samples score.. 0.7189004574726183
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -979,9 +996,10 @@ By Petri Välisuo
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -1005,8 +1023,8 @@ By Petri Välisuo
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

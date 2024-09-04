@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>3. Preprocessing and feature extraction &#8212; Applied Machine Learning, 2021</title>
   
@@ -15,53 +14,49 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Preprocessing_and_feature_extraction';</script>
@@ -78,28 +73,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -121,12 +111,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -141,9 +139,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="practicalities.html">
+  
   
   
   
@@ -153,12 +155,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="_static/ApplesAndOranges.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/ApplesAndOranges.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/ApplesAndOranges.png" class="logo__image only-light" alt="Applied Machine Learning, 2021 - Home"/>
+    <script>document.write(`<img src="_static/ApplesAndOranges.png" class="logo__image only-dark" alt="Applied Machine Learning, 2021 - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -174,21 +187,25 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Preprocessing and feature extraction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Subspace_Projections.html">4. Dimensionality reduction by Subspace projections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Clustering.html">5. Unsupervised learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SupervisedMachineLearningTerminology.html">6. Supervised machine learning, Terminology</a></li>
-<li class="toctree-l1"><a class="reference internal" href="NearestNeighbors.html">7. Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a></a></li>
-<li class="toctree-l1"><a class="reference internal" href="SupportVectorMachine.html">8. Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></a></li>
-<li class="toctree-l1"><a class="reference internal" href="DecisionTrees.html">9. Decision trees and forests <a class="anchor" id="dtaforests"></a></a></li>
-<li class="toctree-l1"><a class="reference internal" href="Regression.html">10. Regression and regularisation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="NeuralNetworks.html">11. Artificial Neural Networks (ANN)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Learning_model_parameters.html">12. Model learning strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SupervisedMachineLearningTerminology.html">6. Training process</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="NearestNeighbors.html">11. Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="SupportVectorMachine.html">12. Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="DecisionTrees.html">13. Decision trees and forests <a class="anchor" id="dtaforests"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Regression.html">14. Regression and regularisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NeuralNetworks.html">15. Artificial Neural Networks (ANN)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Learning_model_parameters.html">16. Model learning strategies</a></li>
 
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="NLP.html">18. Natural Language Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NLP.html">22. Natural Language Processing</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="NLP-UWB.html">20. Ultra Wide Band positioning literature analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NLP-UWB.html">24. Ultra Wide Band positioning literature analysis</a></li>
 </ul>
 
     </div>
@@ -204,7 +221,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -213,14 +230,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -245,14 +262,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://notebooks.csc.fi/#/blueprint/d1fe6e08032e4c17a0f9e0e222414598/hub/user-redirect/git-pull?repo=https%3A//github.com/pevalisuo/AML.git&urlpath=tree/AML.git/book/Preprocessing_and_feature_extraction.ipynb&branch=master" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onJupyterHub"
+   title="Launch on JupyterHub"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="_static/images/logo_jupyterhub.svg">
+    <img alt="JupyterHub logo" src="_static/images/logo_jupyterhub.svg">
   </span>
 <span class="btn__text-container">JupyterHub</span>
 </a>
@@ -326,26 +343,28 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -390,9 +409,9 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-features-for-recognizing-species">3.6. Using features for recognizing species</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-handle-categorial-features-a-class-anchor-id-categoricalf-a">3.7. How to handle categorial features? <a class="anchor" id="categoricalF"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-handle-categorial-features">3.7. How to handle categorial features? <a class="anchor" id="categoricalF"></a></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">3.7.1. Example:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#one-hot-encoding-a-class-anchor-id-onehotencoding-a">3.7.2. One hot encoding  <a class="anchor" id="OneHotEncoding"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#one-hot-encoding">3.7.2. One hot encoding  <a class="anchor" id="OneHotEncoding"></a></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-was-learned">3.8. What was learned?</a></li>
@@ -405,18 +424,18 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="preprocessing-and-feature-extraction">
-<h1><span class="section-number">3. </span>Preprocessing and feature extraction<a class="headerlink" href="#preprocessing-and-feature-extraction" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">3. </span>Preprocessing and feature extraction<a class="headerlink" href="#preprocessing-and-feature-extraction" title="Link to this heading">#</a></h1>
 <p>This module starts actual machine learning part, by introducing some important concepts and walking through and example using classical statistics. Machine learning is more than statistics, but the covered statistical concepts are very important throughout the course.</p>
 <section id="machine-learning">
-<h2><span class="section-number">3.1. </span>Machine Learning<a class="headerlink" href="#machine-learning" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.1. </span>Machine Learning<a class="headerlink" href="#machine-learning" title="Link to this heading">#</a></h2>
 <p><img alt="machine_learning.svg" src="_images/machine_learning.svg" /></p>
 <p>Here are just some notes</p>
 </section>
 <section id="feature-extraction">
-<h2><span class="section-number">3.2. </span>Feature extraction<a class="headerlink" href="#feature-extraction" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.2. </span>Feature extraction<a class="headerlink" href="#feature-extraction" title="Link to this heading">#</a></h2>
 <p><img alt="featureextraction_p.svg" src="_images/featureextraction_p.svg" /></p>
 <ul class="simple">
 <li><p>The purpose of feature extraction is to capture relevant properties of the samples into variables.</p></li>
@@ -424,7 +443,7 @@ document.write(`
 </ul>
 </section>
 <section id="the-purpose-of-machine-learning">
-<h2><span class="section-number">3.3. </span>The purpose of machine learning<a class="headerlink" href="#the-purpose-of-machine-learning" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.3. </span>The purpose of machine learning<a class="headerlink" href="#the-purpose-of-machine-learning" title="Link to this heading">#</a></h2>
 <p>Task is to find a function <span class="math notranslate nohighlight">\(f\)</span>, which predicts variable <span class="math notranslate nohighlight">\(y_i\)</span> based on <span class="math notranslate nohighlight">\(p\)</span> features <span class="math notranslate nohighlight">\(x_{i,j}\)</span>, where <span class="math notranslate nohighlight">\(i \in [0,N]\)</span> and <span class="math notranslate nohighlight">\(j \in [0,P]\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -444,12 +463,12 @@ document.write(`
 \end{split}\]</div>
 </section>
 <section id="case-one-sound-recognition">
-<h2><span class="section-number">3.4. </span>Case one, sound recognition<a class="headerlink" href="#case-one-sound-recognition" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.4. </span>Case one, sound recognition<a class="headerlink" href="#case-one-sound-recognition" title="Link to this heading">#</a></h2>
 <p><img alt="featureextraction_p.svg" src="_images/timedomainaudio.png" /></p>
 <p>This sound sample contains noise from wind turbine, by-passing cars and some birds perhaps.</p>
 <p>Can you find good features to find out what is the dominating noise source in which time?</p>
 <section id="perhaps-there-are-differences-in-the-sound-pressure-level-volume">
-<h3><span class="section-number">3.4.1. </span>Perhaps there are differences in the sound pressure level (volume)<a class="headerlink" href="#perhaps-there-are-differences-in-the-sound-pressure-level-volume" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.4.1. </span>Perhaps there are differences in the sound pressure level (volume)<a class="headerlink" href="#perhaps-there-are-differences-in-the-sound-pressure-level-volume" title="Link to this heading">#</a></h3>
 <p><img alt="SPL of the audio" src="_images/splaudio.png" /></p>
 <p>This picture shows the <a class="reference external" href="https://en.wikipedia.org/wiki/A-weighting">A-weighted</a> sound pressure level (SPL) of the sound signal. It shows what is the subjective volume perceived by a human observer. SPL is a RMS average of the signal over certain time period</p>
 <div class="math notranslate nohighlight">
@@ -457,18 +476,18 @@ document.write(`
 <p>where <span class="math notranslate nohighlight">\(p_{rms}\)</span> is the RMS average of the sound pressure, <span class="math notranslate nohighlight">\(p_0=20~\mu\)</span>P, is the reference sound pressure and ,<span class="math notranslate nohighlight">\(T=1\)</span> s, is a time constant.Notice that <span class="math notranslate nohighlight">\(L_p\)</span> is shown in logarithmic scale. Log transformation may sometimes be helpful.</p>
 </section>
 <section id="perhaps-studying-different-spectral-components-help">
-<h3><span class="section-number">3.4.2. </span>Perhaps studying different spectral components help<a class="headerlink" href="#perhaps-studying-different-spectral-components-help" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.4.2. </span>Perhaps studying different spectral components help<a class="headerlink" href="#perhaps-studying-different-spectral-components-help" title="Link to this heading">#</a></h3>
 <p><img alt="Sectrogram of the audio" src="_images/sgramaudio.png" /></p>
 <p>This figure is obtained by splitting the signal in 1 second pieces and applying a Fourier transformation to them, and then by plotting the spectrum of each slice vertically. This method is called as Short Time Fourier Transformation (STFT) and is often usefull method for extracting features from the data.</p>
 </section>
 <section id="other-audio-features">
-<h3><span class="section-number">3.4.3. </span>Other audio features<a class="headerlink" href="#other-audio-features" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.4.3. </span>Other audio features<a class="headerlink" href="#other-audio-features" title="Link to this heading">#</a></h3>
 <p>Take a look at the feature extraction documentation of the <a class="reference external" href="https://librosa.org/doc/latest/feature.html">LibRosa library</a>.</p>
 </section>
 </section>
 <section id="case-2-what-features-could-be-used-to-classify-iris-species">
-<h2><span class="section-number">3.5. </span>Case 2, What features could be used to classify Iris species?<a class="headerlink" href="#case-2-what-features-could-be-used-to-classify-iris-species" title="Permalink to this heading">#</a></h2>
-<table class="table">
+<h2><span class="section-number">3.5. </span>Case 2, What features could be used to classify Iris species?<a class="headerlink" href="#case-2-what-features-could-be-used-to-classify-iris-species" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setosa</p></th>
 <th class="head"><p>Versicolor</p></th>
@@ -486,8 +505,9 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 <section id="features-measured-by-fisher">
-<h3><span class="section-number">3.5.1. </span>Features measured by Fisher<a class="headerlink" href="#features-measured-by-fisher" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.5.1. </span>Features measured by Fisher<a class="headerlink" href="#features-measured-by-fisher" title="Link to this heading">#</a></h3>
 <p>One of the most famos data sets of statistics is the Iris-dataset by Fisher. Let’s take a look what features he measured and how do they perform.</p>
 <p>Lets read the data set and plot the head of it.</p>
 <div class="cell docutils container">
@@ -636,7 +656,7 @@ max        7.900000     4.400000      6.900000     2.500000
 </div>
 </section>
 <section id="nicer-plots-with-seaborn">
-<h3><span class="section-number">3.5.2. </span>Nicer plots with Seaborn<a class="headerlink" href="#nicer-plots-with-seaborn" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.5.2. </span>Nicer plots with Seaborn<a class="headerlink" href="#nicer-plots-with-seaborn" title="Link to this heading">#</a></h3>
 <p>The Seaborn library is another library for plotting data, in addition to Matplotlib which we used earlier. Seaborn is especially good for statistical plots, mut it has unfortunately totally different API than matplotlib. It may be good to use Matplotlib usually, but it you find some plots inconvenient to be plotted with matplotlib, then it is time to check what seaborn can offer. Easiest way is to check the <a class="reference external" href="https://python-graph-gallery.com/all-charts/">example gallery</a> to see if someone has made a similar plot what you need, and copy and modify the source code, which is given in the gallery.</p>
 <p>Study the pairplots below, and consider following questions:</p>
 <ol class="arabic simple">
@@ -651,11 +671,7 @@ max        7.900000     4.400000      6.900000     2.500000
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/mnt/debian/pvs/venv/JupyterAI/lib/python3.11/site-packages/seaborn/axisgrid.py:118: UserWarning: The figure layout has changed to tight
-  self._figure.tight_layout(*args, **kwargs)
-</pre></div>
-</div>
-<img alt="_images/80115734e9a2210691b03f1f4d01cb703fd950963abfc945ef0e8fbbdfb12759.png" src="_images/80115734e9a2210691b03f1f4d01cb703fd950963abfc945ef0e8fbbdfb12759.png" />
+<img alt="_images/db45fc3885f8976dcfb2a8f3da256f57fff93ec405c5842cd734629581e9b7c1.png" src="_images/db45fc3885f8976dcfb2a8f3da256f57fff93ec405c5842cd734629581e9b7c1.png" />
 </div>
 </div>
 <p>We could have used also a scatter matrix from Pandas, but is not as nice.</p>
@@ -667,12 +683,12 @@ max        7.900000     4.400000      6.900000     2.500000
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/04442b66dbe6196865cf97db85b3711a9919c3875689efd094cf1cf9e102f4a7.png" src="_images/04442b66dbe6196865cf97db85b3711a9919c3875689efd094cf1cf9e102f4a7.png" />
+<img alt="_images/9a00940ac2a720069acef494873c0d0434aeb12f18f9692c9cd7a32eff79c187.png" src="_images/9a00940ac2a720069acef494873c0d0434aeb12f18f9692c9cd7a32eff79c187.png" />
 </div>
 </div>
 </section>
 <section id="quantitative-analysis">
-<h3><span class="section-number">3.5.3. </span>Quantitative analysis<a class="headerlink" href="#quantitative-analysis" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.5.3. </span>Quantitative analysis<a class="headerlink" href="#quantitative-analysis" title="Link to this heading">#</a></h3>
 <p>It looks like petal_length can nicely separate Setosa’s from other species, but not necessary Versicolor from Virginica. Lets try to get some numerical proof if this observation is correct.</p>
 <p>Lets first study the average feature values and their deviations separately in each group. The groupby() function in pandas dataframe provides very handy methods for implementing this. Groupby kind of splits the original dataframe into three different dataframes according to the species class.</p>
 <p>Mean()-function calculates the columnwise mean so in this case it calculates the mean of each feature. Because the dataframe is splitted by species, the result is a matrix, in which each species are in rows, and features in columns. The feature ‘species’, which was used for grouping is removed from the result matrix.</p>
@@ -808,7 +824,7 @@ max        7.900000     4.400000      6.900000     2.500000
 <p>It looks like the differences of for example petal_lengths seem to be bigger than the standard deviation. It could be feasible to use it for species recognition.</p>
 </section>
 <section id="visual-analysis-of-mean-and-distribution-using-boxplot">
-<h3><span class="section-number">3.5.4. </span>Visual analysis of mean and distribution using boxplot<a class="headerlink" href="#visual-analysis-of-mean-and-distribution-using-boxplot" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.5.4. </span>Visual analysis of mean and distribution using boxplot<a class="headerlink" href="#visual-analysis-of-mean-and-distribution-using-boxplot" title="Link to this heading">#</a></h3>
 <p>The boxplot displays the median value (the red lines inside the boxes) and distribution as quartiles (the height of the boxes, and lengths of the whiskers) graphically. The box extends from <em>quartile</em> Q1 below to quartile Q3 above the median. The length of the whiskers is 1.5 times the <em>inter quartile range</em> (IQR) from the box edge, where IQR=Q3-Q1. The values outside of whiskers are interpreted as <em>outliers</em>, and they are plotted as circles.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -817,13 +833,13 @@ max        7.900000     4.400000      6.900000     2.500000
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/97e393525a4b8e13fd366d38972231b22b6e923af5702e5199287d458eb68ec7.png" src="_images/97e393525a4b8e13fd366d38972231b22b6e923af5702e5199287d458eb68ec7.png" />
+<img alt="_images/eb205913135ba01bbba6ee8e6d5b90fa60801bdb017e960dc54c4ad30e547ccc.png" src="_images/eb205913135ba01bbba6ee8e6d5b90fa60801bdb017e960dc54c4ad30e547ccc.png" />
 </div>
 </div>
 <p>The boxplot shows that Setosa can be separated from Versicolor and Virginica with no confusion, but there is some overlap between Versicolor and Virginica.</p>
 </section>
 <section id="applying-an-external-function-to-data">
-<h3><span class="section-number">3.5.5. </span>Applying an external function to data<a class="headerlink" href="#applying-an-external-function-to-data" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.5.5. </span>Applying an external function to data<a class="headerlink" href="#applying-an-external-function-to-data" title="Link to this heading">#</a></h3>
 <p>Sometimes it is necessary to apply also such functions to the data, which are not part of the dataframe. It can be accomplished by using the apply-method as follows. Here the median-function from the NumPy-libary is used. You can also apply your own function to the data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -878,7 +894,7 @@ Name: petal_length, dtype: float64
 </div>
 </section>
 <section id="hypothesis-testing">
-<h3><span class="section-number">3.5.6. </span>Hypothesis testing<a class="headerlink" href="#hypothesis-testing" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.5.6. </span>Hypothesis testing<a class="headerlink" href="#hypothesis-testing" title="Link to this heading">#</a></h3>
 <p>Hypothesis testing is important part of evaluating the data and the models.</p>
 <p>In the case of normality testing, the hypothesis is that the data is not normally distributed, and so called zero hypothesis is that it is normally distributed. The purpose of the test is to find out if the data provides enough evidence to safely assume thet the data is not normally distributed. The testing is made so that the deviation of the observed data from the normal distribution is measured and analysed statistically. The result is the probability that the data would deviate from the normal distribution by chance in case where the underlying process is truly normally distributed. This probability is called as p-value. We need to deviate from the normality assumption only when the p-value, is below the threshold a.</p>
 <p>The more data we have, the smaller p-value can be obtained. The threshold value to accept the hypothesis is often called <span class="math notranslate nohighlight">\(\alpha\)</span>, or <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">alpha</span></code> in this code.</p>
@@ -893,7 +909,7 @@ Name: petal_length, dtype: float64
 <p>The standard test for these hypothesis is the <a class="reference external" href="https://www.statisticshowto.datasciencecentral.com/probability-and-statistics/t-test/">Student’s T-test</a>.</p>
 <p>But the T-test can only be used if the variables are normally distributed. Let’s test that first.</p>
 <section id="testing-if-distribution-of-the-variables-is-normal">
-<h4><span class="section-number">3.5.6.1. </span>Testing if distribution of the variables is normal<a class="headerlink" href="#testing-if-distribution-of-the-variables-is-normal" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">3.5.6.1. </span>Testing if distribution of the variables is normal<a class="headerlink" href="#testing-if-distribution-of-the-variables-is-normal" title="Link to this heading">#</a></h4>
 <p>Read more about normality testing methods from <a class="reference external" href="https://www.statisticshowto.datasciencecentral.com/assumption-of-normality-test/">Statistics howto</a></p>
 <p>Most often used normality test is the D’Agostino-Pearson Test. It can be taken into use by importing the <code class="docutils literal notranslate"><span class="pre">normaltest</span></code> function from the stats module of the Scientific Python package.</p>
 <p>The zero hypothesis for the normality test is that the data is normally distributed. It can be rejected if we have enough evidence to claim othewise. The normality test uses T-Test to check if the evidence is sufficient for rejecting the null hypothesis.</p>
@@ -938,7 +954,7 @@ Data is not normal distributed
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;petal_length&#39;, ylabel=&#39;Density&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/48fbfeb6d1206545b82d2063d272706a70a27403e78bf633de27a3db53f606f5.png" src="_images/48fbfeb6d1206545b82d2063d272706a70a27403e78bf633de27a3db53f606f5.png" />
+<img alt="_images/be60f591ea12b6d634eab96729e2989c3683a3824195ca8abe13bdbb28f4f7ab.png" src="_images/be60f591ea12b6d634eab96729e2989c3683a3824195ca8abe13bdbb28f4f7ab.png" />
 </div>
 </div>
 <p>Definitely not normal distribution.</p>
@@ -967,6 +983,14 @@ Petal length of Versicolor is normally distributed
 Petal length of Virginica is normally distributed
 </pre></div>
 </div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_202085/2634370909.py:6: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  if (results[0][1] &gt; alpha):     print(&quot;Petal length of Setosa is normally distributed&quot;)
+/tmp/ipykernel_202085/2634370909.py:7: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  if (results[1][1] &gt; alpha):     print(&quot;Petal length of Versicolor is normally distributed&quot;)
+/tmp/ipykernel_202085/2634370909.py:8: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  if (results[2][1] &gt; alpha):     print(&quot;Petal length of Virginica is normally distributed&quot;)
+</pre></div>
+</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -981,14 +1005,14 @@ Petal length of Virginica is normally distributed
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;petal_length&#39;, ylabel=&#39;Density&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/57049e44741c12437e1cf47f990fbab754005fa90a6fe0408da300ebf35d13f7.png" src="_images/57049e44741c12437e1cf47f990fbab754005fa90a6fe0408da300ebf35d13f7.png" />
+<img alt="_images/d1fb81c947032606287156e930d7f3e6fa1303cad78930d7a1063b379f0deef9.png" src="_images/d1fb81c947032606287156e930d7f3e6fa1303cad78930d7a1063b379f0deef9.png" />
 </div>
 </div>
 <p>The individual petal lengths seem to be sufficiently normal distributed so that we can use t-test.</p>
 </section>
 </section>
 <section id="test-the-similarity-of-petal-length-distributions">
-<h3><span class="section-number">3.5.7. </span>Test the similarity of petal_length distributions<a class="headerlink" href="#test-the-similarity-of-petal-length-distributions" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.5.7. </span>Test the similarity of petal_length distributions<a class="headerlink" href="#test-the-similarity-of-petal-length-distributions" title="Link to this heading">#</a></h3>
 <p>The most often used method for hypothesis testing, is the Student’s T-test, which is also in the stats module of Scientific Python package.</p>
 <p>T-Test supports four different confiurations. Read the documentation and select the correct configuration. The selection is quite straightforward.</p>
 <ol class="arabic simple">
@@ -1039,7 +1063,7 @@ The petal_lengths of Versicolor and Virginica are statistically different : p=0.
 </div>
 </section>
 <section id="non-parametric-testing">
-<h3><span class="section-number">3.5.8. </span>Non-parametric testing<a class="headerlink" href="#non-parametric-testing" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.5.8. </span>Non-parametric testing<a class="headerlink" href="#non-parametric-testing" title="Link to this heading">#</a></h3>
 <p>If the data is not normally distributed, then we need to use non-parametric tests instead. One often used is the <a class="reference external" href="https://en.wikipedia.org/wiki/Mann%E2%80%93Whitney_U_test">Mann-Whitney rank-test</a>. Because this test does not assume anything about the shape of the distributions, it usually needs larger sample size to get reliable estimate of p-values. Sample size bigger than 20 for both classes is recommended.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1058,7 +1082,7 @@ The petal_lengths of Versicolor and Virginica are statistically different : p=0.
 </section>
 </section>
 <section id="using-features-for-recognizing-species">
-<h2><span class="section-number">3.6. </span>Using features for recognizing species<a class="headerlink" href="#using-features-for-recognizing-species" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.6. </span>Using features for recognizing species<a class="headerlink" href="#using-features-for-recognizing-species" title="Link to this heading">#</a></h2>
 <p>Now that we know that petal_lengths are different for each species, can this feature be used in recognizing flowers or classifying flower species?</p>
 <p>The following picture shows the position of decision boundary leading to highest precision in classifying Versicolor from Virginica species based on petal length.</p>
 <ul class="simple">
@@ -1126,12 +1150,12 @@ The petal_lengths of Versicolor and Virginica are statistically different : p=0.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/cfd9ee3ec84ad4a865de06bad84145ab3d75e16d3cdc7cf892135a4b2b4ec0d4.png" src="_images/cfd9ee3ec84ad4a865de06bad84145ab3d75e16d3cdc7cf892135a4b2b4ec0d4.png" />
+<img alt="_images/bf33f9a17976c1379f9a0432c8b4d707ed073a749487b76653db5993c3e6be4e.png" src="_images/bf33f9a17976c1379f9a0432c8b4d707ed073a749487b76653db5993c3e6be4e.png" />
 </div>
 </div>
 </section>
-<section id="how-to-handle-categorial-features-a-class-anchor-id-categoricalf-a">
-<h2><span class="section-number">3.7. </span>How to handle categorial features? <a class="anchor" id="categoricalF"></a><a class="headerlink" href="#how-to-handle-categorial-features-a-class-anchor-id-categoricalf-a" title="Permalink to this heading">#</a></h2>
+<section id="how-to-handle-categorial-features">
+<h2><span class="section-number">3.7. </span>How to handle categorial features? <a class="anchor" id="categoricalF"></a><a class="headerlink" href="#how-to-handle-categorial-features" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Features can be</p>
 <ul>
@@ -1140,12 +1164,12 @@ The petal_lengths of Versicolor and Virginica are statistically different : p=0.
 <li><p>Because you cannot order the categorical features, they do not have distance metrics either</p></li>
 <li><p>Many methods rely on distances, and simply using numbers as categories only makes the operation of the predictor worse</p></li>
 <li><p>Some methods, like Naive Bayesian Classifier (NBC) can use directly categorical features</p></li>
-<li><p>For many others, it is best to use ns <span class="xref myst">One Hot Encoding</span>, where one binary feature is used to represent each category. Therefore a feature with N-categories will be replaced by a N-bit binary vector.</p></li>
+<li><p>For many others, it is best to use ns <a class="reference internal" href="#(https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html)"><span class="xref myst">One Hot Encoding</span></a>, where one binary feature is used to represent each category. Therefore a feature with N-categories will be replaced by a N-bit binary vector.</p></li>
 </ul>
 </li>
 </ul>
 <section id="example">
-<h3><span class="section-number">3.7.1. </span>Example:<a class="headerlink" href="#example" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.7.1. </span>Example:<a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
 <p>Assume that the species of the Iris is in fact a categorical feature for some ML algorithm. If you would code them just simply like ‘setosa’ -&gt; 1, ‘versicolor’ -&gt;2 and ‘virginica’ -&gt; 3, the ML algorithm could think it as a numerical feature, and use it to calculate distances between species :(</p>
 <p>The fix is to use so called One Hot Encoding.
 Here is the original data:</p>
@@ -1235,8 +1259,8 @@ Here is the original data:</p>
 </div></div></div>
 </div>
 </section>
-<section id="one-hot-encoding-a-class-anchor-id-onehotencoding-a">
-<h3><span class="section-number">3.7.2. </span>One hot encoding  <a class="anchor" id="OneHotEncoding"></a><a class="headerlink" href="#one-hot-encoding-a-class-anchor-id-onehotencoding-a" title="Permalink to this heading">#</a></h3>
+<section id="one-hot-encoding">
+<h3><span class="section-number">3.7.2. </span>One hot encoding  <a class="anchor" id="OneHotEncoding"></a><a class="headerlink" href="#one-hot-encoding" title="Link to this heading">#</a></h3>
 <p>Now we can encode the species to number in a safe way:</p>
 <ol class="arabic simple">
 <li><p>Make an encoder and transform the target variable to OneHot format</p></li>
@@ -1397,44 +1421,22 @@ Here is the original data:</p>
   </thead>
   <tbody>
     <tr>
-      <th>40</th>
-      <td>5.0</td>
-      <td>3.5</td>
-      <td>1.3</td>
-      <td>0.3</td>
-      <td>setosa</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>54</th>
-      <td>6.5</td>
-      <td>2.8</td>
-      <td>4.6</td>
-      <td>1.5</td>
+      <th>95</th>
+      <td>5.7</td>
+      <td>3.0</td>
+      <td>4.2</td>
+      <td>1.2</td>
       <td>versicolor</td>
       <td>0</td>
       <td>1</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>6</th>
-      <td>4.6</td>
-      <td>3.4</td>
-      <td>1.4</td>
-      <td>0.3</td>
-      <td>setosa</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>111</th>
-      <td>6.4</td>
-      <td>2.7</td>
-      <td>5.3</td>
-      <td>1.9</td>
+      <th>104</th>
+      <td>6.5</td>
+      <td>3.0</td>
+      <td>5.8</td>
+      <td>2.2</td>
       <td>virginica</td>
       <td>0</td>
       <td>0</td>
@@ -1452,55 +1454,77 @@ Here is the original data:</p>
       <td>1</td>
     </tr>
     <tr>
-      <th>126</th>
-      <td>6.2</td>
-      <td>2.8</td>
-      <td>4.8</td>
-      <td>1.8</td>
-      <td>virginica</td>
-      <td>0</td>
-      <td>0</td>
+      <th>8</th>
+      <td>4.4</td>
+      <td>2.9</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
       <td>1</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
-      <th>137</th>
-      <td>6.4</td>
-      <td>3.1</td>
-      <td>5.5</td>
-      <td>1.8</td>
-      <td>virginica</td>
-      <td>0</td>
-      <td>0</td>
+      <th>20</th>
+      <td>5.4</td>
+      <td>3.4</td>
+      <td>1.7</td>
+      <td>0.2</td>
+      <td>setosa</td>
       <td>1</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
-      <th>125</th>
-      <td>7.2</td>
-      <td>3.2</td>
-      <td>6.0</td>
-      <td>1.8</td>
-      <td>virginica</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>127</th>
-      <td>6.1</td>
+      <th>84</th>
+      <td>5.4</td>
       <td>3.0</td>
-      <td>4.9</td>
-      <td>1.8</td>
+      <td>4.5</td>
+      <td>1.5</td>
+      <td>versicolor</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>51</th>
+      <td>6.4</td>
+      <td>3.2</td>
+      <td>4.5</td>
+      <td>1.5</td>
+      <td>versicolor</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>122</th>
+      <td>7.7</td>
+      <td>2.8</td>
+      <td>6.7</td>
+      <td>2.0</td>
       <td>virginica</td>
       <td>0</td>
       <td>0</td>
       <td>1</td>
     </tr>
     <tr>
-      <th>141</th>
-      <td>6.9</td>
-      <td>3.1</td>
+      <th>106</th>
+      <td>4.9</td>
+      <td>2.5</td>
+      <td>4.5</td>
+      <td>1.7</td>
+      <td>virginica</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>101</th>
+      <td>5.8</td>
+      <td>2.7</td>
       <td>5.1</td>
-      <td>2.3</td>
+      <td>1.9</td>
       <td>virginica</td>
       <td>0</td>
       <td>0</td>
@@ -1521,7 +1545,7 @@ Here is the original data:</p>
 </section>
 </section>
 <section id="what-was-learned">
-<h2><span class="section-number">3.8. </span>What was learned?<a class="headerlink" href="#what-was-learned" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.8. </span>What was learned?<a class="headerlink" href="#what-was-learned" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Some mesured values (petal and sepal widhts and heights in this case) can be used as features, describing the similarities and differences of the samples</p></li>
 <li><p>T-test can be used for testing if the values of the features are the same or different for different classes of samples. If the features are not significantly different, they are not usefull for classification.</p></li>
@@ -1561,8 +1585,8 @@ Here is the original data:</p>
               
               
               
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                <footer class="prev-next-footer d-print-none">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="ReadingAndPlotting.html"
@@ -1590,6 +1614,7 @@ Here is the original data:</p>
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1621,9 +1646,9 @@ Here is the original data:</p>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-features-for-recognizing-species">3.6. Using features for recognizing species</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-handle-categorial-features-a-class-anchor-id-categoricalf-a">3.7. How to handle categorial features? <a class="anchor" id="categoricalF"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-handle-categorial-features">3.7. How to handle categorial features? <a class="anchor" id="categoricalF"></a></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">3.7.1. Example:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#one-hot-encoding-a-class-anchor-id-onehotencoding-a">3.7.2. One hot encoding  <a class="anchor" id="OneHotEncoding"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#one-hot-encoding">3.7.2. One hot encoding  <a class="anchor" id="OneHotEncoding"></a></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-was-learned">3.8. What was learned?</a></li>
@@ -1648,9 +1673,10 @@ By Petri Välisuo
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -1674,8 +1700,8 @@ By Petri Välisuo
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>5. Unsupervised learning &#8212; Applied Machine Learning, 2021</title>
   
@@ -15,59 +14,55 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Clustering';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="6. Supervised machine learning, Terminology" href="SupervisedMachineLearningTerminology.html" />
+    <link rel="next" title="6. Training process" href="SupervisedMachineLearningTerminology.html" />
     <link rel="prev" title="4. Dimensionality reduction by Subspace projections" href="Subspace_Projections.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -78,28 +73,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -121,12 +111,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -141,9 +139,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="practicalities.html">
+  
   
   
   
@@ -153,12 +155,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="_static/ApplesAndOranges.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/ApplesAndOranges.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/ApplesAndOranges.png" class="logo__image only-light" alt="Applied Machine Learning, 2021 - Home"/>
+    <script>document.write(`<img src="_static/ApplesAndOranges.png" class="logo__image only-dark" alt="Applied Machine Learning, 2021 - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -174,21 +187,25 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="Preprocessing_and_feature_extraction.html">3. Preprocessing and feature extraction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Subspace_Projections.html">4. Dimensionality reduction by Subspace projections</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">5. Unsupervised learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SupervisedMachineLearningTerminology.html">6. Supervised machine learning, Terminology</a></li>
-<li class="toctree-l1"><a class="reference internal" href="NearestNeighbors.html">7. Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a></a></li>
-<li class="toctree-l1"><a class="reference internal" href="SupportVectorMachine.html">8. Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></a></li>
-<li class="toctree-l1"><a class="reference internal" href="DecisionTrees.html">9. Decision trees and forests <a class="anchor" id="dtaforests"></a></a></li>
-<li class="toctree-l1"><a class="reference internal" href="Regression.html">10. Regression and regularisation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="NeuralNetworks.html">11. Artificial Neural Networks (ANN)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Learning_model_parameters.html">12. Model learning strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SupervisedMachineLearningTerminology.html">6. Training process</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="NearestNeighbors.html">11. Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="SupportVectorMachine.html">12. Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="DecisionTrees.html">13. Decision trees and forests <a class="anchor" id="dtaforests"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Regression.html">14. Regression and regularisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NeuralNetworks.html">15. Artificial Neural Networks (ANN)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Learning_model_parameters.html">16. Model learning strategies</a></li>
 
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="NLP.html">18. Natural Language Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NLP.html">22. Natural Language Processing</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="NLP-UWB.html">20. Ultra Wide Band positioning literature analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NLP-UWB.html">24. Ultra Wide Band positioning literature analysis</a></li>
 </ul>
 
     </div>
@@ -204,7 +221,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -213,14 +230,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -245,14 +262,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://notebooks.csc.fi/#/blueprint/d1fe6e08032e4c17a0f9e0e222414598/hub/user-redirect/git-pull?repo=https%3A//github.com/pevalisuo/AML.git&urlpath=tree/AML.git/book/Clustering.ipynb&branch=master" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onJupyterHub"
+   title="Launch on JupyterHub"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="_static/images/logo_jupyterhub.svg">
+    <img alt="JupyterHub logo" src="_static/images/logo_jupyterhub.svg">
   </span>
 <span class="btn__text-container">JupyterHub</span>
 </a>
@@ -326,26 +343,28 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -399,10 +418,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="unsupervised-learning">
-<h1><span class="section-number">5. </span>Unsupervised learning<a class="headerlink" href="#unsupervised-learning" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">5. </span>Unsupervised learning<a class="headerlink" href="#unsupervised-learning" title="Link to this heading">#</a></h1>
 <p>This lecture covers the following topics</p>
 <ol class="arabic simple">
 <li><p>Dimensionality reduction</p></li>
@@ -418,7 +437,7 @@ document.write(`
 <p>Read more details from the <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/index.html">Python Data Science Handbook</a> by Jake VanderPlas published under Creative Commons <a class="reference external" href="https://creativecommons.org/licenses/by-nc-nd/3.0/us/legalcode">CC-BY-NC-ND license</a>.</p>
 <p><img alt="Python Data Science Handbook" src="_images/PDSH-cover-small.png" /></p>
 <section id="clustering">
-<h2><span class="section-number">5.1. </span>Clustering<a class="headerlink" href="#clustering" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.1. </span>Clustering<a class="headerlink" href="#clustering" title="Link to this heading">#</a></h2>
 <p>A Cluster</p>
 <blockquote>
 <div><p>A group of the same or similar elements gathered or occurring closely together.</p>
@@ -450,7 +469,7 @@ document.write(`
 </ul>
 </section>
 <section id="k-means">
-<h2><span class="section-number">5.2. </span>k-Means<a class="headerlink" href="#k-means" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.2. </span>k-Means<a class="headerlink" href="#k-means" title="Link to this heading">#</a></h2>
 <p>k-Means is a simple clustering algorithms based on arithmetic distances and Expectation-Maximization (E-M) algorithm. It is simple and usefull in many cases.</p>
 <p>The K-means algorithm aims to choose cluster centers (centroids) that minimise the inertia, or within-cluster sum-of-squares criterion presented by the following objective function, <span class="math notranslate nohighlight">\(J\)</span>:</p>
 <div class="math notranslate nohighlight">
@@ -466,7 +485,7 @@ document.write(`
 <li><p>The correlation between variables is a problem, and therefore it is good to decorrelate the variables first, for example using PCA</p></li>
 </ul>
 <section id="example-case">
-<h3><span class="section-number">5.2.1. </span>Example case<a class="headerlink" href="#example-case" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.2.1. </span>Example case<a class="headerlink" href="#example-case" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -478,7 +497,7 @@ document.write(`
 </div>
 </div>
 <section id="create-2d-sample-data-using-sample-data-generator">
-<h4><span class="section-number">5.2.1.1. </span>Create 2D sample data using sample data generator<a class="headerlink" href="#create-2d-sample-data-using-sample-data-generator" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">5.2.1.1. </span>Create 2D sample data using sample data generator<a class="headerlink" href="#create-2d-sample-data-using-sample-data-generator" title="Link to this heading">#</a></h4>
 <p>Import <code class="docutils literal notranslate"><span class="pre">make_blobs</span></code> from <code class="docutils literal notranslate"><span class="pre">datasets</span></code> library and generate a random dataset, which contain 4 clusters of data. Each cluster contains 2D normal distributed data with specified standard deviation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -492,12 +511,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/057b158d8386d9eb8ce90f475caea28ccdd1fe3122658a3dd7312b8dd96419a6.png" src="_images/057b158d8386d9eb8ce90f475caea28ccdd1fe3122658a3dd7312b8dd96419a6.png" />
+<img alt="_images/9bcf023bb4f2990c9e17c36db96c270456481e10905da184be124c78f463ad21.png" src="_images/9bcf023bb4f2990c9e17c36db96c270456481e10905da184be124c78f463ad21.png" />
 </div>
 </div>
 </section>
 <section id="apply-kmeans">
-<h4><span class="section-number">5.2.1.2. </span>Apply KMeans<a class="headerlink" href="#apply-kmeans" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">5.2.1.2. </span>Apply KMeans<a class="headerlink" href="#apply-kmeans" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
@@ -514,18 +533,14 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/mnt/debian/pvs/venv/JupyterAI/lib/python3.11/site-packages/sklearn/cluster/_kmeans.py:1412: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
-  super()._check_params_vs_input(X, default_n_init=10)
-</pre></div>
-</div>
-<img alt="_images/bf616c47617be0835bbc2f2425032d2fff7bf1e02cd7bf8072a5148068e990fd.png" src="_images/bf616c47617be0835bbc2f2425032d2fff7bf1e02cd7bf8072a5148068e990fd.png" />
+<img alt="_images/620dcdca7c04a0f9d46508000fa097992ffa95754cea96f3a84a5b5bca28f636.png" src="_images/620dcdca7c04a0f9d46508000fa097992ffa95754cea96f3a84a5b5bca28f636.png" />
 </div>
 </div>
 </section>
 </section>
 </section>
 <section id="the-expectation-maximization-algorithm">
-<h2><span class="section-number">5.3. </span>The expectation Maximization algorithm<a class="headerlink" href="#the-expectation-maximization-algorithm" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.3. </span>The expectation Maximization algorithm<a class="headerlink" href="#the-expectation-maximization-algorithm" title="Link to this heading">#</a></h2>
 <p>The expecation maximization algorithms is an iterative method for optimisation of the objective function. It consists of alternating expectation and maximization steps.</p>
 <p>The following code shows how the expectation and maximization steps iterate in finding optimal k-Means solution. In k-Means, the expectation is simply the evaluation of the objective function, to sum of distances from samples to the nearest cluster centers. The maximization step is made by moving the cluster center to better position to the center point of the current cluster content. The algorithms is initialized by given a number of cluster centers or at least number of clusters. Often the initial positions of cluster centers will be initialized randomly. The high densities of samples starts attracting the cluster centers, and at the same time, the competition of samples repels cluster centers farther away from each other. The algorithm may converge to different solutions if initialized differently.</p>
 <div class="cell docutils container">
@@ -605,15 +620,15 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_517518/498366439.py:6: UserWarning: No data for colormapping provided via &#39;c&#39;. Parameters &#39;cmap&#39; will be ignored
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_201642/498366439.py:6: UserWarning: No data for colormapping provided via &#39;c&#39;. Parameters &#39;cmap&#39; will be ignored
   ax.scatter(X[:, 0], X[:, 1], c=c, cmap=&#39;viridis&#39;,
 </pre></div>
 </div>
-<img alt="_images/f6cbe59b6f253546c6b8a4a2f38fccf7000d1eeb2651fe94f653adaed3ac1f3d.png" src="_images/f6cbe59b6f253546c6b8a4a2f38fccf7000d1eeb2651fe94f653adaed3ac1f3d.png" />
+<img alt="_images/0a99b4db87d263c1628349e5ab0a5de9534c89bb5fc969cfe7b3f4664718b1b0.png" src="_images/0a99b4db87d263c1628349e5ab0a5de9534c89bb5fc969cfe7b3f4664718b1b0.png" />
 </div>
 </div>
 <section id="application-to-digits-recognition">
-<h3><span class="section-number">5.3.1. </span>Application to digits recognition<a class="headerlink" href="#application-to-digits-recognition" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.3.1. </span>Application to digits recognition<a class="headerlink" href="#application-to-digits-recognition" title="Link to this heading">#</a></h3>
 <p>The digits recognition may be too high dimensional for direct k-Means clustering. Therefore preprocessing with PCA or t-SNE could be good ideas. Let’s try all three options to find out</p>
 <ol class="arabic simple">
 <li><p>Apply k-Means to raw 64 dimensional data</p></li>
@@ -685,19 +700,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/mnt/debian/pvs/venv/JupyterAI/lib/python3.11/site-packages/sklearn/cluster/_kmeans.py:1412: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
-  super()._check_params_vs_input(X, default_n_init=10)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/mnt/debian/pvs/venv/JupyterAI/lib/python3.11/site-packages/sklearn/cluster/_kmeans.py:1412: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
-  super()._check_params_vs_input(X, default_n_init=10)
-/mnt/debian/pvs/venv/JupyterAI/lib/python3.11/site-packages/sklearn/cluster/_kmeans.py:1412: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
-  super()._check_params_vs_input(X, default_n_init=10)
-</pre></div>
-</div>
-<img alt="_images/3f182a3806440638509c81a079fab73290ce80dfc114e28c4829ff464eb5420b.png" src="_images/3f182a3806440638509c81a079fab73290ce80dfc114e28c4829ff464eb5420b.png" />
-<img alt="_images/d90fef852d93bdd18b2ad1e6ff6592a7f1ef30a9215af89ebb48dcfc9ad72076.png" src="_images/d90fef852d93bdd18b2ad1e6ff6592a7f1ef30a9215af89ebb48dcfc9ad72076.png" />
-<img alt="_images/f8db057e1a5b95e5e25c21112a5aa009d70559566a19a955c668fc9bf061d058.png" src="_images/f8db057e1a5b95e5e25c21112a5aa009d70559566a19a955c668fc9bf061d058.png" />
+<img alt="_images/592b8d19fc46e5b93d5ee228faefecd860faaab84313c0182df2ffeb3c8af65b.png" src="_images/592b8d19fc46e5b93d5ee228faefecd860faaab84313c0182df2ffeb3c8af65b.png" />
+<img alt="_images/66cc031e1a24e948a708d99dbd3760fbba309126fdc4dfdf5f44824b3aa57cae.png" src="_images/66cc031e1a24e948a708d99dbd3760fbba309126fdc4dfdf5f44824b3aa57cae.png" />
+<img alt="_images/05e7274547758f02ee78f4d66c3648ec1362955702929d7c27db23ca2bc29afe.png" src="_images/05e7274547758f02ee78f4d66c3648ec1362955702929d7c27db23ca2bc29afe.png" />
 </div>
 </div>
 <p>The cluster centers can be read from the kmeans object</p>
@@ -708,16 +713,16 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[  1.6367509,  54.96889  ],
-       [-10.696964 ,  -6.062527 ],
-       [ 34.319416 ,  21.998028 ],
-       [-23.769308 ,  19.539345 ],
-       [  8.802663 , -40.98989  ],
-       [ 42.57349  , -12.276021 ],
-       [-30.772427 , -30.024733 ],
-       [-36.985092 ,   1.5596226],
-       [  1.6307976,  19.031092 ],
-       [ 11.454348 , -12.479105 ]], dtype=float32)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 34.613552 ,  22.073551 ],
+       [-36.81312  ,   1.6050037],
+       [  8.804032 , -41.420143 ],
+       [-24.038465 ,  19.373869 ],
+       [  1.4042301,  54.56086  ],
+       [ 42.327026 , -12.468754 ],
+       [ 11.535272 , -12.538715 ],
+       [-30.18048  , -29.62428  ],
+       [  1.4305778,  18.956402 ],
+       [-10.537743 ,  -6.0891614]], dtype=float32)
 </pre></div>
 </div>
 </div>
@@ -749,54 +754,54 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Raw data
-[[  0   0   0 177   0   0   1   0   0   0]
- [ 99   1   0   0   1   0   0  24  55   2]
- [  8   0   3   1  13   2   0 148   2   0]
- [  7   2   7   0 154  13   0   0   0   0]
- [  4   0   8   0   0   0 164   0   5   0]
- [  0 136   0   0   1  42   2   0   0   1]
- [  2   0   0   1   0   0   0   0   1 177]
- [  2   1 174   0   0   0   0   0   2   0]
- [100   5   4   0   2  52   0   3   6   2]
- [  2   6   7   0   6 139   0   0  20   0]]
+[[  0   0   0 177   0   0   0   1   0   0]
+ [ 24   2   0   0  99  55   1   0   1   0]
+ [148   0   2   1   8   2  13   0   0   3]
+ [  1   0   9   0   7   0 157   0   2   7]
+ [  0   0   0   0   2   3   0 166   0  10]
+ [  0   1  42   0   0   0   1   2 136   0]
+ [  0 177   0   1   3   0   0   0   0   0]
+ [  0   0   0   0   2   2   0   0   4 171]
+ [  3   2  48   0 102   6   4   0   4   5]
+ [  0   0 138   0   0  20   7   0   7   8]]
 PCA
-[[  4   0   1  15   0   0 157   0   1   0]
- [  6  48   3   0   9   0   0   0  29  87]
- [  4  13   0   0   7   3   0 115  34   1]
- [ 21   0   0   0  12  96   0  43  11   0]
- [  0   5 150  16   3   0   0   0   0   7]
- [ 46  49   2   5  24   1   6   3  46   0]
- [  0   2  28 144   0   0   7   0   0   0]
- [  0  39   1   0 117   0   0   1   1  20]
- [  8  64   1   0  24   0   0   4  69   4]
- [ 96  10   0   1   9  39   0   8  17   0]]
+[[  0   0   1 155   0  17   0   1   4   0]
+ [  4  18   0   0  49   0  89   0  22   0]
+ [ 11   1   3   0  31   0   2   0  15 114]
+ [ 13   0  89   0   3   0   0   0  14  64]
+ [  3  68   0   0   1   6   1 102   0   0]
+ [ 23   5  29   4  59   5   4   1  48   4]
+ [  0  12   0   6   1 131   0  31   0   0]
+ [109   4   0   0  30   0  36   0   0   0]
+ [ 24   6   0   0  78   0   8   0  54   4]
+ [  9   3 117   0  10   0   1   0  31   9]]
 t-SNE
-[[178   0   0   0   0   0   0   0   0   0]
- [  0  11   0   0   0   0  27   0   0 144]
- [  0  10   0   0   0   0 167   0   0   0]
- [  0   0   0   0   2   0   0 179   2   0]
- [  0   0   0   0   3 178   0   0   0   0]
- [  0   0   1   1   0   0   0   0 180   0]
- [  0   1 180   0   0   0   0   0   0   0]
- [  0   0   0   0 179   0   0   0   0   0]
- [  0 170   0   0   0   0   0   0   0   4]
- [  0   2   0 143   8   0   0   2   2  23]]
+[[  0   0   0   0 178   0   0   0   0   0]
+ [  0   0   0   0   0   0 144  27   0  11]
+ [  0   0   0   0   0   0   0 167   0  10]
+ [  0 179   2   0   0   0   0   0   2   0]
+ [  0   0   3   0   0 178   0   0   0   0]
+ [  1   0   0   1   0   0   0   0 180   0]
+ [180   0   0   0   0   0   0   0   0   1]
+ [  0   0 179   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   4   0   0 170]
+ [  0   2   9 143   0   0  22   0   2   2]]
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(623.5227272727271, 0.5, &#39;Digit&#39;)
 </pre></div>
 </div>
-<img alt="_images/4fd771618fb2cf0b02e4548f9842b7f15a763fe34379561d9d4a2122275afe58.png" src="_images/4fd771618fb2cf0b02e4548f9842b7f15a763fe34379561d9d4a2122275afe58.png" />
+<img alt="_images/fcbcc2bb265f3c4d52ad7ff5f290f516dbd731b1b33319ed66033b3e195f1ff2.png" src="_images/fcbcc2bb265f3c4d52ad7ff5f290f516dbd731b1b33319ed66033b3e195f1ff2.png" />
 </div>
 </div>
 </section>
 <section id="k-means-assumptions">
-<h3><span class="section-number">5.3.2. </span>k-Means assumptions<a class="headerlink" href="#k-means-assumptions" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.3.2. </span>k-Means assumptions<a class="headerlink" href="#k-means-assumptions" title="Link to this heading">#</a></h3>
 <p>Take a look at the graphical representation of <a class="reference external" href="https://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_assumptions.html">k-Means assumptions</a>.</p>
 </section>
 </section>
 <section id="gaussian-mixture-models">
-<h2><span class="section-number">5.4. </span>Gaussian mixture models<a class="headerlink" href="#gaussian-mixture-models" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.4. </span>Gaussian mixture models<a class="headerlink" href="#gaussian-mixture-models" title="Link to this heading">#</a></h2>
 <p>Gaussian mixture model builds, using mixtures of normal distributions, a combined probability distribution which fit to the data is maximized using Epectation Maximization algorithm.</p>
 <p>The steps in GMM are very similar than in k-Means.</p>
 <ol class="arabic simple">
@@ -806,7 +811,7 @@ t-SNE
 <li><p>Maximization: Calculate the mean values and standard deviations of the members of each cluster and update the means and deviations of each distribution</p></li>
 </ol>
 <section id="lambda-functions">
-<h3><span class="section-number">5.4.1. </span>Lambda functions<a class="headerlink" href="#lambda-functions" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.4.1. </span>Lambda functions<a class="headerlink" href="#lambda-functions" title="Link to this heading">#</a></h3>
 <p>Small unnamed functions are sometimes quite convenient in programming. They are often called as <a class="reference external" href="https://en.wikipedia.org/wiki/Anonymous_function">lambda functions</a>, and they can be used in many programming languages. This is how they are defined in Python:</p>
 <ul class="simple">
 <li><p>The function is defined using keyword <code class="docutils literal notranslate"><span class="pre">lambda</span></code></p></li>
@@ -818,7 +823,7 @@ t-SNE
 <code class="docutils literal notranslate"><span class="pre">square</span> <span class="pre">=</span> <span class="pre">lambda</span> <span class="pre">x:</span> <span class="pre">x**2</span></code></p>
 </section>
 <section id="example-of-em-for-gmm-in-one-dimensional-case">
-<h3><span class="section-number">5.4.2. </span>Example of EM for GMM in one dimensional case<a class="headerlink" href="#example-of-em-for-gmm-in-one-dimensional-case" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.4.2. </span>Example of EM for GMM in one dimensional case<a class="headerlink" href="#example-of-em-for-gmm-in-one-dimensional-case" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Scientific python includes very convenient object form normal distributions</span>
@@ -850,7 +855,7 @@ t-SNE
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/841f1209eef22c73e5e70a3f4a83f4f813604fb338faf049a15a4a4bb012a7b2.png" src="_images/841f1209eef22c73e5e70a3f4a83f4f813604fb338faf049a15a4a4bb012a7b2.png" />
+<img alt="_images/9bd740f70926154ec609e44d6698481bc9b3161fa72e4448339b0673b68a9dec.png" src="_images/9bd740f70926154ec609e44d6698481bc9b3161fa72e4448339b0673b68a9dec.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -873,11 +878,11 @@ t-SNE
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fa89bea3390&gt;,
- &lt;matplotlib.lines.Line2D at 0x7fa89bd06b10&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x70fea5b14bd0&gt;,
+ &lt;matplotlib.lines.Line2D at 0x70fea5cb3490&gt;]
 </pre></div>
 </div>
-<img alt="_images/3310186c246bb8f09ae209e3e68b25c2a15758fadc43c9d98643f5e258ef9bd8.png" src="_images/3310186c246bb8f09ae209e3e68b25c2a15758fadc43c9d98643f5e258ef9bd8.png" />
+<img alt="_images/025354bf11f96946ce5dafb9c1e922b5bb96c2fcdf34606977af7cab65f82111.png" src="_images/025354bf11f96946ce5dafb9c1e922b5bb96c2fcdf34606977af7cab65f82111.png" />
 </div>
 </div>
 <ul class="simple">
@@ -936,19 +941,19 @@ t-SNE
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[  0   0 178   0   0   0   0   0   0   0]
- [  0   0   0   0   0   0  27   0 155   0]
- [  0  10   0   0   0   0 167   0   0   0]
- [  0   2   0   2   0 179   0   0   0   0]
- [178   0   0   3   0   0   0   0   0   0]
- [  0   0   0   0 180   0   0   1   0   1]
- [  0   1   0   0   0   0   0 180   0   0]
- [  0   0   0 179   0   0   0   0   0   0]
- [  0 170   0   0   0   0   0   0   4   0]
- [  0   2   0  11   2   3   0   0  20 142]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[178   0   0   0   0   0   0   0   0   0]
+ [  0 155   0   0   0   0  27   0   0   0]
+ [  0   0   0   0   0   0 167  10   0   0]
+ [  0   0 178   0   0   0   0   3   2   0]
+ [  0   0   0 178   0   0   0   0   3   0]
+ [  0   0   0   0   1   1   0   0   0 180]
+ [  0   0   0   0 180   0   0   1   0   0]
+ [  0   0   0   0   0   0   0   0 179   0]
+ [  0   4   0   0   0   0   0 170   0   0]
+ [  0  20   3   0   0 142   0   2  11   2]]
 </pre></div>
 </div>
-<img alt="_images/db9252fee21eb18a652ed1886fd499399e6515101e013813a4de8ce7df170964.png" src="_images/db9252fee21eb18a652ed1886fd499399e6515101e013813a4de8ce7df170964.png" />
+<img alt="_images/a5f37beb77d21e0206a159bf9493ed87c16a7b8389e23da2fb1da6f1c1d6694f.png" src="_images/a5f37beb77d21e0206a159bf9493ed87c16a7b8389e23da2fb1da6f1c1d6694f.png" />
 </div>
 </div>
 <p>GMM is probabilistic model supporting also prediction probabilities. In other words, it can tell what is the probability of a certain sample in belonging to a certain cluster. For example let’s calculated all probabilities and then visualize the probabilities of sample 19 in belonging to certain clusters.</p>
@@ -964,12 +969,12 @@ t-SNE
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;BarContainer object of 10 artists&gt;
 </pre></div>
 </div>
-<img alt="_images/88fea806da980fce76ca4386ee26a3e82ca34aaedbd021f62b5d0223da2be091.png" src="_images/88fea806da980fce76ca4386ee26a3e82ca34aaedbd021f62b5d0223da2be091.png" />
+<img alt="_images/d2148e945bf35160f2895808e2fddeb20035f21036468ede1bcf4ad56e6bdb28.png" src="_images/d2148e945bf35160f2895808e2fddeb20035f21036468ede1bcf4ad56e6bdb28.png" />
 </div>
 </div>
 </section>
 <section id="sampling-data">
-<h3><span class="section-number">5.4.3. </span>Sampling data<a class="headerlink" href="#sampling-data" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.4.3. </span>Sampling data<a class="headerlink" href="#sampling-data" title="Link to this heading">#</a></h3>
 <p>The Gaussian Mixture Model is actually a probabilistic density model of the data. It can be therefore used for sampling new data samples from the domain of the original data. Those samples are distributed in the same way than the original data, and the samples are drawn from each cluster.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -993,15 +998,15 @@ t-SNE
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x7fa8a418dad0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x70fea4884cd0&gt;
 </pre></div>
 </div>
-<img alt="_images/dcf16cfe4eaa61a61b20884cc6372af875d3dd6da09e50112ab9adb7432e14b1.png" src="_images/dcf16cfe4eaa61a61b20884cc6372af875d3dd6da09e50112ab9adb7432e14b1.png" />
+<img alt="_images/faffda720f237ef1bc8443c4cff286bb59629104cbc6e0b3de7aa0593498518c.png" src="_images/faffda720f237ef1bc8443c4cff286bb59629104cbc6e0b3de7aa0593498518c.png" />
 </div>
 </div>
 </section>
 <section id="trial-for-sampling-random-characters">
-<h3><span class="section-number">5.4.4. </span>Trial for sampling random characters<a class="headerlink" href="#trial-for-sampling-random-characters" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.4.4. </span>Trial for sampling random characters<a class="headerlink" href="#trial-for-sampling-random-characters" title="Link to this heading">#</a></h3>
 <p>Having trained the GMM model, we could draw random characters from the distribution of original data, and transform them back to 64-dimensional feature space. This can be only done when using PCA, since there is no inverse transform for manifold methods.</p>
 <p>Lets first recall the code which was able to print the characters, and define a function of it.</p>
 <div class="cell docutils container">
@@ -1063,17 +1068,17 @@ t-SNE
 [0 1 2 3 4 5 6 7 8 9]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0 2 3 4 4 6 6 7 9 9]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0 0 1 3 3 4 6 7 8 9]
 </pre></div>
 </div>
-<img alt="_images/285fc42ec09a6f5d94fe38958e55657c9b4deb6d2c5826c69ea448196c1365a1.png" src="_images/285fc42ec09a6f5d94fe38958e55657c9b4deb6d2c5826c69ea448196c1365a1.png" />
-<img alt="_images/980a0d8bbb12846ea4972912c9338cd46a7668e4cd0aca30ecd793c5ef110f65.png" src="_images/980a0d8bbb12846ea4972912c9338cd46a7668e4cd0aca30ecd793c5ef110f65.png" />
-<img alt="_images/e08be3f7addef9fe0f1c1fb36b77ce7aa42b27527b6679721c1783bbd048401c.png" src="_images/e08be3f7addef9fe0f1c1fb36b77ce7aa42b27527b6679721c1783bbd048401c.png" />
+<img alt="_images/60be56a8919fb85cd0d133ce4daf9aadc74cabf17294bf3f0314affa964e3770.png" src="_images/60be56a8919fb85cd0d133ce4daf9aadc74cabf17294bf3f0314affa964e3770.png" />
+<img alt="_images/2ffbc4b2d468d2bebaf8b9558a498c904f0be373951ee244b9c3258d31d36383.png" src="_images/2ffbc4b2d468d2bebaf8b9558a498c904f0be373951ee244b9c3258d31d36383.png" />
+<img alt="_images/2ce24b4245c2cc66f389c598b87f00e2f5d622e3703a0bda35021cb65415e793.png" src="_images/2ce24b4245c2cc66f389c598b87f00e2f5d622e3703a0bda35021cb65415e793.png" />
 </div>
 </div>
 </section>
 <section id="the-results-of-pca-forward-and-inverse-transformation-and-gmm-random-sampling">
-<h3><span class="section-number">5.4.5. </span>The results of PCA forward and inverse transformation and GMM random sampling<a class="headerlink" href="#the-results-of-pca-forward-and-inverse-transformation-and-gmm-random-sampling" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.4.5. </span>The results of PCA forward and inverse transformation and GMM random sampling<a class="headerlink" href="#the-results-of-pca-forward-and-inverse-transformation-and-gmm-random-sampling" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Even four dimensional PCA didn’t yet capture very well the details of the the caracters. This was already known based on our experimentation with PCA in the last lecture.</p></li>
 <li><p>The 4-component PCA - inverse PCA transformation lost some relevant information and the characters are not perfectly reconstructed</p></li>
@@ -1085,7 +1090,7 @@ t-SNE
 </section>
 </section>
 <section id="other-clustering-methods">
-<h2><span class="section-number">5.5. </span>Other clustering methods<a class="headerlink" href="#other-clustering-methods" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.5. </span>Other clustering methods<a class="headerlink" href="#other-clustering-methods" title="Link to this heading">#</a></h2>
 <p>There are plenty of other clustering methods with different properties. Some of them can handle non-linear cluster better than others, some are fast and some slow. Some can be parallelized and some can handle very large amounts of data. The understanding of operation and limitations of these basic clustering methods shown above, you should be able to compare other methods listed <a class="reference external" href="https://scikit-learn.org/stable/modules/clustering.html">clustering topic of scikit learn</a>, and choose the most suitable. Because all of those available in scikit.learn implement the same object oriented API, it is easy to try many of them in your practical case.</p>
 <p>Some questions you can ask when selecting a clustering algorithm</p>
 <ul class="simple">
@@ -1100,7 +1105,7 @@ t-SNE
 </ul>
 </section>
 <section id="conclusion">
-<h2><span class="section-number">5.6. </span>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.6. </span>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
 <p>k-Means algorithm</p>
 <ul class="simple">
 <li><p>Simple linear clustering algorithm based on expectation maximization algorithm</p></li>
@@ -1150,8 +1155,8 @@ t-SNE
               
               
               
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                <footer class="prev-next-footer d-print-none">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="Subspace_Projections.html"
@@ -1167,7 +1172,7 @@ t-SNE
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">6. </span>Supervised machine learning, Terminology</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Training process</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1179,6 +1184,7 @@ t-SNE
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1231,9 +1237,10 @@ By Petri Välisuo
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -1257,8 +1264,8 @@ By Petri Välisuo
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

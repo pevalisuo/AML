@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>4. Dimensionality reduction by Subspace projections &#8212; Applied Machine Learning, 2021</title>
   
@@ -15,53 +14,49 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Subspace_Projections';</script>
@@ -78,28 +73,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -121,12 +111,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -141,9 +139,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="practicalities.html">
+  
   
   
   
@@ -153,12 +155,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="_static/ApplesAndOranges.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/ApplesAndOranges.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/ApplesAndOranges.png" class="logo__image only-light" alt="Applied Machine Learning, 2021 - Home"/>
+    <script>document.write(`<img src="_static/ApplesAndOranges.png" class="logo__image only-dark" alt="Applied Machine Learning, 2021 - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -208,7 +221,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -217,14 +230,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -249,14 +262,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://notebooks.csc.fi/#/blueprint/d1fe6e08032e4c17a0f9e0e222414598/hub/user-redirect/git-pull?repo=https%3A//github.com/pevalisuo/AML.git&urlpath=tree/AML.git/book/Subspace_Projections.ipynb&branch=master" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onJupyterHub"
+   title="Launch on JupyterHub"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="_static/images/logo_jupyterhub.svg">
+    <img alt="JupyterHub logo" src="_static/images/logo_jupyterhub.svg">
   </span>
 <span class="btn__text-container">JupyterHub</span>
 </a>
@@ -330,26 +343,28 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -413,16 +428,16 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="dimensionality-reduction-by-subspace-projections">
-<h1><span class="section-number">4. </span>Dimensionality reduction by Subspace projections<a class="headerlink" href="#dimensionality-reduction-by-subspace-projections" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">4. </span>Dimensionality reduction by Subspace projections<a class="headerlink" href="#dimensionality-reduction-by-subspace-projections" title="Link to this heading">#</a></h1>
 <p>Lets assume that there is a random design matrix, <span class="math notranslate nohighlight">\(X\)</span>, whose dimensions are <span class="math notranslate nohighlight">\(n\times p\)</span>, where <span class="math notranslate nohighlight">\(n\)</span> is the number of samples and <span class="math notranslate nohighlight">\(p\)</span> is the number of features.</p>
 <p>The dimensionality of every sample is the number of features, <span class="math notranslate nohighlight">\(p\)</span>.</p>
 <p>Dimensionality reductions means transforming the data from a high dimensional (<span class="math notranslate nohighlight">\(p\)</span>) representation to the lower dimensional representation (<span class="math notranslate nohighlight">\('\)</span>), still retaining usefull properties of the original data. When dimensionality reduction is applied to matrix <span class="math notranslate nohighlight">\(X_{n\times p}\)</span> the resulting reduced matrix,  <span class="math notranslate nohighlight">\(X_{n\times p'}\)</span>  will have as many samples as the original matrix, but the number of features is reduced.</p>
 <p>These goals can be met, if the projection method is first fitted to the data, so that the axis of new <span class="math notranslate nohighlight">\(p'\)</span> dimensional space are aligned optimally to the data.</p>
 <section id="principal-component-analysis-pca">
-<h2><span class="section-number">4.1. </span>Principal Component Analysis (PCA)<a class="headerlink" href="#principal-component-analysis-pca" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.1. </span>Principal Component Analysis (PCA)<a class="headerlink" href="#principal-component-analysis-pca" title="Link to this heading">#</a></h2>
 <p>PCA is one of the most well known dimensionality reduction methods. It transforms the set of observations with possibly correlated variables (=features) into a set of values of linearly uncorrelated variables, called principal components.</p>
 <p>PCA transformation is defined in such a way that the first principal component has the largest possible variance and the rest of the components are ordered according to their variances in descending order.</p>
 <p>PCA can be used as a dimensionality reduction method by removing some of the least important variables, and keeping the first most important.</p>
@@ -449,7 +464,7 @@ $<span class="math notranslate nohighlight">\(
    X = USV^T,
 \)</span><span class="math notranslate nohighlight">\(
 where S is the diagonal matrix of singular values (eigenvalues) \)</span>s_i$ and columns of V are principal directions/axis (or eigenvectors).</p>
-<p>See references <span class="xref myst">1-4</span></p>
+<p>See references <a class="reference internal" href="#references"><span class="xref myst">1-4</span></a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -510,7 +525,7 @@ where S is the diagonal matrix of singular values (eigenvalues) \)</span>s_i$ an
 </div>
 </section>
 <section id="projecting-linear-data">
-<h2><span class="section-number">4.2. </span>Projecting linear data<a class="headerlink" href="#projecting-linear-data" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.2. </span>Projecting linear data<a class="headerlink" href="#projecting-linear-data" title="Link to this heading">#</a></h2>
 <p>Visualize the data first. Plot the points in the 2D dataset as scatter plot, using the magnitude of values (<span class="math notranslate nohighlight">\(\sqrt{x_1^2 + x_2^2}\)</span>) as color index. Big values will be plotted as red, and small values as blue.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -522,11 +537,11 @@ where S is the diagonal matrix of singular values (eigenvalues) \)</span>s_i$ an
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b19ac142746191039e055e88ab34ac36fe96fe9d21b33201e020d2797af8ed91.png" src="_images/b19ac142746191039e055e88ab34ac36fe96fe9d21b33201e020d2797af8ed91.png" />
+<img alt="_images/e1eeff744ea9a7b0f4a548707c26ff787d570381d44a58afbe1cde0bf85e964d.png" src="_images/e1eeff744ea9a7b0f4a548707c26ff787d570381d44a58afbe1cde0bf85e964d.png" />
 </div>
 </div>
 <section id="calculate-new-coordinates-with-maximum-variance">
-<h3><span class="section-number">4.2.1. </span>Calculate new coordinates with maximum variance<a class="headerlink" href="#calculate-new-coordinates-with-maximum-variance" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.2.1. </span>Calculate new coordinates with maximum variance<a class="headerlink" href="#calculate-new-coordinates-with-maximum-variance" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the angle of maximum variance using the variances</span>
@@ -543,12 +558,12 @@ where S is the diagonal matrix of singular values (eigenvalues) \)</span>s_i$ an
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/45c0e3ca4f8a9da1d38610eb2e4a6ccbd91c79ebce89871ad22390e1fd42a9df.png" src="_images/45c0e3ca4f8a9da1d38610eb2e4a6ccbd91c79ebce89871ad22390e1fd42a9df.png" />
+<img alt="_images/a1eb97aea9cc0712fee4438ea57a675c7fe64d0b52bafc31ad87c81b2e90c319.png" src="_images/a1eb97aea9cc0712fee4438ea57a675c7fe64d0b52bafc31ad87c81b2e90c319.png" />
 </div>
 </div>
 </section>
 <section id="scale-the-data-and-plot-it-again">
-<h3><span class="section-number">4.2.2. </span>Scale the data and plot it again<a class="headerlink" href="#scale-the-data-and-plot-it-again" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.2.2. </span>Scale the data and plot it again<a class="headerlink" href="#scale-the-data-and-plot-it-again" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">scale</span>
@@ -560,12 +575,12 @@ where S is the diagonal matrix of singular values (eigenvalues) \)</span>s_i$ an
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/97d9271a2d6ebccf8f9af13564008e78378bfe2a009debf8fb9efbf982738c76.png" src="_images/97d9271a2d6ebccf8f9af13564008e78378bfe2a009debf8fb9efbf982738c76.png" />
+<img alt="_images/83f5e1735f63e36ec1ff091847d8297def60af3876e19e9285cd9dc1508446a4.png" src="_images/83f5e1735f63e36ec1ff091847d8297def60af3876e19e9285cd9dc1508446a4.png" />
 </div>
 </div>
 </section>
 <section id="plot-the-data-along-these-new-axis-by-rotating-the-data-with-affine-transformation">
-<h3><span class="section-number">4.2.3. </span>Plot the data along these new axis by rotating the data with Affine transformation<a class="headerlink" href="#plot-the-data-along-these-new-axis-by-rotating-the-data-with-affine-transformation" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.2.3. </span>Plot the data along these new axis by rotating the data with Affine transformation<a class="headerlink" href="#plot-the-data-along-these-new-axis-by-rotating-the-data-with-affine-transformation" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 Xr = R \times X =
@@ -604,13 +619,13 @@ Xr = R \times X =
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f909e1fb4c23e95dc1ec5db1e358dfcf2924ab86733e96119be8aefce4e26777.png" src="_images/f909e1fb4c23e95dc1ec5db1e358dfcf2924ab86733e96119be8aefce4e26777.png" />
+<img alt="_images/ad9e5d71b19305acb16bf4f1dfc8a7da2e4e8beb5479ee35ea06379441aad63e.png" src="_images/ad9e5d71b19305acb16bf4f1dfc8a7da2e4e8beb5479ee35ea06379441aad63e.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="pca-how-to-do-all-previously-shown-steps-for-you">
-<h2><span class="section-number">4.3. </span>PCA: How to do all previously shown steps for you<a class="headerlink" href="#pca-how-to-do-all-previously-shown-steps-for-you" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.3. </span>PCA: How to do all previously shown steps for you<a class="headerlink" href="#pca-how-to-do-all-previously-shown-steps-for-you" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
@@ -628,14 +643,14 @@ Xr = R \times X =
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.98952894, 0.01047106])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.99026192, 0.00973808])
 </pre></div>
 </div>
-<img alt="_images/7ac5a02ef8dd4729ea8143de2b2372bd19872db94bd65a33cd3e62f47caaf89c.png" src="_images/7ac5a02ef8dd4729ea8143de2b2372bd19872db94bd65a33cd3e62f47caaf89c.png" />
+<img alt="_images/f59a45d2aa4bc3f436a0d7ee0468cba94e07d9c275d7bc0528a21cbb69a7a02b.png" src="_images/f59a45d2aa4bc3f436a0d7ee0468cba94e07d9c275d7bc0528a21cbb69a7a02b.png" />
 </div>
 </div>
 <section id="pca-is-based-on-singular-value-decomposition">
-<h3><span class="section-number">4.3.1. </span>PCA is based on singular value decomposition<a class="headerlink" href="#pca-is-based-on-singular-value-decomposition" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.3.1. </span>PCA is based on singular value decomposition<a class="headerlink" href="#pca-is-based-on-singular-value-decomposition" title="Link to this heading">#</a></h3>
 <p>Singular alue decomposition, decomposes matrix X into three components</p>
 <p><code class="docutils literal notranslate"><span class="pre">U,S,E</span> <span class="pre">=</span> <span class="pre">svd(X)</span></code></p>
 <p>S is the eigenvalues of X and E contains the eigenvectors of X. The rotation of the data along coordinates with maximum variance is taken care by simply matrix multiplication:</p>
@@ -659,7 +674,7 @@ Xr = R \times X =
  [-0.70710678  0.70710678]]
 Equals
 [[ 0.70710678  0.70710678]
- [ 0.70710678 -0.70710678]]
+ [-0.70710678  0.70710678]]
 </pre></div>
 </div>
 </div>
@@ -673,12 +688,12 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/28cae9648205713330301c4dc74d11eccae7cef04e9e755a4f26666d0a2187c4.png" src="_images/28cae9648205713330301c4dc74d11eccae7cef04e9e755a4f26666d0a2187c4.png" />
+<img alt="_images/30d65f2824aa8d23768f7d4b15ffa433ba27f021b4afe7dc0a5faf9335fddf21.png" src="_images/30d65f2824aa8d23768f7d4b15ffa433ba27f021b4afe7dc0a5faf9335fddf21.png" />
 </div>
 </div>
 </section>
 <section id="reconstruct-data">
-<h3><span class="section-number">4.3.2. </span>Reconstruct data<a class="headerlink" href="#reconstruct-data" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.3.2. </span>Reconstruct data<a class="headerlink" href="#reconstruct-data" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pca</span><span class="o">=</span><span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -692,13 +707,13 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/273babc872d44caaeed28c52c211854dc95d328393659a889d262eca4f71b713.png" src="_images/273babc872d44caaeed28c52c211854dc95d328393659a889d262eca4f71b713.png" />
+<img alt="_images/f29fe85ac5fd43adf652573846413ee8bc8b8352ec154249a77838832526ae11.png" src="_images/f29fe85ac5fd43adf652573846413ee8bc8b8352ec154249a77838832526ae11.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="non-linear-data">
-<h2><span class="section-number">4.4. </span>Non-Linear data<a class="headerlink" href="#non-linear-data" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.4. </span>Non-Linear data<a class="headerlink" href="#non-linear-data" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span><span class="o">=</span><span class="mf">0.1</span>
@@ -727,11 +742,11 @@ Equals
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 500x500 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/1b1a91e218d3de513bb9be536ed15f0550c16dec0180bdde4c1777eaa253faaf.png" src="_images/1b1a91e218d3de513bb9be536ed15f0550c16dec0180bdde4c1777eaa253faaf.png" />
+<img alt="_images/c6e9598876d251804490a177a0b5655daaafac7c996479237f215f026b3655b5.png" src="_images/c6e9598876d251804490a177a0b5655daaafac7c996479237f215f026b3655b5.png" />
 </div>
 </div>
 <section id="try-pca">
-<h3><span class="section-number">4.4.1. </span>Try PCA<a class="headerlink" href="#try-pca" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.4.1. </span>Try PCA<a class="headerlink" href="#try-pca" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Perform PCA decomposition</span>
@@ -747,16 +762,16 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.97360539, 0.02639461])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.97538822, 0.02461178])
 </pre></div>
 </div>
-<img alt="_images/1f35ff6a4054b64fc4acc6d94248b8d8fa8acb273940641cc976cc33c8bf8145.png" src="_images/1f35ff6a4054b64fc4acc6d94248b8d8fa8acb273940641cc976cc33c8bf8145.png" />
+<img alt="_images/7c7ad9fa92807e4371ac4eb2ed8a828443284bcce19bfa44c3902d9a0328d919.png" src="_images/7c7ad9fa92807e4371ac4eb2ed8a828443284bcce19bfa44c3902d9a0328d919.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="manifold-learning">
-<h2><span class="section-number">4.5. </span>Manifold learning<a class="headerlink" href="#manifold-learning" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.5. </span>Manifold learning<a class="headerlink" href="#manifold-learning" title="Link to this heading">#</a></h2>
 <p>Manifold learning methods are non-linear algorithms for mapping the multidimensional data into the lower dimension by unfolding the manifold. While doing so, they try to keep the local neighborhood similar than it was before the transformation. It means that those samples which were neighbours in the original multidimensional space, should be neighbors also in reduced subspace.</p>
 <p>Two often used methods are T-distributed Stochastic Neighbor Embedding <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html">t-SNE</a> and Uniform Manifold Approximation <a class="reference external" href="https://umap-learn.readthedocs.io/en/latest/index.html">UMAP</a>.</p>
 <p>t-SNE is part of sklearn, but umap needs to be separately installed, like <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">umap-learn</span></code>.</p>
@@ -776,12 +791,12 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/195bc20197c3a62f2109f2bd2140e1f62a356a3187aa5583def26c0afa52fff1.png" src="_images/195bc20197c3a62f2109f2bd2140e1f62a356a3187aa5583def26c0afa52fff1.png" />
+<img alt="_images/d2bea2a36b3adb50b1d5621bc040238f92de208bb77ea8ef099d671f26660dc0.png" src="_images/d2bea2a36b3adb50b1d5621bc040238f92de208bb77ea8ef099d671f26660dc0.png" />
 </div>
 </div>
 </section>
 <section id="uniform-manifold-approximation-umap">
-<h2><span class="section-number">4.6. </span>Uniform Manifold Approximation (UMAP)<a class="headerlink" href="#uniform-manifold-approximation-umap" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.6. </span>Uniform Manifold Approximation (UMAP)<a class="headerlink" href="#uniform-manifold-approximation-umap" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">umap</span>
@@ -796,12 +811,12 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2910e1acd05144936c1c41cb5409dc547585cce7558fd9e19f585068f8aae7bd.png" src="_images/2910e1acd05144936c1c41cb5409dc547585cce7558fd9e19f585068f8aae7bd.png" />
+<img alt="_images/655fe710fa4702c789e6874e0f15c4a6c406c9f78484fb621beccfe0940e18bf.png" src="_images/655fe710fa4702c789e6874e0f15c4a6c406c9f78484fb621beccfe0940e18bf.png" />
 </div>
 </div>
 </section>
 <section id="more-non-linear-data">
-<h2><span class="section-number">4.7. </span>More non-linear data<a class="headerlink" href="#more-non-linear-data" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.7. </span>More non-linear data<a class="headerlink" href="#more-non-linear-data" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span><span class="o">=</span><span class="mf">0.1</span>
@@ -830,11 +845,11 @@ Equals
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 500x500 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/bee0165cb8764e52c2c867dd91f8a1358dab6b8d551756691771380fca554341.png" src="_images/bee0165cb8764e52c2c867dd91f8a1358dab6b8d551756691771380fca554341.png" />
+<img alt="_images/ff4f0d94ece1c864b6994f1a32d599b4cf27568d80434bf200f76cda4cc48f92.png" src="_images/ff4f0d94ece1c864b6994f1a32d599b4cf27568d80434bf200f76cda4cc48f92.png" />
 </div>
 </div>
 <section id="pca-can-not-reduce-dimensionality">
-<h3><span class="section-number">4.7.1. </span>PCA can not reduce dimensionality<a class="headerlink" href="#pca-can-not-reduce-dimensionality" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.7.1. </span>PCA can not reduce dimensionality<a class="headerlink" href="#pca-can-not-reduce-dimensionality" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Perform PCA decomposition</span>
@@ -850,15 +865,15 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.53425167, 0.46574833])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.56862478, 0.43137522])
 </pre></div>
 </div>
-<img alt="_images/240bd7656a649b7060e4318a7fa7ac34c041d52dfe007bb5c8ba6e14ab6ae574.png" src="_images/240bd7656a649b7060e4318a7fa7ac34c041d52dfe007bb5c8ba6e14ab6ae574.png" />
+<img alt="_images/f6fdc899f6834cfaddf15092b578e64142e89dfb3ddaec123a53a7646370ef94.png" src="_images/f6fdc899f6834cfaddf15092b578e64142e89dfb3ddaec123a53a7646370ef94.png" />
 </div>
 </div>
 </section>
 <section id="aply-t-sne">
-<h3><span class="section-number">4.7.2. </span>Aply t-SNE<a class="headerlink" href="#aply-t-sne" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.7.2. </span>Aply t-SNE<a class="headerlink" href="#aply-t-sne" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.manifold</span> <span class="kn">import</span> <span class="n">TSNE</span>
@@ -874,13 +889,13 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4bfe8d0a8251408c574e1cc182f854c8e7dcff4e91f1ae19cd88dff03232709e.png" src="_images/4bfe8d0a8251408c574e1cc182f854c8e7dcff4e91f1ae19cd88dff03232709e.png" />
+<img alt="_images/85451544b65dc90ba664339c2cd2647c9b94b275216511b60bbf4e875df20e16.png" src="_images/85451544b65dc90ba664339c2cd2647c9b94b275216511b60bbf4e875df20e16.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="apply-umap">
-<h2><span class="section-number">4.8. </span>Apply UMAP<a class="headerlink" href="#apply-umap" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.8. </span>Apply UMAP<a class="headerlink" href="#apply-umap" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reducer</span> <span class="o">=</span> <span class="n">umap</span><span class="o">.</span><span class="n">UMAP</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
@@ -894,12 +909,12 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/04f610a8ad679515435debff00eb208f78a2682f1bc3cf1019f2a54ddfaf2863.png" src="_images/04f610a8ad679515435debff00eb208f78a2682f1bc3cf1019f2a54ddfaf2863.png" />
+<img alt="_images/93239963c429debe740d9ac1a22a581ca8fc7fa9a7cbd41b8295b9f017f89cea.png" src="_images/93239963c429debe740d9ac1a22a581ca8fc7fa9a7cbd41b8295b9f017f89cea.png" />
 </div>
 </div>
 </section>
 <section id="application-to-handwritten-digit-recognition">
-<h2><span class="section-number">4.9. </span>Application to handwritten digit recognition<a class="headerlink" href="#application-to-handwritten-digit-recognition" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.9. </span>Application to handwritten digit recognition<a class="headerlink" href="#application-to-handwritten-digit-recognition" title="Link to this heading">#</a></h2>
 <p>The handwriting recognition dataset contains 1797 digitized hand written written characters. The characters are digitized using 8x8 grid, so each sample is represented by 64 parameters. Each parameter can have a value from 0 to 15.</p>
 <ul class="simple">
 <li><p>The original data is 64 dimensional, so it is difficult to visualize.</p></li>
@@ -919,7 +934,7 @@ Equals
 </div>
 </div>
 <section id="print-some-of-the-numbers-in-the-database">
-<h3><span class="section-number">4.9.1. </span>Print some of the numbers in the database<a class="headerlink" href="#print-some-of-the-numbers-in-the-database" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.9.1. </span>Print some of the numbers in the database<a class="headerlink" href="#print-some-of-the-numbers-in-the-database" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the first samples of each number</span>
@@ -943,12 +958,12 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/285fc42ec09a6f5d94fe38958e55657c9b4deb6d2c5826c69ea448196c1365a1.png" src="_images/285fc42ec09a6f5d94fe38958e55657c9b4deb6d2c5826c69ea448196c1365a1.png" />
+<img alt="_images/60be56a8919fb85cd0d133ce4daf9aadc74cabf17294bf3f0314affa964e3770.png" src="_images/60be56a8919fb85cd0d133ce4daf9aadc74cabf17294bf3f0314affa964e3770.png" />
 </div>
 </div>
 </section>
 <section id="dimensionality-reduction-using-pca">
-<h3><span class="section-number">4.9.2. </span>Dimensionality reduction using PCA<a class="headerlink" href="#dimensionality-reduction-using-pca" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.9.2. </span>Dimensionality reduction using PCA<a class="headerlink" href="#dimensionality-reduction-using-pca" title="Link to this heading">#</a></h3>
 <p>Apply PCA to the data, keeping at first up to 32 dimensions to study how much variance is explained by each principal component.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -972,7 +987,7 @@ Equals
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;The variance explained / %&#39;)
 </pre></div>
 </div>
-<img alt="_images/1093fb439554a6abb2635e466c8d1c4a54be12cdb015d0971158477ad681faa1.png" src="_images/1093fb439554a6abb2635e466c8d1c4a54be12cdb015d0971158477ad681faa1.png" />
+<img alt="_images/49f720fbe35e710a617f77cc11d54f8f20c03d66bed386fdea40b55074fa6f1b.png" src="_images/49f720fbe35e710a617f77cc11d54f8f20c03d66bed386fdea40b55074fa6f1b.png" />
 </div>
 </div>
 <p>It looks like quite many dimesions are needed, to keep the information in the dataset, but let’s try to plot it in 2D anyhow.</p>
@@ -991,7 +1006,7 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c1e719f10bff0dc0f91b05e70070704e2bb7dece1ab649248f33a226e7e14146.png" src="_images/c1e719f10bff0dc0f91b05e70070704e2bb7dece1ab649248f33a226e7e14146.png" />
+<img alt="_images/f52f25ad7c491b5d19f66ded0c2d3942303fb3b4266831c33fb0f07bc8d250d9.png" src="_images/f52f25ad7c491b5d19f66ded0c2d3942303fb3b4266831c33fb0f07bc8d250d9.png" />
 </div>
 </div>
 <p>The result is not retaining enough information to be able to recognize characters any longer. Let’s try if nonlinear methods would work. How about t-SNE?</p>
@@ -1013,7 +1028,7 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/573aac58a37f61f84a561b6a850a0c622cd40eeddef0e5403ebd5e7f83ff4762.png" src="_images/573aac58a37f61f84a561b6a850a0c622cd40eeddef0e5403ebd5e7f83ff4762.png" />
+<img alt="_images/3bb2832781b0c3d8fd7b2ecb71103b39ea5f1642fd3b3f74876beac10cf3a9c7.png" src="_images/3bb2832781b0c3d8fd7b2ecb71103b39ea5f1642fd3b3f74876beac10cf3a9c7.png" />
 </div>
 </div>
 <p>And how would UMAP work</p>
@@ -1035,19 +1050,19 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 14.600472 10.727288
-1 0.65944004 11.753546
-2 6.757672 6.0503545
-3 -6.343842 8.276605
-4 6.315015 17.574867
-5 -3.2942665 -1.0366838
-6 4.588121 -5.0129538
-7 -4.4089727 17.221869
-8 -1.198062 10.150411
-9 -3.7199183 5.0839353
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 13.2325535 7.2634
+1 -4.3804717 11.24697
+2 4.4543033 11.629238
+3 -1.233812 6.5404353
+4 6.272856 20.500969
+5 -1.4863375 0.84648573
+6 3.4482503 -6.0687857
+7 -2.0891285 18.637018
+8 -2.4781327 10.387849
+9 1.7088348 4.14182
 </pre></div>
 </div>
-<img alt="_images/659d898597506e35c9e1e9d0c63fe661dea33cb66ad5a84f18d4cf86b7876edc.png" src="_images/659d898597506e35c9e1e9d0c63fe661dea33cb66ad5a84f18d4cf86b7876edc.png" />
+<img alt="_images/50d2a91badf7b3843fff149ce34610b8d4df27a822a81891632d55ba47391857.png" src="_images/50d2a91badf7b3843fff149ce34610b8d4df27a822a81891632d55ba47391857.png" />
 </div>
 </div>
 <p>UMAP seems to create the densiest clouds around each number, but it has also an additional benefit as compared to t-SNE. I has also a inverse transformation. Lets select some points from the transform space and convert them back to feature space. They should resemple some digits.</p>
@@ -1074,13 +1089,13 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f50d2361bc1d9b79536fd5a9e4b67107eb59b85a2a41831ac2db9d6919bb0728.png" src="_images/f50d2361bc1d9b79536fd5a9e4b67107eb59b85a2a41831ac2db9d6919bb0728.png" />
+<img alt="_images/cdffbba4a9d736a2d0bf1eb52071706c68c75cc3e078b3e2c29b0decc99ee74a.png" src="_images/cdffbba4a9d736a2d0bf1eb52071706c68c75cc3e078b3e2c29b0decc99ee74a.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="umap-plotting">
-<h2><span class="section-number">4.10. </span>Umap plotting<a class="headerlink" href="#umap-plotting" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.10. </span>Umap plotting<a class="headerlink" href="#umap-plotting" title="Link to this heading">#</a></h2>
 <p>As shown, the data projected by UMAP can be plotted with matplotlib as normal, but UMAP library comes also with some special plotting methods, if you want install <code class="docutils literal notranslate"><span class="pre">umap-learn[plot]</span></code>. Let’s try some</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1089,8 +1104,39 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/mnt/debian/pvs/venv/JupyterAI/lib/python3.11/site-packages/umap/plot.py:203: NumbaDeprecationWarning: The keyword argument &#39;nopython=False&#39; was supplied. From Numba 0.59.0 the default is being changed to True and use of &#39;nopython=False&#39; will raise a warning as the argument will have no effect. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.
-  @numba.jit(nopython=False)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/petri/miniforge3/envs/octave/lib/python3.11/site-packages/umap/plot.py:20: UserWarning: The umap.plot package requires extra plotting libraries to be installed.
+    You can install these via pip using
+
+    pip install umap-learn[plot]
+
+    or via conda using
+
+     conda install pandas matplotlib datashader bokeh holoviews colorcet scikit-image
+    
+  warn(
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">30</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">umap.plot</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">miniforge3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">octave</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">umap</span><span class="o">/</span><span class="n">plot</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">31</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span>     <span class="n">warn</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span><span class="w">         </span><span class="sd">&quot;&quot;&quot;The umap.plot package requires extra plotting libraries to be installed.</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span><span class="sd">     You can install these via pip using</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">30</span>     <span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">31</span>     <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">32</span>         <span class="s2">&quot;umap.plot requires pandas matplotlib datashader bokeh holoviews scikit-image and colorcet to be &quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">33</span>         <span class="s2">&quot;installed&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">34</span>     <span class="p">)</span> <span class="kn">from</span> <span class="kc">None</span>
+<span class="g g-Whitespace">     </span><span class="mi">36</span> <span class="kn">import</span> <span class="nn">sklearn.decomposition</span>
+<span class="g g-Whitespace">     </span><span class="mi">37</span> <span class="kn">import</span> <span class="nn">sklearn.cluster</span>
+
+<span class="ne">ImportError</span>: umap.plot requires pandas matplotlib datashader bokeh holoviews scikit-image and colorcet to be installed
 </pre></div>
 </div>
 </div>
@@ -1105,7 +1151,7 @@ Equals
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="_images/f93c93f00f2290b91ab71a65b8d4b0f0388f5513f043ec38d73f1d9d09590a59.png" src="_images/f93c93f00f2290b91ab71a65b8d4b0f0388f5513f043ec38d73f1d9d09590a59.png" />
+<img alt="_images/918caf0d7bedee78a2ab5ebd6bc0a49b8c2a28a3e9e4d3fab5358be819634fdf.png" src="_images/918caf0d7bedee78a2ab5ebd6bc0a49b8c2a28a3e9e4d3fab5358be819634fdf.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1118,7 +1164,7 @@ Equals
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: title={&#39;center&#39;: &#39;Colored by RGB coords of PCA embedding&#39;}&gt;
 </pre></div>
 </div>
-<img alt="_images/696e4b985d3ee29209c204cb5e16b085c0c919e11b992b3b25f54633e9319b72.png" src="_images/696e4b985d3ee29209c204cb5e16b085c0c919e11b992b3b25f54633e9319b72.png" />
+<img alt="_images/5f31b0e12d286f7b981b120aa3568daf2cb0d11448637b49cdb4d150dc48a8e4.png" src="_images/5f31b0e12d286f7b981b120aa3568daf2cb0d11448637b49cdb4d150dc48a8e4.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1133,7 +1179,7 @@ Equals
 <p>The estimation of connectivity plot with edge blunding is very time consuming but looks nice. Therefore I just add the result here</p>
 <p><img alt="connectivity" src="UMAP_connectivity.png" /></p>
 <section id="handwritten-digits-case">
-<h3><span class="section-number">4.10.1. </span>Handwritten digits case<a class="headerlink" href="#handwritten-digits-case" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.10.1. </span>Handwritten digits case<a class="headerlink" href="#handwritten-digits-case" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Linear methods were not succesfull retaining enough information for handwritten digits recognition when the dimensionality of data was reduced from 64 to 2. The explained variance ratio inferes that quite many principal components, like more than 10 would be needed for this problem.</p></li>
 <li><p>t-SNE was able to capture better the structure of the originally multidimensional data only in 2D. It does not have an inverse transformation, and it is not therefore as generally usefull than PCA, but it is very usefull for example in visualizint multi-dimensional data.</p></li>
@@ -1144,7 +1190,7 @@ Equals
 </section>
 </section>
 <section id="conclusion">
-<h2><span class="section-number">4.11. </span>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.11. </span>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>PCA is a powerfull method for transforming data into low dimensional subspace</p></li>
 <li><p>PCA learns linear dependences between variables (correlation) and removes it, so that projected variables are uncorrelated</p></li>
@@ -1191,8 +1237,8 @@ Equals
               
               
               
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                <footer class="prev-next-footer d-print-none">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="Preprocessing_and_feature_extraction.html"
@@ -1220,6 +1266,7 @@ Equals
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1282,9 +1329,10 @@ By Petri Välisuo
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -1308,8 +1356,8 @@ By Petri Välisuo
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

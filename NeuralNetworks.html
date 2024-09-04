@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>15. Artificial Neural Networks (ANN) &#8212; Applied Machine Learning, 2021</title>
   
@@ -15,53 +14,49 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'NeuralNetworks';</script>
@@ -78,28 +73,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -121,12 +111,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -141,9 +139,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="practicalities.html">
+  
   
   
   
@@ -153,12 +155,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="_static/ApplesAndOranges.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/ApplesAndOranges.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/ApplesAndOranges.png" class="logo__image only-light" alt="Applied Machine Learning, 2021 - Home"/>
+    <script>document.write(`<img src="_static/ApplesAndOranges.png" class="logo__image only-dark" alt="Applied Machine Learning, 2021 - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -208,7 +221,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -217,14 +230,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -249,14 +262,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://notebooks.csc.fi/#/blueprint/d1fe6e08032e4c17a0f9e0e222414598/hub/user-redirect/git-pull?repo=https%3A//github.com/pevalisuo/AML.git&urlpath=tree/AML.git/book/NeuralNetworks.ipynb&branch=master" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onJupyterHub"
+   title="Launch on JupyterHub"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="_static/images/logo_jupyterhub.svg">
+    <img alt="JupyterHub logo" src="_static/images/logo_jupyterhub.svg">
   </span>
 <span class="btn__text-container">JupyterHub</span>
 </a>
@@ -330,26 +343,28 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -405,14 +420,14 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="artificial-neural-networks-ann">
-<h1><span class="section-number">15. </span>Artificial Neural Networks (ANN)<a class="headerlink" href="#artificial-neural-networks-ann" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">15. </span>Artificial Neural Networks (ANN)<a class="headerlink" href="#artificial-neural-networks-ann" title="Link to this heading">#</a></h1>
 <section id="neural-networks">
-<h2><span class="section-number">15.1. </span>Neural networks<a class="headerlink" href="#neural-networks" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">15.1. </span>Neural networks<a class="headerlink" href="#neural-networks" title="Link to this heading">#</a></h2>
 <section id="perceptron">
-<h3><span class="section-number">15.1.1. </span>Perceptron<a class="headerlink" href="#perceptron" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">15.1.1. </span>Perceptron<a class="headerlink" href="#perceptron" title="Link to this heading">#</a></h3>
 <p>Neural network consists of few layers of perceptrons. Each perceptron simulates the operation of neuron. It collects input variables <span class="math notranslate nohighlight">\(x_i\)</span>, weights them with coefficients <span class="math notranslate nohighlight">\(w_i\)</span>, and sums the result to one value. The output value is obtained by scaling the sum between values 0…1 by using an activation function. For classification, the activation function is binary step function, and for regression, it is continuous, like sigmoid function. The neuron can be teached by updating the weights <span class="math notranslate nohighlight">\(w_i\)</span>.</p>
 <p><img alt="Perceptron" src="_images/perceptron.svg" /></p>
 <p>The output of the perceptron is</p>
@@ -423,7 +438,7 @@ document.write(`
 \]</div>
 </section>
 <section id="activation-functions">
-<h3><span class="section-number">15.1.2. </span>Activation functions<a class="headerlink" href="#activation-functions" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">15.1.2. </span>Activation functions<a class="headerlink" href="#activation-functions" title="Link to this heading">#</a></h3>
 <p>Common activation functions, <span class="math notranslate nohighlight">\(f()\)</span>, are</p>
 <ol class="arabic simple">
 <li><p>Linear</p></li>
@@ -440,7 +455,7 @@ document.write(`
 <p>Relu: $<span class="math notranslate nohighlight">\(f(x) = \begin{cases} 0 &amp;  \text{if} ~ x&lt;0 \\ x &amp; \text{otherwise} \end{cases}\)</span>$</p>
 </section>
 <section id="implementation-of-activation-functions">
-<h3><span class="section-number">15.1.3. </span>Implementation of activation functions<a class="headerlink" href="#implementation-of-activation-functions" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">15.1.3. </span>Implementation of activation functions<a class="headerlink" href="#implementation-of-activation-functions" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -477,7 +492,7 @@ document.write(`
 </div>
 </section>
 <section id="implementation-of-perceptron">
-<h3><span class="section-number">15.1.4. </span>Implementation of perceptron<a class="headerlink" href="#implementation-of-perceptron" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">15.1.4. </span>Implementation of perceptron<a class="headerlink" href="#implementation-of-perceptron" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">perceptron</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">W</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">):</span>
@@ -496,7 +511,7 @@ document.write(`
 </div>
 </section>
 <section id="testing-of-a-perceptron">
-<h3><span class="section-number">15.1.5. </span>Testing of a perceptron<a class="headerlink" href="#testing-of-a-perceptron" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">15.1.5. </span>Testing of a perceptron<a class="headerlink" href="#testing-of-a-perceptron" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">])</span>
@@ -525,7 +540,7 @@ document.write(`
 </div>
 </section>
 <section id="learning-algorithms">
-<h3><span class="section-number">15.1.6. </span>Learning algorithms<a class="headerlink" href="#learning-algorithms" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">15.1.6. </span>Learning algorithms<a class="headerlink" href="#learning-algorithms" title="Link to this heading">#</a></h3>
 <p>When using Stochastic Gradient Descent (<strong>SGD</strong>) training,  the weights, <span class="math notranslate nohighlight">\(w_i\)</span>, are updated towards the gradient (multidimensional derivative) or the loss function.
 $<span class="math notranslate nohighlight">\(
     w \leftarrow w - \eta \left(\alpha \frac{\partial R(w)}{\partial w} + \frac{\partial L(w)}{\partial w}\right),
@@ -535,13 +550,13 @@ $<span class="math notranslate nohighlight">\(
 <p><img alt="Training of MLP" src="_images/mlp_training.svg" /></p>
 </section>
 <section id="multi-layer-perceptron">
-<h3><span class="section-number">15.1.7. </span>Multi layer perceptron<a class="headerlink" href="#multi-layer-perceptron" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">15.1.7. </span>Multi layer perceptron<a class="headerlink" href="#multi-layer-perceptron" title="Link to this heading">#</a></h3>
 <p>A single perceptron can only handle simple problems. For more complex problems, a network of several layers of perceptrons are needed. These networks are called as Multi Layer Perceptron networks (MLP) or artificial neural networks (ANN). When the number of hidden layer is large, the network is called as Deep Neural Network (DNN) and it is one example of Deep Learning.</p>
 <p><img alt="Perceptron" src="_images/mlp.svg" /></p>
 </section>
 </section>
 <section id="training-a-neural-network">
-<h2><span class="section-number">15.2. </span>Training a neural network<a class="headerlink" href="#training-a-neural-network" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">15.2. </span>Training a neural network<a class="headerlink" href="#training-a-neural-network" title="Link to this heading">#</a></h2>
 <p>Training of a neural network is carried out through following steps</p>
 <ol class="arabic simple">
 <li><p>The training data, including input data <span class="math notranslate nohighlight">\(X\)</span> and the correct answers <span class="math notranslate nohighlight">\(y\)</span> is selected</p></li>
@@ -551,7 +566,7 @@ $<span class="math notranslate nohighlight">\(
 <li><p>At this time one <strong>EPOCH</strong> passed. The training often continues by using the same data again, and the whole training process can last from one EPOCH up to hundreds of EPOCHs.</p></li>
 </ol>
 <section id="when-to-stop-training">
-<h3><span class="section-number">15.2.1. </span>When to stop training<a class="headerlink" href="#when-to-stop-training" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">15.2.1. </span>When to stop training<a class="headerlink" href="#when-to-stop-training" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>The performance of the network usually improves when the traning continues.</p></li>
 <li><p>The learning is fast in the beginning, but slows down after the network is well trained already</p></li>
@@ -564,7 +579,7 @@ $<span class="math notranslate nohighlight">\(
 </section>
 </section>
 <section id="example">
-<h2><span class="section-number">15.3. </span>Example<a class="headerlink" href="#example" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">15.3. </span>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h2>
 <p>The above Iris example can be classified using Multi Layer Perceptron Classifier (MLPC) but SVM already handled that problem well and because the number of samples in the dataset is only 150, it is only sufficient for training very thin MLPC. Therefore, lets create an artificial classification problem with 1000 samples and tree partly overlapping classes to make the problem more challengin and train an MLPC for solving it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -611,7 +626,7 @@ Prediction accuracy is 0.944
 </div>
 </section>
 <section id="digits-dataset">
-<h2><span class="section-number">15.4. </span>Digits dataset<a class="headerlink" href="#digits-dataset" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">15.4. </span>Digits dataset<a class="headerlink" href="#digits-dataset" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">digits</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_digits</span><span class="p">()</span>
@@ -676,7 +691,7 @@ Prediction accuracy in CV 0.8770473537604456
 </div>
 </section>
 <section id="time-series-analysis">
-<h2><span class="section-number">15.5. </span>Time series analysis<a class="headerlink" href="#time-series-analysis" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">15.5. </span>Time series analysis<a class="headerlink" href="#time-series-analysis" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>In it’s standard form, the neural network has no understanding of time, and it is therefore not very suitable for time series analysis, for example in predicting future values</p></li>
 <li><p>Several variations of Neural Networks are however suitable for time series analysis</p></li>
@@ -686,7 +701,7 @@ Prediction accuracy in CV 0.8770473537604456
 <p><img alt="RNNimage" src="_images/RNN.svg" /></p>
 </section>
 <section id="convolutional-neural-network">
-<h2><span class="section-number">15.6. </span>Convolutional neural network<a class="headerlink" href="#convolutional-neural-network" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">15.6. </span>Convolutional neural network<a class="headerlink" href="#convolutional-neural-network" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>In deep image analysis networks, it is efficient to combine neural network with efficient image processing functions, such as convolution and subsampling (pooling).</p></li>
 <li><p>The following CNN network consists of</p>
@@ -704,7 +719,7 @@ Prediction accuracy in CV 0.8770473537604456
 <p>A nice description of convolutional neural network (CNN) is <a class="reference external" href="https://wiki.pathmind.com/convolutional-network">here</a>.</p>
 </section>
 <section id="keras-and-pytorch">
-<h2><span class="section-number">15.7. </span>Keras and Pytorch<a class="headerlink" href="#keras-and-pytorch" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">15.7. </span>Keras and Pytorch<a class="headerlink" href="#keras-and-pytorch" title="Link to this heading">#</a></h2>
 <p>MLP classifier and regressors use only CPU resources, but to utilize real power of ANN, they are often ran in massive parallel hardware, such as GPU:s. This is not necessary for simple neural network models shown above, but they become more important when the number of hidden layers in the network model increases and the model becomes deeper.</p>
 <p>Frameworks often used for Deep Neural Networks are for example Keras, Tensorflow and PyTorch.</p>
 <ul class="simple">
@@ -716,7 +731,7 @@ Prediction accuracy in CV 0.8770473537604456
 <p><a class="reference external" href="https://towardsdatascience.com/keras-vs-pytorch-for-deep-learning-a013cb63870d">PyTorch vs Keras</a></p>
 <p><a class="reference external" href="https://keras.io/why_keras/">Why to choose Keras</a></p>
 <section id="example-code-for-simple-keras-processing">
-<h3><span class="section-number">15.7.1. </span>Example code for simple Keras processing<a class="headerlink" href="#example-code-for-simple-keras-processing" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">15.7.1. </span>Example code for simple Keras processing<a class="headerlink" href="#example-code-for-simple-keras-processing" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -751,7 +766,7 @@ max: 1.0
 </div>
 </section>
 <section id="convolutional-neural-network-with-keral">
-<h3><span class="section-number">15.7.2. </span>Convolutional neural network with Keral<a class="headerlink" href="#convolutional-neural-network-with-keral" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">15.7.2. </span>Convolutional neural network with Keral<a class="headerlink" href="#convolutional-neural-network-with-keral" title="Link to this heading">#</a></h3>
 <p>The CNN model consists of layers, and the Keras API allows building the layered CNN model in very straightforward manner. Keras contains also many functions for preprocessing images and generating variations from existing image database, because the model contains plenty of parameters and needs therefore a large set of training images.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -846,13 +861,13 @@ _________________________________________________________________
 </section>
 </section>
 <section id="pre-trained-models">
-<h2><span class="section-number">15.8. </span>Pre trained models<a class="headerlink" href="#pre-trained-models" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">15.8. </span>Pre trained models<a class="headerlink" href="#pre-trained-models" title="Link to this heading">#</a></h2>
 <p>Since the training of the neural network models is so time consuming, an important topics in deep learning are pre trained models and transfer learning (the model trained to one application is used in another related application without retraining, or partial re-training.</p>
 <p>Some huge deep networks can be also used as general purpose neural networks. One of the biggest network this far is the Generative Pre-trained Transformer 3 (<a class="reference external" href="https://en.wikipedia.org/wiki/GPT-3">GPT-3</a>), which is suitable for many Natural Language Processing (NLP) tasks. GPT-3 sisältää 175 billion (<span class="math notranslate nohighlight">\(175 \cdot 10^9\)</span>) parameters. GPT-3 can generate text wich is difficult to distinguish from a human writer.</p>
 <p><a class="reference external" href="https://www.theguardian.com/commentisfree/2020/sep/08/robot-wrote-this-article-gpt-3">A robot wrote this entire article. Are you scared yet, human</a></p>
 </section>
 <section id="more-information">
-<h2><span class="section-number">15.9. </span>More information<a class="headerlink" href="#more-information" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">15.9. </span>More information<a class="headerlink" href="#more-information" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.geeksforgeeks.org/opencv-and-keras-traffic-sign-classification-for-self-driving-car/?ref=rp">OpenCV and Keras | Traffic Sign Classification for Self-Driving Car</a></p></li>
 <li><p>Read more from <a class="reference external" href="https://keras.io/getting_started/intro_to_keras_for_engineers/">Keras for engineers</a></p></li>
@@ -861,7 +876,7 @@ _________________________________________________________________
 </ul>
 </section>
 <section id="summary">
-<h2><span class="section-number">15.10. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">15.10. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Artificial Neural Networks (ANN) based on perceptrons, are versatile machine learning methods for both regression and classification. Deep and dense networks can learn to handle complex tasks, but the deeper the network, the more training data is needed.</p></li>
 <li><p>Deep learning can be implemented using many hidden layers in ANN. Deep learning requires large amount of training data.</p></li>
@@ -898,8 +913,8 @@ _________________________________________________________________
               
               
               
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                <footer class="prev-next-footer d-print-none">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="Regression.html"
@@ -927,6 +942,7 @@ _________________________________________________________________
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -981,9 +997,10 @@ By Petri Välisuo
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -1007,8 +1024,8 @@ By Petri Välisuo
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
