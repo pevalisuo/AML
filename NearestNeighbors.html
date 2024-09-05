@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>11. Nearest Neighbours methods &#8212; Applied Machine Learning, 2021</title>
+    <title>12. Nearest Neighbours methods &#8212; Applied Machine Learning, 2021</title>
   
   
   
@@ -62,8 +62,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'NearestNeighbors';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="12. Support Vector Machine (SVM)" href="SupportVectorMachine.html" />
-    <link rel="prev" title="6. Training process" href="SupervisedMachineLearningTerminology.html" />
+    <link rel="next" title="13. Support Vector Machine (SVM)" href="SupportVectorMachine.html" />
+    <link rel="prev" title="7. Training process" href="SupervisedMachineLearningTerminology.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -183,29 +183,27 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Introduction.html">1. Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ReadingAndPlotting.html">2. Reading and plotting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Preprocessing_and_feature_extraction.html">3. Preprocessing and feature extraction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Subspace_Projections.html">4. Dimensionality reduction by Subspace projections</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Clustering.html">5. Unsupervised learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SupervisedMachineLearningTerminology.html">6. Training process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Modeling.html">2. Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ReadingAndPlotting.html">3. Reading and plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Preprocessing_and_feature_extraction.html">4. Preprocessing and feature extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Subspace_Projections.html">5. Dimensionality reduction by Subspace projections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Clustering.html">6. Unsupervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SupervisedMachineLearningTerminology.html">7. Training process</a></li>
 
 
 
 
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">11. Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a></a></li>
-<li class="toctree-l1"><a class="reference internal" href="SupportVectorMachine.html">12. Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></a></li>
-<li class="toctree-l1"><a class="reference internal" href="DecisionTrees.html">13. Decision trees and forests <a class="anchor" id="dtaforests"></a></a></li>
-<li class="toctree-l1"><a class="reference internal" href="Regression.html">14. Regression and regularisation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="NeuralNetworks.html">15. Artificial Neural Networks (ANN)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Learning_model_parameters.html">16. Model learning strategies</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">12. Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="SupportVectorMachine.html">13. Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="DecisionTrees.html">14. Decision trees and forests <a class="anchor" id="dtaforests"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Regression.html">15. Regression and regularisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NeuralNetworks.html">16. Artificial Neural Networks (ANN)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Learning_model_parameters.html">17. Model learning strategies</a></li>
 
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="NLP.html">22. Natural Language Processing</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="NLP-UWB.html">24. Ultra Wide Band positioning literature analysis</a></li>
 </ul>
 
     </div>
@@ -385,16 +383,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#brute-force-implementation">11.1. Brute force implementation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pipelining">11.1.1. Pipelining</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#brute-force-implementation">12.1. Brute force implementation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pipelining">12.1.1. Pipelining</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-of-the-decision-boundaries">11.2. Visualization of the decision boundaries</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variations">11.2.1. Variations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-of-the-decision-boundaries">12.2. Visualization of the decision boundaries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variations">12.2.1. Variations</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nearest-centroid-classifier">11.3. Nearest Centroid Classifier</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">11.4. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nearest-centroid-classifier">12.3. Nearest Centroid Classifier</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">12.4. Summary</a></li>
 </ul>
             </nav>
         </div>
@@ -407,10 +405,10 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="nearest-neighbours-methods">
-<h1><span class="section-number">11. </span>Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a><a class="headerlink" href="#nearest-neighbours-methods" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">12. </span>Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a><a class="headerlink" href="#nearest-neighbours-methods" title="Link to this heading">#</a></h1>
 <p>Nearest Neighbour methods provide some very staightforward methods for supervised machine learning</p>
 <section id="brute-force-implementation">
-<h2><span class="section-number">11.1. </span>Brute force implementation<a class="headerlink" href="#brute-force-implementation" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">12.1. </span>Brute force implementation<a class="headerlink" href="#brute-force-implementation" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Set the number of nearest neighbours, <span class="math notranslate nohighlight">\(K\)</span></p></li>
 <li><p>To predict one new sample, calculate its distance to all known training samples</p></li>
@@ -495,7 +493,7 @@ The accuracy of KNN is..... 0.96
 </div>
 </div>
 <section id="pipelining">
-<h3><span class="section-number">11.1.1. </span>Pipelining<a class="headerlink" href="#pipelining" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">12.1.1. </span>Pipelining<a class="headerlink" href="#pipelining" title="Link to this heading">#</a></h3>
 <p>In Scikit Learn, all methods are build using the same interface. This makes it easier to build larger machine learning systems by combining different stages together as pipelines.</p>
 <p>For example, the scaling of features, dimensionality reduction, and sclassification can be combined as a single pipeline. This is especially usefull, when several datasets (validation data, testing data, production data, etc) needs to be fed through the same stages.</p>
 <div class="cell docutils container">
@@ -526,7 +524,7 @@ The accuracy of KNN is..... 0.96
 </section>
 </section>
 <section id="visualization-of-the-decision-boundaries">
-<h2><span class="section-number">11.2. </span>Visualization of the decision boundaries<a class="headerlink" href="#visualization-of-the-decision-boundaries" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">12.2. </span>Visualization of the decision boundaries<a class="headerlink" href="#visualization-of-the-decision-boundaries" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Skip this code if you are not interested</span>
@@ -587,7 +585,7 @@ The accuracy of KNN is..... 0.96
 </div>
 </div>
 <section id="variations">
-<h3><span class="section-number">11.2.1. </span>Variations<a class="headerlink" href="#variations" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">12.2.1. </span>Variations<a class="headerlink" href="#variations" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Nearest Centroid classifier</p>
 <ul>
@@ -605,7 +603,7 @@ The accuracy of KNN is..... 0.96
 </section>
 </section>
 <section id="nearest-centroid-classifier">
-<h2><span class="section-number">11.3. </span>Nearest Centroid Classifier<a class="headerlink" href="#nearest-centroid-classifier" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">12.3. </span>Nearest Centroid Classifier<a class="headerlink" href="#nearest-centroid-classifier" title="Link to this heading">#</a></h2>
 <p>Nearest centroid classifier does not need to store all training data, thats why it is also faster to predict.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -659,7 +657,7 @@ The accuracy of KNN is..... 0.96
 </div>
 </section>
 <section id="summary">
-<h2><span class="section-number">11.4. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">12.4. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>kNN is simple classification method</p></li>
 <li><p>kNN supports non-linear and complex decision boundaries</p></li>
@@ -707,7 +705,7 @@ The accuracy of KNN is..... 0.96
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">6. </span>Training process</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Training process</p>
       </div>
     </a>
     <a class="right-next"
@@ -715,7 +713,7 @@ The accuracy of KNN is..... 0.96
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">12. </span>Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></p>
+        <p class="prev-next-title"><span class="section-number">13. </span>Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -735,16 +733,16 @@ The accuracy of KNN is..... 0.96
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#brute-force-implementation">11.1. Brute force implementation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pipelining">11.1.1. Pipelining</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#brute-force-implementation">12.1. Brute force implementation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pipelining">12.1.1. Pipelining</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-of-the-decision-boundaries">11.2. Visualization of the decision boundaries</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variations">11.2.1. Variations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-of-the-decision-boundaries">12.2. Visualization of the decision boundaries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variations">12.2.1. Variations</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nearest-centroid-classifier">11.3. Nearest Centroid Classifier</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">11.4. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nearest-centroid-classifier">12.3. Nearest Centroid Classifier</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">12.4. Summary</a></li>
 </ul>
   </nav></div>
 

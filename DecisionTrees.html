@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>13. Decision trees and forests &#8212; Applied Machine Learning, 2021</title>
+    <title>14. Decision trees and forests &#8212; Applied Machine Learning, 2021</title>
   
   
   
@@ -62,8 +62,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'DecisionTrees';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="14. Regression and regularisation" href="Regression.html" />
-    <link rel="prev" title="12. Support Vector Machine (SVM)" href="SupportVectorMachine.html" />
+    <link rel="next" title="15. Regression and regularisation" href="Regression.html" />
+    <link rel="prev" title="13. Support Vector Machine (SVM)" href="SupportVectorMachine.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -183,29 +183,27 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Introduction.html">1. Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ReadingAndPlotting.html">2. Reading and plotting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Preprocessing_and_feature_extraction.html">3. Preprocessing and feature extraction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Subspace_Projections.html">4. Dimensionality reduction by Subspace projections</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Clustering.html">5. Unsupervised learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SupervisedMachineLearningTerminology.html">6. Training process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Modeling.html">2. Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ReadingAndPlotting.html">3. Reading and plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Preprocessing_and_feature_extraction.html">4. Preprocessing and feature extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Subspace_Projections.html">5. Dimensionality reduction by Subspace projections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Clustering.html">6. Unsupervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SupervisedMachineLearningTerminology.html">7. Training process</a></li>
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="NearestNeighbors.html">11. Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a></a></li>
-<li class="toctree-l1"><a class="reference internal" href="SupportVectorMachine.html">12. Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">13. Decision trees and forests <a class="anchor" id="dtaforests"></a></a></li>
-<li class="toctree-l1"><a class="reference internal" href="Regression.html">14. Regression and regularisation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="NeuralNetworks.html">15. Artificial Neural Networks (ANN)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Learning_model_parameters.html">16. Model learning strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NearestNeighbors.html">12. Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="SupportVectorMachine.html">13. Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">14. Decision trees and forests <a class="anchor" id="dtaforests"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Regression.html">15. Regression and regularisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NeuralNetworks.html">16. Artificial Neural Networks (ANN)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Learning_model_parameters.html">17. Model learning strategies</a></li>
 
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="NLP.html">22. Natural Language Processing</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="NLP-UWB.html">24. Ultra Wide Band positioning literature analysis</a></li>
 </ul>
 
     </div>
@@ -385,23 +383,23 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-tree">13.1. Decision tree <a class="anchor" id="decisiontrees"></a></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimize-the-tree-depth">13.1.1. Optimize the tree depth</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-tree">14.1. Decision tree <a class="anchor" id="decisiontrees"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimize-the-tree-depth">14.1.1. Optimize the tree depth</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ensemble-methods">13.2. Ensemble methods <a class="anchor" id="ensemblemethods"></a></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bagging">13.2.1. Bagging <a class="anchor" id="Bagging"></a></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#randomized-trees">13.2.1.1. Randomized trees   <a class="anchor" id="RandomizedTrees"></a></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#extratrees-classifier-extremely-randomized-trees">13.2.1.2. Extratrees classifier (Extremely randomized trees)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ensemble-methods">14.2. Ensemble methods <a class="anchor" id="ensemblemethods"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bagging">14.2.1. Bagging <a class="anchor" id="Bagging"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#randomized-trees">14.2.1.1. Randomized trees   <a class="anchor" id="RandomizedTrees"></a></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#extratrees-classifier-extremely-randomized-trees">14.2.1.2. Extratrees classifier (Extremely randomized trees)</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimising-the-parameters-fo-the-extratrees-classifier">13.2.2. Optimising the parameters fo the Extratrees classifier</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimising-the-parameters-fo-the-extratrees-classifier">14.2.2. Optimising the parameters fo the Extratrees classifier</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boosting">13.3. Boosting <a class="anchor" id="Boosting"></a></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adaboost">13.3.1. Adaboost <a class="anchor" id="AdaBoost"></a></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-tree-boosting">13.3.2. Gradient Tree Boosting <a class="anchor" id="GBRT"></a></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extreme-gradient-boosting-xgboost">13.3.3. Extreme Gradient Boosting (XGBoost) <a class="anchor" id="XGBoost"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boosting">14.3. Boosting <a class="anchor" id="Boosting"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adaboost">14.3.1. Adaboost <a class="anchor" id="AdaBoost"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-tree-boosting">14.3.2. Gradient Tree Boosting <a class="anchor" id="GBRT"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extreme-gradient-boosting-xgboost">14.3.3. Extreme Gradient Boosting (XGBoost) <a class="anchor" id="XGBoost"></a></a></li>
 </ul>
 </li>
 </ul>
@@ -416,9 +414,9 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="decision-trees-and-forests">
-<h1><span class="section-number">13. </span>Decision trees and forests <a class="anchor" id="dtaforests"></a><a class="headerlink" href="#decision-trees-and-forests" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">14. </span>Decision trees and forests <a class="anchor" id="dtaforests"></a><a class="headerlink" href="#decision-trees-and-forests" title="Link to this heading">#</a></h1>
 <section id="decision-tree">
-<h2><span class="section-number">13.1. </span>Decision tree <a class="anchor" id="decisiontrees"></a><a class="headerlink" href="#decision-tree" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">14.1. </span>Decision tree <a class="anchor" id="decisiontrees"></a><a class="headerlink" href="#decision-tree" title="Link to this heading">#</a></h2>
 <p>Decision trees are non-parametrized methdos for supervised learning, which can be used both regression and classification. The decision tree below is trained to classify the pixels in the satellite image. From all 13 features (channels of the image), it uses only 4 features, which are {5, 11, 12, 7}. First the feature number 5 is used for thresholding. If it’s value is less than 0.0751, then the sample is classified as water. From the description of the channels, we can check that the channel 5 describes the reflectance of wavelength of red (740 nm). The reason for this threshold can be interpreted with relative ease, in this case it is because water absorbs red light, and there is no other area where this absorbtion would be stronger. Therefore this measurement alone separates water areas from every other.</p>
 <p>If the sample is not water, the channel 11 (1375 nm) will be compared next, and if it’s reflectance is very small, the area is classified as forest, and so on.</p>
 <p><img alt="Decision tree" src="_images/decisionTree.svg" /></p>
@@ -482,7 +480,7 @@ DecisionTreeClassifier(max_depth=2)
 </div>
 <p>Each branch in the decision tree creates new linear separation in the remaining are of the feature space. Try to increase the depth of the tree in the previous code cell to see how the decision boundary changes when the complexity is changed.</p>
 <section id="optimize-the-tree-depth">
-<h3><span class="section-number">13.1.1. </span>Optimize the tree depth<a class="headerlink" href="#optimize-the-tree-depth" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">14.1.1. </span>Optimize the tree depth<a class="headerlink" href="#optimize-the-tree-depth" title="Link to this heading">#</a></h3>
 <p>Obviously too deep tree leads to too complex decision boundary and overfitting. Bu what is the optimal tree depth? It can be optimisez using cross validation, as shown below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -528,7 +526,7 @@ Accurary in the test set......0.920000
 </section>
 </section>
 <section id="ensemble-methods">
-<h2><span class="section-number">13.2. </span>Ensemble methods <a class="anchor" id="ensemblemethods"></a><a class="headerlink" href="#ensemble-methods" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">14.2. </span>Ensemble methods <a class="anchor" id="ensemblemethods"></a><a class="headerlink" href="#ensemble-methods" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Bagging in <a class="reference external" href="https://scikit-learn.org/stable/modules/ensemble.html">Skikit Learn</a></p>
 <ul>
@@ -540,9 +538,9 @@ Accurary in the test set......0.920000
 <li><p>Boosting is another method to combine multiple predictors</p></li>
 </ul>
 <section id="bagging">
-<h3><span class="section-number">13.2.1. </span>Bagging <a class="anchor" id="Bagging"></a><a class="headerlink" href="#bagging" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">14.2.1. </span>Bagging <a class="anchor" id="Bagging"></a><a class="headerlink" href="#bagging" title="Link to this heading">#</a></h3>
 <section id="randomized-trees">
-<h4><span class="section-number">13.2.1.1. </span>Randomized trees   <a class="anchor" id="RandomizedTrees"></a><a class="headerlink" href="#randomized-trees" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">14.2.1.1. </span>Randomized trees   <a class="anchor" id="RandomizedTrees"></a><a class="headerlink" href="#randomized-trees" title="Link to this heading">#</a></h4>
 <ul class="simple">
 <li><p>Forest of randomized trees is one famous bagging method. it works as follows</p>
 <ol class="arabic simple">
@@ -556,7 +554,7 @@ Accurary in the test set......0.920000
 </ul>
 </section>
 <section id="extratrees-classifier-extremely-randomized-trees">
-<h4><span class="section-number">13.2.1.2. </span>Extratrees classifier (Extremely randomized trees)<a class="headerlink" href="#extratrees-classifier-extremely-randomized-trees" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">14.2.1.2. </span>Extratrees classifier (Extremely randomized trees)<a class="headerlink" href="#extratrees-classifier-extremely-randomized-trees" title="Link to this heading">#</a></h4>
 <ul class="simple">
 <li><p>Even more random</p></li>
 <li><p>The threshold rules are selected at random for randomly selected features</p></li>
@@ -566,7 +564,7 @@ Accurary in the test set......0.920000
 </section>
 </section>
 <section id="optimising-the-parameters-fo-the-extratrees-classifier">
-<h3><span class="section-number">13.2.2. </span>Optimising the parameters fo the Extratrees classifier<a class="headerlink" href="#optimising-the-parameters-fo-the-extratrees-classifier" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">14.2.2. </span>Optimising the parameters fo the Extratrees classifier<a class="headerlink" href="#optimising-the-parameters-fo-the-extratrees-classifier" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Extratrees classifier has already many more parameters than normal decision tree.</p></li>
 <li><p>It is not convenient to try them all to find out an optimal combination</p></li>
@@ -624,7 +622,7 @@ ExtraTreesClassifier(max_depth=4, n_estimators=21)
 </section>
 </section>
 <section id="boosting">
-<h2><span class="section-number">13.3. </span>Boosting <a class="anchor" id="Boosting"></a><a class="headerlink" href="#boosting" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">14.3. </span>Boosting <a class="anchor" id="Boosting"></a><a class="headerlink" href="#boosting" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Construct weak random trees and chain them after each other on modified version of the data</p></li>
 <li><p>Examples <a class="reference external" href="https://scikit-learn.org/stable/modules/ensemble.html#adaboost">Adaboost</a>
@@ -632,7 +630,7 @@ ExtraTreesClassifier(max_depth=4, n_estimators=21)
 <a class="reference external" href="https://xgboost.readthedocs.io/en/latest/">XGBoost</a></p></li>
 </ul>
 <section id="adaboost">
-<h3><span class="section-number">13.3.1. </span>Adaboost <a class="anchor" id="AdaBoost"></a><a class="headerlink" href="#adaboost" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">14.3.1. </span>Adaboost <a class="anchor" id="AdaBoost"></a><a class="headerlink" href="#adaboost" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>First create one weak predictor, which is perhaps only slightly better than guessing</p></li>
 <li><p>Assign equal weight <span class="math notranslate nohighlight">\(w_i=1/N\)</span> to each of the N samples</p></li>
@@ -661,7 +659,7 @@ ExtraTreesClassifier(max_depth=4, n_estimators=21)
 </div>
 </section>
 <section id="gradient-tree-boosting">
-<h3><span class="section-number">13.3.2. </span>Gradient Tree Boosting <a class="anchor" id="GBRT"></a><a class="headerlink" href="#gradient-tree-boosting" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">14.3.2. </span>Gradient Tree Boosting <a class="anchor" id="GBRT"></a><a class="headerlink" href="#gradient-tree-boosting" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Also called as Gradient Boosted Regression Trees (GBRT)</p></li>
 <li><p>Improved version of Adaboost</p></li>
@@ -701,7 +699,7 @@ ExtraTreesClassifier(max_depth=4, n_estimators=21)
 </div>
 </section>
 <section id="extreme-gradient-boosting-xgboost">
-<h3><span class="section-number">13.3.3. </span>Extreme Gradient Boosting (XGBoost) <a class="anchor" id="XGBoost"></a><a class="headerlink" href="#extreme-gradient-boosting-xgboost" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">14.3.3. </span>Extreme Gradient Boosting (XGBoost) <a class="anchor" id="XGBoost"></a><a class="headerlink" href="#extreme-gradient-boosting-xgboost" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>A library implementing Gradient Tree Boosting</p></li>
 <li><p>Available for many programming languages</p></li>
@@ -797,7 +795,7 @@ GradientBoostingClassifier(learning_rate=1, max_depth=1, n_estimators=9,
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">12. </span>Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></p>
+        <p class="prev-next-title"><span class="section-number">13. </span>Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></p>
       </div>
     </a>
     <a class="right-next"
@@ -805,7 +803,7 @@ GradientBoostingClassifier(learning_rate=1, max_depth=1, n_estimators=9,
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">14. </span>Regression and regularisation</p>
+        <p class="prev-next-title"><span class="section-number">15. </span>Regression and regularisation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -825,23 +823,23 @@ GradientBoostingClassifier(learning_rate=1, max_depth=1, n_estimators=9,
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-tree">13.1. Decision tree <a class="anchor" id="decisiontrees"></a></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimize-the-tree-depth">13.1.1. Optimize the tree depth</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-tree">14.1. Decision tree <a class="anchor" id="decisiontrees"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimize-the-tree-depth">14.1.1. Optimize the tree depth</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ensemble-methods">13.2. Ensemble methods <a class="anchor" id="ensemblemethods"></a></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bagging">13.2.1. Bagging <a class="anchor" id="Bagging"></a></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#randomized-trees">13.2.1.1. Randomized trees   <a class="anchor" id="RandomizedTrees"></a></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#extratrees-classifier-extremely-randomized-trees">13.2.1.2. Extratrees classifier (Extremely randomized trees)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ensemble-methods">14.2. Ensemble methods <a class="anchor" id="ensemblemethods"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bagging">14.2.1. Bagging <a class="anchor" id="Bagging"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#randomized-trees">14.2.1.1. Randomized trees   <a class="anchor" id="RandomizedTrees"></a></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#extratrees-classifier-extremely-randomized-trees">14.2.1.2. Extratrees classifier (Extremely randomized trees)</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimising-the-parameters-fo-the-extratrees-classifier">13.2.2. Optimising the parameters fo the Extratrees classifier</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimising-the-parameters-fo-the-extratrees-classifier">14.2.2. Optimising the parameters fo the Extratrees classifier</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boosting">13.3. Boosting <a class="anchor" id="Boosting"></a></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adaboost">13.3.1. Adaboost <a class="anchor" id="AdaBoost"></a></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-tree-boosting">13.3.2. Gradient Tree Boosting <a class="anchor" id="GBRT"></a></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extreme-gradient-boosting-xgboost">13.3.3. Extreme Gradient Boosting (XGBoost) <a class="anchor" id="XGBoost"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boosting">14.3. Boosting <a class="anchor" id="Boosting"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adaboost">14.3.1. Adaboost <a class="anchor" id="AdaBoost"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-tree-boosting">14.3.2. Gradient Tree Boosting <a class="anchor" id="GBRT"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extreme-gradient-boosting-xgboost">14.3.3. Extreme Gradient Boosting (XGBoost) <a class="anchor" id="XGBoost"></a></a></li>
 </ul>
 </li>
 </ul>

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>4. Dimensionality reduction by Subspace projections &#8212; Applied Machine Learning, 2021</title>
+    <title>5. Dimensionality reduction by Subspace projections &#8212; Applied Machine Learning, 2021</title>
   
   
   
@@ -62,8 +62,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Subspace_Projections';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="5. Unsupervised learning" href="Clustering.html" />
-    <link rel="prev" title="3. Preprocessing and feature extraction" href="Preprocessing_and_feature_extraction.html" />
+    <link rel="next" title="6. Unsupervised learning" href="Clustering.html" />
+    <link rel="prev" title="4. Preprocessing and feature extraction" href="Preprocessing_and_feature_extraction.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -183,29 +183,27 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Introduction.html">1. Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ReadingAndPlotting.html">2. Reading and plotting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Preprocessing_and_feature_extraction.html">3. Preprocessing and feature extraction</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Dimensionality reduction by Subspace projections</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Clustering.html">5. Unsupervised learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SupervisedMachineLearningTerminology.html">6. Training process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Modeling.html">2. Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ReadingAndPlotting.html">3. Reading and plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Preprocessing_and_feature_extraction.html">4. Preprocessing and feature extraction</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">5. Dimensionality reduction by Subspace projections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Clustering.html">6. Unsupervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SupervisedMachineLearningTerminology.html">7. Training process</a></li>
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="NearestNeighbors.html">11. Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a></a></li>
-<li class="toctree-l1"><a class="reference internal" href="SupportVectorMachine.html">12. Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></a></li>
-<li class="toctree-l1"><a class="reference internal" href="DecisionTrees.html">13. Decision trees and forests <a class="anchor" id="dtaforests"></a></a></li>
-<li class="toctree-l1"><a class="reference internal" href="Regression.html">14. Regression and regularisation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="NeuralNetworks.html">15. Artificial Neural Networks (ANN)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Learning_model_parameters.html">16. Model learning strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NearestNeighbors.html">12. Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="SupportVectorMachine.html">13. Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="DecisionTrees.html">14. Decision trees and forests <a class="anchor" id="dtaforests"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Regression.html">15. Regression and regularisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NeuralNetworks.html">16. Artificial Neural Networks (ANN)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Learning_model_parameters.html">17. Model learning strategies</a></li>
 
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="NLP.html">22. Natural Language Processing</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="NLP-UWB.html">24. Ultra Wide Band positioning literature analysis</a></li>
 </ul>
 
     </div>
@@ -385,40 +383,40 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principal-component-analysis-pca">4.1. Principal Component Analysis (PCA)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projecting-linear-data">4.2. Projecting linear data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-new-coordinates-with-maximum-variance">4.2.1. Calculate new coordinates with maximum variance</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scale-the-data-and-plot-it-again">4.2.2. Scale the data and plot it again</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-data-along-these-new-axis-by-rotating-the-data-with-affine-transformation">4.2.3. Plot the data along these new axis by rotating the data with Affine transformation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principal-component-analysis-pca">5.1. Principal Component Analysis (PCA)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projecting-linear-data">5.2. Projecting linear data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-new-coordinates-with-maximum-variance">5.2.1. Calculate new coordinates with maximum variance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scale-the-data-and-plot-it-again">5.2.2. Scale the data and plot it again</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-data-along-these-new-axis-by-rotating-the-data-with-affine-transformation">5.2.3. Plot the data along these new axis by rotating the data with Affine transformation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-how-to-do-all-previously-shown-steps-for-you">4.3. PCA: How to do all previously shown steps for you</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-is-based-on-singular-value-decomposition">4.3.1. PCA is based on singular value decomposition</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reconstruct-data">4.3.2. Reconstruct data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-how-to-do-all-previously-shown-steps-for-you">5.3. PCA: How to do all previously shown steps for you</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-is-based-on-singular-value-decomposition">5.3.1. PCA is based on singular value decomposition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reconstruct-data">5.3.2. Reconstruct data</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-data">4.4. Non-Linear data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#try-pca">4.4.1. Try PCA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-data">5.4. Non-Linear data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#try-pca">5.4.1. Try PCA</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manifold-learning">4.5. Manifold learning</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uniform-manifold-approximation-umap">4.6. Uniform Manifold Approximation (UMAP)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-non-linear-data">4.7. More non-linear data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-can-not-reduce-dimensionality">4.7.1. PCA can not reduce dimensionality</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aply-t-sne">4.7.2. Aply t-SNE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manifold-learning">5.5. Manifold learning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uniform-manifold-approximation-umap">5.6. Uniform Manifold Approximation (UMAP)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-non-linear-data">5.7. More non-linear data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-can-not-reduce-dimensionality">5.7.1. PCA can not reduce dimensionality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aply-t-sne">5.7.2. Aply t-SNE</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-umap">4.8. Apply UMAP</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-to-handwritten-digit-recognition">4.9. Application to handwritten digit recognition</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#print-some-of-the-numbers-in-the-database">4.9.1. Print some of the numbers in the database</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dimensionality-reduction-using-pca">4.9.2. Dimensionality reduction using PCA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-umap">5.8. Apply UMAP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-to-handwritten-digit-recognition">5.9. Application to handwritten digit recognition</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#print-some-of-the-numbers-in-the-database">5.9.1. Print some of the numbers in the database</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dimensionality-reduction-using-pca">5.9.2. Dimensionality reduction using PCA</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#umap-plotting">4.10. Umap plotting</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#handwritten-digits-case">4.10.1. Handwritten digits case</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#umap-plotting">5.10. Umap plotting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#handwritten-digits-case">5.10.1. Handwritten digits case</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">4.11. Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">5.11. Conclusion</a></li>
 </ul>
             </nav>
         </div>
@@ -431,13 +429,13 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="dimensionality-reduction-by-subspace-projections">
-<h1><span class="section-number">4. </span>Dimensionality reduction by Subspace projections<a class="headerlink" href="#dimensionality-reduction-by-subspace-projections" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">5. </span>Dimensionality reduction by Subspace projections<a class="headerlink" href="#dimensionality-reduction-by-subspace-projections" title="Link to this heading">#</a></h1>
 <p>Lets assume that there is a random design matrix, <span class="math notranslate nohighlight">\(X\)</span>, whose dimensions are <span class="math notranslate nohighlight">\(n\times p\)</span>, where <span class="math notranslate nohighlight">\(n\)</span> is the number of samples and <span class="math notranslate nohighlight">\(p\)</span> is the number of features.</p>
 <p>The dimensionality of every sample is the number of features, <span class="math notranslate nohighlight">\(p\)</span>.</p>
 <p>Dimensionality reductions means transforming the data from a high dimensional (<span class="math notranslate nohighlight">\(p\)</span>) representation to the lower dimensional representation (<span class="math notranslate nohighlight">\('\)</span>), still retaining usefull properties of the original data. When dimensionality reduction is applied to matrix <span class="math notranslate nohighlight">\(X_{n\times p}\)</span> the resulting reduced matrix,  <span class="math notranslate nohighlight">\(X_{n\times p'}\)</span>  will have as many samples as the original matrix, but the number of features is reduced.</p>
 <p>These goals can be met, if the projection method is first fitted to the data, so that the axis of new <span class="math notranslate nohighlight">\(p'\)</span> dimensional space are aligned optimally to the data.</p>
 <section id="principal-component-analysis-pca">
-<h2><span class="section-number">4.1. </span>Principal Component Analysis (PCA)<a class="headerlink" href="#principal-component-analysis-pca" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.1. </span>Principal Component Analysis (PCA)<a class="headerlink" href="#principal-component-analysis-pca" title="Link to this heading">#</a></h2>
 <p>PCA is one of the most well known dimensionality reduction methods. It transforms the set of observations with possibly correlated variables (=features) into a set of values of linearly uncorrelated variables, called principal components.</p>
 <p>PCA transformation is defined in such a way that the first principal component has the largest possible variance and the rest of the components are ordered according to their variances in descending order.</p>
 <p>PCA can be used as a dimensionality reduction method by removing some of the least important variables, and keeping the first most important.</p>
@@ -525,7 +523,7 @@ where S is the diagonal matrix of singular values (eigenvalues) \)</span>s_i$ an
 </div>
 </section>
 <section id="projecting-linear-data">
-<h2><span class="section-number">4.2. </span>Projecting linear data<a class="headerlink" href="#projecting-linear-data" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.2. </span>Projecting linear data<a class="headerlink" href="#projecting-linear-data" title="Link to this heading">#</a></h2>
 <p>Visualize the data first. Plot the points in the 2D dataset as scatter plot, using the magnitude of values (<span class="math notranslate nohighlight">\(\sqrt{x_1^2 + x_2^2}\)</span>) as color index. Big values will be plotted as red, and small values as blue.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -537,11 +535,11 @@ where S is the diagonal matrix of singular values (eigenvalues) \)</span>s_i$ an
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/912ce2ccc1ef6c912edaf925f5edd5563196a8b74aa167903d47bec544790d34.png" src="_images/912ce2ccc1ef6c912edaf925f5edd5563196a8b74aa167903d47bec544790d34.png" />
+<img alt="_images/a75004ed50421487e4c6c521b0140c4bfb627412922c5a19863e57f551dda0f1.png" src="_images/a75004ed50421487e4c6c521b0140c4bfb627412922c5a19863e57f551dda0f1.png" />
 </div>
 </div>
 <section id="calculate-new-coordinates-with-maximum-variance">
-<h3><span class="section-number">4.2.1. </span>Calculate new coordinates with maximum variance<a class="headerlink" href="#calculate-new-coordinates-with-maximum-variance" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.2.1. </span>Calculate new coordinates with maximum variance<a class="headerlink" href="#calculate-new-coordinates-with-maximum-variance" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the angle of maximum variance using the variances</span>
@@ -558,12 +556,12 @@ where S is the diagonal matrix of singular values (eigenvalues) \)</span>s_i$ an
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e795155448411dd04e3e50e7e5d71c46e09d95837c00e1cbac217d9673c4a023.png" src="_images/e795155448411dd04e3e50e7e5d71c46e09d95837c00e1cbac217d9673c4a023.png" />
+<img alt="_images/b724b44565d2ff0353996cbec0bd3a90ed94e084309b3c5ac284b460770eeb12.png" src="_images/b724b44565d2ff0353996cbec0bd3a90ed94e084309b3c5ac284b460770eeb12.png" />
 </div>
 </div>
 </section>
 <section id="scale-the-data-and-plot-it-again">
-<h3><span class="section-number">4.2.2. </span>Scale the data and plot it again<a class="headerlink" href="#scale-the-data-and-plot-it-again" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.2.2. </span>Scale the data and plot it again<a class="headerlink" href="#scale-the-data-and-plot-it-again" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">scale</span>
@@ -575,12 +573,12 @@ where S is the diagonal matrix of singular values (eigenvalues) \)</span>s_i$ an
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7dd894edd9f712a6ace7651b796772dabe92a88ed380580a00e7b6ed169c68aa.png" src="_images/7dd894edd9f712a6ace7651b796772dabe92a88ed380580a00e7b6ed169c68aa.png" />
+<img alt="_images/44f66b079f7105caf773bdc0c5013b5b6ada2f6967eda6843a81d91442cdf042.png" src="_images/44f66b079f7105caf773bdc0c5013b5b6ada2f6967eda6843a81d91442cdf042.png" />
 </div>
 </div>
 </section>
 <section id="plot-the-data-along-these-new-axis-by-rotating-the-data-with-affine-transformation">
-<h3><span class="section-number">4.2.3. </span>Plot the data along these new axis by rotating the data with Affine transformation<a class="headerlink" href="#plot-the-data-along-these-new-axis-by-rotating-the-data-with-affine-transformation" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.2.3. </span>Plot the data along these new axis by rotating the data with Affine transformation<a class="headerlink" href="#plot-the-data-along-these-new-axis-by-rotating-the-data-with-affine-transformation" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 Xr = R \times X =
@@ -619,13 +617,13 @@ Xr = R \times X =
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c5cc7a848b35f78ed4a81735ed03a72933a151809f72748306362ef8cfb68140.png" src="_images/c5cc7a848b35f78ed4a81735ed03a72933a151809f72748306362ef8cfb68140.png" />
+<img alt="_images/cc78ec54aaac25b12976c2a2a4aec35e195d49818d35799409230aaa2c586a1c.png" src="_images/cc78ec54aaac25b12976c2a2a4aec35e195d49818d35799409230aaa2c586a1c.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="pca-how-to-do-all-previously-shown-steps-for-you">
-<h2><span class="section-number">4.3. </span>PCA: How to do all previously shown steps for you<a class="headerlink" href="#pca-how-to-do-all-previously-shown-steps-for-you" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.3. </span>PCA: How to do all previously shown steps for you<a class="headerlink" href="#pca-how-to-do-all-previously-shown-steps-for-you" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
@@ -643,14 +641,14 @@ Xr = R \times X =
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.99251077, 0.00748923])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.9913109, 0.0086891])
 </pre></div>
 </div>
-<img alt="_images/fbabd7e8ef2d9919cfb7b2d5f7903e43dd8bc98d8278213274cdf74e5d7258cd.png" src="_images/fbabd7e8ef2d9919cfb7b2d5f7903e43dd8bc98d8278213274cdf74e5d7258cd.png" />
+<img alt="_images/e6fb14d33deef5bc9111101a2f31913cec5aab36dfd64aadf3deba23b57204d2.png" src="_images/e6fb14d33deef5bc9111101a2f31913cec5aab36dfd64aadf3deba23b57204d2.png" />
 </div>
 </div>
 <section id="pca-is-based-on-singular-value-decomposition">
-<h3><span class="section-number">4.3.1. </span>PCA is based on singular value decomposition<a class="headerlink" href="#pca-is-based-on-singular-value-decomposition" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.3.1. </span>PCA is based on singular value decomposition<a class="headerlink" href="#pca-is-based-on-singular-value-decomposition" title="Link to this heading">#</a></h3>
 <p>Singular alue decomposition, decomposes matrix X into three components</p>
 <p><code class="docutils literal notranslate"><span class="pre">U,S,E</span> <span class="pre">=</span> <span class="pre">svd(X)</span></code></p>
 <p>S is the eigenvalues of X and E contains the eigenvectors of X. The rotation of the data along coordinates with maximum variance is taken care by simply matrix multiplication:</p>
@@ -670,11 +668,11 @@ Xr = R \times X =
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-0.70710678 -0.70710678]
- [-0.70710678  0.70710678]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.70710678  0.70710678]
+ [ 0.70710678 -0.70710678]]
 Equals
 [[ 0.70710678  0.70710678]
- [-0.70710678  0.70710678]]
+ [ 0.70710678 -0.70710678]]
 </pre></div>
 </div>
 </div>
@@ -688,12 +686,12 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/31175b1abd52526045826cb9153033c1b5ce7915c26c84851cbd23115f0c161d.png" src="_images/31175b1abd52526045826cb9153033c1b5ce7915c26c84851cbd23115f0c161d.png" />
+<img alt="_images/f3c54a16335559fd317952a31f9dcb251642ca246181685fd9f6eb1ef78905c7.png" src="_images/f3c54a16335559fd317952a31f9dcb251642ca246181685fd9f6eb1ef78905c7.png" />
 </div>
 </div>
 </section>
 <section id="reconstruct-data">
-<h3><span class="section-number">4.3.2. </span>Reconstruct data<a class="headerlink" href="#reconstruct-data" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.3.2. </span>Reconstruct data<a class="headerlink" href="#reconstruct-data" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pca</span><span class="o">=</span><span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -707,13 +705,13 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/aefe5fbb4e968e7ea20e9bb06bb0a0802114e559234779d4c11404875fad649d.png" src="_images/aefe5fbb4e968e7ea20e9bb06bb0a0802114e559234779d4c11404875fad649d.png" />
+<img alt="_images/95355942fc0a2a4098030d2c0f0fd97a3a06822383045e417566187559c175aa.png" src="_images/95355942fc0a2a4098030d2c0f0fd97a3a06822383045e417566187559c175aa.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="non-linear-data">
-<h2><span class="section-number">4.4. </span>Non-Linear data<a class="headerlink" href="#non-linear-data" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.4. </span>Non-Linear data<a class="headerlink" href="#non-linear-data" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span><span class="o">=</span><span class="mf">0.1</span>
@@ -742,11 +740,11 @@ Equals
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 500x500 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/ca96472dd624ee1defba4aeb57f73d27ae761f841f2e9146811c3661c8ad7328.png" src="_images/ca96472dd624ee1defba4aeb57f73d27ae761f841f2e9146811c3661c8ad7328.png" />
+<img alt="_images/c9d9697a784c04d7a8f55586ded7ee68ea0631767c31c1e9144e145c5341bb93.png" src="_images/c9d9697a784c04d7a8f55586ded7ee68ea0631767c31c1e9144e145c5341bb93.png" />
 </div>
 </div>
 <section id="try-pca">
-<h3><span class="section-number">4.4.1. </span>Try PCA<a class="headerlink" href="#try-pca" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.4.1. </span>Try PCA<a class="headerlink" href="#try-pca" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Perform PCA decomposition</span>
@@ -762,16 +760,16 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.97691593, 0.02308407])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.96808636, 0.03191364])
 </pre></div>
 </div>
-<img alt="_images/30f26f553ddcde39d30dd1180a5fa5f6dd13deaeb4516eebe0af110d54c5349a.png" src="_images/30f26f553ddcde39d30dd1180a5fa5f6dd13deaeb4516eebe0af110d54c5349a.png" />
+<img alt="_images/b7d5061595c7b1198f6509ee936e3fef1134efaabc437c69ac59bb3647b0460b.png" src="_images/b7d5061595c7b1198f6509ee936e3fef1134efaabc437c69ac59bb3647b0460b.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="manifold-learning">
-<h2><span class="section-number">4.5. </span>Manifold learning<a class="headerlink" href="#manifold-learning" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.5. </span>Manifold learning<a class="headerlink" href="#manifold-learning" title="Link to this heading">#</a></h2>
 <p>Manifold learning methods are non-linear algorithms for mapping the multidimensional data into the lower dimension by unfolding the manifold. While doing so, they try to keep the local neighborhood similar than it was before the transformation. It means that those samples which were neighbours in the original multidimensional space, should be neighbors also in reduced subspace.</p>
 <p>Two often used methods are T-distributed Stochastic Neighbor Embedding <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html">t-SNE</a> and Uniform Manifold Approximation <a class="reference external" href="https://umap-learn.readthedocs.io/en/latest/index.html">UMAP</a>.</p>
 <p>t-SNE is part of sklearn, but umap needs to be separately installed, like <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">umap-learn</span></code>.</p>
@@ -791,12 +789,12 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/58f6f162cd1947a1b2599f0a15f21ca835c27c38b7fed61fbf817c87de9eea22.png" src="_images/58f6f162cd1947a1b2599f0a15f21ca835c27c38b7fed61fbf817c87de9eea22.png" />
+<img alt="_images/b7c91f8f495e6715a2814b7909310411b03924ae23efbfaaab1dd36f33ee5c64.png" src="_images/b7c91f8f495e6715a2814b7909310411b03924ae23efbfaaab1dd36f33ee5c64.png" />
 </div>
 </div>
 </section>
 <section id="uniform-manifold-approximation-umap">
-<h2><span class="section-number">4.6. </span>Uniform Manifold Approximation (UMAP)<a class="headerlink" href="#uniform-manifold-approximation-umap" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.6. </span>Uniform Manifold Approximation (UMAP)<a class="headerlink" href="#uniform-manifold-approximation-umap" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">umap</span>
@@ -811,12 +809,12 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e77c6e72fdeb45045a6f5e0d48a2b255b9a2696a2530f5080ff7a4caadb45288.png" src="_images/e77c6e72fdeb45045a6f5e0d48a2b255b9a2696a2530f5080ff7a4caadb45288.png" />
+<img alt="_images/2abbab25781e550c3cff2c61f94e047e3cdc966bce88d2d01a2571de0beabd81.png" src="_images/2abbab25781e550c3cff2c61f94e047e3cdc966bce88d2d01a2571de0beabd81.png" />
 </div>
 </div>
 </section>
 <section id="more-non-linear-data">
-<h2><span class="section-number">4.7. </span>More non-linear data<a class="headerlink" href="#more-non-linear-data" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.7. </span>More non-linear data<a class="headerlink" href="#more-non-linear-data" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span><span class="o">=</span><span class="mf">0.1</span>
@@ -845,11 +843,11 @@ Equals
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 500x500 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/1b46d13b63b7926840718cff164c68d782d79537f8fce81a79990c2b3f384496.png" src="_images/1b46d13b63b7926840718cff164c68d782d79537f8fce81a79990c2b3f384496.png" />
+<img alt="_images/721ef2105b204aa7a69d327ee4dd7c871e1858dd3174a5f35061921c57fa46ff.png" src="_images/721ef2105b204aa7a69d327ee4dd7c871e1858dd3174a5f35061921c57fa46ff.png" />
 </div>
 </div>
 <section id="pca-can-not-reduce-dimensionality">
-<h3><span class="section-number">4.7.1. </span>PCA can not reduce dimensionality<a class="headerlink" href="#pca-can-not-reduce-dimensionality" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.7.1. </span>PCA can not reduce dimensionality<a class="headerlink" href="#pca-can-not-reduce-dimensionality" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Perform PCA decomposition</span>
@@ -865,15 +863,15 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.59128467, 0.40871533])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.52803192, 0.47196808])
 </pre></div>
 </div>
-<img alt="_images/f41574d9d40076829fd322b94a62c0e504032e7da4fe709aae66ba0fec7f1707.png" src="_images/f41574d9d40076829fd322b94a62c0e504032e7da4fe709aae66ba0fec7f1707.png" />
+<img alt="_images/267d8fa7ae06de989390917ffba3b912b8a84efb0c370f706a0c2a820347bdb2.png" src="_images/267d8fa7ae06de989390917ffba3b912b8a84efb0c370f706a0c2a820347bdb2.png" />
 </div>
 </div>
 </section>
 <section id="aply-t-sne">
-<h3><span class="section-number">4.7.2. </span>Aply t-SNE<a class="headerlink" href="#aply-t-sne" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.7.2. </span>Aply t-SNE<a class="headerlink" href="#aply-t-sne" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.manifold</span> <span class="kn">import</span> <span class="n">TSNE</span>
@@ -889,13 +887,13 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2fd571e7d8ffc4e0d9cacdca85854673b531a6597e6def6a8f58bdd70d404237.png" src="_images/2fd571e7d8ffc4e0d9cacdca85854673b531a6597e6def6a8f58bdd70d404237.png" />
+<img alt="_images/49b27b8d7e0fedbbbe18a78d81fa4d8b0f88c86e811efd2201cfcc217409c239.png" src="_images/49b27b8d7e0fedbbbe18a78d81fa4d8b0f88c86e811efd2201cfcc217409c239.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="apply-umap">
-<h2><span class="section-number">4.8. </span>Apply UMAP<a class="headerlink" href="#apply-umap" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.8. </span>Apply UMAP<a class="headerlink" href="#apply-umap" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reducer</span> <span class="o">=</span> <span class="n">umap</span><span class="o">.</span><span class="n">UMAP</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
@@ -909,12 +907,12 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8358bd9fea18576132a7a47b0caff280fdd9b805414a1098a9ca2fe3fdcbbbe9.png" src="_images/8358bd9fea18576132a7a47b0caff280fdd9b805414a1098a9ca2fe3fdcbbbe9.png" />
+<img alt="_images/9b6ee882498746189fa74957de3bc1c1098a6506908913001fbec3402dc99686.png" src="_images/9b6ee882498746189fa74957de3bc1c1098a6506908913001fbec3402dc99686.png" />
 </div>
 </div>
 </section>
 <section id="application-to-handwritten-digit-recognition">
-<h2><span class="section-number">4.9. </span>Application to handwritten digit recognition<a class="headerlink" href="#application-to-handwritten-digit-recognition" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.9. </span>Application to handwritten digit recognition<a class="headerlink" href="#application-to-handwritten-digit-recognition" title="Link to this heading">#</a></h2>
 <p>The handwriting recognition dataset contains 1797 digitized hand written written characters. The characters are digitized using 8x8 grid, so each sample is represented by 64 parameters. Each parameter can have a value from 0 to 15.</p>
 <ul class="simple">
 <li><p>The original data is 64 dimensional, so it is difficult to visualize.</p></li>
@@ -934,7 +932,7 @@ Equals
 </div>
 </div>
 <section id="print-some-of-the-numbers-in-the-database">
-<h3><span class="section-number">4.9.1. </span>Print some of the numbers in the database<a class="headerlink" href="#print-some-of-the-numbers-in-the-database" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.9.1. </span>Print some of the numbers in the database<a class="headerlink" href="#print-some-of-the-numbers-in-the-database" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the first samples of each number</span>
@@ -963,7 +961,7 @@ Equals
 </div>
 </section>
 <section id="dimensionality-reduction-using-pca">
-<h3><span class="section-number">4.9.2. </span>Dimensionality reduction using PCA<a class="headerlink" href="#dimensionality-reduction-using-pca" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.9.2. </span>Dimensionality reduction using PCA<a class="headerlink" href="#dimensionality-reduction-using-pca" title="Link to this heading">#</a></h3>
 <p>Apply PCA to the data, keeping at first up to 32 dimensions to study how much variance is explained by each principal component.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -987,7 +985,7 @@ Equals
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;The variance explained / %&#39;)
 </pre></div>
 </div>
-<img alt="_images/bfe870266cd474be123e366bfb7027334b80fa648d352a848dfcca070c9e45c3.png" src="_images/bfe870266cd474be123e366bfb7027334b80fa648d352a848dfcca070c9e45c3.png" />
+<img alt="_images/a9e2a7db34a48c6bc5b6858e6b0b2b7759dd8e6ab641c8a219795e3c94063021.png" src="_images/a9e2a7db34a48c6bc5b6858e6b0b2b7759dd8e6ab641c8a219795e3c94063021.png" />
 </div>
 </div>
 <p>It looks like quite many dimesions are needed, to keep the information in the dataset, but let’s try to plot it in 2D anyhow.</p>
@@ -1006,7 +1004,7 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f52f25ad7c491b5d19f66ded0c2d3942303fb3b4266831c33fb0f07bc8d250d9.png" src="_images/f52f25ad7c491b5d19f66ded0c2d3942303fb3b4266831c33fb0f07bc8d250d9.png" />
+<img alt="_images/ff953a080cef4845a76930045c4649cb2abb15c88504bbd632b8c185279cdc4b.png" src="_images/ff953a080cef4845a76930045c4649cb2abb15c88504bbd632b8c185279cdc4b.png" />
 </div>
 </div>
 <p>The result is not retaining enough information to be able to recognize characters any longer. Let’s try if nonlinear methods would work. How about t-SNE?</p>
@@ -1028,7 +1026,7 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/9275677ebb569a1cbd53df7659c17a6d897ee6313275415fe5ad23ab5d533a27.png" src="_images/9275677ebb569a1cbd53df7659c17a6d897ee6313275415fe5ad23ab5d533a27.png" />
+<img alt="_images/b41971f8edb0636812acbe0c586f5d582583d341fcaf54280d7643e87766e9a1.png" src="_images/b41971f8edb0636812acbe0c586f5d582583d341fcaf54280d7643e87766e9a1.png" />
 </div>
 </div>
 <p>And how would UMAP work</p>
@@ -1050,19 +1048,19 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 12.806919 9.1189165
-1 -5.6004333 9.51668
-2 8.986621 2.202471
-3 0.4310909 7.071573
-4 5.819445 17.86791
-5 -0.09187289 0.6760118
-6 -2.4572227 -6.3534055
-7 -3.1325688 17.605957
-8 -3.7654166 8.183456
-9 -2.3178859 3.8402104
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 18.300037 9.862164
+1 -1.9827087 7.3410726
+2 8.617082 2.541314
+3 -4.2107677 11.675339
+4 4.6630735 17.776304
+5 1.6551871 1.3155327
+6 2.886955 -6.225762
+7 -2.065316 20.219103
+8 -1.6699129 9.157543
+9 2.5998836 9.276968
 </pre></div>
 </div>
-<img alt="_images/901cb2099cfbcb2b058676232fce069cad6bdb598bf82a2dbd92de5adff0233a.png" src="_images/901cb2099cfbcb2b058676232fce069cad6bdb598bf82a2dbd92de5adff0233a.png" />
+<img alt="_images/8c34ffe49a6d2e6040461457a22d885824b7083a7692e7190c4be532b331b7be.png" src="_images/8c34ffe49a6d2e6040461457a22d885824b7083a7692e7190c4be532b331b7be.png" />
 </div>
 </div>
 <p>UMAP seems to create the densiest clouds around each number, but it has also an additional benefit as compared to t-SNE. I has also a inverse transformation. Lets select some points from the transform space and convert them back to feature space. They should resemple some digits.</p>
@@ -1089,13 +1087,13 @@ Equals
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/a18a7e62754e63194ba4b3b5d2663f25f07f3eded1352f4a0825e01fc6c7c909.png" src="_images/a18a7e62754e63194ba4b3b5d2663f25f07f3eded1352f4a0825e01fc6c7c909.png" />
+<img alt="_images/40480b10592241b39a31184f52e09f52434ffb205e4d9eaee52292e804a8db68.png" src="_images/40480b10592241b39a31184f52e09f52434ffb205e4d9eaee52292e804a8db68.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="umap-plotting">
-<h2><span class="section-number">4.10. </span>Umap plotting<a class="headerlink" href="#umap-plotting" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.10. </span>Umap plotting<a class="headerlink" href="#umap-plotting" title="Link to this heading">#</a></h2>
 <p>As shown, the data projected by UMAP can be plotted with matplotlib as normal, but UMAP library comes also with some special plotting methods, if you want install <code class="docutils literal notranslate"><span class="pre">umap-learn[plot]</span></code>. Let’s try some</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1179,7 +1177,7 @@ Equals
 <p>The estimation of connectivity plot with edge blunding is very time consuming but looks nice. Therefore I just add the result here</p>
 <p><img alt="connectivity" src="UMAP_connectivity.png" /></p>
 <section id="handwritten-digits-case">
-<h3><span class="section-number">4.10.1. </span>Handwritten digits case<a class="headerlink" href="#handwritten-digits-case" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.10.1. </span>Handwritten digits case<a class="headerlink" href="#handwritten-digits-case" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Linear methods were not succesfull retaining enough information for handwritten digits recognition when the dimensionality of data was reduced from 64 to 2. The explained variance ratio inferes that quite many principal components, like more than 10 would be needed for this problem.</p></li>
 <li><p>t-SNE was able to capture better the structure of the originally multidimensional data only in 2D. It does not have an inverse transformation, and it is not therefore as generally usefull than PCA, but it is very usefull for example in visualizint multi-dimensional data.</p></li>
@@ -1190,7 +1188,7 @@ Equals
 </section>
 </section>
 <section id="conclusion">
-<h2><span class="section-number">4.11. </span>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.11. </span>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>PCA is a powerfull method for transforming data into low dimensional subspace</p></li>
 <li><p>PCA learns linear dependences between variables (correlation) and removes it, so that projected variables are uncorrelated</p></li>
@@ -1246,7 +1244,7 @@ Equals
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">3. </span>Preprocessing and feature extraction</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Preprocessing and feature extraction</p>
       </div>
     </a>
     <a class="right-next"
@@ -1254,7 +1252,7 @@ Equals
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">5. </span>Unsupervised learning</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Unsupervised learning</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1274,40 +1272,40 @@ Equals
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principal-component-analysis-pca">4.1. Principal Component Analysis (PCA)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projecting-linear-data">4.2. Projecting linear data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-new-coordinates-with-maximum-variance">4.2.1. Calculate new coordinates with maximum variance</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scale-the-data-and-plot-it-again">4.2.2. Scale the data and plot it again</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-data-along-these-new-axis-by-rotating-the-data-with-affine-transformation">4.2.3. Plot the data along these new axis by rotating the data with Affine transformation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principal-component-analysis-pca">5.1. Principal Component Analysis (PCA)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projecting-linear-data">5.2. Projecting linear data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-new-coordinates-with-maximum-variance">5.2.1. Calculate new coordinates with maximum variance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scale-the-data-and-plot-it-again">5.2.2. Scale the data and plot it again</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-data-along-these-new-axis-by-rotating-the-data-with-affine-transformation">5.2.3. Plot the data along these new axis by rotating the data with Affine transformation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-how-to-do-all-previously-shown-steps-for-you">4.3. PCA: How to do all previously shown steps for you</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-is-based-on-singular-value-decomposition">4.3.1. PCA is based on singular value decomposition</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reconstruct-data">4.3.2. Reconstruct data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-how-to-do-all-previously-shown-steps-for-you">5.3. PCA: How to do all previously shown steps for you</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-is-based-on-singular-value-decomposition">5.3.1. PCA is based on singular value decomposition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reconstruct-data">5.3.2. Reconstruct data</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-data">4.4. Non-Linear data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#try-pca">4.4.1. Try PCA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-data">5.4. Non-Linear data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#try-pca">5.4.1. Try PCA</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manifold-learning">4.5. Manifold learning</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uniform-manifold-approximation-umap">4.6. Uniform Manifold Approximation (UMAP)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-non-linear-data">4.7. More non-linear data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-can-not-reduce-dimensionality">4.7.1. PCA can not reduce dimensionality</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aply-t-sne">4.7.2. Aply t-SNE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manifold-learning">5.5. Manifold learning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uniform-manifold-approximation-umap">5.6. Uniform Manifold Approximation (UMAP)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-non-linear-data">5.7. More non-linear data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-can-not-reduce-dimensionality">5.7.1. PCA can not reduce dimensionality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aply-t-sne">5.7.2. Aply t-SNE</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-umap">4.8. Apply UMAP</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-to-handwritten-digit-recognition">4.9. Application to handwritten digit recognition</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#print-some-of-the-numbers-in-the-database">4.9.1. Print some of the numbers in the database</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dimensionality-reduction-using-pca">4.9.2. Dimensionality reduction using PCA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-umap">5.8. Apply UMAP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-to-handwritten-digit-recognition">5.9. Application to handwritten digit recognition</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#print-some-of-the-numbers-in-the-database">5.9.1. Print some of the numbers in the database</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dimensionality-reduction-using-pca">5.9.2. Dimensionality reduction using PCA</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#umap-plotting">4.10. Umap plotting</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#handwritten-digits-case">4.10.1. Handwritten digits case</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#umap-plotting">5.10. Umap plotting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#handwritten-digits-case">5.10.1. Handwritten digits case</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">4.11. Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">5.11. Conclusion</a></li>
 </ul>
   </nav></div>
 

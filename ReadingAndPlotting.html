@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>2. Reading and plotting &#8212; Applied Machine Learning, 2021</title>
+    <title>3. Reading and plotting &#8212; Applied Machine Learning, 2021</title>
   
   
   
@@ -60,8 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'ReadingAndPlotting';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="3. Preprocessing and feature extraction" href="Preprocessing_and_feature_extraction.html" />
-    <link rel="prev" title="1. Introduction" href="Introduction.html" />
+    <link rel="next" title="4. Preprocessing and feature extraction" href="Preprocessing_and_feature_extraction.html" />
+    <link rel="prev" title="2. Modeling" href="Modeling.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -181,29 +181,27 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Introduction.html">1. Introduction</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Reading and plotting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Preprocessing_and_feature_extraction.html">3. Preprocessing and feature extraction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Subspace_Projections.html">4. Dimensionality reduction by Subspace projections</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Clustering.html">5. Unsupervised learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SupervisedMachineLearningTerminology.html">6. Training process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Modeling.html">2. Modeling</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Reading and plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Preprocessing_and_feature_extraction.html">4. Preprocessing and feature extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Subspace_Projections.html">5. Dimensionality reduction by Subspace projections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Clustering.html">6. Unsupervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SupervisedMachineLearningTerminology.html">7. Training process</a></li>
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="NearestNeighbors.html">11. Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a></a></li>
-<li class="toctree-l1"><a class="reference internal" href="SupportVectorMachine.html">12. Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></a></li>
-<li class="toctree-l1"><a class="reference internal" href="DecisionTrees.html">13. Decision trees and forests <a class="anchor" id="dtaforests"></a></a></li>
-<li class="toctree-l1"><a class="reference internal" href="Regression.html">14. Regression and regularisation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="NeuralNetworks.html">15. Artificial Neural Networks (ANN)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Learning_model_parameters.html">16. Model learning strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NearestNeighbors.html">12. Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="SupportVectorMachine.html">13. Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="DecisionTrees.html">14. Decision trees and forests <a class="anchor" id="dtaforests"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Regression.html">15. Regression and regularisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NeuralNetworks.html">16. Artificial Neural Networks (ANN)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Learning_model_parameters.html">17. Model learning strategies</a></li>
 
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="NLP.html">22. Natural Language Processing</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="NLP-UWB.html">24. Ultra Wide Band positioning literature analysis</a></li>
 </ul>
 
     </div>
@@ -383,28 +381,28 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-different-data-formats">2.1. Reading different data formats</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-data-format-to-use">2.2. What data format to use?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#asphalt-heat-data">2.3. Asphalt heat data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">2.4. Pandas</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#try-feather">2.4.1. Try feather</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-different-data-formats">3.1. Reading different data formats</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-data-format-to-use">3.2. What data format to use?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#asphalt-heat-data">3.3. Asphalt heat data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">3.4. Pandas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#try-feather">3.4.1. Try feather</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-data">2.5. Missing data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#detecting-nas">2.5.1. Detecting NAs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-based-on-na-status">2.5.2. Selecting based on NA status</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-data-frame-indexing">2.5.3. Examples of data frame indexing</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-methods-for-handling-missing-data">2.5.4. Other methods for handling missing data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#drop-missing-values">2.5.5. Drop missing values</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dropping-and-imputing-data">2.5.6. Dropping and Imputing data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-data">3.5. Missing data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#detecting-nas">3.5.1. Detecting NAs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-based-on-na-status">3.5.2. Selecting based on NA status</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-data-frame-indexing">3.5.3. Examples of data frame indexing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-methods-for-handling-missing-data">3.5.4. Other methods for handling missing data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#drop-missing-values">3.5.5. Drop missing values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dropping-and-imputing-data">3.5.6. Dropping and Imputing data</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">2.6. Summary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing-pandas-data-frame">2.7. Slicing pandas data frame</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting">2.7.1. Plotting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">3.6. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing-pandas-data-frame">3.7. Slicing pandas data frame</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting">3.7.1. Plotting</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-challenging-dataset">2.8. More challenging dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-challenging-dataset">3.8. More challenging dataset</a></li>
 </ul>
             </nav>
         </div>
@@ -417,9 +415,9 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="reading-and-plotting">
-<h1><span class="section-number">2. </span>Reading and plotting<a class="headerlink" href="#reading-and-plotting" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">3. </span>Reading and plotting<a class="headerlink" href="#reading-and-plotting" title="Link to this heading">#</a></h1>
 <section id="reading-different-data-formats">
-<h2><span class="section-number">2.1. </span>Reading different data formats<a class="headerlink" href="#reading-different-data-formats" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.1. </span>Reading different data formats<a class="headerlink" href="#reading-different-data-formats" title="Link to this heading">#</a></h2>
 <p>Data comes in many differents forms. Few common data formats are:</p>
 <ul class="simple">
 <li><p>Tabular data. Often fields separated by tabs or variable number of spaces</p></li>
@@ -434,7 +432,7 @@ document.write(`
 </ul>
 </section>
 <section id="what-data-format-to-use">
-<h2><span class="section-number">2.2. </span>What data format to use?<a class="headerlink" href="#what-data-format-to-use" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.2. </span>What data format to use?<a class="headerlink" href="#what-data-format-to-use" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>A good data format allows storing metadata with the data, can store data structures like matrices, can natively handle various data formats, such as timestamps, numbers and strings, etc. Some data formats can also support transparent compression of data. With bigger data sets, possibilities to store data in binary form is also a benefit.</p></li>
 <li><p>The common text and spreadsheet based 2-dimensional data formats are suitable for small data sets, if you do not need complex data structures:</p>
@@ -449,12 +447,12 @@ document.write(`
 </ul>
 </section>
 <section id="asphalt-heat-data">
-<h2><span class="section-number">2.3. </span>Asphalt heat data<a class="headerlink" href="#asphalt-heat-data" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.3. </span>Asphalt heat data<a class="headerlink" href="#asphalt-heat-data" title="Link to this heading">#</a></h2>
 <p>The data is clearly in CSV-file with three columns, where field separator is semicolon. The first column is a timestamp in ISO format. Other columns are numerical and they use decimal points. The first row is a colun header.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Timestamp;</span> <span class="pre">Irradiance;</span> <span class="pre">Heatflux</span> <span class="pre">2014-10-01</span> <span class="pre">03:00:20;</span>&#160;&#160; <span class="pre">0.2;</span> <span class="pre">-83.1</span> <span class="pre">2014-10-01</span> <span class="pre">03:15:20;</span>&#160;&#160; <span class="pre">0.2;</span> <span class="pre">-82.8</span> <span class="pre">2014-10-01</span> <span class="pre">03:30:20;</span>&#160;&#160; <span class="pre">0.1;</span> <span class="pre">-82.5</span> <span class="pre">2014-10-01</span> <span class="pre">03:45:20;</span>&#160;&#160; <span class="pre">0.1;</span> <span class="pre">-82.3</span> <span class="pre">2014-10-01</span> <span class="pre">04:00:20;</span>&#160;&#160; <span class="pre">0.1;</span> <span class="pre">2014-10-01</span> <span class="pre">04:15:20;</span>&#160;&#160; <span class="pre">0.1;</span> <span class="pre">-82.2</span> <span class="pre">......</span></code></p>
 </section>
 <section id="pandas">
-<h2><span class="section-number">2.4. </span>Pandas<a class="headerlink" href="#pandas" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.4. </span>Pandas<a class="headerlink" href="#pandas" title="Link to this heading">#</a></h2>
 <p>Parsing simple CSV data files is easy with many methods, but it is easiest, if you use <a class="reference external" href="https://pandas.pydata.org/">Pandas</a> statistics package. And because Pandas provides so many other features as well, let’s take a closer look on that. Read <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html">10 minutes to Pandas</a> at this stage.</p>
 <p>It is really convenient to let Pandas parse the timestamps by defining the columns whics are being parsed with <code class="docutils literal notranslate"><span class="pre">parse_dates</span></code> argument. You can just list the columns which contain timestamp values.</p>
 <p>This data is clearly time series data, so it is best to be indexed with a timestamp. In this way you can very easily select data based on the timestamp and if you plot the data, you get time axis automatically in the x-axis. This can be achieved by defining the column which is used as an index with <code class="docutils literal notranslate"><span class="pre">index_col</span></code> parameter.</p>
@@ -541,7 +539,7 @@ document.write(`
 </div></div></div>
 </div>
 <section id="try-feather">
-<h3><span class="section-number">2.4.1. </span>Try feather<a class="headerlink" href="#try-feather" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.4.1. </span>Try feather<a class="headerlink" href="#try-feather" title="Link to this heading">#</a></h3>
 <p>The format supports many kinds of data structures and no parsing is needed. The data just appears back to data structure without skipping spaces of parsing the dates in any specific way. The storage space is shrink to 1/3 then using feather instead of CSV.</p>
 <p>Pandas supports many data formats, so using them is very simple.</p>
 <div class="cell docutils container">
@@ -626,7 +624,7 @@ document.write(`
 </section>
 </section>
 <section id="missing-data">
-<h2><span class="section-number">2.5. </span>Missing data<a class="headerlink" href="#missing-data" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.5. </span>Missing data<a class="headerlink" href="#missing-data" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>In the original CSV-file, Heatflux data corresponding timestamp <code class="docutils literal notranslate"><span class="pre">2014-10-01</span> <span class="pre">04:00:20</span></code> is missing</p></li>
 <li><p>It is represented by ‘NaN’ in ther parsed dataframe, which is which is a floating point representation of <code class="docutils literal notranslate"><span class="pre">Not</span> <span class="pre">a</span> <span class="pre">Number</span></code> value.</p></li>
@@ -758,7 +756,7 @@ dtype: float64
 </div>
 </div>
 <section id="detecting-nas">
-<h3><span class="section-number">2.5.1. </span>Detecting NAs<a class="headerlink" href="#detecting-nas" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.5.1. </span>Detecting NAs<a class="headerlink" href="#detecting-nas" title="Link to this heading">#</a></h3>
 <p>NA values can be detected using isna() function</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -855,7 +853,7 @@ Name: Heatflux, Length: 2968, dtype: bool
 </div>
 </section>
 <section id="selecting-based-on-na-status">
-<h3><span class="section-number">2.5.2. </span>Selecting based on NA status<a class="headerlink" href="#selecting-based-on-na-status" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.5.2. </span>Selecting based on NA status<a class="headerlink" href="#selecting-based-on-na-status" title="Link to this heading">#</a></h3>
 <p>The boolean vector about NA status can be used for selecting only NA rows or selecting all but NA rows.
 Notice that <code class="docutils literal notranslate"><span class="pre">~</span></code> is boolean NOT operator in Python.</p>
 <div class="cell docutils container">
@@ -1105,7 +1103,7 @@ Name: Heatflux, Length: 2968, dtype: bool
 </div>
 </section>
 <section id="examples-of-data-frame-indexing">
-<h3><span class="section-number">2.5.3. </span>Examples of data frame indexing<a class="headerlink" href="#examples-of-data-frame-indexing" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.5.3. </span>Examples of data frame indexing<a class="headerlink" href="#examples-of-data-frame-indexing" title="Link to this heading">#</a></h3>
 <p>Data frame allows very convenient indexing possibilities if the key is a datetime object. One can select rows where the content of the datetime object match to specified value. For example it is possible to select rows where the hour-field of the timestamp is a certain number, thus selecting from the data all values which represent a middle of the day.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1204,7 +1202,7 @@ Name: Heatflux, Length: 2968, dtype: bool
 </div>
 </section>
 <section id="other-methods-for-handling-missing-data">
-<h3><span class="section-number">2.5.4. </span>Other methods for handling missing data<a class="headerlink" href="#other-methods-for-handling-missing-data" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.5.4. </span>Other methods for handling missing data<a class="headerlink" href="#other-methods-for-handling-missing-data" title="Link to this heading">#</a></h3>
 <p>The default handling of missing data is to skip them. The dataframe can be also be preprocessed to handle the missing data in following ways:</p>
 <ol class="arabic simple">
 <li><p>Drop all rows which has missing data. Can cause bias and loss of valuable data in other columns.</p></li>
@@ -1218,7 +1216,7 @@ Name: Heatflux, Length: 2968, dtype: bool
 </ol>
 </section>
 <section id="drop-missing-values">
-<h3><span class="section-number">2.5.5. </span>Drop missing values<a class="headerlink" href="#drop-missing-values" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.5.5. </span>Drop missing values<a class="headerlink" href="#drop-missing-values" title="Link to this heading">#</a></h3>
 <p>Obsever how the shape of the data matrix is reduced.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1261,7 +1259,7 @@ Name: Irradiance, Length: 2968, dtype: float64
 <p>D.dropna() drops all rows which has na-values. It has clearly dropped 16 rows and the Irradiance field does not have NAs any longer.</p>
 </section>
 <section id="dropping-and-imputing-data">
-<h3><span class="section-number">2.5.6. </span>Dropping and Imputing data<a class="headerlink" href="#dropping-and-imputing-data" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.5.6. </span>Dropping and Imputing data<a class="headerlink" href="#dropping-and-imputing-data" title="Link to this heading">#</a></h3>
 <p>NA-values can be dropped or filled, but both methods may affect the statistics.</p>
 <p>Observe that when using various strategies, the mean is always different. What is the best strategy?</p>
 <div class="cell docutils container">
@@ -1386,7 +1384,7 @@ Name: Irradiance, Length: 2968, dtype: float64
 </section>
 </section>
 <section id="summary">
-<h2><span class="section-number">2.6. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.6. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
 <p>There is often missing values in the data. They can be handled with many methods, but all of them have consequences.</p>
 <ul class="simple">
 <li><p>Always study how much missing values there is in the data</p></li>
@@ -1396,7 +1394,7 @@ Name: Irradiance, Length: 2968, dtype: float64
 </ul>
 </section>
 <section id="slicing-pandas-data-frame">
-<h2><span class="section-number">2.7. </span>Slicing pandas data frame<a class="headerlink" href="#slicing-pandas-data-frame" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.7. </span>Slicing pandas data frame<a class="headerlink" href="#slicing-pandas-data-frame" title="Link to this heading">#</a></h2>
 <p>Pandas dataframes support really versatile methods for indexing in columnvise and rowvise directions</p>
 <ul class="simple">
 <li><p>Dataframes can be indexed using column names either using dot-notation or column name in square brackets. Using column names is usefull if your data structure later changes. It makes also the code as easier to understand.</p></li>
@@ -1519,7 +1517,7 @@ Name: Irradiance, Length: 96, dtype: float64
 </div>
 <p>Read more from the tutorialspoint article <a class="reference external" href="https://www.tutorialspoint.com/python_pandas/python_pandas_indexing_and_selecting_data.htm">Python Pandas - Indexing and Selecting Data</a>.</p>
 <section id="plotting">
-<h3><span class="section-number">2.7.1. </span>Plotting<a class="headerlink" href="#plotting" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.7.1. </span>Plotting<a class="headerlink" href="#plotting" title="Link to this heading">#</a></h3>
 <p>The data in the dataframe can be plotted almost automatically</p>
 <p>Decorations can be added easily. Notice that x and y labels support LaTeX format, to add mathematical notation. The time representation is automatically adjusted, when the datafram index is a datetime object.</p>
 <div class="cell docutils container">
@@ -1587,7 +1585,7 @@ Name: Irradiance, Length: 96, dtype: float64
 </section>
 </section>
 <section id="more-challenging-dataset">
-<h2><span class="section-number">2.8. </span>More challenging dataset<a class="headerlink" href="#more-challenging-dataset" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.8. </span>More challenging dataset<a class="headerlink" href="#more-challenging-dataset" title="Link to this heading">#</a></h2>
 <p>(Very difficult actually)</p>
 <p>Water quality data (CSV)</p>
 <p><code class="docutils literal notranslate"><span class="pre">name</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">station;ID-number</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">station;ETRS-coordinates</span> <span class="pre">east;ETRS-coordinates</span> <span class="pre">north;max</span> <span class="pre">depth</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">station;date;sampling</span> <span class="pre">depth;Faecal</span> <span class="pre">enterococci</span> <span class="pre">(kpl/100ml);Oxygen</span> <span class="pre">saturation</span> <span class="pre">(kyll.%);Dissolved</span> <span class="pre">oxygen</span> <span class="pre">(mg/l);Suspended</span> <span class="pre">solids,</span> <span class="pre">coarse</span> <span class="pre">(mg/l);Chlorophyll</span> <span class="pre">a</span> <span class="pre">(µg/l);Total</span> <span class="pre">phosphorous,</span> <span class="pre">unfiltered</span> <span class="pre">(µg/l);Total</span> <span class="pre">nitrogen,</span> <span class="pre">unfiltered</span> <span class="pre">(µg/l);Coliform</span> <span class="pre">bacteria</span> <span class="pre">thermotolerant</span> <span class="pre">(kpl/100ml);Temperature</span> <span class="pre">(°C);Nitrate</span> <span class="pre">as</span> <span class="pre">nitrogen,</span> <span class="pre">unfiltered</span> <span class="pre">(µg/l);Nitrate</span> <span class="pre">as</span> <span class="pre">nitrogen,</span> <span class="pre">unfiltered</span> <span class="pre">(µg/l);Nitrite</span> <span class="pre">nitrate</span> <span class="pre">as</span> <span class="pre">nitrogen,</span> <span class="pre">unfiltered</span> <span class="pre">(µg/l);Secchi</span> <span class="pre">depth</span> <span class="pre">(m);pH</span>&#160; <span class="pre">;Salinity</span> <span class="pre">(&lt;89&gt;);Turbidity</span> <span class="pre">(FNU);Conductivity</span> <span class="pre">(mS/m)</span> <span class="pre">Et</span> <span class="pre">kaup</span> <span class="pre">selkä</span> <span class="pre">1;5520;227911;7005357;2.4;19.3.1974</span> <span class="pre">0:00;;;;;;;;;;;;;;0.5;;;;</span> <span class="pre">Et</span> <span class="pre">kaup</span> <span class="pre">selkä</span> <span class="pre">1;5520;227911;7005357;2.4;19.3.1974</span> <span class="pre">0:00;1,0;0;56;7.9;;;14;4100;0;0.3;;;;;4.6;;8.1;231</span> <span class="pre">Et</span> <span class="pre">kaup</span> <span class="pre">selkä</span> <span class="pre">1;5520;227911;7005357;2.4;12.6.1974</span> <span class="pre">0:00;;;;;;;;;;;;;;1.1;;;;</span> <span class="pre">Et</span> <span class="pre">kaup</span> <span class="pre">selkä</span> <span class="pre">1;5520;227911;7005357;2.4;12.6.1974</span> <span class="pre">0:00;1,0;0;104;10.3;;;20;410;0;14.5;;;;;8.1;;;627</span> <span class="pre">Et</span> <span class="pre">kaup</span> <span class="pre">selkä</span> <span class="pre">1;5520;227911;7005357;2.4;21.10.1974</span> <span class="pre">0:00;;;;;;;;;;;;;;1;;;;</span> <span class="pre">Et</span> <span class="pre">kaup</span> <span class="pre">selkä</span> <span class="pre">1;5520;227911;7005357;2.4;21.10.1974</span> <span class="pre">0:00;1,0;3;93;12.2;;;20;1200;79;2.9;;;;;7.2;;;594</span> <span class="pre">Et</span> <span class="pre">kaup</span> <span class="pre">selkä</span> <span class="pre">1;5520;227911;7005357;2.4;4.6.1975</span> <span class="pre">0:00;;;;;;;;;;;;;;1;;;;</span> <span class="pre">Et</span> <span class="pre">kaup</span> <span class="pre">selkä</span> <span class="pre">1;5520;227911;7005357;2.4;4.6.1975</span> <span class="pre">0:00;1,0;2;102;11;;;40;560;17;10.5;;;;;6.7;;7.8;390</span></code></p>
@@ -2149,12 +2147,12 @@ Name: Irradiance, Length: 96, dtype: float64
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="Introduction.html"
+       href="Modeling.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>Introduction</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Modeling</p>
       </div>
     </a>
     <a class="right-next"
@@ -2162,7 +2160,7 @@ Name: Irradiance, Length: 96, dtype: float64
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3. </span>Preprocessing and feature extraction</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Preprocessing and feature extraction</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -2182,28 +2180,28 @@ Name: Irradiance, Length: 96, dtype: float64
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-different-data-formats">2.1. Reading different data formats</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-data-format-to-use">2.2. What data format to use?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#asphalt-heat-data">2.3. Asphalt heat data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">2.4. Pandas</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#try-feather">2.4.1. Try feather</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-different-data-formats">3.1. Reading different data formats</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-data-format-to-use">3.2. What data format to use?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#asphalt-heat-data">3.3. Asphalt heat data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">3.4. Pandas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#try-feather">3.4.1. Try feather</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-data">2.5. Missing data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#detecting-nas">2.5.1. Detecting NAs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-based-on-na-status">2.5.2. Selecting based on NA status</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-data-frame-indexing">2.5.3. Examples of data frame indexing</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-methods-for-handling-missing-data">2.5.4. Other methods for handling missing data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#drop-missing-values">2.5.5. Drop missing values</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dropping-and-imputing-data">2.5.6. Dropping and Imputing data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-data">3.5. Missing data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#detecting-nas">3.5.1. Detecting NAs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-based-on-na-status">3.5.2. Selecting based on NA status</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-data-frame-indexing">3.5.3. Examples of data frame indexing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-methods-for-handling-missing-data">3.5.4. Other methods for handling missing data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#drop-missing-values">3.5.5. Drop missing values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dropping-and-imputing-data">3.5.6. Dropping and Imputing data</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">2.6. Summary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing-pandas-data-frame">2.7. Slicing pandas data frame</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting">2.7.1. Plotting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">3.6. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing-pandas-data-frame">3.7. Slicing pandas data frame</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting">3.7.1. Plotting</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-challenging-dataset">2.8. More challenging dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-challenging-dataset">3.8. More challenging dataset</a></li>
 </ul>
   </nav></div>
 

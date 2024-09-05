@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>16. Model learning strategies &#8212; Applied Machine Learning, 2021</title>
+    <title>17. Model learning strategies &#8212; Applied Machine Learning, 2021</title>
   
   
   
@@ -62,8 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Learning_model_parameters';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="22. Natural Language Processing" href="NLP.html" />
-    <link rel="prev" title="15. Artificial Neural Networks (ANN)" href="NeuralNetworks.html" />
+    <link rel="prev" title="16. Artificial Neural Networks (ANN)" href="NeuralNetworks.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -183,29 +182,27 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Introduction.html">1. Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ReadingAndPlotting.html">2. Reading and plotting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Preprocessing_and_feature_extraction.html">3. Preprocessing and feature extraction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Subspace_Projections.html">4. Dimensionality reduction by Subspace projections</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Clustering.html">5. Unsupervised learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SupervisedMachineLearningTerminology.html">6. Training process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Modeling.html">2. Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ReadingAndPlotting.html">3. Reading and plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Preprocessing_and_feature_extraction.html">4. Preprocessing and feature extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Subspace_Projections.html">5. Dimensionality reduction by Subspace projections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Clustering.html">6. Unsupervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SupervisedMachineLearningTerminology.html">7. Training process</a></li>
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="NearestNeighbors.html">11. Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a></a></li>
-<li class="toctree-l1"><a class="reference internal" href="SupportVectorMachine.html">12. Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></a></li>
-<li class="toctree-l1"><a class="reference internal" href="DecisionTrees.html">13. Decision trees and forests <a class="anchor" id="dtaforests"></a></a></li>
-<li class="toctree-l1"><a class="reference internal" href="Regression.html">14. Regression and regularisation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="NeuralNetworks.html">15. Artificial Neural Networks (ANN)</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">16. Model learning strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NearestNeighbors.html">12. Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="SupportVectorMachine.html">13. Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="DecisionTrees.html">14. Decision trees and forests <a class="anchor" id="dtaforests"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Regression.html">15. Regression and regularisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NeuralNetworks.html">16. Artificial Neural Networks (ANN)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">17. Model learning strategies</a></li>
 
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="NLP.html">22. Natural Language Processing</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="NLP-UWB.html">24. Ultra Wide Band positioning literature analysis</a></li>
 </ul>
 
     </div>
@@ -385,23 +382,23 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">16. Model learning strategies</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimization-of-the-error-function">16.1. Minimization of the Error function</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loss-functions">16.2. Loss functions</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">17. Model learning strategies</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimization-of-the-error-function">17.1. Minimization of the Error function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loss-functions">17.2. Loss functions</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-descent">17. Gradient descent</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#stochastic-gradient-descent-sgd">18. Stochastic gradient descent (SGD)</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-partial-derivatives-needed-in-the-update-step">18.1. The partial derivatives needed in the update step</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-descent">18. Gradient descent</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#stochastic-gradient-descent-sgd">19. Stochastic gradient descent (SGD)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-partial-derivatives-needed-in-the-update-step">19.1. The partial derivatives needed in the update step</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-in-neural-networks">19. Learning in Neural Networks</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-backpropagation-algorithm">19.1. The backpropagation algorithm</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-in-neural-networks">20. Learning in Neural Networks</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-backpropagation-algorithm">20.1. The backpropagation algorithm</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-batch">20. Mini-batch</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#example">21. Example</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-learning">21.1. Partial learning</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-batch">21. Mini-batch</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#example">22. Example</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-learning">22.1. Partial learning</a></li>
 </ul>
 </li>
 </ul>
@@ -417,7 +414,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="model-learning-strategies">
-<h1><span class="section-number">16. </span>Model learning strategies<a class="headerlink" href="#model-learning-strategies" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">17. </span>Model learning strategies<a class="headerlink" href="#model-learning-strategies" title="Link to this heading">#</a></h1>
 <p>The model optimisation requires</p>
 <ol class="arabic simple">
 <li><p>Method to evaluate the quality of a current model</p></li>
@@ -426,7 +423,7 @@ document.write(`
 <p>Usually the model quality is evaluated by means of a Loss function and optional regularization term. The loss function shows how large error the model makes in prediction and the regularization term shows how complex the model is. The purpose of the optimization is to minimize both the prediction error and complexity of the model. Too complex model may cause overfitting, and therefore regularization is important.</p>
 <p>Let <span class="math notranslate nohighlight">\(f()\)</span> be the scoring function which estimates the prediction <span class="math notranslate nohighlight">\(\hat y = f(x_i)\)</span>.</p>
 <section id="minimization-of-the-error-function">
-<h2><span class="section-number">16.1. </span>Minimization of the Error function<a class="headerlink" href="#minimization-of-the-error-function" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">17.1. </span>Minimization of the Error function<a class="headerlink" href="#minimization-of-the-error-function" title="Link to this heading">#</a></h2>
 <p>The general strategy of the model optimisation is then to minimize the regularized training error,  <span class="math notranslate nohighlight">\(E\)</span>, which includes both prediction losses and reqularization term:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -435,7 +432,7 @@ document.write(`
 <p>The regularization coefficient, <span class="math notranslate nohighlight">\(\alpha\)</span>, determines the tradeoff between model complexity and prediction accuracy.</p>
 </section>
 <section id="loss-functions">
-<h2><span class="section-number">16.2. </span>Loss functions<a class="headerlink" href="#loss-functions" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">17.2. </span>Loss functions<a class="headerlink" href="#loss-functions" title="Link to this heading">#</a></h2>
 <p>The model leads to different models depending on the loss functions selected and the regularization used. For example the minimization of the error function using <span class="math notranslate nohighlight">\(L_2\)</span> norm without regularization leads to OLS regression model, and with <span class="math notranslate nohighlight">\(L_2\)</span> regularization to ridge regression model.</p>
 <p>For example, consider the following two dimensional regression problem:</p>
 <div class="math notranslate nohighlight">
@@ -577,12 +574,12 @@ Linear regression model. By adding <span class="math notranslate nohighlight">\(
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="gradient-descent">
-<h1><span class="section-number">17. </span>Gradient descent<a class="headerlink" href="#gradient-descent" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">18. </span>Gradient descent<a class="headerlink" href="#gradient-descent" title="Link to this heading">#</a></h1>
 <p>The Gradient descent is a common optimisation strategy, where the minimal value of the scoring function <span class="math notranslate nohighlight">\(f(x)\)</span> is found by calculating the partial derivatives of <span class="math notranslate nohighlight">\(f()\)</span> by all of its parameters, and updating the model parameters towards the negative gradient.</p>
 <p>Gradient descent calculates the gradient using all samples in the training set, which may be rather resource intensive.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="stochastic-gradient-descent-sgd">
-<h1><span class="section-number">18. </span>Stochastic gradient descent (SGD)<a class="headerlink" href="#stochastic-gradient-descent-sgd" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">19. </span>Stochastic gradient descent (SGD)<a class="headerlink" href="#stochastic-gradient-descent-sgd" title="Link to this heading">#</a></h1>
 <p>The utilize computational resources more efficiently, the gradient descent method can be modified so that it calculates the gradient and updates the model for every individual sample in the training set. This method provides only noisy estimate of the gradient, and the models is not advancing towards the minimum as directly as the gradient decent, but it usually converges faster than Gradient Descent. Due to this partly stochastic behaviour, this method is called as Stochastic Gradient Descent (SGD).</p>
 <p>In SGD the learning of the model is made in the following steps:</p>
 <ol class="arabic simple">
@@ -595,7 +592,7 @@ Linear regression model. By adding <span class="math notranslate nohighlight">\(
 <li><p>When all samples are went through, reshuffle the data and run the next iteration. If the loss is below a threshold, stop the process and return the trained model</p></li>
 </ol>
 <section id="the-partial-derivatives-needed-in-the-update-step">
-<h2><span class="section-number">18.1. </span>The partial derivatives needed in the update step<a class="headerlink" href="#the-partial-derivatives-needed-in-the-update-step" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">19.1. </span>The partial derivatives needed in the update step<a class="headerlink" href="#the-partial-derivatives-needed-in-the-update-step" title="Link to this heading">#</a></h2>
 <p>The model parameters are updated using the partial derivatives. If the loss function is the L2 norm, and the learning rate <span class="math notranslate nohighlight">\(\eta \in ]0,1[\)</span>, the new values for <span class="math notranslate nohighlight">\(w_1, w_2\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are calculated as follows:</p>
 <div class="math notranslate nohighlight">
 \[ w'_1 = w_1 - \eta \frac{\partial L}{\partial w_1} 
@@ -614,9 +611,9 @@ Linear regression model. By adding <span class="math notranslate nohighlight">\(
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="learning-in-neural-networks">
-<h1><span class="section-number">19. </span>Learning in Neural Networks<a class="headerlink" href="#learning-in-neural-networks" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">20. </span>Learning in Neural Networks<a class="headerlink" href="#learning-in-neural-networks" title="Link to this heading">#</a></h1>
 <section id="the-backpropagation-algorithm">
-<h2><span class="section-number">19.1. </span>The backpropagation algorithm<a class="headerlink" href="#the-backpropagation-algorithm" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.1. </span>The backpropagation algorithm<a class="headerlink" href="#the-backpropagation-algorithm" title="Link to this heading">#</a></h2>
 <p>When using Stochastic Gradient Descent (<strong>SGD</strong>) training,  the weights, <span class="math notranslate nohighlight">\(w_i\)</span>, are updated towards the gradient (multidimensional derivative) or the loss function.
 $<span class="math notranslate nohighlight">\(
     w \leftarrow w - \eta \left(\alpha \frac{\partial R(w)}{\partial w} + \frac{\partial L(w)}{\partial w}\right),
@@ -652,11 +649,11 @@ $<span class="math notranslate nohighlight">\(
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="mini-batch">
-<h1><span class="section-number">20. </span>Mini-batch<a class="headerlink" href="#mini-batch" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">21. </span>Mini-batch<a class="headerlink" href="#mini-batch" title="Link to this heading">#</a></h1>
 <p>A mini-batch approach is similar than SGD, but instead of calculating the gradient from only one sample at the time, the mini-batch approach is to calculate the gradient from a small batch of samples at the time.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="example">
-<h1><span class="section-number">21. </span>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">22. </span>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -825,7 +822,7 @@ All samples score.. 0.7189004574726183
 </div>
 </div>
 <section id="partial-learning">
-<h2><span class="section-number">21.1. </span>Partial learning<a class="headerlink" href="#partial-learning" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">22.1. </span>Partial learning<a class="headerlink" href="#partial-learning" title="Link to this heading">#</a></h2>
 <p>The SGD modules can be also trained step by step</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -927,17 +924,8 @@ All samples score.. 0.7189004574726183
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">15. </span>Artificial Neural Networks (ANN)</p>
+        <p class="prev-next-title"><span class="section-number">16. </span>Artificial Neural Networks (ANN)</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="NLP.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">22. </span>Natural Language Processing</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -955,23 +943,23 @@ All samples score.. 0.7189004574726183
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">16. Model learning strategies</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimization-of-the-error-function">16.1. Minimization of the Error function</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loss-functions">16.2. Loss functions</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">17. Model learning strategies</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimization-of-the-error-function">17.1. Minimization of the Error function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loss-functions">17.2. Loss functions</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-descent">17. Gradient descent</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#stochastic-gradient-descent-sgd">18. Stochastic gradient descent (SGD)</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-partial-derivatives-needed-in-the-update-step">18.1. The partial derivatives needed in the update step</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-descent">18. Gradient descent</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#stochastic-gradient-descent-sgd">19. Stochastic gradient descent (SGD)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-partial-derivatives-needed-in-the-update-step">19.1. The partial derivatives needed in the update step</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-in-neural-networks">19. Learning in Neural Networks</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-backpropagation-algorithm">19.1. The backpropagation algorithm</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-in-neural-networks">20. Learning in Neural Networks</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-backpropagation-algorithm">20.1. The backpropagation algorithm</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-batch">20. Mini-batch</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#example">21. Example</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-learning">21.1. Partial learning</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-batch">21. Mini-batch</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#example">22. Example</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-learning">22.1. Partial learning</a></li>
 </ul>
 </li>
 </ul>

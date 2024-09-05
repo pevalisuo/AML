@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>12. Support Vector Machine (SVM) &#8212; Applied Machine Learning, 2021</title>
+    <title>13. Support Vector Machine (SVM) &#8212; Applied Machine Learning, 2021</title>
   
   
   
@@ -62,8 +62,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'SupportVectorMachine';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="13. Decision trees and forests" href="DecisionTrees.html" />
-    <link rel="prev" title="11. Nearest Neighbours methods" href="NearestNeighbors.html" />
+    <link rel="next" title="14. Decision trees and forests" href="DecisionTrees.html" />
+    <link rel="prev" title="12. Nearest Neighbours methods" href="NearestNeighbors.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -183,29 +183,27 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Introduction.html">1. Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ReadingAndPlotting.html">2. Reading and plotting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Preprocessing_and_feature_extraction.html">3. Preprocessing and feature extraction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Subspace_Projections.html">4. Dimensionality reduction by Subspace projections</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Clustering.html">5. Unsupervised learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SupervisedMachineLearningTerminology.html">6. Training process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Modeling.html">2. Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ReadingAndPlotting.html">3. Reading and plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Preprocessing_and_feature_extraction.html">4. Preprocessing and feature extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Subspace_Projections.html">5. Dimensionality reduction by Subspace projections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Clustering.html">6. Unsupervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SupervisedMachineLearningTerminology.html">7. Training process</a></li>
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="NearestNeighbors.html">11. Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a></a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">12. Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></a></li>
-<li class="toctree-l1"><a class="reference internal" href="DecisionTrees.html">13. Decision trees and forests <a class="anchor" id="dtaforests"></a></a></li>
-<li class="toctree-l1"><a class="reference internal" href="Regression.html">14. Regression and regularisation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="NeuralNetworks.html">15. Artificial Neural Networks (ANN)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Learning_model_parameters.html">16. Model learning strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NearestNeighbors.html">12. Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">13. Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="DecisionTrees.html">14. Decision trees and forests <a class="anchor" id="dtaforests"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Regression.html">15. Regression and regularisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NeuralNetworks.html">16. Artificial Neural Networks (ANN)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Learning_model_parameters.html">17. Model learning strategies</a></li>
 
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="NLP.html">22. Natural Language Processing</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="NLP-UWB.html">24. Ultra Wide Band positioning literature analysis</a></li>
 </ul>
 
     </div>
@@ -385,14 +383,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-boundary">12.1. Decision boundary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-svm">12.2. Kernel SVM <a class="anchor" id="kernelsvm"></a></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-svm">12.3. Non-linear SVM</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#illustration-of-rbf">12.3.1. Illustration of RBF</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-rbf-in-circular-data">12.3.2. Testing RBF in circular data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-boundary">13.1. Decision boundary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-svm">13.2. Kernel SVM <a class="anchor" id="kernelsvm"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-svm">13.3. Non-linear SVM</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#illustration-of-rbf">13.3.1. Illustration of RBF</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-rbf-in-circular-data">13.3.2. Testing RBF in circular data</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">12.4. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">13.4. Summary</a></li>
 </ul>
             </nav>
         </div>
@@ -405,7 +403,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="support-vector-machine-svm">
-<h1><span class="section-number">12. </span>Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a><a class="headerlink" href="#support-vector-machine-svm" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">13. </span>Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a><a class="headerlink" href="#support-vector-machine-svm" title="Link to this heading">#</a></h1>
 <ul class="simple">
 <li><p>SVM is kind of Jack of All Trades for classifiers, because it is quite versatile and powerfull</p></li>
 <li><p>It does not save all training samples like NearestNeigbour method, but only the samples near the border of class boundaries.</p></li>
@@ -415,7 +413,7 @@ document.write(`
 <li><p>Can be extended to nonlinear decision boundaries using kernels</p></li>
 </ul>
 <section id="decision-boundary">
-<h2><span class="section-number">12.1. </span>Decision boundary<a class="headerlink" href="#decision-boundary" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">13.1. </span>Decision boundary<a class="headerlink" href="#decision-boundary" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>SVM uses samples near the different clusters to define a decision boundary</p></li>
 <li><p>The boundary which maximises the marginal of the boundary will be selected</p></li>
@@ -556,7 +554,7 @@ LinearSVC()
 </div>
 </section>
 <section id="kernel-svm">
-<h2><span class="section-number">12.2. </span>Kernel SVM <a class="anchor" id="kernelsvm"></a><a class="headerlink" href="#kernel-svm" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">13.2. </span>Kernel SVM <a class="anchor" id="kernelsvm"></a><a class="headerlink" href="#kernel-svm" title="Link to this heading">#</a></h2>
 <p>Linear kernel</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -643,7 +641,7 @@ Accurary in the test set......0.920000
 </div>
 </section>
 <section id="non-linear-svm">
-<h2><span class="section-number">12.3. </span>Non-linear SVM<a class="headerlink" href="#non-linear-svm" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">13.3. </span>Non-linear SVM<a class="headerlink" href="#non-linear-svm" title="Link to this heading">#</a></h2>
 <ul>
 <li><p>If the data described by <span class="math notranslate nohighlight">\(p_i=[x_i, y_i]^T\)</span> is not linearly separable, it can be made linearly separable by adding a new term, for example <span class="math notranslate nohighlight">\(z_i=x_i^2 + y_i^2\)</span></p></li>
 <li><p>In this case, third dimension is introduced, and the linear classifier can work in the new three dimensional space <span class="math notranslate nohighlight">\( p_i'=[x_i, y_i, z_i]^T \)</span></p></li>
@@ -661,7 +659,7 @@ Accurary in the test set......0.920000
 </li>
 </ul>
 <section id="illustration-of-rbf">
-<h3><span class="section-number">12.3.1. </span>Illustration of RBF<a class="headerlink" href="#illustration-of-rbf" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">13.3.1. </span>Illustration of RBF<a class="headerlink" href="#illustration-of-rbf" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>The following code plots the RBF when <span class="math notranslate nohighlight">\(p_i\)</span> is in origo and <span class="math notranslate nohighlight">\(p_j\)</span> moves along x-axis.</p></li>
 <li><p>In real case the RBF is N-dimensional, centered around a sample <span class="math notranslate nohighlight">\(p_i\)</span></p></li>
@@ -737,7 +735,7 @@ Accurary in the test set......0.920000
 <p>Now the classes are separable, but what is the optimal Gamma value?</p>
 </section>
 <section id="testing-rbf-in-circular-data">
-<h3><span class="section-number">12.3.2. </span>Testing RBF in circular data<a class="headerlink" href="#testing-rbf-in-circular-data" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">13.3.2. </span>Testing RBF in circular data<a class="headerlink" href="#testing-rbf-in-circular-data" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Xc</span><span class="p">,</span><span class="n">yc</span><span class="o">=</span><span class="n">datasets</span><span class="o">.</span><span class="n">make_circles</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
@@ -789,7 +787,7 @@ SVC(gamma=0.5)
 </section>
 </section>
 <section id="summary">
-<h2><span class="section-number">12.4. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">13.4. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>SVM is good for high dimensional cases</p></li>
 <li><p>LinearSVC can include a regularization term L2, or L1</p></li>
@@ -840,7 +838,7 @@ SVC(gamma=0.5)
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">11. </span>Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a></p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a></p>
       </div>
     </a>
     <a class="right-next"
@@ -848,7 +846,7 @@ SVC(gamma=0.5)
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">13. </span>Decision trees and forests <a class="anchor" id="dtaforests"></a></p>
+        <p class="prev-next-title"><span class="section-number">14. </span>Decision trees and forests <a class="anchor" id="dtaforests"></a></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -868,14 +866,14 @@ SVC(gamma=0.5)
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-boundary">12.1. Decision boundary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-svm">12.2. Kernel SVM <a class="anchor" id="kernelsvm"></a></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-svm">12.3. Non-linear SVM</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#illustration-of-rbf">12.3.1. Illustration of RBF</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-rbf-in-circular-data">12.3.2. Testing RBF in circular data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-boundary">13.1. Decision boundary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-svm">13.2. Kernel SVM <a class="anchor" id="kernelsvm"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-svm">13.3. Non-linear SVM</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#illustration-of-rbf">13.3.1. Illustration of RBF</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-rbf-in-circular-data">13.3.2. Testing RBF in circular data</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">12.4. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">13.4. Summary</a></li>
 </ul>
   </nav></div>
 

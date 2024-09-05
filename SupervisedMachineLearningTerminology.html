@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>6. Training process &#8212; Applied Machine Learning, 2021</title>
+    <title>7. Training process &#8212; Applied Machine Learning, 2021</title>
   
   
   
@@ -62,8 +62,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'SupervisedMachineLearningTerminology';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="11. Nearest Neighbours methods" href="NearestNeighbors.html" />
-    <link rel="prev" title="5. Unsupervised learning" href="Clustering.html" />
+    <link rel="next" title="12. Nearest Neighbours methods" href="NearestNeighbors.html" />
+    <link rel="prev" title="6. Unsupervised learning" href="Clustering.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -183,29 +183,27 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Introduction.html">1. Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ReadingAndPlotting.html">2. Reading and plotting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Preprocessing_and_feature_extraction.html">3. Preprocessing and feature extraction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Subspace_Projections.html">4. Dimensionality reduction by Subspace projections</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Clustering.html">5. Unsupervised learning</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">6. Training process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Modeling.html">2. Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ReadingAndPlotting.html">3. Reading and plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Preprocessing_and_feature_extraction.html">4. Preprocessing and feature extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Subspace_Projections.html">5. Dimensionality reduction by Subspace projections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Clustering.html">6. Unsupervised learning</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Training process</a></li>
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="NearestNeighbors.html">11. Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a></a></li>
-<li class="toctree-l1"><a class="reference internal" href="SupportVectorMachine.html">12. Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></a></li>
-<li class="toctree-l1"><a class="reference internal" href="DecisionTrees.html">13. Decision trees and forests <a class="anchor" id="dtaforests"></a></a></li>
-<li class="toctree-l1"><a class="reference internal" href="Regression.html">14. Regression and regularisation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="NeuralNetworks.html">15. Artificial Neural Networks (ANN)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Learning_model_parameters.html">16. Model learning strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NearestNeighbors.html">12. Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="SupportVectorMachine.html">13. Support Vector Machine (SVM) <a class="anchor" id="supportvectormachine"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="DecisionTrees.html">14. Decision trees and forests <a class="anchor" id="dtaforests"></a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Regression.html">15. Regression and regularisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NeuralNetworks.html">16. Artificial Neural Networks (ANN)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Learning_model_parameters.html">17. Model learning strategies</a></li>
 
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="NLP.html">22. Natural Language Processing</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="NLP-UWB.html">24. Ultra Wide Band positioning literature analysis</a></li>
 </ul>
 
     </div>
@@ -385,30 +383,30 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">6. Training process</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematical-notation">6.1. Mathematical notation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">7. Training process</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematical-notation">7.1. Mathematical notation</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-for-regression-model-fitting">7. Measures for regression model fitting</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#root-mean-square-value-of-error-rmse">7.1. Root mean square value of error: (RMSE)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-absolute-error-mae">7.2. Mean absolute error (MAE)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coefficient-of-determination-r-2">7.3. Coefficient of determination (<span class="math notranslate nohighlight">\(R^2\)</span>)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-for-regression-model-fitting">8. Measures for regression model fitting</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#root-mean-square-value-of-error-rmse">8.1. Root mean square value of error: (RMSE)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-absolute-error-mae">8.2. Mean absolute error (MAE)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coefficient-of-determination-r-2">8.3. Coefficient of determination (<span class="math notranslate nohighlight">\(R^2\)</span>)</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-for-classification-model-fitting">8. Measures for classification model fitting</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precision-of-classification-p">8.1. Precision of classification (P)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cohen-s-kappa-kappa">8.2. Cohen’s Kappa (<span class="math notranslate nohighlight">\(\kappa\)</span>)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-for-classification-model-fitting">9. Measures for classification model fitting</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precision-of-classification-p">9.1. Precision of classification (P)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cohen-s-kappa-kappa">9.2. Cohen’s Kappa (<span class="math notranslate nohighlight">\(\kappa\)</span>)</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#overfitting">9. Overfitting</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">9.1. Example</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#try-it">9.1.1. Try it</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#overfitting">10. Overfitting</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">10.1. Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#try-it">10.1.1. Try it</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#training-validation-and-testing">10. Training, Validation and Testing <a class="anchor" id="TrainTestValidate"></a></a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-validation">10.1. Cross Validation <a class="anchor" id="crossvalidation"></a></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#training-validation-and-testing">11. Training, Validation and Testing <a class="anchor" id="TrainTestValidate"></a></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-validation">11.1. Cross Validation <a class="anchor" id="crossvalidation"></a></a></li>
 </ul>
 </li>
 </ul>
@@ -424,10 +422,10 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="training-process">
-<h1><span class="section-number">6. </span>Training process<a class="headerlink" href="#training-process" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">7. </span>Training process<a class="headerlink" href="#training-process" title="Link to this heading">#</a></h1>
 <p><img alt="featureextraction_p.svg" src="_images/featureextraction_p.svg" /></p>
 <section id="mathematical-notation">
-<h2><span class="section-number">6.1. </span>Mathematical notation<a class="headerlink" href="#mathematical-notation" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">7.1. </span>Mathematical notation<a class="headerlink" href="#mathematical-notation" title="Link to this heading">#</a></h2>
 <p>Task is to find a function <span class="math notranslate nohighlight">\(f\)</span>, which predicts variable <span class="math notranslate nohighlight">\(y_i\)</span> based on <span class="math notranslate nohighlight">\(p\)</span> features <span class="math notranslate nohighlight">\(x_{i,j}\)</span>, where <span class="math notranslate nohighlight">\(i \in [0,N]\)</span> and <span class="math notranslate nohighlight">\(j \in [0,P]\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -457,7 +455,7 @@ document.write(`
 </section>
 </section>
 <section id="measures-for-regression-model-fitting">
-<h1><span class="section-number">7. </span>Measures for regression model fitting<a class="headerlink" href="#measures-for-regression-model-fitting" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">8. </span>Measures for regression model fitting<a class="headerlink" href="#measures-for-regression-model-fitting" title="Link to this heading">#</a></h1>
 <p>Terms used below</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(x_i\)</span>: The i:th feature vector</p></li>
@@ -468,7 +466,7 @@ document.write(`
 </ul>
 <p>In the code <code class="docutils literal notranslate"><span class="pre">yh</span></code> = <span class="math notranslate nohighlight">\(\hat{y}\)</span></p>
 <section id="root-mean-square-value-of-error-rmse">
-<h2><span class="section-number">7.1. </span>Root mean square value of error: (RMSE)<a class="headerlink" href="#root-mean-square-value-of-error-rmse" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">8.1. </span>Root mean square value of error: (RMSE)<a class="headerlink" href="#root-mean-square-value-of-error-rmse" title="Link to this heading">#</a></h2>
 <p>RMSE is the RMS average of the prediction error (residual). RMSE is an absolute mesure, which is not scaled in any range. The unit of the error is the same as the unit of <span class="math notranslate nohighlight">\(y\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\rm{RMSE}=\sqrt{\frac{\sum_{i=0}^{n}(y_i - f(x_{i}))^2}{n}}\]</div>
@@ -476,7 +474,7 @@ document.write(`
 <p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.metrics</span> <span class="pre">import</span> <span class="pre">mean_squared_error</span>&#160; <span class="pre">RMSE=mean_squared_error(y,yh)</span></code></p>
 </section>
 <section id="mean-absolute-error-mae">
-<h2><span class="section-number">7.2. </span>Mean absolute error (MAE)<a class="headerlink" href="#mean-absolute-error-mae" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">8.2. </span>Mean absolute error (MAE)<a class="headerlink" href="#mean-absolute-error-mae" title="Link to this heading">#</a></h2>
 <p>MAE is the average of the absoluve value of the prediction error (residual). MAE is an absolute mesure, which is not scaled in any range. The unit of the error is the same as the unit of <span class="math notranslate nohighlight">\(y\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\rm{MAE}=\frac{\sum_{i=0}^{n} |y_i - f(x_{i})| }{n}\]</div>
@@ -484,7 +482,7 @@ document.write(`
 <p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.metrics</span> <span class="pre">import</span> <span class="pre">mean_absolute_error</span>&#160; <span class="pre">MAE=mean_absolute_error(y,yh)</span></code></p>
 </section>
 <section id="coefficient-of-determination-r-2">
-<h2><span class="section-number">7.3. </span>Coefficient of determination (<span class="math notranslate nohighlight">\(R^2\)</span>)<a class="headerlink" href="#coefficient-of-determination-r-2" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">8.3. </span>Coefficient of determination (<span class="math notranslate nohighlight">\(R^2\)</span>)<a class="headerlink" href="#coefficient-of-determination-r-2" title="Link to this heading">#</a></h2>
 <p>Coefficient of determination, also called as R-squared, measures the ratio of variance of the residual (zero mean of residual assumed) and the variance of the original data. <span class="math notranslate nohighlight">\(R^2\)</span> is always smaller than one. The interpretation of <span class="math notranslate nohighlight">\(R^2\)</span> is that it shows how large fraction of the variance in dependent variable is accounted for by the model. In the perfect case, the prediction is exactly same as <span class="math notranslate nohighlight">\(y\)</span>, the variance of the residual is zero, and <span class="math notranslate nohighlight">\(R^2=1\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[ R^2 = 1- \frac{\sum_{i=0}^{n}(y_i - f(x_{i}))^2}{\sum_{i=0}^{n}(y_i - \overline{y}))^2}\]</div>
@@ -493,16 +491,16 @@ document.write(`
 </section>
 </section>
 <section id="measures-for-classification-model-fitting">
-<h1><span class="section-number">8. </span>Measures for classification model fitting<a class="headerlink" href="#measures-for-classification-model-fitting" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">9. </span>Measures for classification model fitting<a class="headerlink" href="#measures-for-classification-model-fitting" title="Link to this heading">#</a></h1>
 <section id="precision-of-classification-p">
-<h2><span class="section-number">8.1. </span>Precision of classification (P)<a class="headerlink" href="#precision-of-classification-p" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.1. </span>Precision of classification (P)<a class="headerlink" href="#precision-of-classification-p" title="Link to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">accuracy_score()</span></code>-function returns the fraction of correctly classified samples</p>
 <div class="math notranslate nohighlight">
 \[ P = \frac{n_\rm{correct}}{n}\]</div>
 <p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.metrics</span> <span class="pre">import</span> <span class="pre">accuracy_score</span>&#160; <span class="pre">s=accuracy_score(y,</span> <span class="pre">yh)</span></code></p>
 </section>
 <section id="cohen-s-kappa-kappa">
-<h2><span class="section-number">8.2. </span>Cohen’s Kappa (<span class="math notranslate nohighlight">\(\kappa\)</span>)<a class="headerlink" href="#cohen-s-kappa-kappa" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.2. </span>Cohen’s Kappa (<span class="math notranslate nohighlight">\(\kappa\)</span>)<a class="headerlink" href="#cohen-s-kappa-kappa" title="Link to this heading">#</a></h2>
 <p>Cohen’s kappa is a score which expresses the level of agreement between two annotators in a classification problem.  It is generally thought to be a more robust measure than precision, as κ takes into account the possibility of the agreement occurring by chance.</p>
 <p>Cohen’s Kappa is calculated using the above mentioned precision, <span class="math notranslate nohighlight">\(p_o\)</span>, and the hypothetical probability of chance agreement, <span class="math notranslate nohighlight">\(p_e\)</span>. Read more from <a class="reference external" href="https://en.wikipedia.org/wiki/Cohen%27s_kappa">Cohen’s Kappa in Wikipedia</a>.</p>
 <div class="math notranslate nohighlight">
@@ -511,7 +509,7 @@ document.write(`
 </section>
 </section>
 <section id="overfitting">
-<h1><span class="section-number">9. </span>Overfitting<a class="headerlink" href="#overfitting" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">10. </span>Overfitting<a class="headerlink" href="#overfitting" title="Link to this heading">#</a></h1>
 <p>Two essential properties of a good model are that</p>
 <ol class="arabic simple">
 <li><p>It <em>fits to the training data</em>, i.e. the model can predict the dependent variable from the independent variables. The measures for the fitness are for example <span class="math notranslate nohighlight">\(R^2\)</span> or precision.</p></li>
@@ -520,7 +518,7 @@ document.write(`
 <p>Usually a model can be fitted to the data better, by increasing it’s complexity, i.e. adding more degress of freedom into the model. But because all practical data also contains noise, the danger is that when the complexity of the model increases, it can also model the noise in the data in addition to actual phenomenan.</p>
 <p>When the model is fitted to the data, it is really important to carefully choose correct complexity for the model. If the model is too complex ( it has too many degrees of freedom) it has possibility to model also the noise included in the data. In this kind of case, the model fits very well in  the training data set, but it’s capabilities of predicting new data not yet seen can be week.</p>
 <section id="example">
-<h2><span class="section-number">9.1. </span>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">10.1. </span>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h2>
 <p>Lets create a data set by combining a simple second order polynomial with some random data source:</p>
 <div class="math notranslate nohighlight">
 \[ y = 2x^2 + \mathcal{N}(0,6)\]</div>
@@ -569,7 +567,7 @@ document.write(`
 </div>
 <p>The first model fits better to the current data, but the second model is still better, because if new data is drawn using the same process, the second model will fit better.</p>
 <section id="try-it">
-<h3><span class="section-number">9.1.1. </span>Try it<a class="headerlink" href="#try-it" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">10.1.1. </span>Try it<a class="headerlink" href="#try-it" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use R2 score to measure the fitness</span>
@@ -603,7 +601,7 @@ document.write(`
 </section>
 </section>
 <section id="training-validation-and-testing">
-<h1><span class="section-number">10. </span>Training, Validation and Testing <a class="anchor" id="TrainTestValidate"></a><a class="headerlink" href="#training-validation-and-testing" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">11. </span>Training, Validation and Testing <a class="anchor" id="TrainTestValidate"></a><a class="headerlink" href="#training-validation-and-testing" title="Link to this heading">#</a></h1>
 <p>Building predictive models requires following stages</p>
 <ol class="arabic simple">
 <li><p>Model building (training)</p></li>
@@ -617,7 +615,7 @@ document.write(`
 </ol>
 <p>Each stage requires data. The original data can be split in three different sets, one for each stage, but high quality labeled data is usually scarce resource, and in that cases slightly smarter method of using the data is needed.</p>
 <section id="cross-validation">
-<h2><span class="section-number">10.1. </span>Cross Validation <a class="anchor" id="crossvalidation"></a><a class="headerlink" href="#cross-validation" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">11.1. </span>Cross Validation <a class="anchor" id="crossvalidation"></a><a class="headerlink" href="#cross-validation" title="Link to this heading">#</a></h2>
 <p><img alt="crossvalidation.svg" src="_images/crossvalidation.svg" /></p>
 <ul class="simple">
 <li><p>Cross validation is an important technique to utilize the data more efficiently for all supervised training purposes</p></li>
@@ -665,7 +663,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">5. </span>Unsupervised learning</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Unsupervised learning</p>
       </div>
     </a>
     <a class="right-next"
@@ -673,7 +671,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">11. </span>Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a></p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Nearest Neighbours methods <a class="anchor" id="nearestneighbours"></a></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -693,30 +691,30 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">6. Training process</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematical-notation">6.1. Mathematical notation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">7. Training process</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematical-notation">7.1. Mathematical notation</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-for-regression-model-fitting">7. Measures for regression model fitting</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#root-mean-square-value-of-error-rmse">7.1. Root mean square value of error: (RMSE)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-absolute-error-mae">7.2. Mean absolute error (MAE)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coefficient-of-determination-r-2">7.3. Coefficient of determination (<span class="math notranslate nohighlight">\(R^2\)</span>)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-for-regression-model-fitting">8. Measures for regression model fitting</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#root-mean-square-value-of-error-rmse">8.1. Root mean square value of error: (RMSE)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-absolute-error-mae">8.2. Mean absolute error (MAE)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coefficient-of-determination-r-2">8.3. Coefficient of determination (<span class="math notranslate nohighlight">\(R^2\)</span>)</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-for-classification-model-fitting">8. Measures for classification model fitting</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precision-of-classification-p">8.1. Precision of classification (P)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cohen-s-kappa-kappa">8.2. Cohen’s Kappa (<span class="math notranslate nohighlight">\(\kappa\)</span>)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-for-classification-model-fitting">9. Measures for classification model fitting</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precision-of-classification-p">9.1. Precision of classification (P)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cohen-s-kappa-kappa">9.2. Cohen’s Kappa (<span class="math notranslate nohighlight">\(\kappa\)</span>)</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#overfitting">9. Overfitting</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">9.1. Example</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#try-it">9.1.1. Try it</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#overfitting">10. Overfitting</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">10.1. Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#try-it">10.1.1. Try it</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#training-validation-and-testing">10. Training, Validation and Testing <a class="anchor" id="TrainTestValidate"></a></a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-validation">10.1. Cross Validation <a class="anchor" id="crossvalidation"></a></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#training-validation-and-testing">11. Training, Validation and Testing <a class="anchor" id="TrainTestValidate"></a></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-validation">11.1. Cross Validation <a class="anchor" id="crossvalidation"></a></a></li>
 </ul>
 </li>
 </ul>
