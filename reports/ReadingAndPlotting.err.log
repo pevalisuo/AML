@@ -18,64 +18,59 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# This, a little bit complex statement, chains severa sequential actions together
-# 1) group the dataframe WD by an index, called as 'date'
-# 2) apply an aggregate fuction first() to the groupped dataframe to replace the 
-#    value of each column in a group with the first value observed witin a group
-# 3) Take take values observed in July 1987 from the fixed dataframe
-# 4) Select all colums, except the first four from the resulting dataframe
-WD.groupby('date').first()['1987-07'].iloc[:,4:]
+D.loc['2014-10-01':'2014-10-02', 'Irradiance':'Heatflux']
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mKeyError[0m                                  Traceback (most recent call last)
-File [0;32m~/miniforge3/envs/octave/lib/python3.11/site-packages/pandas/core/indexes/base.py:3802[0m, in [0;36mIndex.get_loc[0;34m(self, key)[0m
-[1;32m   3801[0m [38;5;28;01mtry[39;00m:
-[0;32m-> 3802[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_engine[49m[38;5;241;43m.[39;49m[43mget_loc[49m[43m([49m[43mcasted_key[49m[43m)[49m
-[1;32m   3803[0m [38;5;28;01mexcept[39;00m [38;5;167;01mKeyError[39;00m [38;5;28;01mas[39;00m err:
+Cell [0;32mIn[19], line 1[0m
+[0;32m----> 1[0m [43mD[49m[38;5;241;43m.[39;49m[43mloc[49m[43m[[49m[38;5;124;43m'[39;49m[38;5;124;43m2014-10-01[39;49m[38;5;124;43m'[39;49m[43m:[49m[38;5;124;43m'[39;49m[38;5;124;43m2014-10-02[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mIrradiance[39;49m[38;5;124;43m'[39;49m[43m:[49m[38;5;124;43m'[39;49m[38;5;124;43mHeatflux[39;49m[38;5;124;43m'[39;49m[43m][49m
 
-File [0;32mindex.pyx:153[0m, in [0;36mpandas._libs.index.IndexEngine.get_loc[0;34m()[0m
+File [0;32m~/miniforge3/envs/octave/lib/python3.11/site-packages/pandas/core/indexing.py:1185[0m, in [0;36m_LocationIndexer.__getitem__[0;34m(self, key)[0m
+[1;32m   1183[0m     [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39m_is_scalar_access(key):
+[1;32m   1184[0m         [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39mobj[38;5;241m.[39m_get_value([38;5;241m*[39mkey, takeable[38;5;241m=[39m[38;5;28mself[39m[38;5;241m.[39m_takeable)
+[0;32m-> 1185[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_getitem_tuple[49m[43m([49m[43mkey[49m[43m)[49m
+[1;32m   1186[0m [38;5;28;01melse[39;00m:
+[1;32m   1187[0m     [38;5;66;03m# we by definition only have the 0th axis[39;00m
+[1;32m   1188[0m     axis [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39maxis [38;5;129;01mor[39;00m [38;5;241m0[39m
 
-File [0;32mindex.pyx:182[0m, in [0;36mpandas._libs.index.IndexEngine.get_loc[0;34m()[0m
+File [0;32m~/miniforge3/envs/octave/lib/python3.11/site-packages/pandas/core/indexing.py:1378[0m, in [0;36m_LocIndexer._getitem_tuple[0;34m(self, tup)[0m
+[1;32m   1375[0m [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39m_multi_take_opportunity(tup):
+[1;32m   1376[0m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39m_multi_take(tup)
+[0;32m-> 1378[0m [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_getitem_tuple_same_dim[49m[43m([49m[43mtup[49m[43m)[49m
 
-File [0;32mpandas/_libs/hashtable_class_helper.pxi:7081[0m, in [0;36mpandas._libs.hashtable.PyObjectHashTable.get_item[0;34m()[0m
+File [0;32m~/miniforge3/envs/octave/lib/python3.11/site-packages/pandas/core/indexing.py:1021[0m, in [0;36m_LocationIndexer._getitem_tuple_same_dim[0;34m(self, tup)[0m
+[1;32m   1018[0m [38;5;28;01mif[39;00m com[38;5;241m.[39mis_null_slice(key):
+[1;32m   1019[0m     [38;5;28;01mcontinue[39;00m
+[0;32m-> 1021[0m retval [38;5;241m=[39m [38;5;28;43mgetattr[39;49m[43m([49m[43mretval[49m[43m,[49m[43m [49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mname[49m[43m)[49m[38;5;241;43m.[39;49m[43m_getitem_axis[49m[43m([49m[43mkey[49m[43m,[49m[43m [49m[43maxis[49m[38;5;241;43m=[39;49m[43mi[49m[43m)[49m
+[1;32m   1022[0m [38;5;66;03m# We should never have retval.ndim < self.ndim, as that should[39;00m
+[1;32m   1023[0m [38;5;66;03m#  be handled by the _getitem_lowerdim call above.[39;00m
+[1;32m   1024[0m [38;5;28;01massert[39;00m retval[38;5;241m.[39mndim [38;5;241m==[39m [38;5;28mself[39m[38;5;241m.[39mndim
 
-File [0;32mpandas/_libs/hashtable_class_helper.pxi:7089[0m, in [0;36mpandas._libs.hashtable.PyObjectHashTable.get_item[0;34m()[0m
+File [0;32m~/miniforge3/envs/octave/lib/python3.11/site-packages/pandas/core/indexing.py:1412[0m, in [0;36m_LocIndexer._getitem_axis[0;34m(self, key, axis)[0m
+[1;32m   1410[0m [38;5;28;01mif[39;00m [38;5;28misinstance[39m(key, [38;5;28mslice[39m):
+[1;32m   1411[0m     [38;5;28mself[39m[38;5;241m.[39m_validate_key(key, axis)
+[0;32m-> 1412[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_get_slice_axis[49m[43m([49m[43mkey[49m[43m,[49m[43m [49m[43maxis[49m[38;5;241;43m=[39;49m[43maxis[49m[43m)[49m
+[1;32m   1413[0m [38;5;28;01melif[39;00m com[38;5;241m.[39mis_bool_indexer(key):
+[1;32m   1414[0m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39m_getbool_axis(key, axis[38;5;241m=[39maxis)
 
-[0;31mKeyError[0m: '1987-07'
+File [0;32m~/miniforge3/envs/octave/lib/python3.11/site-packages/pandas/core/indexing.py:1444[0m, in [0;36m_LocIndexer._get_slice_axis[0;34m(self, slice_obj, axis)[0m
+[1;32m   1441[0m     [38;5;28;01mreturn[39;00m obj[38;5;241m.[39mcopy(deep[38;5;241m=[39m[38;5;28;01mFalse[39;00m)
+[1;32m   1443[0m labels [38;5;241m=[39m obj[38;5;241m.[39m_get_axis(axis)
+[0;32m-> 1444[0m indexer [38;5;241m=[39m [43mlabels[49m[38;5;241;43m.[39;49m[43mslice_indexer[49m[43m([49m[43mslice_obj[49m[38;5;241;43m.[39;49m[43mstart[49m[43m,[49m[43m [49m[43mslice_obj[49m[38;5;241;43m.[39;49m[43mstop[49m[43m,[49m[43m [49m[43mslice_obj[49m[38;5;241;43m.[39;49m[43mstep[49m[43m)[49m
+[1;32m   1446[0m [38;5;28;01mif[39;00m [38;5;28misinstance[39m(indexer, [38;5;28mslice[39m):
+[1;32m   1447[0m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39mobj[38;5;241m.[39m_slice(indexer, axis[38;5;241m=[39maxis)
 
-The above exception was the direct cause of the following exception:
+File [0;32m~/miniforge3/envs/octave/lib/python3.11/site-packages/pandas/core/indexes/datetimes.py:697[0m, in [0;36mDatetimeIndex.slice_indexer[0;34m(self, start, end, step)[0m
+[1;32m    694[0m     in_index [38;5;241m&[39m[38;5;241m=[39m (end_casted [38;5;241m==[39m [38;5;28mself[39m)[38;5;241m.[39many()
+[1;32m    696[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m in_index:
+[0;32m--> 697[0m     [38;5;28;01mraise[39;00m [38;5;167;01mKeyError[39;00m(
+[1;32m    698[0m         [38;5;124m"[39m[38;5;124mValue based partial slicing on non-monotonic DatetimeIndexes [39m[38;5;124m"[39m
+[1;32m    699[0m         [38;5;124m"[39m[38;5;124mwith non-existing keys is not allowed.[39m[38;5;124m"[39m,
+[1;32m    700[0m     )
+[1;32m    701[0m indexer [38;5;241m=[39m mask[38;5;241m.[39mnonzero()[[38;5;241m0[39m][::step]
+[1;32m    702[0m [38;5;28;01mif[39;00m [38;5;28mlen[39m(indexer) [38;5;241m==[39m [38;5;28mlen[39m([38;5;28mself[39m):
 
-[0;31mKeyError[0m                                  Traceback (most recent call last)
-Cell [0;32mIn[27], line 7[0m
-[1;32m      1[0m [38;5;66;03m# This, a little bit complex statement, chains severa sequential actions together[39;00m
-[1;32m      2[0m [38;5;66;03m# 1) group the dataframe WD by an index, called as 'date'[39;00m
-[1;32m      3[0m [38;5;66;03m# 2) apply an aggregate fuction first() to the groupped dataframe to replace the [39;00m
-[1;32m      4[0m [38;5;66;03m#    value of each column in a group with the first value observed witin a group[39;00m
-[1;32m      5[0m [38;5;66;03m# 3) Take take values observed in July 1987 from the fixed dataframe[39;00m
-[1;32m      6[0m [38;5;66;03m# 4) Select all colums, except the first four from the resulting dataframe[39;00m
-[0;32m----> 7[0m [43mWD[49m[38;5;241;43m.[39;49m[43mgroupby[49m[43m([49m[38;5;124;43m'[39;49m[38;5;124;43mdate[39;49m[38;5;124;43m'[39;49m[43m)[49m[38;5;241;43m.[39;49m[43mfirst[49m[43m([49m[43m)[49m[43m[[49m[38;5;124;43m'[39;49m[38;5;124;43m1987-07[39;49m[38;5;124;43m'[39;49m[43m][49m[38;5;241m.[39miloc[:,[38;5;241m4[39m:]
-
-File [0;32m~/miniforge3/envs/octave/lib/python3.11/site-packages/pandas/core/frame.py:4090[0m, in [0;36mDataFrame.__getitem__[0;34m(self, key)[0m
-[1;32m   4088[0m [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39mcolumns[38;5;241m.[39mnlevels [38;5;241m>[39m [38;5;241m1[39m:
-[1;32m   4089[0m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39m_getitem_multilevel(key)
-[0;32m-> 4090[0m indexer [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mcolumns[49m[38;5;241;43m.[39;49m[43mget_loc[49m[43m([49m[43mkey[49m[43m)[49m
-[1;32m   4091[0m [38;5;28;01mif[39;00m is_integer(indexer):
-[1;32m   4092[0m     indexer [38;5;241m=[39m [indexer]
-
-File [0;32m~/miniforge3/envs/octave/lib/python3.11/site-packages/pandas/core/indexes/base.py:3809[0m, in [0;36mIndex.get_loc[0;34m(self, key)[0m
-[1;32m   3804[0m     [38;5;28;01mif[39;00m [38;5;28misinstance[39m(casted_key, [38;5;28mslice[39m) [38;5;129;01mor[39;00m (
-[1;32m   3805[0m         [38;5;28misinstance[39m(casted_key, abc[38;5;241m.[39mIterable)
-[1;32m   3806[0m         [38;5;129;01mand[39;00m [38;5;28many[39m([38;5;28misinstance[39m(x, [38;5;28mslice[39m) [38;5;28;01mfor[39;00m x [38;5;129;01min[39;00m casted_key)
-[1;32m   3807[0m     ):
-[1;32m   3808[0m         [38;5;28;01mraise[39;00m InvalidIndexError(key)
-[0;32m-> 3809[0m     [38;5;28;01mraise[39;00m [38;5;167;01mKeyError[39;00m(key) [38;5;28;01mfrom[39;00m [38;5;21;01merr[39;00m
-[1;32m   3810[0m [38;5;28;01mexcept[39;00m [38;5;167;01mTypeError[39;00m:
-[1;32m   3811[0m     [38;5;66;03m# If we have a listlike key, _check_indexing_error will raise[39;00m
-[1;32m   3812[0m     [38;5;66;03m#  InvalidIndexError. Otherwise we fall through and re-raise[39;00m
-[1;32m   3813[0m     [38;5;66;03m#  the TypeError.[39;00m
-[1;32m   3814[0m     [38;5;28mself[39m[38;5;241m.[39m_check_indexing_error(key)
-
-[0;31mKeyError[0m: '1987-07'
+[0;31mKeyError[0m: 'Value based partial slicing on non-monotonic DatetimeIndexes with non-existing keys is not allowed.'
 
