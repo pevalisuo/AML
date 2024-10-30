@@ -1,6 +1,6 @@
 % program   : RTKLIB ver.2.4.3
-% inp file  : gnss_log_2024_09_10_14_21_50.24o
-% inp file  : ../nav/BRD400DLR_S_20242540000_01D_MN.rnx
+% inp file  : MP1_2024-09-10T1421/gnss_log_2024_09_10_14_21_50.24o
+% inp file  : nav/BRD400DLR_S_20242540000_01D_MN.rnx
 % obs start : 2024/09/10 12:22:09.6 GPST (week2331 217329.6s)
 % obs end   : 2024/09/10 12:44:57.0 GPST (week2331 218697.0s)
 % pos mode  : Single
